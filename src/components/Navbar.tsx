@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, History, Bookmark, Calculator, User, Edit3, Check, Layers } from 'lucide-react';
+import { BookOpen, History, Bookmark, Calculator, User, Edit3, Check, Layers, Heart } from 'lucide-react';
 import { getCandidateName, setCandidateName } from '../utils/storage';
 
 interface NavbarProps {
@@ -8,6 +8,7 @@ interface NavbarProps {
   testsGivenCount: number;
   bookmarksCount: number;
   onToggleCalculator: () => void;
+  onOpenSupport?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -16,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   testsGivenCount,
   bookmarksCount,
   onToggleCalculator,
+  onOpenSupport,
 }) => {
   const [candidate, setCandidate] = useState<string>(getCandidateName());
   const [isEditingName, setIsEditingName] = useState(false);
@@ -127,6 +129,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Calculator className="w-3.5 h-3.5 text-blue-600" />
             <span className="hidden md:inline">Virtual Calc</span>
           </button>
+
+          {/* Support Us Button */}
+          {onOpenSupport && (
+            <button
+              onClick={onOpenSupport}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 rounded-lg text-xs font-bold transition shadow-2xs group"
+              title="Support 100% Free CAT Mocks"
+            >
+              <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500 group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">Support</span>
+            </button>
+          )}
 
           {/* Candidate Profile Widget */}
           <div className="relative">

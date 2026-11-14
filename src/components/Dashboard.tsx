@@ -248,6 +248,28 @@ export const Dashboard: React.FC<DashboardProps> = ({
         )}
       </div>
 
+      {/* 100% Free / Anti-Paywall Trust Banner */}
+      <div className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 border border-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+            62+
+          </div>
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="font-extrabold text-xs text-emerald-950 uppercase tracking-wide">
+                100% Free CAT Mock Tests &amp; Practice
+              </span>
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-200/60 text-emerald-800 border border-emerald-300">
+                Zero Paywalls • No Sign-up
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+              Unlike coaching institutes that give 1 free mock then demand ₹10,000+, all 62 full sectionals &amp; topic quizzes are permanently free.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Tests Grid */}
       {filteredTests.length === 0 ? (
         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-12 text-center text-slate-500">

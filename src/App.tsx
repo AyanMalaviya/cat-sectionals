@@ -28,6 +28,7 @@ import { HistoryView } from './components/HistoryView';
 import { BookmarksView } from './components/BookmarksView';
 import { VirtualCalculator } from './components/VirtualCalculator';
 import { AdBanner } from './components/AdBanner';
+import { SupportModal } from './components/SupportModal';
 
 interface HistoryStackState {
   view: 'dashboard' | 'exam' | 'scorecard' | 'analysis';
@@ -63,6 +64,7 @@ export function App() {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isPaperModalOpen, setIsPaperModalOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
 
   const candidateName = getCandidateName();
 
@@ -303,22 +305,22 @@ export function App() {
     return () => clearInterval(interval);
   }, [view, activeTest, currentQuestionIndex]);
 
-  // Dynamic SEO Page Title & Meta Tag Updates for Target Keywords
+  // Dynamic SEO Page Title & Meta Tag Updates for Target Keywords & Free Positioning
   useEffect(() => {
     if (view === 'exam' && activeTest) {
-      document.title = `CBT Exam: ${activeTest.title} (40-Min Sectional) | CAT Mock Test CBT`;
+      document.title = `CBT Exam: ${activeTest.title} (40-Min Sectional) | 62+ Free CAT Mocks`;
     } else if (view === 'scorecard' && activeTest) {
-      document.title = `Scorecard & Analysis: ${activeTest.title} | CAT Sectional Mock Tests`;
+      document.title = `Scorecard & Performance Analysis: ${activeTest.title} | 100% Free CAT Practice`;
     } else if (view === 'analysis' && activeTest) {
-      document.title = `Detailed Solutions & Review: ${activeTest.title} | CAT Practice`;
+      document.title = `Detailed Solutions & Review: ${activeTest.title} | 62+ Free CAT Mocks`;
     } else if (currentTab === 'topic-wise') {
-      document.title = 'CAT Practice Online: Topic-Wise Sectional Quizzes & Sets | CAT Practice';
+      document.title = '20+ Topic-Wise CAT Practice Quizzes Online (Quant, DILR, VARC) | 100% Free';
     } else if (currentTab === 'history') {
-      document.title = 'My CAT Practice History & Analytics | CAT Mock Test CBT';
+      document.title = 'My CAT Practice History & Analytics | 62+ Free CAT Mocks';
     } else if (currentTab === 'bookmarks') {
-      document.title = 'Saved CAT Practice Questions & Bookmarks | CAT Mock Test CBT';
+      document.title = 'Saved CAT Practice Questions & Formula Bookmarks | 62+ Free CAT Mocks';
     } else {
-      document.title = 'CAT Mock Test CBT 2026 - Free CAT Sectional Mock Tests & CAT Practice';
+      document.title = '62+ Free CAT Mock Tests CBT 2026 - 100% Free Sectionals & Practice (No Paywall)';
     }
   }, [view, currentTab, activeTest]);
 
@@ -568,6 +570,7 @@ export function App() {
           testsGivenCount={history.length}
           bookmarksCount={bookmarks.length}
           onToggleCalculator={() => setIsCalculatorOpen((prev) => !prev)}
+          onOpenSupport={() => setIsSupportModalOpen(true)}
         />
       )}
 
@@ -721,6 +724,12 @@ export function App() {
       <VirtualCalculator
         isOpen={isCalculatorOpen}
         onClose={() => setIsCalculatorOpen(false)}
+      />
+
+      {/* Support 100% Free Mocks Modal */}
+      <SupportModal
+        isOpen={isSupportModalOpen}
+        onClose={() => setIsSupportModalOpen(false)}
       />
 
       {/* Confirmation Submit Modal */}
