@@ -37,17 +37,18 @@ import { AdBanner } from './components/AdBanner';
 import { SupportModal } from './components/SupportModal';
 import { Footer } from './components/Footer';
 import { LegalModal, LegalTab } from './components/LegalModal';
+import { AboutView } from './components/AboutView';
 
 interface HistoryStackState {
   view: 'dashboard' | 'exam' | 'scorecard' | 'analysis';
-  tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks';
+  tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about';
   testId?: string;
   resultId?: string;
 }
 
 export function App() {
   // Navigation & View state
-  const [currentTab, setCurrentTab] = useState<'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks'>('full-mocks');
+  const [currentTab, setCurrentTab] = useState<'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about'>('full-mocks');
   const [view, setView] = useState<'dashboard' | 'exam' | 'scorecard' | 'analysis'>('dashboard');
 
   // Active exam state
@@ -94,7 +95,7 @@ export function App() {
 
   const getHashForState = (
     v: 'dashboard' | 'exam' | 'scorecard' | 'analysis',
-    t: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks',
+    t: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about',
     tId?: string
   ): string => {
     if (v === 'dashboard') {
@@ -115,7 +116,7 @@ export function App() {
   const pushNavState = useCallback(
     (
       newView: 'dashboard' | 'exam' | 'scorecard' | 'analysis',
-      newTab?: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks',
+      newTab?: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about',
       testId?: string,
       resultId?: string,
       replace: boolean = false
@@ -160,13 +161,19 @@ export function App() {
     const [route, id] = hash.split('/');
 
     let initialView: 'dashboard' | 'exam' | 'scorecard' | 'analysis' = 'dashboard';
-    let initialTab: 'tests' | 'topic-wise' | 'history' | 'bookmarks' = 'tests';
+    let initialTab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about' = 'full-mocks';
     let testToLoad: SectionalTest | null = null;
     let resultToLoad: TestResult | null = null;
 
-    if (['about', 'contact', 'privacy', 'terms', 'disclaimer'].includes(route)) {
+    if (route === 'about' || route === 'mission' || route === 'about-us') {
+      initialTab = 'about';
+    } else if (['contact', 'privacy', 'terms', 'disclaimer'].includes(route)) {
       setActiveLegalTab(route as LegalTab);
       setIsLegalModalOpen(true);
+    } else if (route === 'full-mocks') {
+      initialTab = 'full-mocks';
+    } else if (route === 'tests') {
+      initialTab = 'tests';
     } else if (route === 'topic-wise') {
       initialTab = 'topic-wise';
     } else if (route === 'history') {
@@ -962,6 +969,15 @@ export function App() {
                       onDiscardActiveTest={handleDiscardActiveTest}
                       onStartTest={handleStartTest}
                       onReviewPastTest={handleReviewPastTest}
+                      onOpenAbout={() => pushNavState('dashboard', 'about')}
+                    />
+                  )}
+
+                  {currentTab === 'about' && (
+                    <AboutView
+                      onStartFullMock={() => pushNavState('dashboard', 'full-mocks')}
+                      onStartSectionals={() => pushNavState('dashboard', 'tests')}
+                      onOpenSupport={() => setIsSupportModalOpen(true)}
                     />
                   )}
 

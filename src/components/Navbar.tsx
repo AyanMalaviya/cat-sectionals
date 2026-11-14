@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { BookOpen, History, Bookmark, Calculator, User, Edit3, Check, Layers, Heart, Clock } from 'lucide-react';
+import { BookOpen, History, Bookmark, Calculator, User, Edit3, Check, Layers, Heart, Clock, Compass } from 'lucide-react';
 import { getCandidateName, setCandidateName } from '../utils/storage';
 
 interface NavbarProps {
-  currentTab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks';
-  onSelectTab: (tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks') => void;
+  currentTab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about';
+  onSelectTab: (tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about') => void;
   testsGivenCount: number;
   bookmarksCount: number;
   onToggleCalculator: () => void;
@@ -131,6 +131,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {bookmarksCount}
               </span>
             )}
+          </button>
+
+          <button
+            onClick={() => onSelectTab('about')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 ${
+              currentTab === 'about'
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+            title="Our Mission & CBT Strategy Guide"
+          >
+            <Compass className="w-4 h-4" />
+            <span className="hidden md:inline">About &amp; Mission</span>
+            <span className="md:hidden">Mission</span>
           </button>
         </div>
 

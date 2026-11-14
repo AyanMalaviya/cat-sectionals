@@ -4,7 +4,7 @@ import { LegalTab } from './LegalModal';
 
 interface FooterProps {
   onOpenLegalTab: (tab: LegalTab) => void;
-  onSelectTab: (tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks') => void;
+  onSelectTab: (tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about') => void;
   onOpenCalculator: () => void;
   onOpenSupport: () => void;
 }
@@ -146,6 +146,14 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-blue-400 transition text-left"
                 >
                   Topic-Wise Free Mock Quizzes
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onSelectTab('about')}
+                  className="hover:text-blue-400 transition text-left text-blue-300 font-semibold flex items-center gap-1"
+                >
+                  <span>🎯 Our Mission &amp; Strategy Guide</span>
                 </button>
               </li>
             </ul>

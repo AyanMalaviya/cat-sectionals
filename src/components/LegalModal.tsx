@@ -22,7 +22,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white border border-slate-200 rounded-3xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl text-slate-900 overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl text-slate-900 overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
@@ -121,56 +121,138 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
         {/* Tab Content (Scrollable) */}
         <div className="p-6 overflow-y-auto space-y-5 text-xs sm:text-sm text-slate-700 leading-relaxed">
-          {/* TAB: ABOUT US */}
+          {/* TAB: ABOUT US & OUR MISSION */}
           {activeTab === 'about' && (
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 border border-blue-200 rounded-2xl">
-                <h3 className="font-bold text-blue-900 text-base mb-1">
-                  Our Mission: 100% Free Mock Tests Without Paywalls
+            <div className="space-y-6">
+              <div className="p-5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl text-blue-950">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-blue-200 text-blue-900 px-2 py-0.5 rounded-full">
+                  Our Anti-Paywall Mission
+                </span>
+                <h3 className="font-extrabold text-blue-950 text-base sm:text-lg mt-1 mb-1">
+                  100% Free Mock Tests for Every Aspirant Across India
                 </h3>
-                <p className="text-blue-800 text-xs sm:text-sm">
-                  CBTMocks (<a href="https://cbtmocks.online" className="underline font-semibold">cbtmocks.online</a>) was founded with a single mission: to democratize competitive exam preparation in India. Every student deserves access to authentic, high-caliber Computer Based Test (CBT) practice without being forced to pay ₹5,000 to ₹15,000 for coaching test series.
+                <p className="text-blue-900 text-xs sm:text-sm leading-relaxed">
+                  CBTMocks (<a href="https://cbtmocks.online" className="underline font-bold">cbtmocks.online</a>) was founded to end the paywall exploitation of competitive exam aspirants. High-quality Computer Based Test (CBT) practice should be a universal right, not a luxury locked behind ₹5,000 to ₹15,000 coaching paywalls or tied to intrusive telemarketing sales calls.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-900 text-sm mb-1.5">
-                  1. The Problem With Commercial Test Series
+                <h4 className="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                  <span>⚠️</span>
+                  <span>1. The Predatory Commercial Coaching Model</span>
                 </h4>
-                <p>
-                  Most commercial coaching institutes provide only 1 or 2 sample mocks as marketing bait, then lock their remaining tests behind expensive paywalls. To make matters worse, they mandate phone number registration and bombard students with aggressive sales calls.
+                <p className="text-slate-600">
+                  Most commercial test series providers offer 1 or 2 sample tests as marketing bait. Once an aspirant attempts them, the rest of the question bank is locked behind steep paywalls. Aspirants are forced to give their personal mobile numbers, leading to continuous sales calls and promotional messages during their most crucial preparation months.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-900 text-sm mb-1.5">
-                  2. What CBTMocks Delivers
+                <h4 className="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                  <span>🌱</span>
+                  <span>2. What CBTMocks Delivers (100% Free Forever)</span>
                 </h4>
                 <ul className="list-disc pl-5 space-y-1.5 text-slate-600">
-                  <li><strong>62+ Full Tests (866+ Questions):</strong> Covering CAT Quantitative Aptitude (QA), Data Interpretation &amp; Logical Reasoning (DILR), and Verbal Ability &amp; Reading Comprehension (VARC).</li>
+                  <li><strong>62+ Full Tests (866+ Questions):</strong> Covering CAT Quantitative Aptitude (QA), Data Interpretation &amp; Logical Reasoning (DILR), Verbal Ability &amp; Reading Comprehension (VARC), and 120-minute Full Mocks.</li>
                   <li><strong>Zero Paywalls &amp; Zero Signups:</strong> Instant 1-click test practice without phone numbers, email collection, or passwords.</li>
                   <li><strong>Authentic TCS iON CBT Environment:</strong> Exact 40-minute countdown timers, real question palette statuses (Answered, Not Answered, Marked for Review), and official marking schemes (+3 / -1 for MCQs, +3 / 0 for TITA).</li>
-                  <li><strong>Built-In Virtual Calculator:</strong> Full on-screen BODMAS precision calculator matching the official CAT exam interface.</li>
-                  <li><strong>Detailed Solutions &amp; Instant Percentile:</strong> Step-by-step mathematical explanations, question-by-question time tracking, and performance analytics.</li>
+                  <li><strong>Built-In Draggable Virtual Calculator:</strong> Full on-screen BODMAS precision calculator matching the official CAT exam day interface.</li>
+                  <li><strong>Section Transitions &amp; State Persistence:</strong> Take breaks between sections during 120-minute Full Mocks, or resume in-progress attempts anytime without losing work.</li>
                 </ul>
               </div>
 
-              <div>
-                <h4 className="font-bold text-slate-900 text-sm mb-1.5">
-                  3. Expansion Roadmap (XAT, SNAP, NMAT &amp; Beyond)
+              {/* Comparison Table */}
+              <div className="space-y-2">
+                <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                  <span>⚖️</span>
+                  <span>3. CBTMocks vs Commercial Coaching Test Series</span>
                 </h4>
-                <p>
+                <div className="overflow-x-auto border border-slate-200 rounded-2xl bg-white shadow-2xs">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                      <tr>
+                        <th className="py-2.5 px-3">Metric</th>
+                        <th className="py-2.5 px-3 text-blue-700 bg-blue-50/70">CBTMocks (cbtmocks.online)</th>
+                        <th className="py-2.5 px-3 text-slate-500">Commercial Coaching Institutes</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 text-slate-600">
+                      <tr>
+                        <td className="py-2 px-3 font-semibold text-slate-800">Total Free Mock Tests</td>
+                        <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">62+ Full Tests (866+ Questions)</td>
+                        <td className="py-2 px-3 text-slate-500">1 or 2 sample tests (remaining locked)</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2 px-3 font-semibold text-slate-800">Price / Hidden Paywalls</td>
+                        <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">₹0 (100% Free Forever)</td>
+                        <td className="py-2 px-3 text-rose-600 font-semibold">₹5,000 to ₹15,000+ per season</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2 px-3 font-semibold text-slate-800">Sign-up &amp; Phone Numbers</td>
+                        <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">None (Instant 1-Click Practice)</td>
+                        <td className="py-2 px-3 text-slate-500">Mandatory phone number + sales calls</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2 px-3 font-semibold text-slate-800">Official Past Papers (2020–2026)</td>
+                        <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">All Slots Included &amp; Timed</td>
+                        <td className="py-2 px-3 text-slate-500">Often sold as separate paid add-ons</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2 px-3 font-semibold text-slate-800">Exam Interface &amp; Calculator</td>
+                        <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">Real TCS iON CBT + On-screen Calc</td>
+                        <td className="py-2 px-3 text-slate-500">Custom web viewer</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* CBT Strategy Guide Summary */}
+              <div className="space-y-2">
+                <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                  <span>⏱️</span>
+                  <span>4. CBT Exam Strategy &amp; Sectional Discipline</span>
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-600">
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                    <span className="font-bold text-slate-900 block">40-Minute Sectional Timers</span>
+                    <p>Rigid sectional time limits force realistic pacing between VARC, DILR, and QA sections.</p>
+                  </div>
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                    <span className="font-bold text-slate-900 block">Round 1 / Round 2 Strategy</span>
+                    <p>Solve easy questions first, mark moderate for review, and skip time traps.</p>
+                  </div>
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                    <span className="font-bold text-slate-900 block">+3 / -1 &amp; TITA Scoring</span>
+                    <p>+3 for correct, -1 for wrong MCQs, and 0 penalty for TITA numeric inputs.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                  <span>🚀</span>
+                  <span>5. Expansion Roadmap (XAT, SNAP, NMAT &amp; Beyond)</span>
+                </h4>
+                <p className="text-slate-600">
                   While our initial launch focuses on CAT sectional papers from 2020 through 2026 specimen mocks, we are actively developing dedicated sectional modules for <strong>XAT (Decision Making)</strong>, <strong>SNAP</strong>, <strong>NMAT</strong>, and other major Indian competitive examinations.
                 </p>
               </div>
 
-              <div>
-                <h4 className="font-bold text-slate-900 text-sm mb-1.5">
-                  4. Independent &amp; Community Driven
-                </h4>
-                <p>
-                  CBTMocks is maintained independently by passionate educators and former aspirants. All server and hosting costs are sustained through non-intrusive advertising and voluntary community donations.
-                </p>
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <h4 className="font-bold text-slate-900 text-sm">Maintained by Ayan Malaviya &amp; Community</h4>
+                  <p className="text-xs text-slate-500">Server costs are kept alive through student contributions and non-intrusive ads.</p>
+                  <span className="font-mono font-bold text-xs text-blue-700">UPI: ayanmalaviya111@okhdfcbank</span>
+                </div>
+                {onOpenSupport && (
+                  <button
+                    onClick={onOpenSupport}
+                    className="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl shadow-xs transition flex items-center gap-1.5 shrink-0"
+                  >
+                    <Heart className="w-3.5 h-3.5 fill-current" />
+                    <span>Support Us</span>
+                  </button>
+                )}
               </div>
             </div>
           )}
