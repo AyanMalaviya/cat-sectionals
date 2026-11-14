@@ -29,44 +29,23 @@ export const AboutView: React.FC<AboutViewProps> = ({
   onOpenSupport,
 }) => {
   return (
-    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white text-slate-900 animate-in fade-in duration-200 space-y-10 sm:space-y-12">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-xl">
-        <div className="absolute -right-16 -top-16 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative z-10 space-y-4 max-w-3xl">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="bg-blue-500/30 text-blue-200 border border-blue-400/30 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider flex items-center gap-1.5">
-              <Compass className="w-3.5 h-3.5 text-blue-300" />
-              Our Mission
-            </span>
-            <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-3 py-1 rounded-full text-[11px] font-bold">
-              100% Free Forever • Zero Paywalls
-            </span>
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
-            Democratizing Competitive Exam Prep for Every Aspirant
-          </h1>
-
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-            High-caliber Computer Based Test (CBT) practice should never be locked behind expensive ₹10,000 coaching paywalls or tied to invasive phone number harvesting. CBTMocks was built to give every student in India equal, unrestricted access to real exam simulation.
-          </p>
-
-          <div className="pt-2 flex flex-wrap gap-2 text-xs">
-            <span className="bg-white/10 px-3.5 py-1.5 rounded-xl font-semibold border border-white/15">
-              📊 62+ Free Mock Tests
-            </span>
-            <span className="bg-white/10 px-3.5 py-1.5 rounded-xl font-semibold border border-white/15">
-              🎯 866+ Real Exam Questions
-            </span>
-            <span className="bg-white/10 px-3.5 py-1.5 rounded-xl font-semibold border border-white/15">
-              🚫 Zero Phone Numbers / Telemarketing
-            </span>
-            <span className="bg-white/10 px-3.5 py-1.5 rounded-xl font-semibold border border-white/15">
-              ₹0 No Subscription Ever
-            </span>
-          </div>
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white text-slate-900 animate-in fade-in duration-200 space-y-8 sm:space-y-10">
+      {/* Clean Compact Header */}
+      <div className="pb-6 border-b border-slate-200">
+        <div className="flex items-center gap-2 mb-1.5">
+          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200">
+            About CBTMocks
+          </span>
+          <span className="text-xs text-slate-500 font-medium">
+            cbtmocks.online
+          </span>
         </div>
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          Democratizing Competitive Exam Prep for Every Aspirant
+        </h1>
+        <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
+          High-caliber Computer Based Test (CBT) practice should never be locked behind expensive ₹10,000 coaching paywalls or tied to invasive telemarketing. CBTMocks was built to give every student in India unrestricted, authentic exam simulation for free.
+        </p>
       </div>
 
       {/* The Origin Story & Anti-Paywall Manifesto */}

@@ -4,16 +4,7 @@ import { AdBanner } from './AdBanner';
 import {
   Clock,
   Play,
-  Layers,
-  Award,
   CheckCircle2,
-  Calendar,
-  Zap,
-  HelpCircle,
-  FileQuestion,
-  Mail,
-  ArrowRight,
-  Sparkles,
 } from 'lucide-react';
 
 interface FullMocksViewProps {
@@ -36,7 +27,6 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
   onReviewPastTest,
 }) => {
   const [selectedYear, setSelectedYear] = useState<string>('ALL');
-  const [showMissingReport, setShowMissingReport] = useState(false);
 
   const activeTestInfo = activeSession ? fullMocks.find((t) => t.id === activeSession.testId) : null;
 
@@ -46,8 +36,6 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
   });
 
   const availableYears = ['ALL', 'CAT 2026', 'CAT 2023', 'CAT 2022', 'CAT 2021', 'CAT 2020'];
-
-  const sectionNames = ['1. VARC (40m)', '2. DILR (40m)', '3. QA (40m)'];
 
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white text-slate-900 animate-in fade-in duration-200">
@@ -99,113 +87,36 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
         </div>
       )}
 
-      {/* Hero Banner: Full Mock Tests */}
-      <div className="mb-8 p-5 sm:p-8 bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-950 text-white rounded-2xl sm:rounded-3xl shadow-lg relative overflow-hidden">
-        <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="relative z-10 space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="bg-blue-500/30 text-blue-200 border border-blue-400/30 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider">
-              ⏱️ 120-Minute Official Full Mock Tests
-            </span>
-            <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-3 py-1 rounded-full text-[11px] font-bold">
-              3 Timed Sections (VARC → DILR → QA)
-            </span>
-          </div>
-
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight">
-            Official Full Mock Tests CBT (120 Mins • 66 Questions)
-          </h1>
-
-          <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
-            Practice complete 3-section full mock tests created by assembling authentic official PYQ papers. Each test follows the strict CAT sequence: Section 1 VARC (40m, 24 Qs) → Section 2 DILR (40m, 20 Qs) → Section 3 QA (40m, 22 Qs). Includes built-in virtual calculator, score percentiles, and optional transition breaks between sections.
-          </p>
-
-          <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-2 text-[11px]">
-              <span className="bg-white/10 px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-                ⏳ 120 Minutes (3 × 40m)
+      {/* Clean, Compact Header: Simple & Informative */}
+      <div className="mb-6 pb-5 border-b border-slate-200">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200">
+                120 Mins • 3 Sections
               </span>
-              <span className="bg-white/10 px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-                📝 66 Questions (198 Marks)
-              </span>
-              <span className="bg-white/10 px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-                ☕ Section Transition Breaks
-              </span>
-              <span className="bg-white/10 px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-                🧮 Draggable Virtual Calculator
-              </span>
-              <span className="bg-white/10 px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-                ₹0 100% Free
+              <span className="text-xs text-slate-500 font-medium">
+                Official CAT CBT Format
               </span>
             </div>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              Full-Length Mock Tests
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+              Timed 120-minute simulated CBT mock exams across VARC, DILR, and QA (66 questions, 198 marks) with built-in calculator, +3 / -1 marking, and sectional score percentiles.
+            </p>
+          </div>
 
-            <button
-              onClick={() => setShowMissingReport((prev) => !prev)}
-              className="text-xs font-bold text-blue-300 hover:text-white flex items-center gap-1.5 underline decoration-blue-400 underline-offset-4"
-            >
-              <FileQuestion className="w-3.5 h-3.5" />
-              <span>{showMissingReport ? 'Hide Missing Slots Report' : 'Missing Slot Papers? Click Here'}</span>
-            </button>
+          <div className="flex items-center gap-1.5 self-start sm:self-center text-[11px] text-slate-600 font-medium shrink-0">
+            <span className="bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
+              ⚡ Official +3 / -1 Marking
+            </span>
+            <span className="bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
+              ☕ Optional Breaks
+            </span>
           </div>
         </div>
       </div>
-
-      {/* Missing Slot Papers Wanted Notice / Contribution Panel */}
-      {showMissingReport && (
-        <div className="mb-8 p-5 bg-amber-50 border border-amber-300 rounded-3xl text-slate-800 text-xs leading-relaxed animate-in fade-in duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-amber-200 mb-3">
-            <div className="flex items-center gap-2 font-bold text-amber-950 text-sm">
-              <HelpCircle className="w-4 h-4 text-amber-600" />
-              <span>Official CAT Slot Papers Status &amp; Missing Sections Inventory</span>
-            </div>
-            <span className="text-[10px] bg-amber-200 text-amber-900 font-extrabold px-2 py-0.5 rounded-full">
-              Community Sourcing
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <h4 className="font-bold text-emerald-800 flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                Available &amp; Ready Full Mocks (Assembled):
-              </h4>
-              <ul className="list-disc pl-5 text-slate-700 space-y-0.5">
-                <li><strong>CAT 2026:</strong> National All-India Specimen Mock (VARC + DILR + QA)</li>
-                <li><strong>CAT 2023:</strong> Official All-India Full Mock (Slot 2 VARC + Slot 1 DILR + Slot 1 QA)</li>
-                <li><strong>CAT 2022:</strong> Official All-India Full Mock (Slot 2 VARC + Slot 3 DILR + Slot 2 QA)</li>
-                <li><strong>CAT 2021:</strong> Slot 1 Official Full Mock (Slot 1 VARC + Slot 1 DILR + Slot 1 QA)</li>
-                <li><strong>CAT 2020:</strong> Slot 1 Official Full Mock (Slot 1 VARC + Slot 1 DILR + Slot 1 QA)</li>
-              </ul>
-            </div>
-
-            <div className="space-y-1.5">
-              <h4 className="font-bold text-rose-800 flex items-center gap-1">
-                <span>🔍</span> Missing Slot Sections We Are Hunting:
-              </h4>
-              <ul className="list-disc pl-5 text-slate-700 space-y-0.5">
-                <li><strong>CAT 2024:</strong> Slot 1 VARC text (Passages &amp; VA), Slot 2 (All 3), Slot 3 (All 3)</li>
-                <li><strong>CAT 2023:</strong> Slot 1 VARC, Slot 2 DILR, Slot 3 VARC &amp; DILR</li>
-                <li><strong>CAT 2022:</strong> Slot 1 VARC &amp; DILR, Slot 2 DILR, Slot 3 VARC</li>
-                <li><strong>CAT 2021:</strong> Slot 2 VARC &amp; DILR, Slot 3 (All 3)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-4 pt-3 border-t border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-amber-900">
-            <span>
-              Have the official question paper PDF or response key for any missing slot? Email us or let us know and we will integrate it immediately!
-            </span>
-            <a
-              href="mailto:ayanmalaviya111@gmail.com?subject=CAT%20Missing%20Slot%20Question%20Paper"
-              className="px-3.5 py-1.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition flex items-center gap-1.5 shrink-0 shadow-2xs"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>Email Paper to Ayan</span>
-            </a>
-          </div>
-        </div>
-      )}
 
       {/* Year Filter Pills (Horizontally swipeable on mobile) */}
       <div className="flex items-center justify-between gap-4 mb-6">
@@ -287,20 +198,20 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
 
                 {/* 3 Sections Flow Indicator */}
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl mb-4 space-y-1.5">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
-                    Strict Sectional Sequence (40 Mins Each):
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 block">
+                    Section Sequence (40 Mins Each):
                   </span>
                   <div className="grid grid-cols-3 gap-1.5 text-center text-xs font-bold">
                     <div className="py-1.5 px-1 bg-white border border-slate-200 rounded-xl text-slate-800">
-                      <span className="block text-[10px] text-blue-600">SEC 1</span>
+                      <span className="block text-[10px] text-blue-600 font-bold">SEC 1</span>
                       VARC (24Q)
                     </div>
                     <div className="py-1.5 px-1 bg-white border border-slate-200 rounded-xl text-slate-800">
-                      <span className="block text-[10px] text-blue-600">SEC 2</span>
+                      <span className="block text-[10px] text-blue-600 font-bold">SEC 2</span>
                       DILR (20Q)
                     </div>
                     <div className="py-1.5 px-1 bg-white border border-slate-200 rounded-xl text-slate-800">
-                      <span className="block text-[10px] text-blue-600">SEC 3</span>
+                      <span className="block text-[10px] text-blue-600 font-bold">SEC 3</span>
                       QA (22Q)
                     </div>
                   </div>

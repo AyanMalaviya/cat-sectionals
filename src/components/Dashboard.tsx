@@ -120,93 +120,62 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       )}
 
-      {/* SEO Hero Banner: Free Mock Tests for Competitive Exams */}
-      <div className="mb-8 p-5 sm:p-8 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white rounded-2xl sm:rounded-3xl shadow-lg relative overflow-hidden">
-        <div className="absolute -right-12 -top-12 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="relative z-10 space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="bg-blue-500/30 text-blue-200 border border-blue-400/30 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider">
-              ✨ 100% Free Mock Tests • Zero Paywalls
-            </span>
-            <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-3 py-1 rounded-full text-[11px] font-bold">
-              CAT 2026 Ready
-            </span>
+      {/* Clean Compact Header: Mode Toggle & Page Summary */}
+      <div className="mb-6 pb-5 border-b border-slate-200">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200">
+                {activeCategory === 'sectional-pyq' ? '40-Min Sectionals' : 'Topic Quizzes'}
+              </span>
+              <span className="text-xs text-slate-500 font-medium">
+                100% Free CBT Practice
+              </span>
+            </div>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              {activeCategory === 'sectional-pyq'
+                ? 'Sectional Mock Tests'
+                : 'Topic-Wise Practice Quizzes'}
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+              {activeCategory === 'sectional-pyq'
+                ? 'Timed 40-minute authentic sectional tests (QA, DILR, VARC) from CAT 2020 to 2026 with official CBT countdown, built-in calculator, and +3 / -1 marking.'
+                : 'Targeted topic-wise practice quizzes with step-by-step explanations to master concepts across Quantitative Aptitude, DILR sets, and Reading Comprehension.'}
+            </p>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight">
-            Free Mock Tests CBT for Competitive Exams
-          </h1>
+          {/* Mode Toggle: Sectionals vs Topic-Wise */}
+          <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200 shrink-0">
+            <button
+              onClick={() => {
+                onSelectCategory('sectional-pyq');
+                setSelectedTopicTag('ALL');
+              }}
+              className={`flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
+                activeCategory === 'sectional-pyq'
+                  ? 'bg-white text-blue-700 shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">40-Min Sectionals</span>
+            </button>
 
-          <p className="text-xs sm:text-sm text-blue-100 max-w-3xl leading-relaxed">
-            Practice 62+ authentic free mock tests with official 40-minute CBT countdowns, full TCS iON simulation, and on-screen virtual calculator. Master Quantitative Aptitude, DILR, and VARC with 866+ questions from CAT 2020 through CAT 2026 specimen mocks. Zero paywalls, zero signups, 100% free forever.
-          </p>
-
-          <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
-            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-              📊 62+ Free Mock Tests
-            </span>
-            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-              🎯 866+ Questions
-            </span>
-            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-              ⚡ Official +3 / -1 Marking
-            </span>
-            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-              🧮 Built-in Virtual Calculator
-            </span>
-            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
-              ₹0 No Coaching Fees
-            </span>
+            <button
+              onClick={() => {
+                onSelectCategory('topic-wise');
+                setSelectedYear('ALL');
+              }}
+              className={`flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
+                activeCategory === 'topic-wise'
+                  ? 'bg-white text-blue-700 shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <Layers className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">Topic Quizzes</span>
+            </button>
           </div>
-        </div>
-      </div>
-
-      {/* Top Header & Mode Toggle */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-5 border-b border-slate-200">
-        <div>
-          <h2 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
-            {activeCategory === 'sectional-pyq'
-              ? 'Free CAT Mock Tests CBT — 40-Min Sectionals'
-              : 'Free Topic-Wise Mock Quizzes — Practice Sets'}
-          </h2>
-          <p className="text-xs text-slate-500 mt-0.5">
-            {activeCategory === 'sectional-pyq'
-              ? `Authentic Free Sectional Mock Tests (QA, DILR, VARC) from 2020 to 2026 • ${filteredTests.length} free tests ready`
-              : `Targeted Free Mock Practice Sets with official PYQs and specimen mocks • ${filteredTests.length} free quizzes ready`}
-          </p>
-        </div>
-
-        {/* Mode Toggle: Sectionals vs Topic-Wise - Full width grid on mobile */}
-        <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200">
-          <button
-            onClick={() => {
-              onSelectCategory('sectional-pyq');
-              setSelectedTopicTag('ALL');
-            }}
-            className={`flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
-              activeCategory === 'sectional-pyq'
-                ? 'bg-white text-blue-700 shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            <BookOpen className="w-3.5 h-3.5 shrink-0" />
-            <span className="truncate">40-Min Sectionals</span>
-          </button>
-
-          <button
-            onClick={() => {
-              onSelectCategory('topic-wise');
-              setSelectedYear('ALL');
-            }}
-            className={`flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
-              activeCategory === 'topic-wise'
-                ? 'bg-white text-blue-700 shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5 shrink-0" />
-            <span className="truncate">Topic Quizzes</span>
-          </button>
         </div>
       </div>
 
@@ -289,28 +258,6 @@ export const Dashboard: React.FC<DashboardProps> = ({
             ))}
           </div>
         )}
-      </div>
-
-      {/* 100% Free / Anti-Paywall Trust Banner */}
-      <div className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 border border-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
-            62+
-          </div>
-          <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-extrabold text-xs text-emerald-950 uppercase tracking-wide">
-                100% Free CAT Mock Tests &amp; Practice
-              </span>
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-200/60 text-emerald-800 border border-emerald-300">
-                Zero Paywalls • No Sign-up
-              </span>
-            </div>
-            <p className="text-xs text-slate-600 mt-0.5 leading-snug">
-              Unlike coaching institutes that give 1 free mock then demand ₹10,000+, all 62 full sectionals &amp; topic quizzes are permanently free.
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* Tests Grid */}
