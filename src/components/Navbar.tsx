@@ -36,13 +36,23 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => onSelectTab('tests')}
           className="flex items-center gap-3 cursor-pointer group"
         >
-          <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center shadow-md shadow-blue-700/20 group-hover:scale-105 transition">
-            <span className="font-extrabold text-base tracking-tight">CAT</span>
-          </div>
+          <img
+            src="/logo.svg"
+            alt="CAT Mock Test CBT Logo"
+            className="w-10 h-10 rounded-xl shadow-md shadow-blue-700/20 group-hover:scale-105 transition object-contain"
+            width={40}
+            height={40}
+          />
           <div>
             <div className="font-extrabold text-base md:text-lg tracking-tight text-slate-900 flex items-center gap-1.5">
-              <span>CAT Mocks</span>
+              <span>CAT CBT Mocks</span>
+              <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700 border border-blue-200 tracking-wider">
+                2026
+              </span>
             </div>
+            <p className="text-[11px] text-slate-500 font-medium hidden sm:block">
+              Free Sectionals &amp; Practice
+            </p>
           </div>
         </div>
 

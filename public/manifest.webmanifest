@@ -1,0 +1,75 @@
+{
+  "name": "CAT Mock Test CBT 2026 - Free Sectional Mocks & Practice",
+  "short_name": "CAT CBT Mocks",
+  "description": "Practice authentic 40-minute CAT Sectional Mock Tests (QA, DILR, VARC) from 2020 to 2026 with real TCS iON CBT exam simulation and on-screen calculator.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "categories": [
+    "education",
+    "productivity",
+    "books"
+  ],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "CAT Sectional Mocks",
+      "short_name": "Sectionals",
+      "description": "Practice 40-minute official CAT Sectionals",
+      "url": "/#/tests",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Topic-Wise Quizzes",
+      "short_name": "Topics",
+      "description": "Topic-wise high-yield CAT practice sets",
+      "url": "/#/topic-wise",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Test History & Scorecard",
+      "short_name": "History",
+      "description": "View past test attempts and analytics",
+      "url": "/#/history",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

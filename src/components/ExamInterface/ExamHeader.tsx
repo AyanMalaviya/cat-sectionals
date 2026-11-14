@@ -38,7 +38,14 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
     <header className="bg-white border-b border-slate-200 text-slate-900 shadow-xs sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
         {/* Left: Test Details */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
+          <img
+            src="/logo.svg"
+            alt="CAT Mock Test CBT Logo"
+            className="w-8 h-8 rounded-lg shadow-xs shrink-0 object-contain"
+            width={32}
+            height={32}
+          />
           <div className="bg-blue-50 border border-blue-200 px-2.5 py-1 rounded text-xs font-bold text-blue-700 tracking-wider">
             {section}
           </div>
