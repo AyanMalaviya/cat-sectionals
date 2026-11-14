@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { SectionalTest, TestResult, ActiveSession } from '../types';
+import React, { useState, useEffect } from 'react';
+import { SectionalTest, TestResult, ActiveSession, ExamType } from '../types';
 import { AdBanner } from './AdBanner';
 import {
   Clock,
@@ -11,6 +11,7 @@ interface FullMocksViewProps {
   fullMocks: SectionalTest[];
   testHistory: TestResult[];
   activeSession: ActiveSession | null;
+  activeExam?: ExamType;
   onResumeActiveTest: () => void;
   onDiscardActiveTest: () => void;
   onStartTest: (test: SectionalTest) => void;
@@ -21,6 +22,7 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
   fullMocks,
   testHistory,
   activeSession,
+  activeExam = 'CAT',
   onResumeActiveTest,
   onDiscardActiveTest,
   onStartTest,
@@ -28,14 +30,21 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
 }) => {
   const [selectedYear, setSelectedYear] = useState<string>('ALL');
 
-  const activeTestInfo = activeSession ? fullMocks.find((t) => t.id === activeSession.testId) : null;
+  useEffect(() => {
+    setSelectedYear('ALL');
+  }, [activeExam]);
 
-  const filteredMocks = fullMocks.filter((t) => {
+  // Filter full mocks by active exam
+  const examMocks = fullMocks.filter((t) => (t.examType || 'CAT') === activeExam);
+
+  const activeTestInfo = activeSession ? examMocks.find((t) => t.id === activeSession.testId) : null;
+
+  const filteredMocks = examMocks.filter((t) => {
     if (selectedYear !== 'ALL' && !t.year.includes(selectedYear)) return false;
     return true;
   });
 
-  const availableYears = ['ALL', 'CAT 2026', 'CAT 2023', 'CAT 2022', 'CAT 2021', 'CAT 2020'];
+  const availableYears = ['ALL', ...Array.from(new Set(examMocks.map((t) => t.year)))];
 
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 animate-in fade-in duration-200 transition-colors">
@@ -92,24 +101,34 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-                120 Mins • 3 Sections
+              <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider border ${
+                activeExam === 'XAT'
+                  ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-800'
+                  : activeExam === 'SNAP'
+                  ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800'
+                  : 'bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800'
+              }`}>
+                {activeExam === 'XAT' ? '175 Mins • 3 Sections' : activeExam === 'SNAP' ? '60 Mins • 3 Sections' : '120 Mins • 3 Sections'}
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                Official CAT CBT Format
+                Official {activeExam} CBT Simulation
               </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
-              Full-Length Mock Tests
+              {activeExam} Full-Length Mock Tests
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
-              Timed 120-minute simulated CBT mock exams across VARC, DILR, and QA (66 questions, 198 marks) with built-in calculator, +3 / -1 marking, and sectional score percentiles.
+              {activeExam === 'XAT'
+                ? 'Full 175-minute official XAT simulations: Section 1 VALR (26 Qs) → Section 2 Decision Making (21 Qs) → Section 3 QA-DI (28 Qs) with 5 options (A-E) and official +1 / -0.25 scoring.'
+                : activeExam === 'SNAP'
+                ? 'Full 60-minute speed mock exams: General English (15 Qs) → Analytical & Logical Reasoning (25 Qs) → QA, DI & Data Sufficiency (20 Qs) with official +1 / -0.25 scoring.'
+                : 'Timed 120-minute simulated CBT mock exams across VARC, DILR, and QA (66 questions, 198 marks) with built-in calculator, +3 / -1 marking, and sectional score percentiles.'}
             </p>
           </div>
 
           <div className="flex items-center gap-1.5 self-start sm:self-center text-[11px] text-slate-600 dark:text-slate-300 font-medium shrink-0">
             <span className="bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
-              ⚡ Official +3 / -1 Marking
+              {activeExam === 'XAT' || activeExam === 'SNAP' ? '⚡ +1 / -0.25 Marking' : '⚡ Official +3 / -1 Marking'}
             </span>
             <span className="bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
               ☕ Optional Breaks

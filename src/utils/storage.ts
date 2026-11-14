@@ -1,4 +1,4 @@
-import { TestResult, ActiveSession, Question, UserAnswer, SectionType } from '../types';
+import { TestResult, ActiveSession, Question, UserAnswer, SectionType, ExamType } from '../types';
 
 const STORAGE_KEYS = {
   HISTORY: 'cat_mock_history_v1',
@@ -130,12 +130,14 @@ export const toggleBookmark = (questionId: string): boolean => {
   }
 };
 
-// Score & CAT Marks Calculation according to official scheme:
-// MCQ: Correct = +3, Incorrect = -1, Unattempted = 0
-// TITA: Correct = +3, Incorrect = 0, Unattempted = 0
+// Score & Marks Calculation according to official exam scheme:
+// CAT: MCQ Correct = +3, Incorrect = -1; TITA Correct = +3, Incorrect = 0
+// XAT: MCQ Correct = +1, Incorrect = -0.25; 5 Options (A-E)
+// SNAP: MCQ Correct = +1, Incorrect = -0.25; 4 Options (A-D)
 export const evaluateQuestionResponses = (
   questions: Question[],
-  userResponses: Record<string, { response: number | string | null; status: any; timeSpentSeconds?: number }>
+  userResponses: Record<string, { response: number | string | null; status: any; timeSpentSeconds?: number }>,
+  defaultExamType?: ExamType
 ): {
   processedAnswers: Record<string, UserAnswer>;
   totalMarks: number;
@@ -151,6 +153,10 @@ export const evaluateQuestionResponses = (
   let unattemptedCount = 0;
 
   questions.forEach(q => {
+    const exam = q.examType || defaultExamType || 'CAT';
+    const marksPerCorrect = q.marksPerCorrect ?? (exam === 'XAT' || exam === 'SNAP' ? 1 : 3);
+    const negativeMarks = q.negativeMarks ?? (exam === 'XAT' || exam === 'SNAP' ? 0.25 : 1);
+
     const u = userResponses[q.id];
     const resp = u ? u.response : null;
     const timeSpent = u?.timeSpentSeconds || 0;
@@ -170,11 +176,11 @@ export const evaluateQuestionResponses = (
       if (q.type === 'MCQ') {
         if (Number(resp) === Number(q.correctAnswer)) {
           isCorrect = true;
-          marksAwarded = 3;
+          marksAwarded = marksPerCorrect;
           correctCount++;
         } else {
           isCorrect = false;
-          marksAwarded = -1;
+          marksAwarded = -negativeMarks;
           incorrectCount++;
         }
       } else {
@@ -187,11 +193,11 @@ export const evaluateQuestionResponses = (
 
         if (isMatch) {
           isCorrect = true;
-          marksAwarded = 3;
+          marksAwarded = marksPerCorrect;
           correctCount++;
         } else {
           isCorrect = false;
-          marksAwarded = 0; // No negative marking in TITA!
+          marksAwarded = 0; // No negative marking in TITA
           incorrectCount++;
         }
       }
@@ -209,6 +215,9 @@ export const evaluateQuestionResponses = (
     };
   });
 
+  // Round total marks to 2 decimal places to prevent JS floating point quirks (e.g. 14.750000000000002)
+  totalMarks = Math.round(totalMarks * 100) / 100;
+
   const attemptedTotal = correctCount + incorrectCount;
   const accuracy = attemptedTotal > 0 ? Math.round((correctCount / attemptedTotal) * 1000) / 10 : 0;
 
@@ -222,8 +231,76 @@ export const evaluateQuestionResponses = (
   };
 };
 
-// Historical CAT Score-to-Percentile Estimation Model
-export const estimatePercentile = (score: number, section: SectionType): number => {
+// Historical Score-to-Percentile Estimation Model (CAT, XAT, SNAP)
+export const estimatePercentile = (score: number, section: SectionType, examType: ExamType = 'CAT'): number => {
+  // XAT Sectional Percentiles
+  if (examType === 'XAT' || section === 'DM' || section === 'VALR' || section === 'QA-DI') {
+    if (section === 'DM') {
+      // XAT Decision Making (~21 Qs, total 21 marks)
+      if (score >= 15) return 99.5;
+      if (score >= 13) return 99.0;
+      if (score >= 11.5) return 96.0;
+      if (score >= 10) return 92.0; // Typical XLRI DM cutoff
+      if (score >= 8.5) return 85.0;
+      if (score >= 7) return 75.0;
+      if (score >= 5) return 60.0;
+      if (score > 0) return Math.min(50, Math.round(score * 8));
+      return 10.0;
+    } else if (section === 'VALR') {
+      // XAT Verbal & Logical Reasoning (~26 Qs, total 26 marks)
+      if (score >= 17) return 99.5;
+      if (score >= 15) return 99.0;
+      if (score >= 13) return 96.0;
+      if (score >= 11) return 90.0;
+      if (score >= 9.5) return 84.0;
+      if (score >= 7.5) return 72.0;
+      if (score >= 5) return 58.0;
+      if (score > 0) return Math.min(50, Math.round(score * 7.5));
+      return 10.0;
+    } else {
+      // XAT QA-DI (~28 Qs, total 28 marks)
+      if (score >= 19) return 99.5;
+      if (score >= 16) return 99.0;
+      if (score >= 13.5) return 96.0;
+      if (score >= 11.5) return 90.0;
+      if (score >= 9.5) return 82.0;
+      if (score >= 7) return 70.0;
+      if (score >= 4.5) return 55.0;
+      if (score > 0) return Math.min(50, Math.round(score * 8));
+      return 10.0;
+    }
+  }
+
+  // SNAP Sectional Percentiles
+  if (examType === 'SNAP' || section === 'GE' || section === 'LR' || section === 'QA-DS') {
+    if (section === 'GE') {
+      // SNAP General English (15 Qs, 15 marks)
+      if (score >= 13) return 99.0;
+      if (score >= 11) return 95.0;
+      if (score >= 9) return 85.0;
+      if (score >= 7) return 70.0;
+      if (score > 0) return Math.min(60, Math.round(score * 8));
+      return 10.0;
+    } else if (section === 'LR') {
+      // SNAP Analytical & LR (25 Qs, 25 marks)
+      if (score >= 21) return 99.5;
+      if (score >= 18.5) return 98.0;
+      if (score >= 16) return 92.0;
+      if (score >= 13) return 80.0;
+      if (score > 0) return Math.min(65, Math.round(score * 4.8));
+      return 10.0;
+    } else {
+      // SNAP QA, DI & DS (20 Qs, 20 marks)
+      if (score >= 17) return 99.5;
+      if (score >= 15) return 98.0;
+      if (score >= 12.5) return 92.0;
+      if (score >= 10) return 80.0;
+      if (score > 0) return Math.min(65, Math.round(score * 6));
+      return 10.0;
+    }
+  }
+
+  // CAT Sectional Percentiles
   if (section === 'QA') {
     if (score >= 42) return 99.9;
     if (score >= 36) return 99.5;
@@ -265,8 +342,37 @@ export const estimatePercentile = (score: number, section: SectionType): number 
   }
 };
 
-// Historical CAT 198-Mark Full Mock Score-to-Percentile Model
-export const estimateFullMockPercentile = (totalScore: number): number => {
+// Full Mock Score-to-Percentile Model (CAT 198m, XAT ~75m, SNAP 60m)
+export const estimateFullMockPercentile = (totalScore: number, examType: ExamType = 'CAT'): number => {
+  if (examType === 'XAT') {
+    // XAT Full Mock (~75 marks Part 1)
+    if (totalScore >= 45) return 99.8;
+    if (totalScore >= 40) return 99.2;
+    if (totalScore >= 36) return 98.0;
+    if (totalScore >= 33) return 95.0; // Typical XLRI BM shortlist cutoff
+    if (totalScore >= 29) return 90.0;
+    if (totalScore >= 25) return 85.0;
+    if (totalScore >= 22) return 80.0;
+    if (totalScore >= 18) return 70.0;
+    if (totalScore >= 14) return 55.0;
+    if (totalScore > 0) return Math.min(50, Math.round(totalScore * 3.5));
+    return 10.0;
+  }
+
+  if (examType === 'SNAP') {
+    // SNAP Full Mock (60 marks)
+    if (totalScore >= 46) return 99.8;
+    if (totalScore >= 43) return 99.0;
+    if (totalScore >= 40) return 97.5;
+    if (totalScore >= 36) return 94.0;
+    if (totalScore >= 32) return 88.0;
+    if (totalScore >= 28) return 80.0;
+    if (totalScore >= 23) return 70.0;
+    if (totalScore > 0) return Math.min(60, Math.round(totalScore * 2.5));
+    return 10.0;
+  }
+
+  // CAT Full Mock (198 marks)
   if (totalScore >= 115) return 99.95;
   if (totalScore >= 102) return 99.9;
   if (totalScore >= 88) return 99.5;

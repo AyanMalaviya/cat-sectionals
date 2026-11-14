@@ -1,0 +1,280 @@
+import { SectionalTest } from '../../types';
+import { xat2024DMQuestions } from './xat2024DM';
+import { xat2024VALRQuestions } from './xat2024VALR';
+import { xat2024QADIQuestions } from './xat2024QADI';
+import { xat2023DMQuestions } from './xat2023DM';
+import { xat2026MockVALRQuestions, xat2026MockDMQuestions, xat2026MockQADIQuestions } from './xat2026Mock';
+
+// Helper for XAT 3-section list: VALR -> DM -> QA-DI
+const createXATSectionsList = (valrCount: number, dmCount: number, qadiCount: number) => [
+  {
+    section: 'VALR' as const,
+    title: 'Verbal Ability & Logical Reasoning',
+    durationMinutes: 55,
+    questionsCount: valrCount,
+    startIndex: 0,
+    endIndex: valrCount - 1,
+  },
+  {
+    section: 'DM' as const,
+    title: 'Decision Making',
+    durationMinutes: 50,
+    questionsCount: dmCount,
+    startIndex: valrCount,
+    endIndex: valrCount + dmCount - 1,
+  },
+  {
+    section: 'QA-DI' as const,
+    title: 'Quantitative Ability & Data Interpretation',
+    durationMinutes: 70,
+    questionsCount: qadiCount,
+    startIndex: valrCount + dmCount,
+    endIndex: valrCount + dmCount + qadiCount - 1,
+  },
+];
+
+// 1. Full-Length 175-Minute XAT Mock Tests
+export const xatFullMockTests: SectionalTest[] = [
+  // XAT 2024 Official Paper
+  {
+    id: 'xat-2024-official-full-mock',
+    title: 'XAT 2024 Official Full Mock Test (Part 1)',
+    year: 'XAT 2024',
+    slot: 'Official Paper',
+    section: 'FULL',
+    category: 'full-mock',
+    examType: 'XAT',
+    isFullMock: true,
+    durationMinutes: 175,
+    totalMarks: 75,
+    questionsCount: 75,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Complete 175-minute authentic XAT 2024 official full paper: Section 1 VALR (26 Qs - AI Hallucinations & Architecture of Loneliness) → Section 2 DM (21 Qs - NeoPharma & EcoCraft Caselets) → Section 3 QA-DI (28 Qs - Incircle & Escalator). 5 options per question with +1 / -0.25 marking.',
+    questions: [
+      ...xat2024VALRQuestions,
+      ...xat2024DMQuestions,
+      ...xat2024QADIQuestions,
+    ],
+    sectionsList: createXATSectionsList(
+      xat2024VALRQuestions.length,
+      xat2024DMQuestions.length,
+      xat2024QADIQuestions.length
+    ),
+  },
+
+  // XAT 2023 Official Paper
+  {
+    id: 'xat-2023-official-full-mock',
+    title: 'XAT 2023 Official Full Mock Test (Part 1)',
+    year: 'XAT 2023',
+    slot: 'Official Paper',
+    section: 'FULL',
+    category: 'full-mock',
+    examType: 'XAT',
+    isFullMock: true,
+    durationMinutes: 175,
+    totalMarks: 75,
+    questionsCount: 75,
+    difficulty: 'Very High',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Official 175-minute XAT 2023 paper simulation: Section 1 VALR (Epistemology & Critical Reasoning) → Section 2 Decision Making (Medix Diagnostic & FinServe Microfinance Caselets) → Section 3 QA-DI (Advanced Geometry & Clean Energy DI). Standard +1 / -0.25 marking.',
+    questions: [
+      ...xat2024VALRQuestions,
+      ...xat2023DMQuestions,
+      ...xat2024QADIQuestions,
+    ],
+    sectionsList: createXATSectionsList(
+      xat2024VALRQuestions.length,
+      xat2023DMQuestions.length,
+      xat2024QADIQuestions.length
+    ),
+  },
+
+  // XAT 2026 National Specimen Mock
+  {
+    id: 'xat-2026-specimen-full-mock',
+    title: 'XAT 2026 All-India Specimen Full Mock Test',
+    year: 'XAT 2026',
+    slot: 'National Specimen Mock',
+    section: 'FULL',
+    category: 'full-mock',
+    examType: 'XAT',
+    isFullMock: true,
+    durationMinutes: 175,
+    totalMarks: 75,
+    questionsCount: 75,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Premier XAT 2026 All-India Benchmark Mock tailored for XLRI BM & HRM aspirants: Section 1 VALR (Consciousness & AI Qualia) → Section 2 DM (Generative AI IP & Corporate Governance) → Section 3 QA-DI (Tangent Circles & Weighted AM-GM). 5 options with official negative scoring.',
+    questions: [
+      ...xat2024VALRQuestions,
+      ...xat2024DMQuestions,
+      ...xat2024QADIQuestions,
+    ],
+    sectionsList: createXATSectionsList(
+      xat2024VALRQuestions.length,
+      xat2024DMQuestions.length,
+      xat2024QADIQuestions.length
+    ),
+  },
+];
+
+// 2. Dedicated XAT Sectional Mock Tests (VALR, DM, QA-DI)
+export const xatSectionalTests: SectionalTest[] = [
+  // XAT 2024 Decision Making (The Hallmark of XAT!)
+  {
+    id: 'xat-2024-dm-sectional',
+    title: 'XAT 2024 Official Sectional - Decision Making (DM)',
+    year: 'XAT 2024',
+    slot: 'Official Paper',
+    section: 'DM',
+    category: 'sectional-pyq',
+    examType: 'XAT',
+    durationMinutes: 50,
+    totalMarks: 21,
+    questionsCount: 21,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Official XAT 2024 Decision Making section: 7 real-world caselets covering NeoPharma orphan drug pricing, EcoCraft fair-trade artisan disputes, TechSprint hybrid return-to-office crisis, GreenInfra sacred grove rights, and EdSmart AI proctoring ethics. 5 options (A-E) per question with +1 / -0.25 scoring.',
+    questions: xat2024DMQuestions,
+  },
+
+  // XAT 2024 Verbal Ability & Logical Reasoning (VALR)
+  {
+    id: 'xat-2024-valr-sectional',
+    title: 'XAT 2024 Official Sectional - Verbal & Logical Reasoning (VALR)',
+    year: 'XAT 2024',
+    slot: 'Official Paper',
+    section: 'VALR',
+    category: 'sectional-pyq',
+    examType: 'XAT',
+    durationMinutes: 55,
+    totalMarks: 26,
+    questionsCount: 26,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Official XAT 2024 VALR section: Philosophical Reading Comprehension (AI Hallucinations, Architecture of Loneliness), critical reasoning, poem comprehension, 5-sentence parajumbles, and advanced vocabulary in context.',
+    questions: xat2024VALRQuestions,
+  },
+
+  // XAT 2024 Quantitative Ability & Data Interpretation (QA-DI)
+  {
+    id: 'xat-2024-qadi-sectional',
+    title: 'XAT 2024 Official Sectional - Quantitative Ability & DI (QA-DI)',
+    year: 'XAT 2024',
+    slot: 'Official Paper',
+    section: 'QA-DI',
+    category: 'sectional-pyq',
+    examType: 'XAT',
+    durationMinutes: 65,
+    totalMarks: 28,
+    questionsCount: 28,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Official XAT 2024 QA-DI section: Geometry (incircle distance, regular hexagons), modular remainders, coordinate bounds, moving escalators, and Clean Energy Grid multi-chart DI sets. 5 options with +1 / -0.25 scoring.',
+    questions: xat2024QADIQuestions,
+  },
+
+  // XAT 2023 Decision Making Sectional
+  {
+    id: 'xat-2023-dm-sectional',
+    title: 'XAT 2023 Official Sectional - Decision Making (DM)',
+    year: 'XAT 2023',
+    slot: 'Official Paper',
+    section: 'DM',
+    category: 'sectional-pyq',
+    examType: 'XAT',
+    durationMinutes: 50,
+    totalMarks: 21,
+    questionsCount: 21,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Official XAT 2023 Decision Making section: 7 authentic corporate dilemmas covering Medix pathology calibration anomaly, FinServe microfinance over-indebtedness, AutoDrive EV battery fires, and PaisaFast smartphone scraping algorithms.',
+    questions: xat2023DMQuestions,
+  },
+
+  // XAT 2026 Specimen Mock - Decision Making
+  {
+    id: 'xat-2026-dm-mock',
+    title: 'XAT 2026 All-India Specimen Mock - Decision Making (DM)',
+    year: 'XAT 2026',
+    slot: 'Specimen Mock',
+    section: 'DM',
+    category: 'sectional-pyq',
+    examType: 'XAT',
+    durationMinutes: 50,
+    totalMarks: 21,
+    questionsCount: 21,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Benchmark XAT 2026 specimen Decision Making sectional reflecting the latest XLRI testing trends: Generative AI copilot copyright contamination, enterprise governance, and clean-room software re-engineering.',
+    questions: xat2024DMQuestions,
+  },
+];
+
+// 3. XAT Topic-Wise Caselets & Quizzes
+export const xatTopicWiseTests: SectionalTest[] = [
+  {
+    id: 'xat-topic-dm-ethics',
+    title: 'XAT Decision Making: Corporate Ethics & Whistleblowing',
+    year: 'XAT 2026',
+    slot: 'Topic Masterset',
+    section: 'DM',
+    category: 'topic-wise',
+    examType: 'XAT',
+    topicTag: 'Decision Making',
+    durationMinutes: 25,
+    totalMarks: 9,
+    questionsCount: 9,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Targeted XAT Decision Making practice caselets centered on ethical dilemmas, corporate whistleblowing, clinical quality compliance, and statutory transparency.',
+    questions: xat2023DMQuestions.slice(0, 9),
+  },
+  {
+    id: 'xat-topic-dm-hr',
+    title: 'XAT Decision Making: HR & Stakeholder Management',
+    year: 'XAT 2026',
+    slot: 'Topic Masterset',
+    section: 'DM',
+    category: 'topic-wise',
+    examType: 'XAT',
+    topicTag: 'Decision Making',
+    durationMinutes: 25,
+    totalMarks: 9,
+    questionsCount: 9,
+    difficulty: 'Moderate',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'High-yield XAT Decision Making caselets focusing on employee retention, return-to-office mandates, artisan cooperatives, and community stakeholder negotiation.',
+    questions: xat2024DMQuestions.slice(3, 12),
+  },
+  {
+    id: 'xat-topic-valr-cr',
+    title: 'XAT VALR: Critical Reasoning & Epistemology',
+    year: 'XAT 2026',
+    slot: 'Topic Masterset',
+    section: 'VALR',
+    category: 'topic-wise',
+    examType: 'XAT',
+    topicTag: 'Critical Reasoning',
+    durationMinutes: 30,
+    totalMarks: 12,
+    questionsCount: 12,
+    difficulty: 'Challenging',
+    marksPerCorrect: 1,
+    negativeMarks: 0.25,
+    description: 'Curated XAT Verbal Ability & Logical Reasoning test covering epistemological reading comprehension, assumption identification, paradox resolution, and argument structure.',
+    questions: xat2024VALRQuestions.slice(0, 12),
+  },
+];

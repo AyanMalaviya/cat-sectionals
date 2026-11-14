@@ -74,14 +74,20 @@ export const QuestionView: React.FC<QuestionViewProps> = ({
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Marking scheme badge */}
-          <div className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs">
-            <span className="text-emerald-700 dark:text-emerald-300 font-bold bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md">
-              +3
-            </span>
-            <span className="text-rose-700 dark:text-rose-300 font-bold bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md">
-              {question.type === 'MCQ' ? '-1' : '0'}
-            </span>
-          </div>
+          {(() => {
+            const marksPerCorrect = question.marksPerCorrect ?? (question.examType === 'XAT' || question.examType === 'SNAP' ? 1 : 3);
+            const negativeMarks = question.negativeMarks ?? (question.examType === 'XAT' || question.examType === 'SNAP' ? 0.25 : 1);
+            return (
+              <div className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs">
+                <span className="text-emerald-700 dark:text-emerald-300 font-bold bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md">
+                  +{marksPerCorrect}
+                </span>
+                <span className="text-rose-700 dark:text-rose-300 font-bold bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md">
+                  {question.type === 'MCQ' ? `-${negativeMarks}` : '0'}
+                </span>
+              </div>
+            );
+          })()}
 
           {/* Copy Question Button */}
           <button

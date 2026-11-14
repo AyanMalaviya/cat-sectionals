@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Play, Pause, CheckCircle2, Clock, ArrowRight, Sparkles, Coffee } from 'lucide-react';
+import { SectionType } from '../../types';
 
 interface SectionTransitionModalProps {
   isOpen: boolean;
-  completedSection: 'VARC' | 'DILR' | 'QA';
+  completedSection: SectionType;
   completedSectionNumber: number; // 1 or 2
-  nextSection: 'VARC' | 'DILR' | 'QA';
+  nextSection: SectionType;
   nextSectionNumber: number; // 2 or 3
   attemptedCount: number;
   totalQuestions: number;
@@ -36,6 +37,12 @@ export const SectionTransitionModal: React.FC<SectionTransitionModalProps> = ({
     VARC: 'Verbal Ability & Reading Comprehension',
     DILR: 'Data Interpretation & Logical Reasoning',
     QA: 'Quantitative Aptitude',
+    VALR: 'Verbal Ability & Logical Reasoning',
+    DM: 'Decision Making',
+    'QA-DI': 'Quantitative Ability & Data Interpretation',
+    GE: 'General English',
+    LR: 'Analytical & Logical Reasoning',
+    'QA-DS': 'Quantitative, DI & Data Sufficiency',
   };
 
   const handleStartNow = () => {

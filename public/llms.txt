@@ -1,29 +1,39 @@
-# CBTMocks - Free Mock Tests for Competitive Exams
+# CBTMocks - Free Mock Tests for Competitive Exams (CAT, XAT, SNAP)
 
-> CBTMocks (https://cbtmocks.online/) is a 100% free open-access Computer Based Test (CBT) portal for competitive examinations including CAT, XAT, and SNAP. It provides 62+ full-length sectional and 120-minute mocks with authentic TCS iON simulation, official scoring (+3/-1 MCQ, +3/0 TITA), draggable virtual calculator, and instant response analytics with zero paywalls, zero ads during active tests, and no sign-up required.
+> CBTMocks (https://cbtmocks.online/) is a 100% free open-access Computer Based Test (CBT) portal for Indian MBA competitive examinations: Common Admission Test (CAT), Xavier Aptitude Test (XAT), and Symbiosis National Aptitude Test (SNAP). It provides 65+ full-length and sectional mocks with authentic test interfaces, official scoring (+3/-1 for CAT, +1/-0.25 for XAT/SNAP), draggable virtual calculator (CAT), 5-option MCQs & Decision Making caselets (XAT), 60-minute speed tests (SNAP), and instant percentiles with zero paywalls, zero ads during active tests, and no sign-up required.
 
-## Core Free Mock Test Modules
+## Core Free Mock Test Modules by Exam
 
-- [120-Minute Official Full Mock Tests](https://cbtmocks.online/#/full-mocks): Authentic 3-section full mock tests (VARC 40m, DILR 40m, QA 40m) with 66 questions, 198 marks, optional section break pauses, and session state persistence.
-- [40-Minute Sectional Mock Tests](https://cbtmocks.online/#/tests): Comprehensive timed sectional test papers for Quantitative Aptitude (22 Qs), DILR (20 Qs), and VARC (24 Qs) from CAT 2020 to 2026 specimen mocks.
-- [Topic-Wise Mock Practice Quizzes](https://cbtmocks.online/#/topic-wise): Curated targeted quizzes across Arithmetic, Algebra, Geometry, Numbers, RC Passages, Tournaments, and Route Networks.
+### 1. Common Admission Test (CAT)
+- [Free CAT Mock Tests & Sectionals](https://cbtmocks.online/cat.html): Comprehensive SEO portal & syllabus guide.
+- [CAT 120-Minute Official Full Mocks](https://cbtmocks.online/#/cat/full-mocks): Authentic 3-section simulation (VARC 40m, DILR 40m, QA 40m) with 66 questions, 198 marks, +3/-1 marking, and on-screen calculator.
+- [CAT 40-Minute Sectional Tests](https://cbtmocks.online/#/cat/tests): Timed papers for VARC (24 Qs), DILR (20 Qs), and Quantitative Aptitude (22 Qs) from CAT 2020 to 2026 specimen papers.
+
+### 2. Xavier Aptitude Test (XAT)
+- [Free XAT Mock Tests & DM Sectionals](https://cbtmocks.online/xat.html): Dedicated XLRI portal, Decision Making strategy, and scoring guide.
+- [XAT 175-Minute Official Full Mocks](https://cbtmocks.online/#/xat/full-mocks): Official XAT 2024, XAT 2023, and 2026 Specimen mocks (75 Qs, 5 options A-E, +1.0/-0.25 marking).
+- [XAT Decision Making (DM) Sectionals](https://cbtmocks.online/#/xat/tests): Real managerial caselets (NeoPharma, EcoCraft, TechSprint, Medix, FinServe) with ethical dilemmas and elimination strategies.
+- [XAT VALR & QA-DI Sectionals](https://cbtmocks.online/#/xat/tests): High-level abstract reading comprehension, critical reasoning, geometry, and multi-chart DI sets.
+
+### 3. Symbiosis National Aptitude Test (SNAP)
+- [Free SNAP Mock Tests & Speed Sectionals](https://cbtmocks.online/snap.html): Complete Symbiosis SIBM Pune & SCMHRD guide.
+- [SNAP 60-Minute Speed Full Mocks](https://cbtmocks.online/#/snap/full-mocks): 60 questions in 60 minutes, +1/-0.25 marking, no sectional time limits.
+- [SNAP Sectionals](https://cbtmocks.online/#/snap/tests): General English (15 Qs), Analytical & Logical Reasoning (25 Qs), and Quantitative, DI & Data Sufficiency (20 Qs).
+
+## Performance History & Revision Tools
 - [Tests Given Performance History](https://cbtmocks.online/#/history): Local storage analytics tracking past attempt scores, section-wise accuracy, percentiles, and solutions.
 - [Bookmarked Questions Review](https://cbtmocks.online/#/bookmarks): Saved challenging questions for revision before exam day.
 
 ## About CBTMocks & Anti-Paywall Mission
-
 - [About Us & Our Mission](https://cbtmocks.online/about.html): Our mission to end predatory ₹5,000 to ₹15,000 coaching paywalls, demo-mock marketing bait, and intrusive telemarketing calls.
-- [Coaching Comparison Matrix](https://cbtmocks.online/about.html#comparison): Side-by-side comparison between CBTMocks (100% free forever) and commercial coaching institutes (IMS, TIME, Career Launcher, Cracku).
-- [CBT Exam Strategy Guide](https://cbtmocks.online/about.html#strategy): Best practices for 40-minute sectional discipline, Round 1 vs Round 2 question selection, and virtual calculator precision.
+- [Coaching Comparison Matrix](https://cbtmocks.online/about.html#comparison): Side-by-side comparison between CBTMocks (100% free forever) and commercial coaching institutes.
 - [Contact & Paper Submissions](https://cbtmocks.online/contact.html): Student support, missing slot question paper submissions, and feedback.
 
 ## Legal & Compliance Policies
+- [Privacy Policy](https://cbtmocks.online/privacy.html): Strict privacy protections, anonymous local storage data, and Google AdSense cookie disclosures.
+- [Terms of Service](https://cbtmocks.online/terms.html): Open educational use terms and intellectual property notice.
 
-- [Privacy Policy](https://cbtmocks.online/privacy.html): Strict privacy protections, anonymous local storage data storage, and Google AdSense cookie disclosures.
-- [Terms of Service](https://cbtmocks.online/terms.html): Open educational use terms, non-commercial educational resource status, and intellectual property notice.
-
-## Optional
-
-- [Robots Configuration](https://cbtmocks.online/robots.txt): Search engine crawler directives and index rules.
-- [XML Sitemap](https://cbtmocks.online/sitemap.xml): Complete machine-readable XML sitemap of all indexed URLs.
-- [Digital Advertising Policy (ads.txt)](https://cbtmocks.online/ads.txt): Official authorized digital sellers verification file for Google AdSense (pub-8711221458060472).
+## Crawler & Indexing Resources
+- [XML Sitemap](https://cbtmocks.online/sitemap.xml): Complete machine-readable XML sitemap including `/cat.html`, `/xat.html`, and `/snap.html`.
+- [Robots Configuration](https://cbtmocks.online/robots.txt): Search engine and AI crawler directives.
+- [Digital Advertising Policy (ads.txt)](https://cbtmocks.online/ads.txt): Authorized digital sellers verification file for Google AdSense (pub-8711221458060472).

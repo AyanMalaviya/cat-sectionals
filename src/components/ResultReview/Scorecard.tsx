@@ -22,35 +22,50 @@ export const Scorecard: React.FC<ScorecardProps> = ({
   const minutesTaken = Math.floor(result.totalTimeSeconds / 60);
   const secondsTaken = result.totalTimeSeconds % 60;
   const isFullMock = test.category === 'full-mock' || result.section === 'FULL' || test.isFullMock;
+  const exam = test.examType || result.examType || 'CAT';
 
-  // Compute 3-section metrics if Full Mock
+  // Compute multi-section metrics if Full Mock
   const sectionBreakdown = isFullMock
-    ? (['VARC', 'DILR', 'QA'] as const).map((sec) => {
+    ? (test.sectionsList ? test.sectionsList.map(s => s.section) : (['VARC', 'DILR', 'QA'] as const)).map((sec) => {
         const secQs = test.questions.filter((q) => q.section === sec);
         let correct = 0;
         let incorrect = 0;
         let marks = 0;
 
         secQs.forEach((q) => {
+          const defaultCorrect = q.marksPerCorrect ?? (exam === 'XAT' || exam === 'SNAP' ? 1 : 3);
+          const defaultNegative = q.negativeMarks ?? (exam === 'XAT' || exam === 'SNAP' ? 0.25 : 1);
           const ans = result.answers[q.id];
           if (ans?.isCorrect) {
             correct++;
-            marks += ans.marksAwarded || 3;
+            marks += ans.marksAwarded !== undefined ? ans.marksAwarded : defaultCorrect;
           } else if (ans && ans.response !== null && ans.response !== undefined && String(ans.response).trim() !== '') {
             incorrect++;
-            marks += ans.marksAwarded || (q.type === 'MCQ' ? -1 : 0);
+            marks += ans.marksAwarded !== undefined ? ans.marksAwarded : (q.type === 'MCQ' ? -defaultNegative : 0);
           }
         });
 
+        // Round marks to 2 decimals
+        marks = Math.round(marks * 100) / 100;
+
         const attempted = correct + incorrect;
         const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
-        const maxMarks = secQs.length * 3;
-        const percentile = estimatePercentile(marks, sec);
+        const maxMarks = secQs.reduce(
+          (acc, q) => acc + (q.marksPerCorrect ?? (exam === 'XAT' || exam === 'SNAP' ? 1 : 3)),
+          0
+        );
+        const percentile = estimatePercentile(marks, sec as any, exam);
 
         const titles: Record<string, string> = {
           VARC: 'Verbal Ability & Reading Comprehension',
           DILR: 'Data Interpretation & Logical Reasoning',
           QA: 'Quantitative Aptitude',
+          VALR: 'Verbal Ability & Logical Reasoning',
+          DM: 'Decision Making',
+          'QA-DI': 'Quantitative Ability & Data Interpretation',
+          GE: 'General English',
+          LR: 'Analytical & Logical Reasoning',
+          'QA-DS': 'Quantitative, DI & Data Sufficiency',
         };
 
         return {
@@ -69,7 +84,7 @@ export const Scorecard: React.FC<ScorecardProps> = ({
     : [];
 
   const overallPercentile = isFullMock
-    ? estimateFullMockPercentile(result.totalMarks)
+    ? estimateFullMockPercentile(result.totalMarks, exam)
     : result.estimatedPercentile;
 
   return (

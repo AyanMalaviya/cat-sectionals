@@ -1,4 +1,4 @@
-import { SectionalTest } from '../types';
+import { SectionalTest, ExamType } from '../types';
 import { qa2026MockQuestions } from './qa2026Mock';
 import { dilr2026MockQuestions } from './dilr2026Mock';
 import { qa2025Slot1Questions } from './qa2025Slot1';
@@ -23,10 +23,12 @@ import { dilr2020Slot1Questions } from './dilr2020Slot1';
 import { varc2020Slot1Questions } from './varc2020Slot1';
 import { allTopicWiseTests } from './topicWiseData';
 import { officialFullMockTests } from './fullMocksData';
+import { xatFullMockTests, xatSectionalTests, xatTopicWiseTests } from './xat/xatTestsData';
+import { snapFullMockTests, snapSectionalTests } from './snap/snapTestsData';
 
-export { officialFullMockTests };
+export { officialFullMockTests, xatFullMockTests, snapFullMockTests };
 
-// Full 40-Minute Sectional Tests
+// Full 40-Minute Sectional Tests for CAT
 export const fullSectionalTests: SectionalTest[] = [
   // CAT 2026 National Mock Series
   {
@@ -351,13 +353,49 @@ export const fullSectionalTests: SectionalTest[] = [
   },
 ];
 
-// All available tests combined (Full 120m Mocks + 40m Sectionals + Topic-Wise Sets)
+// Aggregate Full Mocks across CAT, XAT, and SNAP
+export const allFullMocks: SectionalTest[] = [
+  ...officialFullMockTests.map((t) => ({ ...t, examType: (t.examType || 'CAT') as ExamType })),
+  ...xatFullMockTests,
+  ...snapFullMockTests,
+];
+
+// Aggregate Sectionals across CAT, XAT, and SNAP
+export const allSectionals: SectionalTest[] = [
+  ...fullSectionalTests.map((t) => ({ ...t, examType: (t.examType || 'CAT') as ExamType })),
+  ...xatSectionalTests,
+  ...snapSectionalTests,
+];
+
+// Aggregate Topic-Wise Sets across CAT, XAT, and SNAP
+export const allTopicWise: SectionalTest[] = [
+  ...allTopicWiseTests.map((t) => ({ ...t, examType: (t.examType || 'CAT') as ExamType })),
+  ...xatTopicWiseTests,
+];
+
+// All available tests combined across all competitive exams
 export const sectionalTests: SectionalTest[] = [
-  ...officialFullMockTests,
-  ...fullSectionalTests,
-  ...allTopicWiseTests,
+  ...allFullMocks,
+  ...allSectionals,
+  ...allTopicWise,
 ];
 
 export const getTestById = (id: string): SectionalTest | undefined => {
   return sectionalTests.find((t) => t.id === id);
+};
+
+export const getTestsByExam = (exam: ExamType): SectionalTest[] => {
+  return sectionalTests.filter((t) => (t.examType || 'CAT') === exam);
+};
+
+export const getFullMocksByExam = (exam: ExamType): SectionalTest[] => {
+  return allFullMocks.filter((t) => (t.examType || 'CAT') === exam);
+};
+
+export const getSectionalsByExam = (exam: ExamType): SectionalTest[] => {
+  return allSectionals.filter((t) => (t.examType || 'CAT') === exam);
+};
+
+export const getTopicTestsByExam = (exam: ExamType): SectionalTest[] => {
+  return allTopicWise.filter((t) => (t.examType || 'CAT') === exam);
 };

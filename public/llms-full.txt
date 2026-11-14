@@ -1,42 +1,67 @@
-# CBTMocks - Free Mock Tests for Competitive Exams (Full Context)
+# CBTMocks - Free Mock Tests for Competitive Exams (CAT, XAT, SNAP) - Full Context
 
-> Complete background documentation, syllabus inventory, scoring models, and mission guidelines for CBTMocks (https://cbtmocks.online/), a 100% free open-access Computer Based Test (CBT) portal for Indian competitive examinations (CAT, XAT, SNAP).
+> Complete background documentation, syllabus inventory, scoring models, and mission guidelines for CBTMocks (https://cbtmocks.online/), a 100% free open-access Computer Based Test (CBT) portal for Indian competitive MBA examinations: Common Admission Test (CAT), Xavier Aptitude Test (XAT), and Symbiosis National Aptitude Test (SNAP).
 
 ## Mission & Philosophy
-CBTMocks was engineered to dismantle the predatory test series model prevalent in Indian competitive examination preparation. Commercial coaching institutes (IMS, TIME, Career Launcher, Cracku) provide 1 or 2 sample tests as marketing bait, then lock their remaining question banks behind ₹5,000 to ₹15,000 paywalls while demanding phone numbers for telemarketing.
+CBTMocks was engineered to dismantle the predatory test series model prevalent in Indian competitive examination preparation. Commercial coaching institutes provide 1 or 2 sample tests as marketing bait, then lock their remaining question banks behind ₹5,000 to ₹15,000 paywalls while demanding phone numbers for telemarketing.
 
 CBTMocks guarantees:
-1. 100% Free Forever: All 62+ tests and 866+ questions are completely open.
+1. 100% Free Forever: All 65+ tests and 900+ questions are completely open.
 2. Zero Registration: No email, phone number, or password required. All state persists in client-side localStorage.
-3. Authentic CBT Simulation: Exact TCS iON CBT interface with 40-minute countdown timers, official question palettes (Answered, Not Answered, Marked for Review), and built-in BODMAS virtual calculator.
+3. Authentic CBT Simulation: Exact TCS iON CBT interface with countdown timers, official question palettes (Answered, Not Answered, Marked for Review), and built-in BODMAS virtual calculator for CAT.
 4. Non-Intrusive Monetization: Monetized strictly through unobtrusive Google AdSense banners (never during active tests!) and voluntary community UPI donations (ayanmalaviya111@okhdfcbank).
 
-## Test Series Inventory
+## Test Series Inventory by Exam
 
-### 1. 120-Minute Official Full Mock Tests (3 Sections)
+### 1. Common Admission Test (CAT)
+- Format: 120-Minute Official Full Mock Tests (3 Sections with 40-minute sectional locks).
 - Structure: Section 1 VARC (40m, 24 Qs) -> Section 2 DILR (40m, 20 Qs) -> Section 3 QA (40m, 22 Qs).
-- Total: 66 Questions, 198 Marks.
+- Total: 66 Questions, 198 Marks (+3 for correct, -1 for MCQ incorrect, 0 for TITA).
+- On-Screen Calculator: Built-in draggable BODMAS calculator.
 - Available Tests:
   - CAT 2026 National All-India Specimen Full Mock
   - CAT 2023 Official All-India Full Mock (Slot 2 VARC + Slot 1 DILR + Slot 1 QA)
   - CAT 2022 Official All-India Full Mock (Slot 2 VARC + Slot 3 DILR + Slot 2 QA)
-  - CAT 2021 Slot 1 Official Full Mock (All 3 Slot 1 sections)
-  - CAT 2020 Slot 1 Official Full Mock (All 3 Slot 1 sections)
+  - CAT 2021 Slot 1 Official Full Mock
+  - CAT 2020 Slot 1 Official Full Mock
+  - 40-Minute Sectional Tests for Quantitative Aptitude, DILR, and VARC.
 
-### 2. 40-Minute Sectional Mock Tests
-- Quantitative Aptitude (QA): 22 Questions, 40 Minutes, covering Arithmetic, Algebra, Geometry, Numbers, and Modern Math.
-- Data Interpretation & Logical Reasoning (DILR): 20 Questions, 40 Minutes, covering Matrix puzzles, Round-robin tournaments, Route networks, and Caselets.
-- Verbal Ability & Reading Comprehension (VARC): 24 Questions, 40 Minutes, covering 4 RC Passages (Ecology, Sociology, Technology, Economics) and 8 VA items.
+### 2. Xavier Aptitude Test (XAT)
+- Format: 175-Minute Official Part 1 Papers (VALR, Decision Making, QA-DI).
+- Structure:
+  - Verbal Ability & Logical Reasoning (VALR): 26 Questions, 5 options (A-E).
+  - Decision Making (DM): 21-22 Questions across 7 business/ethical caselets.
+  - Quantitative Ability & Data Interpretation (QA-DI): 28 Questions (Geometry, Numbers, DI sets).
+- Scoring: +1.0 mark for correct, -0.25 mark for incorrect.
+- Available Tests:
+  - XAT 2024 Official Full Mock Paper (75 Qs)
+  - XAT 2023 Official Full Mock Paper (75 Qs)
+  - XAT 2026 Specimen Full Mock Paper (75 Qs)
+  - XAT 2024 Decision Making Sectional (NeoPharma, EcoCraft, TechSprint, GreenInfra, EdSmart, BioFuel, UrbanNest)
+  - XAT 2023 Decision Making Sectional (Medix, FinServe, AutoDrive, LearnQuick, SpiceCrafters, CleanCity, PaisaFast)
+  - XAT 2024 VALR and QA-DI Sectionals.
 
-### 3. Scoring System
-- Multiple Choice Questions (MCQ): +3 marks for correct, -1 mark penalty for incorrect.
-- Type In The Answer (TITA): +3 marks for correct, 0 penalty for incorrect.
+### 3. Symbiosis National Aptitude Test (SNAP)
+- Format: 60-Minute Speed Marathon (60 Questions, No sectional time limits).
+- Structure:
+  - General English (GE): 15 Questions (Vocabulary, Idioms, Grammatical error spotting, Syllogisms).
+  - Analytical & Logical Reasoning (LR): 25 Questions (Clocks, Calendars, Coding, Seating, Critical Reasoning).
+  - Quantitative, DI & Data Sufficiency (QA-DS): 20 Questions (Fast arithmetic, P&C, Probability, Graphs).
+- Scoring: +1.0 mark for correct, -0.25 mark for incorrect.
+- Available Tests:
+  - SNAP 2024 Official Speed Mock (60 Qs in 60 Mins)
+  - SNAP General English Sectional (15 Qs)
+  - SNAP Analytical Reasoning Sectional (25 Qs)
+  - SNAP Quantitative Aptitude & Data Sufficiency Sectional (20 Qs).
 
 ## Resource Links
 - Homepage: https://cbtmocks.online/
-- Full Mocks: https://cbtmocks.online/#/full-mocks
-- Sectionals: https://cbtmocks.online/#/tests
-- Topic-Wise Quizzes: https://cbtmocks.online/#/topic-wise
+- CAT SEO Portal: https://cbtmocks.online/cat.html
+- XAT SEO Portal: https://cbtmocks.online/xat.html
+- SNAP SEO Portal: https://cbtmocks.online/snap.html
+- CAT Full Mocks: https://cbtmocks.online/#/cat/full-mocks
+- XAT Full Mocks: https://cbtmocks.online/#/xat/full-mocks
+- SNAP Full Mocks: https://cbtmocks.online/#/snap/full-mocks
 - History & Scorecards: https://cbtmocks.online/#/history
 - Bookmarks: https://cbtmocks.online/#/bookmarks
 - About Us & Mission: https://cbtmocks.online/about.html

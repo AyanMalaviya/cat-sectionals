@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SectionalTest, TestResult, SectionType, ActiveSession, TestCategory } from '../types';
+import { SectionalTest, TestResult, SectionType, ActiveSession, TestCategory, ExamType } from '../types';
 import { TestCard } from './TestCard';
 import { AdBanner } from './AdBanner';
 import {
@@ -16,6 +16,7 @@ interface DashboardProps {
   testHistory: TestResult[];
   activeSession: ActiveSession | null;
   activeCategory: TestCategory;
+  activeExam?: ExamType;
   onSelectCategory: (category: TestCategory) => void;
   onResumeActiveTest: () => void;
   onDiscardActiveTest: () => void;
@@ -29,6 +30,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   testHistory,
   activeSession,
   activeCategory,
+  activeExam = 'CAT',
   onSelectCategory,
   onResumeActiveTest,
   onDiscardActiveTest,
@@ -40,14 +42,23 @@ export const Dashboard: React.FC<DashboardProps> = ({
   const [selectedTopicTag, setSelectedTopicTag] = useState<string>('ALL');
   const [selectedYear, setSelectedYear] = useState<string>('ALL');
 
-  // Automatically reset topic tag or year when switching category
+  // Automatically reset section, topic tag, or year when switching category or exam
   useEffect(() => {
+    setSelectedSection('ALL');
     setSelectedTopicTag('ALL');
     setSelectedYear('ALL');
-  }, [activeCategory]);
+  }, [activeCategory, activeExam]);
 
-  // Filter tests by Category (Sectional vs Topic-Wise), Section (QA, VARC, DILR), and Topic/Year
+  // Determine sections list based on active exam
+  const examSections: Array<'ALL' | SectionType> = activeExam === 'XAT'
+    ? ['ALL', 'DM', 'VALR', 'QA-DI']
+    : activeExam === 'SNAP'
+    ? ['ALL', 'GE', 'LR', 'QA-DS']
+    : ['ALL', 'QA', 'VARC', 'DILR'];
+
+  // Filter tests by Exam, Category (Sectional vs Topic-Wise), Section, and Topic/Year
   const filteredTests = tests.filter((t) => {
+    if ((t.examType || 'CAT') !== activeExam) return false;
     if (t.category !== activeCategory) return false;
     if (selectedSection !== 'ALL' && t.section !== selectedSection) return false;
 
@@ -68,11 +79,25 @@ export const Dashboard: React.FC<DashboardProps> = ({
   const topicTags = Array.from(
     new Set(
       tests
-        .filter((t) => t.category === 'topic-wise' && (selectedSection === 'ALL' || t.section === selectedSection))
+        .filter((t) => (t.examType || 'CAT') === activeExam && t.category === 'topic-wise' && (selectedSection === 'ALL' || t.section === selectedSection))
         .map((t) => t.topicTag)
         .filter(Boolean)
     )
   ) as string[];
+
+  // Dynamic available years
+  const availableYears = Array.from(
+    new Set(
+      tests
+        .filter((t) => (t.examType || 'CAT') === activeExam && t.category === 'sectional-pyq')
+        .map((t) => {
+          const match = t.year.match(/\d{4}/);
+          return match ? match[0] : null;
+        })
+        .filter(Boolean)
+    )
+  ) as string[];
+  availableYears.sort((a, b) => Number(b) - Number(a));
 
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 animate-in fade-in duration-200 transition-colors">
@@ -125,22 +150,34 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 dark:bg-blue-950/70 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-                {activeCategory === 'sectional-pyq' ? '40-Min Sectionals' : 'Topic Quizzes'}
+              <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider border ${
+                activeExam === 'XAT'
+                  ? 'bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-800'
+                  : activeExam === 'SNAP'
+                  ? 'bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800'
+                  : 'bg-blue-100 dark:bg-blue-950/70 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800'
+              }`}>
+                {activeExam} • {activeCategory === 'sectional-pyq' ? 'Sectionals' : 'Topic Quizzes'}
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                 100% Free CBT Practice
               </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
-              {activeCategory === 'sectional-pyq'
-                ? 'Sectional Mock Tests'
-                : 'Topic-Wise Practice Quizzes'}
+              {activeExam} {activeCategory === 'sectional-pyq' ? 'Sectional Mock Tests' : 'Topic-Wise Practice Quizzes'}
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
-              {activeCategory === 'sectional-pyq'
-                ? 'Timed 40-minute authentic sectional tests (QA, DILR, VARC) from CAT 2020 to 2026 with official CBT countdown, built-in calculator, and +3 / -1 marking.'
-                : 'Targeted topic-wise practice quizzes with step-by-step explanations to master concepts across Quantitative Aptitude, DILR sets, and Reading Comprehension.'}
+              {activeExam === 'XAT'
+                ? (activeCategory === 'sectional-pyq'
+                    ? 'Timed authentic XAT sectional tests (Decision Making, VALR, QA-DI) from XAT 2023 to 2026 with official XLRI caselets, 5 options (A-E), and +1 / -0.25 scoring.'
+                    : 'Targeted XAT practice caselets focusing on corporate ethics, HR dilemmas, business strategy, and critical reasoning.')
+                : activeExam === 'SNAP'
+                ? (activeCategory === 'sectional-pyq'
+                    ? 'Fast-paced 15-25 minute SNAP speed sectionals (General English, Analytical & Logical Reasoning, QA & Data Sufficiency) with +1 / -0.25 scoring.'
+                    : 'Targeted SNAP quizzes across vocabulary, series, direction sense, and speed arithmetic.')
+                : (activeCategory === 'sectional-pyq'
+                    ? 'Timed 40-minute authentic sectional tests (QA, DILR, VARC) from CAT 2020 to 2026 with official CBT countdown, built-in calculator, and +3 / -1 marking.'
+                    : 'Targeted topic-wise practice quizzes with step-by-step explanations to master concepts across Quantitative Aptitude, DILR sets, and Reading Comprehension.')}
             </p>
           </div>
 
@@ -158,7 +195,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               }`}
             >
               <BookOpen className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">40-Min Sectionals</span>
+              <span className="truncate">Sectionals</span>
             </button>
 
             <button
@@ -183,13 +220,19 @@ export const Dashboard: React.FC<DashboardProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         {/* Section Tabs */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
-          {(['ALL', 'QA', 'VARC', 'DILR'] as const).map((sec) => {
+          {examSections.map((sec) => {
             const isSelected = selectedSection === sec;
             const labels: Record<string, string> = {
               ALL: 'All Sections',
-              QA: 'Quantitative Aptitude',
+              QA: 'QA (Quant)',
               VARC: 'VARC',
               DILR: 'DILR',
+              DM: 'Decision Making (DM)',
+              VALR: 'Verbal & LR (VALR)',
+              'QA-DI': 'QA-DI (Quant & DI)',
+              GE: 'General English',
+              LR: 'Analytical Reasoning',
+              'QA-DS': 'QA, DI & DS',
             };
 
             return (
@@ -215,7 +258,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         {activeCategory === 'sectional-pyq' && (
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
             <span className="text-xs text-slate-500 dark:text-slate-400 font-medium mr-1 shrink-0">Year:</span>
-            {['ALL', '2026', '2025', '2024', '2023', '2022', '2021', '2020'].map((yr) => (
+            {['ALL', ...availableYears].map((yr) => (
               <button
                 key={yr}
                 onClick={() => setSelectedYear(yr)}

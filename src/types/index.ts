@@ -1,4 +1,14 @@
-export type SectionType = 'VARC' | 'DILR' | 'QA' | 'FULL';
+export type ExamType = 'CAT' | 'XAT' | 'SNAP';
+
+export type SectionType = 
+  // Common
+  | 'FULL'
+  // CAT Sections
+  | 'VARC' | 'DILR' | 'QA'
+  // XAT Sections
+  | 'VALR' | 'DM' | 'QA-DI'
+  // SNAP Sections
+  | 'GE' | 'LR' | 'QA-DS';
 
 export type TestCategory = 'sectional-pyq' | 'topic-wise' | 'national-mock' | 'full-mock';
 
@@ -19,14 +29,17 @@ export interface Question {
   topic: string;
   difficulty: 'Easy' | 'Moderate' | 'Hard' | 'Challenging';
   passageTitle?: string;
-  passage?: string; // For RC or DILR context
+  passage?: string; // For RC, DILR context, or XAT Decision Making Caselets
   context?: string; // Direction or set context
   tableData?: Array<Record<string, string | number>>;
   question: string;
-  options?: string[]; // 4 options for MCQ
-  correctAnswer: number | string; // Index (0-3) for MCQ, or string for TITA
+  options?: string[]; // 4 options for CAT/SNAP, 5 options for XAT (A-E)
+  correctAnswer: number | string; // Index (0-4) for MCQ, or string for TITA
   explanation: string;
   year?: string;
+  examType?: ExamType;
+  marksPerCorrect?: number;
+  negativeMarks?: number;
 }
 
 export interface SectionalTest {
@@ -36,8 +49,11 @@ export interface SectionalTest {
   slot: string;
   section: SectionType;
   category: TestCategory;
-  topicTag?: string; // e.g. "Arithmetic", "Algebra", "RC Masterset", etc.
-  durationMinutes: number; // 40 minutes for standard CAT sectionals, or 20-30 for topic sets, 120 for full mocks
+  examType?: ExamType; // 'CAT' | 'XAT' | 'SNAP'
+  marksPerCorrect?: number;
+  negativeMarks?: number;
+  topicTag?: string; // e.g. "Arithmetic", "Algebra", "Decision Making", etc.
+  durationMinutes: number; // 40m for CAT sectionals, 55m for XAT, 60m for SNAP, 120/175m for full mocks
   totalMarks: number;
   questionsCount: number;
   description: string;
@@ -45,7 +61,7 @@ export interface SectionalTest {
   questions: Question[];
   isFullMock?: boolean;
   sectionsList?: Array<{
-    section: 'VARC' | 'DILR' | 'QA';
+    section: SectionType;
     title: string;
     durationMinutes: number;
     questionsCount: number;
@@ -69,6 +85,7 @@ export interface TestResult {
   testTitle: string;
   section: SectionType;
   category?: TestCategory;
+  examType?: ExamType;
   year: string;
   timestamp: number;
   totalTimeSeconds: number;
@@ -80,7 +97,7 @@ export interface TestResult {
   accuracy: number;
   estimatedPercentile: number;
   answers: Record<string, UserAnswer>;
-  sectionScores?: Partial<Record<'VARC' | 'DILR' | 'QA', {
+  sectionScores?: Partial<Record<SectionType, {
     marks: number;
     maxMarks: number;
     correct: number;
@@ -93,11 +110,12 @@ export interface TestResult {
 
 export interface ActiveSession {
   testId: string;
+  examType?: ExamType;
   startTime: number;
   remainingSeconds: number;
   currentQuestionIndex: number;
-  currentSectionIndex?: number; // 0 for VARC, 1 for DILR, 2 for QA
-  completedSections?: Array<'VARC' | 'DILR' | 'QA'>;
+  currentSectionIndex?: number; // 0, 1, 2 for multi-section full mocks
+  completedSections?: Array<SectionType>;
   answers: Record<string, UserAnswer>;
   visitedQuestions: string[];
   sectionBreakPromptEnabled?: boolean;

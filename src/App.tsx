@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { SectionalTest, TestResult, QuestionStatus, ActiveSession } from './types';
-import { sectionalTests, getTestById } from './data/testsData';
-import { officialFullMockTests } from './data/fullMocksData';
+import { SectionalTest, TestResult, QuestionStatus, ActiveSession, ExamType, SectionType } from './types';
+import { sectionalTests, getTestById, allFullMocks } from './data/testsData';
 import {
   getTestHistory,
   saveTestResult,
@@ -48,6 +47,7 @@ interface HistoryStackState {
   tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about';
   testId?: string;
   resultId?: string;
+  exam?: ExamType;
 }
 
 export function App() {
@@ -58,6 +58,9 @@ export function App() {
     setTheme((prev) => toggleThemeMode(prev));
   };
 
+  // Multi-Exam State (CAT, XAT, SNAP)
+  const [activeExam, setActiveExam] = useState<ExamType>('CAT');
+
   // Navigation & View state
   const [currentTab, setCurrentTab] = useState<'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about'>('full-mocks');
   const [view, setView] = useState<'dashboard' | 'exam' | 'scorecard' | 'analysis'>('dashboard');
@@ -66,7 +69,7 @@ export function App() {
   const [activeTest, setActiveTest] = useState<SectionalTest | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [currentSectionIndex, setCurrentSectionIndex] = useState<number>(0);
-  const [completedSections, setCompletedSections] = useState<Array<'VARC' | 'DILR' | 'QA'>>([]);
+  const [completedSections, setCompletedSections] = useState<Array<SectionType>>([]);
   const [sectionBreakPromptEnabled, setSectionBreakPromptEnabledState] = useState<boolean>(getSectionBreakPromptEnabled());
   const [remainingSeconds, setRemainingSeconds] = useState<number>(40 * 60);
   const [userResponses, setUserResponses] = useState<Record<string, number | string | null>>({});
@@ -86,8 +89,8 @@ export function App() {
   // Modals & Tools state
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isSectionTransitionModalOpen, setIsSectionTransitionModalOpen] = useState(false);
-  const [transitionCompletedSection, setTransitionCompletedSection] = useState<'VARC' | 'DILR' | 'QA'>('VARC');
-  const [transitionNextSection, setTransitionNextSection] = useState<'VARC' | 'DILR' | 'QA'>('DILR');
+  const [transitionCompletedSection, setTransitionCompletedSection] = useState<SectionType>('VARC');
+  const [transitionNextSection, setTransitionNextSection] = useState<SectionType>('DILR');
   const [transitionStats, setTransitionStats] = useState<{ attempted: number; total: number; timeSpent: number }>({
     attempted: 0,
     total: 24,
@@ -105,10 +108,12 @@ export function App() {
   const getHashForState = (
     v: 'dashboard' | 'exam' | 'scorecard' | 'analysis',
     t: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about',
-    tId?: string
+    tId?: string,
+    exam: ExamType = activeExam
   ): string => {
+    const examPrefix = exam.toLowerCase();
     if (v === 'dashboard') {
-      return `#/${t}`;
+      return `#/${examPrefix}/${t}`;
     }
     if (v === 'exam') {
       return `#/exam${tId ? `/${tId}` : ''}`;
@@ -119,7 +124,7 @@ export function App() {
     if (v === 'analysis') {
       return `#/analysis${tId ? `/${tId}` : ''}`;
     }
-    return `#/${t}`;
+    return `#/${examPrefix}/${t}`;
   };
 
   const pushNavState = useCallback(
@@ -128,19 +133,22 @@ export function App() {
       newTab?: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about',
       testId?: string,
       resultId?: string,
-      replace: boolean = false
+      replace: boolean = false,
+      exam?: ExamType
     ) => {
       const targetTab = newTab || currentTab;
       const targetTestId = testId || activeTest?.id;
       const targetResultId = resultId || currentResult?.id;
+      const targetExam = exam || activeExam;
 
-      const hash = getHashForState(newView, targetTab, targetTestId);
+      const hash = getHashForState(newView, targetTab, targetTestId, targetExam);
 
       const stateObj: HistoryStackState = {
         view: newView,
         tab: targetTab,
         testId: targetTestId,
         resultId: targetResultId,
+        exam: targetExam,
       };
 
       if (!isPopStateRef.current) {
@@ -155,9 +163,17 @@ export function App() {
       if (newTab) {
         setCurrentTab(newTab);
       }
+      if (exam) {
+        setActiveExam(exam);
+      }
     },
-    [currentTab, activeTest, currentResult]
+    [currentTab, activeTest, currentResult, activeExam]
   );
+
+  const handleSelectExam = (newExam: ExamType) => {
+    setActiveExam(newExam);
+    pushNavState('dashboard', currentTab, undefined, undefined, false, newExam);
+  };
 
   // Initial URL hash and History Stack setup on mount
   useEffect(() => {
@@ -167,7 +183,23 @@ export function App() {
     }
 
     const hash = window.location.hash.replace(/^#\/?/, '');
-    const [route, id] = hash.split('/');
+    const parts = hash.split('/');
+
+    let initialExam: ExamType = 'CAT';
+    let route = parts[0];
+    let id = parts[1];
+
+    if (['cat', 'xat', 'snap'].includes(parts[0]?.toLowerCase())) {
+      initialExam = parts[0].toUpperCase() as ExamType;
+      route = parts[1] || 'full-mocks';
+      id = parts[2];
+    } else {
+      const urlParams = new URLSearchParams(window.location.search);
+      const qExam = urlParams.get('exam');
+      if (qExam && ['cat', 'xat', 'snap'].includes(qExam.toLowerCase())) {
+        initialExam = qExam.toUpperCase() as ExamType;
+      }
+    }
 
     let initialView: 'dashboard' | 'exam' | 'scorecard' | 'analysis' = 'dashboard';
     let initialTab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about' = 'full-mocks';
@@ -193,12 +225,14 @@ export function App() {
       const found = getTestById(id);
       if (found) {
         testToLoad = found;
+        initialExam = found.examType || initialExam;
         initialView = 'exam';
       }
     } else if (route === 'scorecard' && id) {
       const found = getTestById(id);
       if (found) {
         testToLoad = found;
+        initialExam = found.examType || initialExam;
         const past = getTestHistory().find((r) => r.testId === id);
         if (past) resultToLoad = past;
         initialView = 'scorecard';
@@ -207,12 +241,14 @@ export function App() {
       const found = getTestById(id);
       if (found) {
         testToLoad = found;
+        initialExam = found.examType || initialExam;
         const past = getTestHistory().find((r) => r.testId === id);
         if (past) resultToLoad = past;
         initialView = 'analysis';
       }
     }
 
+    setActiveExam(initialExam);
     if (testToLoad) setActiveTest(testToLoad);
     if (resultToLoad) setCurrentResult(resultToLoad);
     setView(initialView);
@@ -223,11 +259,12 @@ export function App() {
       tab: initialTab,
       testId: testToLoad?.id,
       resultId: resultToLoad?.id,
+      exam: initialExam,
     };
     window.history.replaceState(
       initialState,
       '',
-      getHashForState(initialView, initialTab, testToLoad?.id)
+      getHashForState(initialView, initialTab, testToLoad?.id, initialExam)
     );
   }, []);
 
@@ -369,22 +406,54 @@ export function App() {
 
   // Dynamic SEO Page Title & Meta Tag Updates for Target Keywords & Free Positioning
   useEffect(() => {
+    let title = 'Free Mock Test - 62+ Free Mock Tests CBT for Competitive Exams (CAT, XAT, SNAP)';
+    let desc = '100% Free Computer Based Test (CBT) portal for CAT, XAT, and SNAP with official simulations, authentic scoring, virtual calculator, and detailed solutions.';
+
     if (view === 'exam' && activeTest) {
-      document.title = `Free Mock Test CBT: ${activeTest.title} (Official Simulation) | CBTMocks`;
+      title = `Free ${activeTest.examType || 'CBT'} Mock Test: ${activeTest.title} (Official Simulation) | CBTMocks`;
+      desc = `Take official ${activeTest.examType || ''} mock test ${activeTest.title} with real CBT timer, instant question palette, and detailed step-by-step solutions.`;
     } else if (view === 'scorecard' && activeTest) {
-      document.title = `Free Mock Test Scorecard: ${activeTest.title} | Percentile & Analytics`;
+      title = `Free Mock Test Scorecard: ${activeTest.title} | Percentile & Analytics | CBTMocks`;
     } else if (view === 'analysis' && activeTest) {
-      document.title = `Free Mock Test Solutions: ${activeTest.title} | Step-by-Step Analysis`;
-    } else if (currentTab === 'topic-wise') {
-      document.title = 'Free Mock Tests Topic-Wise - QA, DILR & VARC Practice Quizzes | CBTMocks';
-    } else if (currentTab === 'history') {
-      document.title = 'Free Mock Test History & Analytics | CBTMocks';
-    } else if (currentTab === 'bookmarks') {
-      document.title = 'Saved Free Mock Questions & Formulas | CBTMocks';
+      title = `Free Mock Test Solutions: ${activeTest.title} | Step-by-Step Analysis | CBTMocks`;
+    } else if (activeExam === 'XAT') {
+      if (currentTab === 'full-mocks') {
+        title = 'Free XAT Mock Tests 2026 - Official Full Papers (175 Mins) | CBTMocks';
+        desc = 'Practice 100% free official XAT full-length mock tests (175 minutes, 75 questions) with Decision Making, VALR, QA-DI, +1 / -0.25 marking, and 5 options (A-E).';
+      } else if (currentTab === 'tests') {
+        title = 'Free XAT Decision Making (DM) & Sectional Tests 2026 | CBTMocks';
+        desc = 'Master XAT Decision Making (DM), Verbal Ability (VALR), and QA-DI with authentic past year caselets from XAT 2024 and 2023.';
+      } else {
+        title = 'Free XAT Mock Tests & PYQs 2026 (Decision Making & Sectionals) | CBTMocks';
+        desc = 'Comprehensive free XAT 2026 preparation with previous year papers, ethical decision making caselets, and sectional mocks.';
+      }
+    } else if (activeExam === 'SNAP') {
+      if (currentTab === 'full-mocks') {
+        title = 'Free SNAP Mock Tests 2026 - 60-Minute Speed Mock Exams | CBTMocks';
+        desc = 'Practice 60-minute authentic SNAP speed mock tests with 60 questions across General English, Analytical Reasoning, and Quant with +1 / -0.25 scoring.';
+      } else {
+        title = 'Free SNAP Sectional Speed Tests 2026 (GE, LR, QA-DS) | CBTMocks';
+        desc = 'Timed speed sectionals for SNAP 2026: 15-minute General English, 25-minute Logical Reasoning, and 20-minute Quant tests.';
+      }
     } else {
-      document.title = 'Free Mock Test - 62+ Free Mock Tests CBT for Competitive Exams (CAT 2026)';
+      // CAT
+      if (currentTab === 'full-mocks') {
+        title = 'Free CAT Mock Tests 2026 - 120-Minute Official Full Mocks | CBTMocks';
+        desc = 'Authentic 120-minute 3-section CAT full mock tests (VARC 40m, DILR 40m, QA 40m) with 66 questions, 198 marks, and calculator.';
+      } else if (currentTab === 'tests') {
+        title = 'Free CAT Sectional Mock Tests 2026 (QA, DILR, VARC 40-Min) | CBTMocks';
+        desc = 'Timed 40-minute authentic CAT sectional test papers from CAT 2020 to 2026 with official CBT countdown and +3 / -1 marking.';
+      } else if (currentTab === 'topic-wise') {
+        title = 'Free CAT Topic-Wise Practice Quizzes (QA, DILR, VARC) | CBTMocks';
+      }
     }
-  }, [view, currentTab, activeTest]);
+
+    document.title = title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', desc);
+    }
+  }, [view, currentTab, activeTest, activeExam]);
 
   // Helper getters for Full Mock vs Sectional Active State
   const isCurrentFullMock = Boolean(
@@ -456,7 +525,9 @@ export function App() {
     setCompletedSections([]);
     setCurrentQuestionIndex(0);
 
-    const initialSecSeconds = isMock ? 40 * 60 : test.durationMinutes * 60;
+    const initialSecSeconds = (isMock && test.sectionsList && test.sectionsList[0]?.durationMinutes)
+      ? test.sectionsList[0].durationMinutes * 60
+      : (isMock ? 40 * 60 : test.durationMinutes * 60);
     setRemainingSeconds(initialSecSeconds);
 
     const initialStatuses: Record<string, QuestionStatus> = {};
@@ -496,7 +567,11 @@ export function App() {
     setCurrentSectionIndex(secIdx);
     setCompletedSections(session.completedSections || []);
     setCurrentQuestionIndex(session.currentQuestionIndex || 0);
-    setRemainingSeconds(session.remainingSeconds || (isMock ? 40 * 60 : test.durationMinutes * 60));
+
+    const defaultSecDuration = (isMock && test.sectionsList && test.sectionsList[secIdx]?.durationMinutes)
+      ? test.sectionsList[secIdx].durationMinutes * 60
+      : (isMock ? 40 * 60 : test.durationMinutes * 60);
+    setRemainingSeconds(session.remainingSeconds || defaultSecDuration);
 
     const responses: Record<string, number | string | null> = {};
     const statuses: Record<string, QuestionStatus> = {};
@@ -622,7 +697,9 @@ export function App() {
     const nextIdx = currentSectionIndex + 1;
     setCurrentSectionIndex(nextIdx);
     setCurrentQuestionIndex(0);
-    setRemainingSeconds(40 * 60);
+
+    const nextDuration = (activeTest.sectionsList[nextIdx]?.durationMinutes || 40) * 60;
+    setRemainingSeconds(nextDuration);
 
     const nextConfig = activeTest.sectionsList[nextIdx];
     const firstQ = activeTest.questions[nextConfig.startIndex];
@@ -652,7 +729,7 @@ export function App() {
     saveActiveSession({
       testId: activeTest.id,
       startTime: Date.now(),
-      remainingSeconds: 40 * 60,
+      remainingSeconds: nextDuration,
       currentSectionIndex: nextIdx,
       completedSections: updatedCompleted,
       currentQuestionIndex: 0,
@@ -667,6 +744,7 @@ export function App() {
     if (!activeTest || !activeTest.sectionsList) return;
 
     const nextIdx = currentSectionIndex + 1;
+    const nextDuration = (activeTest.sectionsList[nextIdx]?.durationMinutes || 40) * 60;
     const updatedCompleted = Array.from(
       new Set([...completedSections, activeTest.sectionsList[currentSectionIndex].section])
     );
@@ -685,7 +763,7 @@ export function App() {
     saveActiveSession({
       testId: activeTest.id,
       startTime: Date.now(),
-      remainingSeconds: 40 * 60,
+      remainingSeconds: nextDuration,
       currentSectionIndex: nextIdx,
       completedSections: updatedCompleted,
       currentQuestionIndex: 0,
@@ -702,12 +780,12 @@ export function App() {
     if (!activeTest) return;
 
     // Full Mock interim section submission
-    if (isCurrentFullMock && currentSectionIndex < 2) {
+    if (isCurrentFullMock && activeTest.sectionsList && currentSectionIndex < activeTest.sectionsList.length - 1) {
       setIsSubmitModalOpen(false);
 
-      const secConfig = activeTest.sectionsList![currentSectionIndex];
+      const secConfig = activeTest.sectionsList[currentSectionIndex];
       const completedSec = secConfig.section;
-      const nextSecConfig = activeTest.sectionsList![currentSectionIndex + 1];
+      const nextSecConfig = activeTest.sectionsList[currentSectionIndex + 1];
       const nextSec = nextSecConfig.section;
 
       const secQuestions = activeTest.questions.slice(secConfig.startIndex, secConfig.endIndex + 1);
@@ -716,7 +794,8 @@ export function App() {
         return resp !== null && resp !== undefined && String(resp).trim() !== '';
       }).length;
 
-      const timeTakenInSec = 40 * 60 - remainingSeconds;
+      const currentDuration = (secConfig.durationMinutes || 40) * 60;
+      const timeTakenInSec = currentDuration - remainingSeconds;
       setCompletedSections((prev) => Array.from(new Set([...prev, completedSec])));
 
       if (sectionBreakPromptEnabled) {
@@ -756,15 +835,15 @@ export function App() {
       incorrectCount,
       unattemptedCount,
       accuracy,
-    } = evaluateQuestionResponses(activeTest.questions, responsePayload);
+    } = evaluateQuestionResponses(activeTest.questions, responsePayload, activeTest.examType || 'CAT');
 
     const totalTimeTaken = isCurrentFullMock
-      ? Math.max(1, 120 * 60 - remainingSeconds)
+      ? Math.max(1, (activeTest.durationMinutes || 120) * 60 - remainingSeconds)
       : Math.max(1, activeTest.durationMinutes * 60 - remainingSeconds);
 
     const estimatedPercentile = isCurrentFullMock
-      ? estimateFullMockPercentile(totalMarks)
-      : estimatePercentile(totalMarks, activeTest.section);
+      ? estimateFullMockPercentile(totalMarks, activeTest.examType || 'CAT')
+      : estimatePercentile(totalMarks, activeTest.section, activeTest.examType || 'CAT');
 
     const result: TestResult = {
       id: `res-${Date.now()}`,
@@ -772,6 +851,7 @@ export function App() {
       testTitle: activeTest.title,
       section: activeTest.section,
       category: activeTest.category,
+      examType: activeTest.examType || 'CAT',
       year: activeTest.year,
       timestamp: Date.now(),
       totalTimeSeconds: totalTimeTaken,
@@ -830,6 +910,8 @@ export function App() {
           onSelectTab={(tab) => {
             pushNavState('dashboard', tab);
           }}
+          activeExam={activeExam}
+          onSelectExam={handleSelectExam}
           testsGivenCount={history.length}
           bookmarksCount={bookmarks.length}
           onToggleCalculator={() => setIsCalculatorOpen((prev) => !prev)}
@@ -841,13 +923,13 @@ export function App() {
 
       {/* Main Body */}
       <main className="flex-1 flex flex-col bg-white dark:bg-slate-950">
-        {/* EXAM VIEW (Real CAT TCS iON interface with maximized question area) */}
+        {/* EXAM VIEW (Real CAT/XAT/SNAP CBT interface with maximized question area) */}
         {view === 'exam' && activeTest && activeQuestion && (
           <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white dark:bg-slate-950">
             <ExamHeader
               title={activeTest.title}
-              section={isCurrentFullMock ? (activeSectionConfig?.section || 'VARC') : activeTest.section}
-              durationMinutes={isCurrentFullMock ? 40 : activeTest.durationMinutes}
+              section={isCurrentFullMock ? (activeSectionConfig?.section || 'FULL') : activeTest.section}
+              durationMinutes={isCurrentFullMock ? (activeSectionConfig?.durationMinutes || 40) : activeTest.durationMinutes}
               remainingSeconds={remainingSeconds}
               isPaletteOpen={isPaletteOpen}
               onTogglePalette={() => setIsPaletteOpen((prev) => !prev)}
@@ -858,14 +940,15 @@ export function App() {
               isFullMock={isCurrentFullMock}
               currentSectionIndex={currentSectionIndex}
               completedSections={completedSections}
+              sectionsList={activeTest.sectionsList}
               sectionBreakPromptEnabled={sectionBreakPromptEnabled}
               onToggleBreakPrompt={handleToggleBreakPrompt}
               theme={theme}
               onToggleTheme={handleToggleTheme}
               submitButtonLabel={
-                isCurrentFullMock
-                  ? (currentSectionIndex < 2 ? `Submit Section ${currentSectionIndex + 1}` : 'Submit Full Mock')
-                  : 'Submit'
+                isCurrentFullMock && activeTest.sectionsList && currentSectionIndex < activeTest.sectionsList.length - 1
+                  ? `Submit ${activeSectionConfig?.section || 'Section'}`
+                  : 'Submit Test'
               }
             />
 
@@ -960,9 +1043,10 @@ export function App() {
                 <>
                   {currentTab === 'full-mocks' && (
                     <FullMocksView
-                      fullMocks={officialFullMockTests}
+                      fullMocks={allFullMocks}
                       testHistory={history}
                       activeSession={activeSession}
+                      activeExam={activeExam}
                       onResumeActiveTest={handleResumeActiveTest}
                       onDiscardActiveTest={handleDiscardActiveTest}
                       onStartTest={handleStartTest}
@@ -976,6 +1060,7 @@ export function App() {
                       testHistory={history}
                       activeSession={activeSession}
                       activeCategory={currentTab === 'topic-wise' ? 'topic-wise' : 'sectional-pyq'}
+                      activeExam={activeExam}
                       onSelectCategory={(cat) => {
                         const tab = cat === 'topic-wise' ? 'topic-wise' : 'tests';
                         pushNavState('dashboard', tab);
@@ -1018,11 +1103,21 @@ export function App() {
               )}
             </div>
 
-            {/* Right Side Rail (Only rendered when real Google AdSense ID is configured) */}
+            {/* Right Side Rail */}
             <AdBanner slot="side-rail-right" className="ml-4" />
           </div>
         )}
       </main>
+
+      {/* Footer */}
+      {view !== 'exam' && (
+        <Footer
+          onOpenLegalTab={handleOpenLegalTab}
+          onSelectTab={(tab) => pushNavState('dashboard', tab)}
+          onOpenCalculator={() => setIsCalculatorOpen((prev) => !prev)}
+          onOpenSupport={() => setIsSupportModalOpen(true)}
+        />
+      )}
 
       {/* CAT Virtual Calculator Widget */}
       <VirtualCalculator

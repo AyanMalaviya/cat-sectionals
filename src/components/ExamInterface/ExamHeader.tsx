@@ -1,6 +1,7 @@
 import React from 'react';
 import { Timer, Calculator, FileText, PanelRight, Maximize2, LogOut, CheckCircle2, Lock, Sun, Moon } from 'lucide-react';
 import { SectionBreakToggle } from './SectionBreakToggle';
+import { SectionType } from '../../types';
 
 interface ExamHeaderProps {
   title: string;
@@ -15,7 +16,15 @@ interface ExamHeaderProps {
   onExitTest?: () => void;
   isFullMock?: boolean;
   currentSectionIndex?: number;
-  completedSections?: Array<'VARC' | 'DILR' | 'QA'>;
+  completedSections?: Array<SectionType>;
+  sectionsList?: Array<{
+    section: SectionType;
+    title: string;
+    durationMinutes: number;
+    questionsCount: number;
+    startIndex: number;
+    endIndex: number;
+  }>;
   sectionBreakPromptEnabled?: boolean;
   onToggleBreakPrompt?: () => void;
   submitButtonLabel?: string;
@@ -37,6 +46,7 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
   isFullMock = false,
   currentSectionIndex = 0,
   completedSections = [],
+  sectionsList,
   sectionBreakPromptEnabled = true,
   onToggleBreakPrompt,
   submitButtonLabel,
@@ -49,11 +59,17 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
 
   const formatNumber = (num: number) => (num < 10 ? `0${num}` : `${num}`);
 
-  const sections: Array<{ id: 'VARC' | 'DILR' | 'QA'; label: string; name: string }> = [
-    { id: 'VARC', label: 'Sec 1: VARC', name: 'Verbal Ability & RC' },
-    { id: 'DILR', label: 'Sec 2: DILR', name: 'Data Interpretation & LR' },
-    { id: 'QA', label: 'Sec 3: QA', name: 'Quantitative Aptitude' },
-  ];
+  const sections = sectionsList && sectionsList.length > 0
+    ? sectionsList.map((s, idx) => ({
+        id: s.section,
+        label: `Sec ${idx + 1}: ${s.section}`,
+        name: s.title,
+      }))
+    : [
+        { id: 'VARC' as SectionType, label: 'Sec 1: VARC', name: 'Verbal Ability & RC' },
+        { id: 'DILR' as SectionType, label: 'Sec 2: DILR', name: 'Data Interpretation & LR' },
+        { id: 'QA' as SectionType, label: 'Sec 3: QA', name: 'Quantitative Aptitude' },
+      ];
 
   return (
     <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 shadow-xs sticky top-0 z-40 transition-colors">
