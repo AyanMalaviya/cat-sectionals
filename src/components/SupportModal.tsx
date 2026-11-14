@@ -25,10 +25,10 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white border border-slate-200 rounded-3xl max-w-md w-full max-h-[92vh] overflow-y-auto shadow-2xl text-slate-900 relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 dark:bg-black/80 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full max-h-[92vh] overflow-y-auto shadow-2xl text-slate-900 dark:text-slate-100 relative transition-colors">
         {/* Top Header */}
-        <div className="bg-gradient-to-r from-rose-500 via-pink-500 to-indigo-600 p-6 text-white text-center relative">
+        <div className="bg-gradient-to-r from-rose-500 via-pink-500 to-indigo-600 dark:from-rose-950 dark:via-pink-950 dark:to-indigo-950 p-6 text-white text-center relative">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 bg-black/20 hover:bg-black/40 text-white rounded-full transition"
@@ -52,8 +52,8 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
         {/* Modal Body */}
         <div className="p-6 space-y-5 text-center">
           {/* Why We Need Support */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 text-xs text-slate-600 leading-relaxed text-left">
-            <p className="font-semibold text-slate-800 mb-1 flex items-center gap-1.5">
+          <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-left">
+            <p className="font-semibold text-slate-800 dark:text-slate-200 mb-1 flex items-center gap-1.5">
               <span>🎯</span> Our Open Mission:
             </p>
             Coaching platforms lure students with 1 free mock and lock the rest behind ₹5,000–₹15,000 paywalls. We keep authentic past year sectionals and practice tests 100% open to every student. Any contribution directly supports server and database costs.
@@ -61,7 +61,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
 
           {/* QR Code */}
           <div className="flex flex-col items-center justify-center">
-            <div className="p-3 bg-white border-2 border-slate-200 rounded-2xl shadow-xs">
+            <div className="p-3 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl shadow-xs">
               <img
                 src={qrCodeUrl}
                 alt="UPI QR Code - ayanmalaviya111@okhdfcbank"
@@ -70,19 +70,19 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
                 height={176}
               />
             </div>
-            <span className="text-[11px] font-bold text-slate-500 mt-2 flex items-center gap-1">
-              <Smartphone className="w-3.5 h-3.5 text-blue-600" />
+            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-2 flex items-center gap-1">
+              <Smartphone className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
               Scan with GPay, PhonePe, Paytm or BHIM
             </span>
           </div>
 
           {/* UPI ID Box with 1-Click Copy */}
-          <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between gap-2">
+          <div className="p-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl flex items-center justify-between gap-2">
             <div className="text-left overflow-hidden">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">
+              <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 block tracking-wider">
                 UPI ID (Direct Transfer)
               </span>
-              <span className="font-mono font-bold text-sm text-slate-900 truncate block">
+              <span className="font-mono font-bold text-sm text-slate-900 dark:text-slate-100 truncate block">
                 {upiId}
               </span>
             </div>
@@ -110,8 +110,8 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
           </a>
 
           {/* Safety Notice */}
-          <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 font-medium pt-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500 font-medium pt-1">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span>100% Safe via UPI • Direct bank transfer</span>
           </div>
         </div>

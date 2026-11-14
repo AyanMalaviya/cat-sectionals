@@ -270,8 +270,8 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom Legal Disclaimers & Copyright */}
-        <div className="mt-12 pt-6 border-t border-slate-800 text-[11px] text-slate-500 space-y-2">
-          <p className="leading-relaxed">
+        <div className="mt-12 pt-6 border-t border-slate-800 text-[11px] text-slate-400 space-y-2">
+          <p className="leading-relaxed text-slate-400">
             <strong>Disclaimer:</strong> CAT (Common Admission Test) is a registered trademark of the Indian Institutes of Management (IIMs). TCS iON is a trademark of Tata Consultancy Services. CBTMocks (cbtmocks.online) is an independent open educational resource and is not affiliated with, endorsed by, or sponsored by IIMs, TCS, XLRI, Symbiosis, or any commercial coaching institute. All practice questions are provided under fair use for educational self-assessment.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-2 text-slate-400">

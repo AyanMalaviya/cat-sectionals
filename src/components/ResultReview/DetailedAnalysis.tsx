@@ -76,24 +76,24 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
   });
 
   return (
-    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white text-slate-900 animate-in fade-in duration-200">
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 animate-in fade-in duration-200 transition-colors">
       {/* Top Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-200">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div className="flex items-center gap-3">
           <button
             onClick={onBackToScorecard}
-            className="p-2 sm:p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition border border-slate-300 shadow-2xs shrink-0"
+            className="p-2 sm:p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition border border-slate-300 dark:border-slate-700 shadow-2xs shrink-0"
             title="Back to Scorecard"
             aria-label="Back to Scorecard"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-xl md:text-2xl font-black text-slate-900">
+            <h1 className="text-xl md:text-2xl font-black text-slate-900 dark:text-slate-100">
               Responses & Answers Review
             </h1>
-            <p className="text-xs text-slate-500 mt-0.5">
-              {test.title} • Score: <strong className="text-blue-700">{result.totalMarks} / {result.maxMarks}</strong> • Correct: <strong className="text-emerald-700">{result.correctCount}</strong> • Incorrect: <strong className="text-rose-700">{result.incorrectCount}</strong>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              {test.title} • Score: <strong className="text-blue-700 dark:text-blue-400">{result.totalMarks} / {result.maxMarks}</strong> • Correct: <strong className="text-emerald-700 dark:text-emerald-400">{result.correctCount}</strong> • Incorrect: <strong className="text-rose-700 dark:text-rose-400">{result.incorrectCount}</strong>
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
         <div className="flex items-center gap-2">
           <button
             onClick={onBackToScorecard}
-            className="flex-1 sm:flex-none px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition border border-slate-300 shadow-2xs text-center"
+            className="flex-1 sm:flex-none px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition border border-slate-300 dark:border-slate-700 shadow-2xs text-center"
           >
             View Summary
           </button>
@@ -115,7 +115,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
       </div>
 
       {/* Filter and Search Bar (Swipeable on Mobile) */}
-      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3 sm:p-4 mb-6 shadow-2xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+      <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 sm:p-4 mb-6 shadow-2xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         {/* Status Filter Buttons */}
         <div className="flex items-center gap-1.5 text-xs overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
           <button
@@ -123,7 +123,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
             className={`shrink-0 px-3 sm:px-3.5 py-1.5 rounded-lg font-bold transition ${
               filter === 'all'
                 ? 'bg-blue-600 text-white shadow-xs'
-                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
             }`}
           >
             All ({test.questions.length})
@@ -134,7 +134,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
             className={`shrink-0 px-3 sm:px-3.5 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 ${
               filter === 'correct'
                 ? 'bg-emerald-600 text-white shadow-xs'
-                : 'bg-white text-emerald-700 hover:bg-emerald-50 border border-slate-200'
+                : 'bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 border border-slate-200 dark:border-slate-700'
             }`}
           >
             <CheckCircle2 className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
             className={`shrink-0 px-3 sm:px-3.5 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 ${
               filter === 'incorrect'
                 ? 'bg-rose-600 text-white shadow-xs'
-                : 'bg-white text-rose-700 hover:bg-rose-50 border border-slate-200'
+                : 'bg-white dark:bg-slate-800 text-rose-700 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 border border-slate-200 dark:border-slate-700'
             }`}
           >
             <XCircle className="w-3.5 h-3.5" />
@@ -157,8 +157,8 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
             onClick={() => setFilter('unattempted')}
             className={`shrink-0 px-3 sm:px-3.5 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 ${
               filter === 'unattempted'
-                ? 'bg-slate-700 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                ? 'bg-slate-700 dark:bg-slate-600 text-white shadow-xs'
+                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
             }`}
           >
             <MinusCircle className="w-3.5 h-3.5" />
@@ -170,7 +170,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
             className={`shrink-0 px-3 sm:px-3.5 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 ${
               filter === 'bookmarked'
                 ? 'bg-amber-600 text-white shadow-xs'
-                : 'bg-white text-amber-700 hover:bg-amber-50 border border-slate-200'
+                : 'bg-white dark:bg-slate-800 text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 border border-slate-200 dark:border-slate-700'
             }`}
           >
             <Bookmark className="w-3.5 h-3.5" />
@@ -180,11 +180,11 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
 
         {/* Topic Filter */}
         <div className="flex items-center gap-2 text-xs self-start sm:self-auto shrink-0">
-          <Filter className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+          <Filter className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
           <select
             value={selectedTopic}
             onChange={(e) => setSelectedTopic(e.target.value)}
-            className="bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 font-medium focus:outline-none focus:ring-1 focus:ring-blue-500 shadow-2xs"
+            className="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-200 font-medium focus:outline-none focus:ring-1 focus:ring-blue-500 shadow-2xs"
           >
             <option value="all">All Topics</option>
             {topics.map((t) => (
@@ -198,8 +198,8 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
 
       {/* Questions Solution List */}
       {filteredQuestions.length === 0 ? (
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-12 text-center text-slate-500">
-          <p className="text-base font-bold text-slate-700">No questions match the selected filter.</p>
+        <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center text-slate-500 dark:text-slate-400">
+          <p className="text-base font-bold text-slate-700 dark:text-slate-300">No questions match the selected filter.</p>
           <button
             onClick={() => {
               setFilter('all');
@@ -231,44 +231,44 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
             return (
               <div
                 key={q.id}
-                className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs hover:border-slate-300 transition"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition"
               >
                 {/* Question Status Banner with Question No, Time Taken, and Marks */}
-                <div className="bg-slate-50 px-3.5 sm:px-6 py-3 sm:py-3.5 border-b border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3 text-xs">
+                <div className="bg-slate-50 dark:bg-slate-950 px-3.5 sm:px-6 py-3 sm:py-3.5 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3 text-xs">
                   <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                    <span className="font-extrabold text-slate-900 text-sm sm:text-base">
+                    <span className="font-extrabold text-slate-900 dark:text-slate-100 text-sm sm:text-base">
                       Question {q.questionNumber}
                     </span>
-                    <span className="bg-white text-slate-700 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold border border-slate-300">
+                    <span className="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold border border-slate-300 dark:border-slate-700">
                       {q.type}
                     </span>
-                    <span className="text-slate-500 text-xs">
-                      Topic: <span className="text-slate-800 font-bold">{q.topic}</span>
+                    <span className="text-slate-500 dark:text-slate-400 text-xs">
+                      Topic: <span className="text-slate-800 dark:text-slate-200 font-bold">{q.topic}</span>
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2 sm:gap-3 flex-wrap w-full sm:w-auto justify-between sm:justify-start">
                     {/* Time Spent on this Question */}
-                    <div className="flex items-center gap-1 text-slate-600 font-mono font-medium bg-white px-2 py-1 rounded-lg border border-slate-200 text-xs">
-                      <Clock className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                    <div className="flex items-center gap-1 text-slate-600 dark:text-slate-300 font-mono font-medium bg-white dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 text-xs">
+                      <Clock className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                       <span>{timeMin > 0 ? `${timeMin}m ` : ''}{timeSec}s</span>
                     </div>
 
                     {/* Result badge */}
                     {isAttempted ? (
                       isCorrect ? (
-                        <div className="flex items-center gap-1 px-2.5 py-1 bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold rounded-lg text-xs">
+                        <div className="flex items-center gap-1 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 font-bold rounded-lg text-xs">
                           <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                           <span>Correct (+3)</span>
                         </div>
                       ) : (
-                        <div className="flex items-center gap-1 px-2.5 py-1 bg-rose-50 border border-rose-300 text-rose-800 font-bold rounded-lg text-xs">
+                        <div className="flex items-center gap-1 px-2.5 py-1 bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-800 text-rose-800 dark:text-rose-300 font-bold rounded-lg text-xs">
                           <XCircle className="w-3.5 h-3.5 shrink-0" />
                           <span>Incorrect ({marksAwarded < 0 ? '-1' : '0'})</span>
                         </div>
                       )
                     ) : (
-                      <div className="flex items-center gap-1 px-2.5 py-1 bg-slate-100 text-slate-600 font-bold rounded-lg text-xs border border-slate-200">
+                      <div className="flex items-center gap-1 px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold rounded-lg text-xs border border-slate-200 dark:border-slate-700">
                         <MinusCircle className="w-3.5 h-3.5 shrink-0" />
                         <span>Unattempted (0)</span>
                       </div>
@@ -280,12 +280,12 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                         onClick={() => handleCopyQuestion(q)}
                         className={`px-2 py-1 rounded-lg border text-xs font-semibold transition flex items-center gap-1 ${
                           copiedId === q.id
-                            ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
-                            : 'bg-white border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-slate-900 shadow-2xs'
+                            ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
+                            : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white shadow-2xs'
                         }`}
                         title="Copy Question & Options"
                       >
-                        {copiedId === q.id ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+                        {copiedId === q.id ? <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />}
                         <span className="text-[11px] hidden sm:inline">{copiedId === q.id ? 'Copied' : 'Copy'}</span>
                       </button>
 
@@ -294,8 +294,8 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                         onClick={() => handleBookmarkToggle(q.id)}
                         className={`p-1.5 rounded-lg transition ${
                           isBookmarked
-                            ? 'text-amber-700 bg-amber-100'
-                            : 'text-slate-400 hover:text-slate-700 hover:bg-slate-100'
+                            ? 'text-amber-700 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/60'
+                            : 'text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
                         }`}
                         title={isBookmarked ? 'Bookmarked' : 'Add to Bookmarks'}
                       >
@@ -312,13 +312,13 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                 <div className="p-4 sm:p-6 md:p-8">
                   {/* Passage Toggle if question has passage */}
                   {(q.passage || q.context) && (
-                    <div className="mb-6 bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+                    <div className="mb-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
                       <button
                         onClick={() => togglePassage(q.id)}
-                        className="w-full px-5 py-2.5 flex items-center justify-between text-xs font-bold text-blue-800 hover:bg-slate-100 transition"
+                        className="w-full px-5 py-2.5 flex items-center justify-between text-xs font-bold text-blue-800 dark:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition"
                       >
                         <div className="flex items-center gap-2">
-                          <BookOpen className="w-4 h-4 text-blue-600" />
+                          <BookOpen className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                           <span><MathText text={q.passageTitle || 'Context Passage / Set Information'} /></span>
                         </div>
                         {isPassageOpen ? (
@@ -329,7 +329,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                       </button>
 
                       {isPassageOpen && (
-                        <div className="p-5 border-t border-slate-200 passage-text text-slate-800 leading-relaxed max-h-80 overflow-y-auto whitespace-pre-line bg-white/70">
+                        <div className="p-5 border-t border-slate-200 dark:border-slate-800 passage-text text-slate-800 dark:text-slate-200 leading-relaxed max-h-80 overflow-y-auto whitespace-pre-line bg-white/70 dark:bg-slate-900/60">
                           <MathText text={q.passage || q.context} />
                         </div>
                       )}
@@ -337,7 +337,7 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                   )}
 
                   {/* Question Text - Maximized font & spacing */}
-                  <div className="text-slate-900 text-base md:text-lg font-bold mb-6 whitespace-pre-line leading-relaxed">
+                  <div className="text-slate-900 dark:text-slate-100 text-base md:text-lg font-bold mb-6 whitespace-pre-line leading-relaxed">
                     <MathText text={q.question} />
                   </div>
 
@@ -350,16 +350,16 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                         const optionLabel = String.fromCharCode(65 + optIdx);
 
                         let optionStyle =
-                          'bg-white border-slate-200 text-slate-700 hover:border-slate-300';
-                        let badgeStyle = 'bg-slate-100 border-slate-300 text-slate-600';
+                          'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700';
+                        let badgeStyle = 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300';
 
                         if (isCorrectOption) {
                           optionStyle =
-                            'bg-emerald-50 border-emerald-400 text-emerald-950 font-semibold ring-1 ring-emerald-300';
+                            'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 dark:border-emerald-600 text-emerald-950 dark:text-emerald-100 font-semibold ring-1 ring-emerald-300 dark:ring-emerald-700';
                           badgeStyle = 'bg-emerald-600 text-white font-black border-emerald-600';
                         } else if (isUserSelected && !isCorrectOption) {
                           optionStyle =
-                            'bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300';
+                            'bg-rose-50 dark:bg-rose-950/50 border-rose-400 dark:border-rose-600 text-rose-950 dark:text-rose-100 font-semibold ring-1 ring-rose-300 dark:ring-rose-700';
                           badgeStyle = 'bg-rose-600 text-white font-black border-rose-600';
                         }
 
@@ -378,12 +378,12 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                             </div>
                             <div className="shrink-0 flex items-center gap-1.5 pt-0.5">
                               {isCorrectOption && (
-                                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700">
                                   <Check className="w-3.5 h-3.5" /> Correct Answer
                                 </span>
                               )}
                               {isUserSelected && !isCorrectOption && (
-                                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300">
+                                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-700">
                                   Your Choice
                                 </span>
                               )}
@@ -396,16 +396,16 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
 
                   {/* TITA Response Comparison */}
                   {q.type === 'TITA' && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-200 text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-950 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs">
                       <div>
-                        <span className="block text-slate-600 mb-1.5 font-bold">Your Response:</span>
+                        <span className="block text-slate-600 dark:text-slate-400 mb-1.5 font-bold">Your Response:</span>
                         <div
                           className={`font-mono text-lg font-bold px-4 py-2.5 rounded-xl border-2 ${
                             isAttempted
                               ? isCorrect
-                                ? 'bg-emerald-50 border-emerald-400 text-emerald-800'
-                                : 'bg-rose-50 border-rose-400 text-rose-800'
-                              : 'bg-white border-slate-200 text-slate-400'
+                                ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-400 dark:border-emerald-600 text-emerald-800 dark:text-emerald-300'
+                                : 'bg-rose-50 dark:bg-rose-950/60 border-rose-400 dark:border-rose-600 text-rose-800 dark:text-rose-300'
+                              : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500'
                           }`}
                         >
                           {isAttempted ? <MathText text={String(userAns.response)} /> : '[Unattempted]'}
@@ -413,10 +413,10 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                       </div>
 
                       <div>
-                        <span className="block text-slate-600 mb-1.5 font-bold">
+                        <span className="block text-slate-600 dark:text-slate-400 mb-1.5 font-bold">
                           Official Correct Answer:
                         </span>
-                        <div className="font-mono text-lg font-bold px-4 py-2.5 rounded-xl bg-emerald-50 border-2 border-emerald-400 text-emerald-800">
+                        <div className="font-mono text-lg font-bold px-4 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border-2 border-emerald-400 dark:border-emerald-600 text-emerald-800 dark:text-emerald-300">
                           <MathText text={String(q.correctAnswer)} />
                         </div>
                       </div>

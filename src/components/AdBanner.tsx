@@ -79,7 +79,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
   if (slot === 'exam-bottom-bar') {
     return (
       <div
-        className={`w-full bg-slate-50 border-t border-slate-200 px-4 py-1 flex items-center justify-center shrink-0 z-20 ${className}`}
+        className={`w-full bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 px-4 py-1 flex items-center justify-center shrink-0 z-20 ${className}`}
         aria-label="Sponsored"
       >
         <div className="w-full max-w-4xl min-h-[50px] max-h-[60px] flex items-center justify-center overflow-hidden">
@@ -107,7 +107,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
         <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mb-1">
           Advertisement
         </span>
-        <div className="w-[160px] min-h-[600px] bg-slate-50 border border-slate-200 rounded-xl overflow-hidden p-1 flex items-center justify-center">
+        <div className="w-[160px] min-h-[600px] bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden p-1 flex items-center justify-center">
           <ins
             ref={adRef}
             className="adsbygoogle"
@@ -129,7 +129,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
       <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-1">
         Advertisement
       </span>
-      <div className="w-full max-w-4xl min-h-[90px] flex items-center justify-center bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden p-2 shadow-2xs">
+      <div className="w-full max-w-4xl min-h-[90px] flex items-center justify-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden p-2 shadow-2xs">
         <ins
           ref={adRef}
           className="adsbygoogle w-full block text-center"

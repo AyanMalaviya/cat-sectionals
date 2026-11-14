@@ -75,20 +75,20 @@ export const Dashboard: React.FC<DashboardProps> = ({
   ) as string[];
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white text-slate-900 animate-in fade-in duration-200">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 animate-in fade-in duration-200 transition-colors">
       {/* Resume Unfinished Test Banner */}
       {activeSession && activeTestInfo && (
-        <div className="mb-6 p-4 bg-amber-50 border border-amber-300 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="mb-6 p-4 bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
-              <Clock className="w-4 h-4 text-amber-700" />
+            <div className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 flex items-center justify-center shrink-0">
+              <Clock className="w-4 h-4 text-amber-700 dark:text-amber-300" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-wider bg-amber-200 text-amber-900 px-2 py-0.5 rounded">
+                <span className="text-[11px] font-bold uppercase tracking-wider bg-amber-200 dark:bg-amber-900 text-amber-900 dark:text-amber-200 px-2 py-0.5 rounded">
                   In-Progress Test
                 </span>
-                <span className="text-xs text-amber-900 font-mono font-bold">
+                <span className="text-xs text-amber-900 dark:text-amber-300 font-mono font-bold">
                   {Math.floor(activeSession.remainingSeconds / 60)}:
                   {activeSession.remainingSeconds % 60 < 10
                     ? `0${activeSession.remainingSeconds % 60}`
@@ -96,7 +96,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   remaining
                 </span>
               </div>
-              <h4 className="text-sm font-bold text-slate-900 mt-0.5">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 mt-0.5">
                 {activeTestInfo.title}
               </h4>
             </div>
@@ -112,7 +112,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </button>
             <button
               onClick={onDiscardActiveTest}
-              className="px-3 py-2 bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs rounded-xl transition"
+              className="px-3 py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs rounded-xl transition"
             >
               Discard
             </button>
@@ -121,23 +121,23 @@ export const Dashboard: React.FC<DashboardProps> = ({
       )}
 
       {/* Clean Compact Header: Mode Toggle & Page Summary */}
-      <div className="mb-6 pb-5 border-b border-slate-200">
+      <div className="mb-6 pb-5 border-b border-slate-200 dark:border-slate-800">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 dark:bg-blue-950/70 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                 {activeCategory === 'sectional-pyq' ? '40-Min Sectionals' : 'Topic Quizzes'}
               </span>
-              <span className="text-xs text-slate-500 font-medium">
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                 100% Free CBT Practice
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
               {activeCategory === 'sectional-pyq'
                 ? 'Sectional Mock Tests'
                 : 'Topic-Wise Practice Quizzes'}
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
               {activeCategory === 'sectional-pyq'
                 ? 'Timed 40-minute authentic sectional tests (QA, DILR, VARC) from CAT 2020 to 2026 with official CBT countdown, built-in calculator, and +3 / -1 marking.'
                 : 'Targeted topic-wise practice quizzes with step-by-step explanations to master concepts across Quantitative Aptitude, DILR sets, and Reading Comprehension.'}
@@ -145,7 +145,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
           </div>
 
           {/* Mode Toggle: Sectionals vs Topic-Wise */}
-          <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200 shrink-0">
+          <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shrink-0">
             <button
               onClick={() => {
                 onSelectCategory('sectional-pyq');
@@ -153,8 +153,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
               }}
               className={`flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
                 activeCategory === 'sectional-pyq'
-                  ? 'bg-white text-blue-700 shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <BookOpen className="w-3.5 h-3.5 shrink-0" />
@@ -168,8 +168,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
               }}
               className={`flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
                 activeCategory === 'topic-wise'
-                  ? 'bg-white text-blue-700 shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Layers className="w-3.5 h-3.5 shrink-0" />
@@ -201,8 +201,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 }}
                 className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
                   isSelected
-                    ? 'bg-slate-900 text-white shadow-xs'
-                    : 'bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+                    ? 'bg-slate-900 dark:bg-blue-600 text-white shadow-xs'
+                    : 'bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800'
                 }`}
               >
                 {labels[sec] || sec}
@@ -214,7 +214,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         {/* Sub-Filters: Year (for Sectionals) or Topic Tags (for Topic-Wise) */}
         {activeCategory === 'sectional-pyq' && (
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
-            <span className="text-xs text-slate-500 font-medium mr-1 shrink-0">Year:</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium mr-1 shrink-0">Year:</span>
             {['ALL', '2026', '2025', '2024', '2023', '2022', '2021', '2020'].map((yr) => (
               <button
                 key={yr}
@@ -222,7 +222,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                   selectedYear === yr
                     ? 'bg-blue-600 text-white'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                    : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
                 }`}
               >
                 {yr}
@@ -238,7 +238,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                 selectedTopicTag === 'ALL'
                   ? 'bg-blue-600 text-white'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
               }`}
             >
               All Topics
@@ -250,7 +250,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                   selectedTopicTag === tag
                     ? 'bg-blue-600 text-white'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                    : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
                 }`}
               >
                 {tag}
@@ -262,7 +262,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
       {/* Tests Grid */}
       {filteredTests.length === 0 ? (
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-12 text-center text-slate-500">
+        <div className="bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center text-slate-500 dark:text-slate-400">
           <p className="text-sm font-medium">No tests found for the selected filters.</p>
         </div>
       ) : (
@@ -283,25 +283,25 @@ export const Dashboard: React.FC<DashboardProps> = ({
       )}
 
       {/* Clean, Non-Intimidating Mission & Strategy Link */}
-      <section className="mt-12 pt-6 border-t border-slate-200" aria-label="About CBTMocks Mission">
-        <div className="bg-gradient-to-r from-blue-50/70 via-indigo-50/40 to-slate-50 border border-blue-200/60 rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
+      <section className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800" aria-label="About CBTMocks Mission">
+        <div className="bg-gradient-to-r from-blue-50/70 via-indigo-50/40 to-slate-50 dark:from-slate-900 dark:via-blue-950/30 dark:to-slate-900 border border-blue-200/60 dark:border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
           <div className="flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black shrink-0 shadow-xs">
               <Compass className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 px-2 py-0.5 rounded-full">
                   100% Free Forever
                 </span>
-                <span className="text-xs text-slate-500 font-semibold">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
                   Zero Paywalls • No Mobile Spam
                 </span>
               </div>
-              <h3 className="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">
+              <h3 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-slate-100 mt-0.5">
                 Why is CBTMocks 100% Free for Every Aspirant?
               </h3>
-              <p className="text-xs text-slate-600 max-w-xl">
+              <p className="text-xs text-slate-600 dark:text-slate-400 max-w-xl">
                 Read our mission to break predatory ₹10,000 coaching paywalls, the full coaching comparison matrix, and our CBT exam strategy guide.
               </p>
             </div>

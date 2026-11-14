@@ -46,18 +46,18 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white text-slate-900 animate-in fade-in duration-200">
-      <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-200">
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 animate-in fade-in duration-200 transition-colors">
+      <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div className="flex items-center gap-3">
           <button
             onClick={onBackToDashboard}
-            className="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition border border-slate-300 shadow-2xs"
+            className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition border border-slate-300 dark:border-slate-700 shadow-2xs"
             aria-label="Back to Tests"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-xl md:text-2xl font-black text-slate-900">
+            <h1 className="text-xl md:text-2xl font-black text-slate-900 dark:text-slate-100">
               Bookmarks ({bookmarkedQuestions.length})
             </h1>
           </div>
@@ -72,10 +72,10 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
       </div>
 
       {bookmarkedQuestions.length === 0 ? (
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 sm:p-12 text-center text-slate-500">
-          <Bookmark className="w-12 h-12 mx-auto text-slate-400 mb-3" />
-          <h3 className="text-base font-bold text-slate-800 mb-1">No Bookmarked Questions</h3>
-          <p className="text-xs text-slate-500 max-w-sm mx-auto">
+        <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 sm:p-12 text-center text-slate-500 dark:text-slate-400">
+          <Bookmark className="w-12 h-12 mx-auto text-slate-400 dark:text-slate-500 mb-3" />
+          <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-1">No Bookmarked Questions</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
             You can bookmark tricky or high-yield questions during the test or while reviewing solutions by clicking the bookmark icon.
           </p>
         </div>
@@ -84,15 +84,15 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
           {bookmarkedQuestions.map(({ question: q, test: t }) => (
             <div
               key={q.id}
-              className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs hover:border-slate-300 transition"
+              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition"
             >
-              <div className="bg-slate-50 px-3.5 sm:px-5 py-3 border-b border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs">
+              <div className="bg-slate-50 dark:bg-slate-950 px-3.5 sm:px-5 py-3 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-bold text-slate-900">
+                  <span className="font-bold text-slate-900 dark:text-slate-100">
                     {t.section} • Q{q.questionNumber}
                   </span>
-                  <span className="text-slate-500 hidden sm:inline">({t.title})</span>
-                  <span className="bg-white text-slate-700 px-2 py-0.5 rounded text-[11px] border border-slate-300">
+                  <span className="text-slate-500 dark:text-slate-400 hidden sm:inline">({t.title})</span>
+                  <span className="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded text-[11px] border border-slate-300 dark:border-slate-700">
                     {q.topic}
                   </span>
                 </div>
@@ -102,18 +102,18 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
                     onClick={() => handleCopyQuestion(q)}
                     className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition flex items-center gap-1.5 ${
                       copiedId === q.id
-                        ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
-                        : 'bg-white border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-slate-900 shadow-2xs'
+                        ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
+                        : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white shadow-2xs'
                     }`}
                     title="Copy Question"
                   >
-                    {copiedId === q.id ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+                    {copiedId === q.id ? <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />}
                     <span className="text-[11px]">{copiedId === q.id ? 'Copied' : 'Copy'}</span>
                   </button>
 
                   <button
                     onClick={() => handleToggle(q.id)}
-                    className="p-1.5 text-amber-700 bg-amber-100 rounded-lg hover:bg-amber-200 transition"
+                    className="p-1.5 text-amber-700 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/60 rounded-lg hover:bg-amber-200 dark:hover:bg-amber-900/60 transition"
                     title="Remove Bookmark"
                   >
                     <BookmarkCheck className="w-4 h-4" />
@@ -123,12 +123,12 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
 
               <div className="p-4 sm:p-5 md:p-6">
                 {(q.passage || q.context) && (
-                  <div className="mb-4 bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs md:text-sm text-slate-800 font-serif whitespace-pre-line leading-relaxed max-h-56 overflow-y-auto">
+                  <div className="mb-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 text-xs md:text-sm text-slate-800 dark:text-slate-200 font-serif whitespace-pre-line leading-relaxed max-h-56 overflow-y-auto">
                     <MathText text={q.passage || q.context} />
                   </div>
                 )}
 
-                <div className="text-slate-900 text-sm md:text-base font-semibold mb-4 whitespace-pre-line leading-relaxed">
+                <div className="text-slate-900 dark:text-slate-100 text-sm md:text-base font-semibold mb-4 whitespace-pre-line leading-relaxed">
                   <MathText text={q.question} />
                 </div>
 
@@ -141,8 +141,8 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
                           key={optIdx}
                           className={`p-3 rounded-xl border text-xs flex items-center justify-between ${
                             isCorrect
-                              ? 'bg-emerald-50 border-emerald-300 text-emerald-950 font-semibold'
-                              : 'bg-white border-slate-200 text-slate-700'
+                              ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-600 text-emerald-950 dark:text-emerald-100 font-semibold'
+                              : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -150,7 +150,7 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
                             <span><MathText text={opt} /></span>
                           </div>
                           {isCorrect && (
-                            <span className="text-emerald-700 font-bold flex items-center gap-1 text-[11px]">
+                            <span className="text-emerald-700 dark:text-emerald-400 font-bold flex items-center gap-1 text-[11px]">
                               <CheckCircle2 className="w-3.5 h-3.5" /> Correct Answer
                             </span>
                           )}
@@ -161,18 +161,18 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
                 )}
 
                 {q.type === 'TITA' && (
-                  <div className="mb-5 p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs">
-                    <span className="text-slate-600 font-medium">Correct Answer (TITA): </span>
-                    <strong className="text-emerald-700 font-mono text-sm ml-1">
+                  <div className="mb-5 p-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs">
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Correct Answer (TITA): </span>
+                    <strong className="text-emerald-700 dark:text-emerald-400 font-mono text-sm ml-1">
                       <MathText text={String(q.correctAnswer)} />
                     </strong>
                   </div>
                 )}
 
                 {/* Explanation */}
-                <div className="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-xs md:text-sm text-slate-800 leading-relaxed whitespace-pre-line">
-                  <div className="flex items-center gap-2 mb-2 text-blue-900 font-bold text-xs uppercase tracking-wider">
-                    <Lightbulb className="w-4 h-4 text-amber-600" />
+                <div className="bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 rounded-xl p-4 text-xs md:text-sm text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-line">
+                  <div className="flex items-center gap-2 mb-2 text-blue-900 dark:text-blue-300 font-bold text-xs uppercase tracking-wider">
+                    <Lightbulb className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                     <span>Solution Explanation</span>
                   </div>
                   <MathText text={q.explanation} />

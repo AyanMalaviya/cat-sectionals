@@ -21,12 +21,12 @@ export const LegalModal: React.FC<LegalModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white border border-slate-200 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl text-slate-900 overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 dark:bg-black/80 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl text-slate-900 dark:text-slate-100 overflow-hidden transition-colors">
         {/* Header */}
-        <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between shrink-0">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 flex items-center justify-center shrink-0">
               {activeTab === 'about' && <Info className="w-5 h-5" />}
               {activeTab === 'contact' && <Mail className="w-5 h-5" />}
               {activeTab === 'privacy' && <ShieldCheck className="w-5 h-5" />}
@@ -34,14 +34,14 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               {activeTab === 'disclaimer' && <AlertTriangle className="w-5 h-5" />}
             </div>
             <div>
-              <h2 className="text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+              <h2 className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug">
                 {activeTab === 'about' && 'About CBTMocks — 100% Free Mock Tests'}
                 {activeTab === 'contact' && 'Contact Us & Student Support'}
                 {activeTab === 'privacy' && 'Privacy Policy & Cookie Disclosures'}
                 {activeTab === 'terms' && 'Terms of Service & Fair Use'}
                 {activeTab === 'disclaimer' && 'Non-Affiliation Disclaimer'}
               </h2>
-              <p className="text-[11px] text-slate-500 hidden sm:block">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">
                 cbtmocks.online • Open Educational Resource for Competitive Exams
               </p>
             </div>
@@ -49,7 +49,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-200 rounded-full transition shrink-0"
+            className="p-2 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition shrink-0"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -57,13 +57,13 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex border-b border-slate-200 bg-white px-3 sm:px-6 overflow-x-auto no-scrollbar shrink-0 gap-1 sm:gap-2">
+        <div className="flex border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 sm:px-6 overflow-x-auto no-scrollbar shrink-0 gap-1 sm:gap-2">
           <button
             onClick={() => onTabChange('about')}
             className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition flex items-center gap-1.5 ${
               activeTab === 'about'
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <Info className="w-3.5 h-3.5" />
@@ -74,8 +74,8 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => onTabChange('contact')}
             className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition flex items-center gap-1.5 ${
               activeTab === 'contact'
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <Mail className="w-3.5 h-3.5" />
@@ -86,8 +86,8 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => onTabChange('privacy')}
             className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition flex items-center gap-1.5 ${
               activeTab === 'privacy'
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <ShieldCheck className="w-3.5 h-3.5" />
@@ -98,8 +98,8 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => onTabChange('terms')}
             className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition flex items-center gap-1.5 ${
               activeTab === 'terms'
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <FileText className="w-3.5 h-3.5" />
@@ -110,8 +110,8 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => onTabChange('disclaimer')}
             className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition flex items-center gap-1.5 ${
               activeTab === 'disclaimer'
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <AlertTriangle className="w-3.5 h-3.5" />
@@ -120,38 +120,38 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         </div>
 
         {/* Tab Content (Scrollable) */}
-        <div className="p-6 overflow-y-auto space-y-5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+        <div className="p-6 overflow-y-auto space-y-5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
           {/* TAB: ABOUT US & OUR MISSION */}
           {activeTab === 'about' && (
             <div className="space-y-6">
-              <div className="p-5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl text-blue-950">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-blue-200 text-blue-900 px-2 py-0.5 rounded-full">
+              <div className="p-5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-950 dark:to-indigo-950/40 border border-blue-200 dark:border-blue-900/60 rounded-2xl text-blue-950 dark:text-blue-100">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-blue-200 dark:bg-blue-900 text-blue-900 dark:text-blue-200 px-2 py-0.5 rounded-full">
                   Our Anti-Paywall Mission
                 </span>
-                <h3 className="font-extrabold text-blue-950 text-base sm:text-lg mt-1 mb-1">
+                <h3 className="font-extrabold text-blue-950 dark:text-blue-100 text-base sm:text-lg mt-1 mb-1">
                   100% Free Mock Tests for Every Aspirant Across India
                 </h3>
-                <p className="text-blue-900 text-xs sm:text-sm leading-relaxed">
+                <p className="text-blue-900 dark:text-blue-200 text-xs sm:text-sm leading-relaxed">
                   CBTMocks (<a href="https://cbtmocks.online" className="underline font-bold">cbtmocks.online</a>) was founded to end the paywall exploitation of competitive exam aspirants. High-quality Computer Based Test (CBT) practice should be a universal right, not a luxury locked behind ₹5,000 to ₹15,000 coaching paywalls or tied to intrusive telemarketing sales calls.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1.5 flex items-center gap-2">
                   <span>⚠️</span>
                   <span>1. The Predatory Commercial Coaching Model</span>
                 </h4>
-                <p className="text-slate-600">
+                <p className="text-slate-600 dark:text-slate-300">
                   Most commercial test series providers offer 1 or 2 sample tests as marketing bait. Once an aspirant attempts them, the rest of the question bank is locked behind steep paywalls. Aspirants are forced to give their personal mobile numbers, leading to continuous sales calls and promotional messages during their most crucial preparation months.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1.5 flex items-center gap-2">
                   <span>🌱</span>
                   <span>2. What CBTMocks Delivers (100% Free Forever)</span>
                 </h4>
-                <ul className="list-disc pl-5 space-y-1.5 text-slate-600">
+                <ul className="list-disc pl-5 space-y-1.5 text-slate-600 dark:text-slate-300">
                   <li><strong>62+ Full Tests (866+ Questions):</strong> Covering CAT Quantitative Aptitude (QA), Data Interpretation &amp; Logical Reasoning (DILR), Verbal Ability &amp; Reading Comprehension (VARC), and 120-minute Full Mocks.</li>
                   <li><strong>Zero Paywalls &amp; Zero Signups:</strong> Instant 1-click test practice without phone numbers, email collection, or passwords.</li>
                   <li><strong>Authentic TCS iON CBT Environment:</strong> Exact 40-minute countdown timers, real question palette statuses (Answered, Not Answered, Marked for Review), and official marking schemes (+3 / -1 for MCQs, +3 / 0 for TITA).</li>
@@ -499,8 +499,8 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0">
-          <div className="flex items-center gap-2 text-xs text-slate-500">
+        <div className="px-6 py-3 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>100% Free Open Educational Portal</span>
           </div>

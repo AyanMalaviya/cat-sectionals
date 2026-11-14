@@ -41,6 +41,7 @@ import { SupportModal } from './components/SupportModal';
 import { Footer } from './components/Footer';
 import { LegalModal, LegalTab } from './components/LegalModal';
 import { AboutView } from './components/AboutView';
+import { getInitialTheme, toggleThemeMode, ThemeMode } from './utils/theme';
 
 interface HistoryStackState {
   view: 'dashboard' | 'exam' | 'scorecard' | 'analysis';
@@ -50,6 +51,13 @@ interface HistoryStackState {
 }
 
 export function App() {
+  // Theme state (Dark / Light)
+  const [theme, setTheme] = useState<ThemeMode>(getInitialTheme);
+
+  const handleToggleTheme = () => {
+    setTheme((prev) => toggleThemeMode(prev));
+  };
+
   // Navigation & View state
   const [currentTab, setCurrentTab] = useState<'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about'>('full-mocks');
   const [view, setView] = useState<'dashboard' | 'exam' | 'scorecard' | 'analysis'>('dashboard');
@@ -814,7 +822,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900 dark:selection:text-white transition-colors duration-150">
       {/* Navbar: Visible when NOT in active exam */}
       {view !== 'exam' && (
         <Navbar
@@ -826,14 +834,16 @@ export function App() {
           bookmarksCount={bookmarks.length}
           onToggleCalculator={() => setIsCalculatorOpen((prev) => !prev)}
           onOpenSupport={() => setIsSupportModalOpen(true)}
+          theme={theme}
+          onToggleTheme={handleToggleTheme}
         />
       )}
 
       {/* Main Body */}
-      <main className="flex-1 flex flex-col bg-white">
+      <main className="flex-1 flex flex-col bg-white dark:bg-slate-950">
         {/* EXAM VIEW (Real CAT TCS iON interface with maximized question area) */}
         {view === 'exam' && activeTest && activeQuestion && (
-          <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
+          <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white dark:bg-slate-950">
             <ExamHeader
               title={activeTest.title}
               section={isCurrentFullMock ? (activeSectionConfig?.section || 'VARC') : activeTest.section}
@@ -850,6 +860,8 @@ export function App() {
               completedSections={completedSections}
               sectionBreakPromptEnabled={sectionBreakPromptEnabled}
               onToggleBreakPrompt={handleToggleBreakPrompt}
+              theme={theme}
+              onToggleTheme={handleToggleTheme}
               submitButtonLabel={
                 isCurrentFullMock
                   ? (currentSectionIndex < 2 ? `Submit Section ${currentSectionIndex + 1}` : 'Submit Full Mock')
@@ -857,7 +869,7 @@ export function App() {
               }
             />
 
-            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden bg-white">
+            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden bg-white dark:bg-slate-950">
               <QuestionView
                 question={activeQuestion}
                 selectedOption={userResponses[activeQuestion.id] ?? null}

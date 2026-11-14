@@ -453,14 +453,14 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
           ? { left: `${position.x}px`, top: `${position.y}px` }
           : { right: '16px', bottom: '16px' }
       }
-      className={`fixed z-50 shadow-2xl rounded-2xl border border-slate-300 overflow-hidden bg-white text-slate-900 w-80 max-w-[calc(100vw-24px)] font-mono ${
+      className={`fixed z-50 shadow-2xl rounded-2xl border border-slate-300 dark:border-slate-700 overflow-hidden bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 w-80 max-w-[calc(100vw-24px)] font-mono transition-colors ${
         isDragging ? 'select-none ring-2 ring-blue-500/50' : 'transition-shadow duration-150'
       }`}
     >
       {/* Title Bar - Draggable */}
       <div
         onPointerDown={handlePointerDown}
-        className={`bg-slate-900 text-white px-3.5 py-2.5 flex items-center justify-between border-b border-slate-800 select-none touch-none ${
+        className={`bg-slate-900 dark:bg-slate-950 text-white px-3.5 py-2.5 flex items-center justify-between border-b border-slate-800 dark:border-slate-800 select-none touch-none ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
         title="Drag to reposition calculator"
@@ -502,15 +502,15 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
       </div>
 
       {!isMinimized && (
-        <div className="p-3 bg-slate-50">
+        <div className="p-3 bg-slate-50 dark:bg-slate-900">
           {/* LCD Display */}
-          <div className="bg-white border-2 border-slate-300 rounded-xl p-3 mb-3 text-right shadow-inner">
+          <div className="bg-white dark:bg-slate-950 border-2 border-slate-300 dark:border-slate-700 rounded-xl p-3 mb-3 text-right shadow-inner">
             {/* Expression History Line */}
-            <div className="text-[11px] font-mono text-slate-500 h-4 overflow-x-auto whitespace-nowrap scrollbar-none">
+            <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 h-4 overflow-x-auto whitespace-nowrap scrollbar-none">
               {expression ? expression.replace(/\*/g, '×').replace(/\//g, '÷') : '\u00A0'}
             </div>
             {/* Active Value / Result Line */}
-            <div className="text-2xl font-mono font-black text-slate-900 tracking-tight overflow-x-auto whitespace-nowrap mt-0.5">
+            <div className="text-2xl font-mono font-black text-slate-900 dark:text-slate-100 tracking-tight overflow-x-auto whitespace-nowrap mt-0.5">
               {currentDisplay}
             </div>
           </div>
@@ -527,7 +527,7 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
               <button
                 key={btn.label}
                 onClick={btn.fn}
-                className="py-1.5 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-slate-700 text-xs font-bold rounded-lg transition"
+                className="py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 active:bg-slate-400 dark:active:bg-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold rounded-lg transition"
               >
                 {btn.label}
               </button>
@@ -539,26 +539,26 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
             {/* Row 1 */}
             <button
               onClick={handleClear}
-              className="py-2.5 bg-rose-100 hover:bg-rose-200 active:bg-rose-300 text-rose-800 font-bold rounded-lg text-xs transition"
+              className="py-2.5 bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-200 dark:hover:bg-rose-900/60 active:bg-rose-300 text-rose-800 dark:text-rose-300 font-bold rounded-lg text-xs transition"
             >
               C
             </button>
             <button
               onClick={handleClearEntry}
-              className="py-2.5 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-slate-800 font-bold rounded-lg text-xs transition"
+              className="py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 active:bg-slate-400 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs transition"
             >
               CE
             </button>
             <button
               onClick={handleBackspace}
-              className="py-2.5 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-slate-800 font-bold rounded-lg text-xs transition flex items-center justify-center"
+              className="py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 active:bg-slate-400 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs transition flex items-center justify-center"
               title="Backspace"
             >
               <Delete className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => handleOperator('/')}
-              className="py-2.5 bg-blue-100 hover:bg-blue-200 active:bg-blue-300 text-blue-900 font-bold rounded-lg text-sm transition"
+              className="py-2.5 bg-blue-100 dark:bg-blue-950/70 hover:bg-blue-200 dark:hover:bg-blue-900/70 active:bg-blue-300 text-blue-900 dark:text-blue-300 font-bold rounded-lg text-sm transition"
             >
               ÷
             </button>
@@ -566,25 +566,25 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
             {/* Row 2 */}
             <button
               onClick={handleSqrt}
-              className="py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-lg text-xs transition"
+              className="py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs transition"
             >
               √
             </button>
             <button
               onClick={() => handleParen('(')}
-              className="py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-lg text-xs transition"
+              className="py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs transition"
             >
               (
             </button>
             <button
               onClick={() => handleParen(')')}
-              className="py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-lg text-xs transition"
+              className="py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs transition"
             >
               )
             </button>
             <button
               onClick={() => handleOperator('*')}
-              className="py-2.5 bg-blue-100 hover:bg-blue-200 active:bg-blue-300 text-blue-900 font-bold rounded-lg text-sm transition"
+              className="py-2.5 bg-blue-100 dark:bg-blue-950/70 hover:bg-blue-200 dark:hover:bg-blue-900/70 active:bg-blue-300 text-blue-900 dark:text-blue-300 font-bold rounded-lg text-sm transition"
             >
               ×
             </button>
@@ -592,25 +592,25 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
             {/* Row 3 */}
             <button
               onClick={() => handleDigit('7')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               7
             </button>
             <button
               onClick={() => handleDigit('8')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               8
             </button>
             <button
               onClick={() => handleDigit('9')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               9
             </button>
             <button
               onClick={() => handleOperator('-')}
-              className="py-2.5 bg-blue-100 hover:bg-blue-200 active:bg-blue-300 text-blue-900 font-bold rounded-lg text-sm transition"
+              className="py-2.5 bg-blue-100 dark:bg-blue-950/70 hover:bg-blue-200 dark:hover:bg-blue-900/70 active:bg-blue-300 text-blue-900 dark:text-blue-300 font-bold rounded-lg text-sm transition"
             >
               −
             </button>
@@ -618,25 +618,25 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
             {/* Row 4 */}
             <button
               onClick={() => handleDigit('4')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               4
             </button>
             <button
               onClick={() => handleDigit('5')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               5
             </button>
             <button
               onClick={() => handleDigit('6')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               6
             </button>
             <button
               onClick={() => handleOperator('+')}
-              className="py-2.5 bg-blue-100 hover:bg-blue-200 active:bg-blue-300 text-blue-900 font-bold rounded-lg text-sm transition"
+              className="py-2.5 bg-blue-100 dark:bg-blue-950/70 hover:bg-blue-200 dark:hover:bg-blue-900/70 active:bg-blue-300 text-blue-900 dark:text-blue-300 font-bold rounded-lg text-sm transition"
             >
               +
             </button>
@@ -644,25 +644,25 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
             {/* Row 5 */}
             <button
               onClick={() => handleDigit('1')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               1
             </button>
             <button
               onClick={() => handleDigit('2')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               2
             </button>
             <button
               onClick={() => handleDigit('3')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               3
             </button>
             <button
               onClick={handleReciprocal}
-              className="py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-lg text-xs transition"
+              className="py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs transition"
               title="1/x"
             >
               1/x
@@ -671,19 +671,19 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
             {/* Row 6 */}
             <button
               onClick={handleToggleSign}
-              className="py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-lg text-xs transition"
+              className="py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs transition"
             >
               ±
             </button>
             <button
               onClick={() => handleDigit('0')}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               0
             </button>
             <button
               onClick={handleDecimal}
-              className="py-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold rounded-lg text-sm transition shadow-2xs"
+              className="py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-lg text-sm transition shadow-2xs"
             >
               .
             </button>

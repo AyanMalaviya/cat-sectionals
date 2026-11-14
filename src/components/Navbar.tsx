@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, History, Bookmark, Calculator, Layers, Heart, Clock, Info } from 'lucide-react';
+import { BookOpen, History, Bookmark, Calculator, Layers, Heart, Clock, Info, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
   currentTab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about';
@@ -8,6 +8,8 @@ interface NavbarProps {
   bookmarksCount: number;
   onToggleCalculator: () => void;
   onOpenSupport?: () => void;
+  theme?: 'light' | 'dark';
+  onToggleTheme?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -17,9 +19,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   bookmarksCount,
   onToggleCalculator,
   onOpenSupport,
+  theme = 'light',
+  onToggleTheme,
 }) => {
+  const isDark = theme === 'dark';
+
   return (
-    <nav className="bg-white border-b border-slate-200 text-slate-800 sticky top-0 z-30 shadow-2xs">
+    <nav className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 sticky top-0 z-30 shadow-2xs transition-colors duration-150">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 sm:py-2.5 flex flex-col xl:flex-row xl:items-center justify-between gap-2 xl:gap-6">
         {/* Top Header Row (Mobile/Tablet) & Left Branding (Desktop) */}
         <div className="flex items-center justify-between w-full xl:w-auto shrink-0">
@@ -40,10 +46,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               height={36}
             />
             <div className="flex items-center gap-1.5">
-              <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 leading-none">
+              <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white leading-none">
                 CBTMocks
               </span>
-              <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200 tracking-wide">
+              <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/80 tracking-wide">
                 2026
               </span>
             </div>
@@ -51,21 +57,36 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Quick Tools (Mobile & Tablet Top-Right) */}
           <div className="flex items-center gap-1.5 xl:hidden shrink-0">
+            {onToggleTheme && (
+              <button
+                onClick={onToggleTheme}
+                aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                className="p-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition shadow-2xs"
+                title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              >
+                {isDark ? (
+                  <Sun className="w-4 h-4 text-amber-400" />
+                ) : (
+                  <Moon className="w-4 h-4 text-slate-600" />
+                )}
+              </button>
+            )}
+
             <button
               onClick={onToggleCalculator}
               aria-label="Launch On-Screen Virtual Calculator"
-              className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 rounded-xl text-xs font-semibold transition shadow-2xs"
+              className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-semibold transition shadow-2xs"
               title="Launch CAT Virtual Calculator"
             >
-              <Calculator className="w-3.5 h-3.5 text-blue-600" />
-              <span className="text-xs">Calculator</span>
+              <Calculator className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+              <span className="text-xs">Calc</span>
             </button>
 
             {onOpenSupport && (
               <button
                 onClick={onOpenSupport}
                 aria-label="Support 100% Free CAT Mocks via UPI"
-                className="flex items-center gap-1 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 rounded-xl text-xs font-bold transition shadow-2xs group"
+                className="flex items-center gap-1 px-2.5 py-1.5 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/50 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-300 rounded-xl text-xs font-bold transition shadow-2xs group"
                 title="Support 100% Free CAT Mocks"
               >
                 <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500 group-hover:scale-110 transition-transform" />
@@ -77,18 +98,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Clean, Segmented Navigation Tabs */}
         <div className="w-full xl:w-auto overflow-x-auto no-scrollbar scroll-smooth -mx-1 px-1 sm:mx-0 sm:px-0">
-          <div className="inline-flex items-center gap-1 p-1 bg-slate-100/90 border border-slate-200/80 rounded-2xl whitespace-nowrap min-w-max">
+          <div className="inline-flex items-center gap-1 p-1 bg-slate-100/90 dark:bg-slate-950/80 border border-slate-200/80 dark:border-slate-800 rounded-2xl whitespace-nowrap min-w-max">
             {/* 1. Full Mocks */}
             <button
               onClick={() => onSelectTab('full-mocks')}
               aria-label="Official Full Mock Tests"
               className={`px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1.5 shrink-0 ${
                 currentTab === 'full-mocks'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/60 font-medium'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-bold shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/60 dark:hover:bg-slate-800/60 font-medium'
               }`}
             >
-              <Clock className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+              <Clock className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
               <span>Full Mocks</span>
             </button>
 
@@ -98,11 +119,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Sectional Mock Tests"
               className={`px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1.5 shrink-0 ${
                 currentTab === 'tests'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/60 font-medium'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-bold shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/60 dark:hover:bg-slate-800/60 font-medium'
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+              <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
               <span>Sectionals</span>
             </button>
 
@@ -112,16 +133,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Topic-Wise Practice Quizzes"
               className={`px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1.5 shrink-0 ${
                 currentTab === 'topic-wise'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/60 font-medium'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-bold shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/60 dark:hover:bg-slate-800/60 font-medium'
               }`}
             >
-              <Layers className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+              <Layers className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
               <span>Topics</span>
             </button>
 
             {/* Subtle Divider */}
-            <div className="h-4 w-px bg-slate-300 mx-0.5 shrink-0" />
+            <div className="h-4 w-px bg-slate-300 dark:bg-slate-700 mx-0.5 shrink-0" />
 
             {/* 4. History */}
             <button
@@ -129,11 +150,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label={`Test History${testsGivenCount > 0 ? ` (${testsGivenCount} attempts)` : ''}`}
               className={`px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1.5 shrink-0 ${
                 currentTab === 'history'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/60 font-medium'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-bold shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/60 dark:hover:bg-slate-800/60 font-medium'
               }`}
             >
-              <History className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+              <History className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
               <span>History</span>
               {testsGivenCount > 0 && (
                 <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-emerald-600 text-white">
@@ -148,11 +169,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label={`Bookmarked Questions${bookmarksCount > 0 ? ` (${bookmarksCount} saved)` : ''}`}
               className={`px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1.5 shrink-0 ${
                 currentTab === 'bookmarks'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/60 font-medium'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-bold shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/60 dark:hover:bg-slate-800/60 font-medium'
               }`}
             >
-              <Bookmark className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+              <Bookmark className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 shrink-0" />
               <span>Bookmarks</span>
               {bookmarksCount > 0 && (
                 <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-500 text-white">
@@ -167,11 +188,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="About CBTMocks Platform"
               className={`px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1.5 shrink-0 ${
                 currentTab === 'about'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/60 font-medium'
+                  ? 'bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-bold shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/60 dark:hover:bg-slate-800/60 font-medium'
               }`}
             >
-              <Info className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+              <Info className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
               <span>About</span>
             </button>
           </div>
@@ -179,13 +200,28 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right Tools (Desktop Only) */}
         <div className="hidden xl:flex items-center gap-2 shrink-0">
+          {onToggleTheme && (
+            <button
+              onClick={onToggleTheme}
+              aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              className="p-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition shadow-xs"
+              title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {isDark ? (
+                <Sun className="w-4 h-4 text-amber-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-slate-600" />
+              )}
+            </button>
+          )}
+
           <button
             onClick={onToggleCalculator}
             aria-label="Launch On-Screen Virtual Calculator"
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 rounded-xl text-xs font-semibold transition shadow-xs"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-semibold transition shadow-xs"
             title="Launch CAT Virtual Calculator"
           >
-            <Calculator className="w-3.5 h-3.5 text-blue-600" />
+            <Calculator className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
             <span>Virtual Calc</span>
           </button>
 
@@ -193,7 +229,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenSupport}
               aria-label="Support 100% Free CAT Mocks via UPI"
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 rounded-xl text-xs font-bold transition shadow-2xs group"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/50 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-300 rounded-xl text-xs font-bold transition shadow-2xs group"
               title="Support 100% Free CAT Mocks"
             >
               <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500 group-hover:scale-110 transition-transform" />

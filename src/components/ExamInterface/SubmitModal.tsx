@@ -56,55 +56,55 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
   const totalAnsweredForEvaluation = counts.answered + counts.markedAnswered;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-in fade-in duration-150">
-      <div className="bg-white border border-slate-200 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl text-slate-900">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 dark:bg-black/70 backdrop-blur-xs animate-in fade-in duration-150">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl text-slate-900 dark:text-slate-100 transition-colors">
         {/* Header */}
-        <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-700">
+        <div className="bg-slate-50 dark:bg-slate-950 px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 flex items-center justify-center text-amber-700 dark:text-amber-400">
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="font-bold text-base text-slate-900">Submit Sectional Mock Test</h3>
-            <p className="text-xs text-slate-500">{testTitle}</p>
+            <h3 className="font-bold text-base text-slate-900 dark:text-slate-100">Submit Sectional Mock Test</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{testTitle}</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="p-6">
-          <p className="text-sm text-slate-700 mb-4 font-medium">
+          <p className="text-sm text-slate-700 dark:text-slate-300 mb-4 font-medium">
             Are you sure you want to submit?
           </p>
 
           {/* Exam Summary Table */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden mb-5">
+          <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden mb-5">
             <table className="w-full text-xs">
-              <thead className="bg-slate-100 text-slate-600 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200">
+              <thead className="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200 dark:border-slate-800">
                 <tr>
                   <th className="py-2.5 px-3 text-left">Section</th>
                   <th className="py-2.5 px-2 text-center">Total</th>
-                  <th className="py-2.5 px-2 text-center text-emerald-700">Answered</th>
-                  <th className="py-2.5 px-2 text-center text-rose-700">Unanswered</th>
-                  <th className="py-2.5 px-2 text-center text-purple-700">Marked</th>
-                  <th className="py-2.5 px-2 text-center text-slate-600">Not Visited</th>
+                  <th className="py-2.5 px-2 text-center text-emerald-700 dark:text-emerald-400">Answered</th>
+                  <th className="py-2.5 px-2 text-center text-rose-700 dark:text-rose-400">Unanswered</th>
+                  <th className="py-2.5 px-2 text-center text-purple-700 dark:text-purple-400">Marked</th>
+                  <th className="py-2.5 px-2 text-center text-slate-600 dark:text-slate-400">Not Visited</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200 font-medium">
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-800 font-medium">
                 <tr>
-                  <td className="py-3 px-3 font-bold text-slate-900">{section}</td>
-                  <td className="py-3 px-2 text-center text-slate-700">{questions.length}</td>
-                  <td className="py-3 px-2 text-center text-emerald-700 font-bold">
+                  <td className="py-3 px-3 font-bold text-slate-900 dark:text-slate-100">{section}</td>
+                  <td className="py-3 px-2 text-center text-slate-700 dark:text-slate-300">{questions.length}</td>
+                  <td className="py-3 px-2 text-center text-emerald-700 dark:text-emerald-400 font-bold">
                     {totalAnsweredForEvaluation}
                   </td>
-                  <td className="py-3 px-2 text-center text-rose-700">{counts.notAnswered}</td>
-                  <td className="py-3 px-2 text-center text-purple-700">{counts.marked}</td>
-                  <td className="py-3 px-2 text-center text-slate-600">{counts.notVisited}</td>
+                  <td className="py-3 px-2 text-center text-rose-700 dark:text-rose-400">{counts.notAnswered}</td>
+                  <td className="py-3 px-2 text-center text-purple-700 dark:text-purple-400">{counts.marked}</td>
+                  <td className="py-3 px-2 text-center text-slate-600 dark:text-slate-400">{counts.notVisited}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 text-xs text-blue-900 flex items-start gap-2.5">
-            <CheckCircle className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+          <div className="bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 rounded-xl p-3 text-xs text-blue-900 dark:text-blue-300 flex items-start gap-2.5">
+            <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
             <span>
               <strong>Note:</strong> Both 'Answered' and 'Answered & Marked for Review' ({totalAnsweredForEvaluation} questions) will be evaluated.
             </span>
@@ -112,10 +112,10 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-end gap-3">
+        <div className="bg-slate-50 dark:bg-slate-950 px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 rounded-xl text-xs font-semibold transition"
+            className="px-4 py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold transition"
           >
             Back to Test
           </button>
