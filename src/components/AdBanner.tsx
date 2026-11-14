@@ -43,7 +43,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
     }
 
     try {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== 'undefined' && adRef.current && !adRef.current.getAttribute('data-adsbygoogle-status')) {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       }
     } catch (e) {

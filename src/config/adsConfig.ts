@@ -34,8 +34,8 @@ export const ADS_CONFIG: AdsConfiguration = {
   googleAdSense: {
     client: 'ca-pub-8711221458060472',
     slots: {
-      dashboardLeaderboard: '',
-      scorecardNative: '',
+      dashboardLeaderboard: '1860511928',
+      scorecardNative: '9331807838',
       sidebarRectangle: '',
       examBottomBar: '',
     },
