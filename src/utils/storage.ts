@@ -4,7 +4,6 @@ const STORAGE_KEYS = {
   HISTORY: 'cat_mock_history_v1',
   ACTIVE_SESSION: 'cat_mock_active_session_v1',
   BOOKMARKS: 'cat_mock_bookmarks_v1',
-  CANDIDATE_NAME: 'cat_mock_candidate_name',
   SECTION_BREAK_PROMPT: 'cat_mock_section_break_prompt',
 };
 
@@ -23,23 +22,6 @@ export const setSectionBreakPromptEnabled = (enabled: boolean): void => {
     localStorage.setItem(STORAGE_KEYS.SECTION_BREAK_PROMPT, String(enabled));
   } catch (e) {
     console.error('Failed to save section break prompt preference', e);
-  }
-};
-
-// Candidate name helper
-export const getCandidateName = (): string => {
-  try {
-    return localStorage.getItem(STORAGE_KEYS.CANDIDATE_NAME) || 'CAT 2024 Aspirant';
-  } catch {
-    return 'CAT 2024 Aspirant';
-  }
-};
-
-export const setCandidateName = (name: string): void => {
-  try {
-    localStorage.setItem(STORAGE_KEYS.CANDIDATE_NAME, name);
-  } catch (e) {
-    console.error('Failed to save candidate name to local storage', e);
   }
 };
 

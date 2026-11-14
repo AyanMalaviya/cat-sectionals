@@ -15,8 +15,11 @@ import {
   setSectionBreakPromptEnabled,
   getBookmarks,
   toggleBookmark,
-  getCandidateName,
 } from './utils/storage';
+
+// Analytics & Insights
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Components
 import { Navbar } from './components/Navbar';
@@ -87,8 +90,6 @@ export function App() {
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
   const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
   const [activeLegalTab, setActiveLegalTab] = useState<LegalTab>('about');
-
-  const candidateName = getCandidateName();
 
   // Flag to avoid pushing history entry when navigating via browser Back/Forward (popstate)
   const isPopStateRef = useRef(false);
@@ -838,7 +839,6 @@ export function App() {
               section={isCurrentFullMock ? (activeSectionConfig?.section || 'VARC') : activeTest.section}
               durationMinutes={isCurrentFullMock ? 40 : activeTest.durationMinutes}
               remainingSeconds={remainingSeconds}
-              candidateName={candidateName}
               isPaletteOpen={isPaletteOpen}
               onTogglePalette={() => setIsPaletteOpen((prev) => !prev)}
               onToggleCalculator={() => setIsCalculatorOpen((prev) => !prev)}
@@ -1088,6 +1088,10 @@ export function App() {
         onClose={handleCloseLegalModal}
         onOpenSupport={() => setIsSupportModalOpen(true)}
       />
+
+      {/* Vercel Analytics & Web Vitals Speed Insights */}
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Timer, Calculator, FileText, User, PanelRight, Maximize2, LogOut, CheckCircle2, Lock } from 'lucide-react';
+import { Timer, Calculator, FileText, PanelRight, Maximize2, LogOut, CheckCircle2, Lock } from 'lucide-react';
 import { SectionBreakToggle } from './SectionBreakToggle';
 
 interface ExamHeaderProps {
@@ -7,7 +7,6 @@ interface ExamHeaderProps {
   section: string;
   durationMinutes: number;
   remainingSeconds: number;
-  candidateName: string;
   isPaletteOpen: boolean;
   onTogglePalette: () => void;
   onToggleCalculator: () => void;
@@ -27,7 +26,6 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
   section,
   durationMinutes,
   remainingSeconds,
-  candidateName,
   isPaletteOpen,
   onTogglePalette,
   onToggleCalculator,
@@ -161,16 +159,6 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
               <span className="hidden md:inline">Pause</span>
             </button>
           )}
-
-          {/* Candidate Profile Avatar */}
-          <div className="hidden lg:flex items-center gap-2 pl-2 border-l border-slate-200">
-            <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold text-white">
-              <User className="w-4 h-4" />
-            </div>
-            <div className="text-left text-[11px]">
-              <div className="font-semibold text-slate-800 leading-tight truncate max-w-[90px]">{candidateName}</div>
-            </div>
-          </div>
         </div>
       </div>
 
