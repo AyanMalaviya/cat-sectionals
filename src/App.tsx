@@ -303,6 +303,25 @@ export function App() {
     return () => clearInterval(interval);
   }, [view, activeTest, currentQuestionIndex]);
 
+  // Dynamic SEO Page Title & Meta Tag Updates for Target Keywords
+  useEffect(() => {
+    if (view === 'exam' && activeTest) {
+      document.title = `CBT Exam: ${activeTest.title} (40-Min Sectional) | CAT Mock Test CBT`;
+    } else if (view === 'scorecard' && activeTest) {
+      document.title = `Scorecard & Analysis: ${activeTest.title} | CAT Sectional Mock Tests`;
+    } else if (view === 'analysis' && activeTest) {
+      document.title = `Detailed Solutions & Review: ${activeTest.title} | CAT Practice`;
+    } else if (currentTab === 'topic-wise') {
+      document.title = 'CAT Practice Online: Topic-Wise Sectional Quizzes & Sets | CAT Practice';
+    } else if (currentTab === 'history') {
+      document.title = 'My CAT Practice History & Analytics | CAT Mock Test CBT';
+    } else if (currentTab === 'bookmarks') {
+      document.title = 'Saved CAT Practice Questions & Bookmarks | CAT Mock Test CBT';
+    } else {
+      document.title = 'CAT Mock Test CBT 2026 - Free CAT Sectional Mock Tests & CAT Practice';
+    }
+  }, [view, currentTab, activeTest]);
+
   // Periodic auto-save of active session
   useEffect(() => {
     if (view !== 'exam' || !activeTest) return;

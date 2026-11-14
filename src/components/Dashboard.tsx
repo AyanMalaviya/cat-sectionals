@@ -7,6 +7,8 @@ import {
   Play,
   BookOpen,
   Layers,
+  CheckCircle2,
+  Award,
 } from 'lucide-react';
 
 interface DashboardProps {
@@ -120,10 +122,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-5 border-b border-slate-200">
         <div>
           <h1 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
-            CAT Mock Tests
+            {activeCategory === 'sectional-pyq'
+              ? 'CAT Mock Test CBT — 40-Min Sectional Tests'
+              : 'CAT Practice Portal — Topic-Wise Sectional Quizzes'}
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
-            {filteredTests.length} tests available
+            {activeCategory === 'sectional-pyq'
+              ? `Authentic CAT Sectional Mock Tests (QA, DILR, VARC) from 2020 to 2026 • ${filteredTests.length} tests available`
+              : `Targeted CAT Practice sets with official PYQs and specimen mocks • ${filteredTests.length} tests available`}
           </p>
         </div>
 
@@ -264,8 +270,54 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       )}
 
+      {/* SEO Section: CAT Mock Test CBT & Practice Guide */}
+      <section className="mt-16 pt-10 border-t border-slate-200" aria-label="CAT Mock Test CBT Guide">
+        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8">
+          <div className="flex items-center gap-2.5 mb-4">
+            <span className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">
+              <Award className="w-4 h-4" />
+            </span>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900">
+              CAT Mock Test CBT &amp; Sectional Practice Guide
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-800 flex items-center gap-1.5 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                Real CAT CBT Exam Simulation
+              </h3>
+              <p>
+                Experience the authentic TCS iON Computer Based Test (CBT) environment with a 40-minute strict sectional countdown, question palette status indicators (Answered, Not Answered, Marked for Review), and official marking scheme (+3 marks for correct answers, -1 for wrong MCQs, and 0 penalty for TITA questions).
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-800 flex items-center gap-1.5 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                Full 40-Min Sectional Mock Tests
+              </h3>
+              <p>
+                Master sectional time allocation across Quantitative Aptitude (QA, 22 questions), Data Interpretation &amp; Logical Reasoning (DILR, 20 questions), and Verbal Ability &amp; Reading Comprehension (VARC, 24 questions) using authentic past year papers from CAT 2020 through CAT 2026 specimen mocks.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-800 flex items-center gap-1.5 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                Targeted CAT Practice &amp; Analytics
+              </h3>
+              <p>
+                Strengthen core concepts with focused topic-wise practice quizzes across Arithmetic, Algebra, Geometry, Numbers, RC Passages, Tournaments, and Matrix arrangements. Review detailed solution rationales, accuracy, and question-by-question time tracking after every attempt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Bottom Ad Unit (Only rendered when real Google AdSense ID is configured) */}
-      <AdBanner slot="bottom-leaderboard" className="mt-12" />
+      <AdBanner slot="bottom-leaderboard" className="mt-8" />
     </div>
   );
 };
