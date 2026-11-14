@@ -476,6 +476,7 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
               e.stopPropagation();
               setIsMinimized(!isMinimized);
             }}
+            aria-label={isMinimized ? 'Expand Virtual Calculator' : 'Minimize Virtual Calculator'}
             className="p-1 text-slate-300 hover:text-white hover:bg-slate-800 rounded transition"
             title={isMinimized ? 'Expand' : 'Minimize'}
           >
@@ -486,6 +487,7 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
               e.stopPropagation();
               onClose();
             }}
+            aria-label="Close Virtual Calculator"
             className="p-1 text-slate-300 hover:text-rose-400 hover:bg-slate-800 rounded transition"
             title="Close"
           >

@@ -1,0 +1,45 @@
+# CBTMocks - Free Mock Tests for Competitive Exams (Full Context)
+
+> Complete background documentation, syllabus inventory, scoring models, and mission guidelines for CBTMocks (https://cbtmocks.online/), a 100% free open-access Computer Based Test (CBT) portal for Indian competitive examinations (CAT, XAT, SNAP).
+
+## Mission & Philosophy
+CBTMocks was engineered to dismantle the predatory test series model prevalent in Indian competitive examination preparation. Commercial coaching institutes (IMS, TIME, Career Launcher, Cracku) provide 1 or 2 sample tests as marketing bait, then lock their remaining question banks behind ₹5,000 to ₹15,000 paywalls while demanding phone numbers for telemarketing.
+
+CBTMocks guarantees:
+1. 100% Free Forever: All 62+ tests and 866+ questions are completely open.
+2. Zero Registration: No email, phone number, or password required. All state persists in client-side localStorage.
+3. Authentic CBT Simulation: Exact TCS iON CBT interface with 40-minute countdown timers, official question palettes (Answered, Not Answered, Marked for Review), and built-in BODMAS virtual calculator.
+4. Non-Intrusive Monetization: Monetized strictly through unobtrusive Google AdSense banners (never during active tests!) and voluntary community UPI donations (ayanmalaviya111@okhdfcbank).
+
+## Test Series Inventory
+
+### 1. 120-Minute Official Full Mock Tests (3 Sections)
+- Structure: Section 1 VARC (40m, 24 Qs) -> Section 2 DILR (40m, 20 Qs) -> Section 3 QA (40m, 22 Qs).
+- Total: 66 Questions, 198 Marks.
+- Available Tests:
+  - CAT 2026 National All-India Specimen Full Mock
+  - CAT 2023 Official All-India Full Mock (Slot 2 VARC + Slot 1 DILR + Slot 1 QA)
+  - CAT 2022 Official All-India Full Mock (Slot 2 VARC + Slot 3 DILR + Slot 2 QA)
+  - CAT 2021 Slot 1 Official Full Mock (All 3 Slot 1 sections)
+  - CAT 2020 Slot 1 Official Full Mock (All 3 Slot 1 sections)
+
+### 2. 40-Minute Sectional Mock Tests
+- Quantitative Aptitude (QA): 22 Questions, 40 Minutes, covering Arithmetic, Algebra, Geometry, Numbers, and Modern Math.
+- Data Interpretation & Logical Reasoning (DILR): 20 Questions, 40 Minutes, covering Matrix puzzles, Round-robin tournaments, Route networks, and Caselets.
+- Verbal Ability & Reading Comprehension (VARC): 24 Questions, 40 Minutes, covering 4 RC Passages (Ecology, Sociology, Technology, Economics) and 8 VA items.
+
+### 3. Scoring System
+- Multiple Choice Questions (MCQ): +3 marks for correct, -1 mark penalty for incorrect.
+- Type In The Answer (TITA): +3 marks for correct, 0 penalty for incorrect.
+
+## Resource Links
+- Homepage: https://cbtmocks.online/
+- Full Mocks: https://cbtmocks.online/#/full-mocks
+- Sectionals: https://cbtmocks.online/#/tests
+- Topic-Wise Quizzes: https://cbtmocks.online/#/topic-wise
+- History & Scorecards: https://cbtmocks.online/#/history
+- Bookmarks: https://cbtmocks.online/#/bookmarks
+- About Us & Mission: https://cbtmocks.online/about.html
+- Contact & Missing Slot Submissions: https://cbtmocks.online/contact.html
+- Privacy Policy: https://cbtmocks.online/privacy.html
+- Terms of Service: https://cbtmocks.online/terms.html

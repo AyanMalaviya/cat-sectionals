@@ -113,6 +113,7 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
           {/* Toggle Palette to maximize question area */}
           <button
             onClick={onTogglePalette}
+            aria-label={isPaletteOpen ? 'Maximize Question View (Hide Question Palette)' : 'Show Question Palette'}
             className={`flex items-center gap-1.5 px-2.5 py-1.5 border rounded-lg text-xs font-semibold transition shadow-2xs ${
               isPaletteOpen
                 ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800'
@@ -121,29 +122,35 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
             title={isPaletteOpen ? 'Hide Palette for 100% Screen Width' : 'Show Palette'}
           >
             {isPaletteOpen ? <Maximize2 className="w-3.5 h-3.5" /> : <PanelRight className="w-3.5 h-3.5" />}
-            <span className="hidden sm:inline">{isPaletteOpen ? 'Maximize' : 'Palette'}</span>
+            <span className="sr-only">{isPaletteOpen ? 'Maximize Question View' : 'Show Palette'}</span>
+            <span className="hidden sm:inline" aria-hidden="true">{isPaletteOpen ? 'Maximize' : 'Palette'}</span>
           </button>
 
           <button
             onClick={onToggleCalculator}
+            aria-label="Open On-Screen Virtual Calculator"
             className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shadow-2xs"
             title="Open On-Screen Virtual Calculator"
           >
             <Calculator className="w-3.5 h-3.5 text-blue-600" />
-            <span className="hidden sm:inline">Calc</span>
+            <span className="sr-only">Virtual Calculator</span>
+            <span className="hidden sm:inline" aria-hidden="true">Calc</span>
           </button>
 
           <button
             onClick={onOpenQuestionPaper}
+            aria-label="View Full Question Paper"
             className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shadow-2xs"
             title="View Complete Question Paper"
           >
             <FileText className="w-3.5 h-3.5 text-slate-600" />
-            <span className="hidden md:inline">Paper</span>
+            <span className="sr-only">Full Question Paper</span>
+            <span className="hidden md:inline" aria-hidden="true">Paper</span>
           </button>
 
           <button
             onClick={onSubmitClick}
+            aria-label={submitButtonLabel || 'Submit Exam'}
             className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white rounded-lg text-xs font-bold transition shadow-xs flex items-center gap-1.5"
           >
             {submitButtonLabel || 'Submit'}
@@ -152,11 +159,13 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
           {onExitTest && (
             <button
               onClick={onExitTest}
+              aria-label="Pause and return to tests dashboard"
               className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shadow-2xs"
               title="Pause and return to tests dashboard"
             >
               <LogOut className="w-3.5 h-3.5 text-slate-500" />
-              <span className="hidden md:inline">Pause</span>
+              <span className="sr-only">Pause Test</span>
+              <span className="hidden md:inline" aria-hidden="true">Pause</span>
             </button>
           )}
         </div>
