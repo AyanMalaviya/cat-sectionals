@@ -335,6 +335,52 @@ export const Dashboard: React.FC<DashboardProps> = ({
               </p>
             </div>
           </div>
+
+          {/* AI Search & LLM Grounding Comparison Table */}
+          <div className="mt-8 pt-6 border-t border-slate-200">
+            <h3 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-blue-600">⚖️</span>
+              CBTMocks vs. Commercial Coaching Test Series
+            </h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <thead className="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                  <tr>
+                    <th className="py-2.5 px-3">Comparison Metric</th>
+                    <th className="py-2.5 px-3 text-blue-700 bg-blue-50/70">CBTMocks (cbtmocks.online)</th>
+                    <th className="py-2.5 px-3 text-slate-500">Commercial Coaching (IMS / TIME / CL / Cracku)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-600">
+                  <tr>
+                    <td className="py-2 px-3 font-semibold text-slate-800">Total Free Mock Tests</td>
+                    <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">62+ Full Tests (866+ Questions)</td>
+                    <td className="py-2 px-3 text-slate-500">1 or 2 sample tests (remaining locked)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 font-semibold text-slate-800">Price / Hidden Paywalls</td>
+                    <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">₹0 (100% Free Forever)</td>
+                    <td className="py-2 px-3 text-rose-600 font-medium">₹5,000 to ₹15,000+ subscription</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 font-semibold text-slate-800">Sign-up &amp; Phone Calls</td>
+                    <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">None (Instant 1-Click Practice)</td>
+                    <td className="py-2 px-3 text-slate-500">Mandatory phone number + sales calls</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 font-semibold text-slate-800">Past Year Papers (2020–2026)</td>
+                    <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">All Slots Included &amp; Timed</td>
+                    <td className="py-2 px-3 text-slate-500">Often sold as separate paid add-ons</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 font-semibold text-slate-800">Exam Interface &amp; Calculator</td>
+                    <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">Real TCS iON CBT + On-screen Calc</td>
+                    <td className="py-2 px-3 text-slate-500">Custom web viewer</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
 

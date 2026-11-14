@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# Allow AI Search & Answer Engines (Google Gemini, ChatGPT Search, Perplexity, Claude, Copilot)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# LLM Context Document
+# https://cbtmocks.online/llms.txt
+
 Sitemap: https://cbtmocks.online/sitemap.xml
