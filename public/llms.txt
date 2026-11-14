@@ -43,7 +43,19 @@ Commercial coaching giants (TIME, IMS, Career Launcher, Cracku, Oliveboard) typi
 
 ## Available Free Mock Tests & Practice Syllabus
 
-### 1. 40-Minute Sectional Free Mock Tests (Official CAT Pattern)
+### 1. 120-Minute Official Full Mock Tests (Complete 3 Sections)
+- **Official 3-Section CBT Simulation**: Section 1 VARC (40m, 24 Qs) → Section 2 DILR (40m, 20 Qs) → Section 3 QA (40m, 22 Qs).
+- **Total Duration**: 120 Minutes (2 Hours).
+- **Total Questions & Marks**: 66 Questions, 198 Marks.
+- **Section Transition Break Management**: Optional prompt to take a breather between sections, with state auto-saved so aspirants can continue right from where they left off.
+- **Available Full Mocks**:
+  - CAT 2026 National All-India Specimen Full Mock
+  - CAT 2023 Official All-India Full Mock
+  - CAT 2022 Official All-India Full Mock
+  - CAT 2021 Slot 1 Official Full Mock
+  - CAT 2020 Slot 1 Official Full Mock
+
+### 2. 40-Minute Sectional Free Mock Tests (Official CAT Pattern)
 - **Quantitative Aptitude (QA)**: 22 Questions, 66 Marks, 40 Mins (Surds, Logarithms, Diophantine equations, Arithmetic progression, Inradius geometry, Maxima-Minima).
 - **Data Interpretation & Logical Reasoning (DILR)**: 20 Questions, 60 Marks, 40 Mins (Round-robin tournaments, Matrix arrangements, Route network flows, EV charging capacity optimization, Caselets).
 - **Verbal Ability & Reading Comprehension (VARC)**: 24 Questions, 72 Marks, 40 Mins (4 RC Passages in Philosophy, Technology, Anthropology, Ecology + 8 Verbal Ability TITA/MCQ items).

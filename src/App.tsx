@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { SectionalTest, TestResult, QuestionStatus, ActiveSession } from './types';
 import { sectionalTests, getTestById } from './data/testsData';
+import { officialFullMockTests } from './data/fullMocksData';
 import {
   getTestHistory,
   saveTestResult,
@@ -9,6 +10,9 @@ import {
   clearActiveSession,
   evaluateQuestionResponses,
   estimatePercentile,
+  estimateFullMockPercentile,
+  getSectionBreakPromptEnabled,
+  setSectionBreakPromptEnabled,
   getBookmarks,
   toggleBookmark,
   getCandidateName,
@@ -17,10 +21,12 @@ import {
 // Components
 import { Navbar } from './components/Navbar';
 import { Dashboard } from './components/Dashboard';
+import { FullMocksView } from './components/FullMocksView';
 import { ExamHeader } from './components/ExamInterface/ExamHeader';
 import { QuestionView } from './components/ExamInterface/QuestionView';
 import { QuestionPalette } from './components/ExamInterface/QuestionPalette';
 import { SubmitModal } from './components/ExamInterface/SubmitModal';
+import { SectionTransitionModal } from './components/ExamInterface/SectionTransitionModal';
 import { QuestionPaperModal } from './components/ExamInterface/QuestionPaperModal';
 import { Scorecard } from './components/ResultReview/Scorecard';
 import { DetailedAnalysis } from './components/ResultReview/DetailedAnalysis';
@@ -34,19 +40,22 @@ import { LegalModal, LegalTab } from './components/LegalModal';
 
 interface HistoryStackState {
   view: 'dashboard' | 'exam' | 'scorecard' | 'analysis';
-  tab: 'tests' | 'topic-wise' | 'history' | 'bookmarks';
+  tab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks';
   testId?: string;
   resultId?: string;
 }
 
 export function App() {
   // Navigation & View state
-  const [currentTab, setCurrentTab] = useState<'tests' | 'topic-wise' | 'history' | 'bookmarks'>('tests');
+  const [currentTab, setCurrentTab] = useState<'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks'>('full-mocks');
   const [view, setView] = useState<'dashboard' | 'exam' | 'scorecard' | 'analysis'>('dashboard');
 
   // Active exam state
   const [activeTest, setActiveTest] = useState<SectionalTest | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+  const [currentSectionIndex, setCurrentSectionIndex] = useState<number>(0);
+  const [completedSections, setCompletedSections] = useState<Array<'VARC' | 'DILR' | 'QA'>>([]);
+  const [sectionBreakPromptEnabled, setSectionBreakPromptEnabledState] = useState<boolean>(getSectionBreakPromptEnabled());
   const [remainingSeconds, setRemainingSeconds] = useState<number>(40 * 60);
   const [userResponses, setUserResponses] = useState<Record<string, number | string | null>>({});
   const [questionStatuses, setQuestionStatuses] = useState<Record<string, QuestionStatus>>({});
@@ -64,6 +73,14 @@ export function App() {
 
   // Modals & Tools state
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+  const [isSectionTransitionModalOpen, setIsSectionTransitionModalOpen] = useState(false);
+  const [transitionCompletedSection, setTransitionCompletedSection] = useState<'VARC' | 'DILR' | 'QA'>('VARC');
+  const [transitionNextSection, setTransitionNextSection] = useState<'VARC' | 'DILR' | 'QA'>('DILR');
+  const [transitionStats, setTransitionStats] = useState<{ attempted: number; total: number; timeSpent: number }>({
+    attempted: 0,
+    total: 24,
+    timeSpent: 0,
+  });
   const [isPaperModalOpen, setIsPaperModalOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
@@ -77,7 +94,7 @@ export function App() {
 
   const getHashForState = (
     v: 'dashboard' | 'exam' | 'scorecard' | 'analysis',
-    t: 'tests' | 'topic-wise' | 'history' | 'bookmarks',
+    t: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks',
     tId?: string
   ): string => {
     if (v === 'dashboard') {
@@ -98,7 +115,7 @@ export function App() {
   const pushNavState = useCallback(
     (
       newView: 'dashboard' | 'exam' | 'scorecard' | 'analysis',
-      newTab?: 'tests' | 'topic-wise' | 'history' | 'bookmarks',
+      newTab?: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks',
       testId?: string,
       resultId?: string,
       replace: boolean = false
@@ -353,6 +370,29 @@ export function App() {
     }
   }, [view, currentTab, activeTest]);
 
+  // Helper getters for Full Mock vs Sectional Active State
+  const isCurrentFullMock = Boolean(
+    activeTest && (activeTest.isFullMock || activeTest.category === 'full-mock' || activeTest.section === 'FULL')
+  );
+
+  const activeSectionConfig = (isCurrentFullMock && activeTest?.sectionsList)
+    ? activeTest.sectionsList[currentSectionIndex]
+    : null;
+
+  const currentSectionQuestions = activeTest
+    ? (activeSectionConfig
+        ? activeTest.questions.slice(activeSectionConfig.startIndex, activeSectionConfig.endIndex + 1)
+        : activeTest.questions)
+    : [];
+
+  const activeQuestionGlobalIndex = activeSectionConfig
+    ? activeSectionConfig.startIndex + currentQuestionIndex
+    : currentQuestionIndex;
+
+  const activeQuestion = (activeTest && activeTest.questions[activeQuestionGlobalIndex])
+    ? activeTest.questions[activeQuestionGlobalIndex]
+    : activeTest?.questions[0];
+
   // Periodic auto-save of active session
   useEffect(() => {
     if (view !== 'exam' || !activeTest) return;
@@ -362,8 +402,11 @@ export function App() {
       startTime: Date.now(),
       remainingSeconds,
       currentQuestionIndex,
+      currentSectionIndex,
+      completedSections,
       answers: {},
       visitedQuestions: Array.from(visitedQuestions),
+      sectionBreakPromptEnabled,
     };
 
     activeTest.questions.forEach((q) => {
@@ -376,12 +419,29 @@ export function App() {
     });
 
     saveActiveSession(sessionData);
-  }, [view, activeTest, remainingSeconds, currentQuestionIndex, userResponses, questionStatuses, questionTimes, visitedQuestions]);
+  }, [
+    view,
+    activeTest,
+    remainingSeconds,
+    currentQuestionIndex,
+    currentSectionIndex,
+    completedSections,
+    userResponses,
+    questionStatuses,
+    questionTimes,
+    visitedQuestions,
+    sectionBreakPromptEnabled,
+  ]);
 
   const handleStartTest = (test: SectionalTest) => {
     setActiveTest(test);
+    const isMock = test.category === 'full-mock' || test.section === 'FULL' || test.isFullMock;
+    setCurrentSectionIndex(0);
+    setCompletedSections([]);
     setCurrentQuestionIndex(0);
-    setRemainingSeconds(test.durationMinutes * 60);
+
+    const initialSecSeconds = isMock ? 40 * 60 : test.durationMinutes * 60;
+    setRemainingSeconds(initialSecSeconds);
 
     const initialStatuses: Record<string, QuestionStatus> = {};
     const initialVisited = new Set<string>();
@@ -401,7 +461,10 @@ export function App() {
     setVisitedQuestions(initialVisited);
     setIsPaletteOpen(true);
 
-    pushNavState('exam', test.category === 'topic-wise' ? 'topic-wise' : 'tests', test.id);
+    const targetTab = test.category === 'full-mock'
+      ? 'full-mocks'
+      : (test.category === 'topic-wise' ? 'topic-wise' : 'tests');
+    pushNavState('exam', targetTab, test.id);
   };
 
   const handleResumeActiveTest = () => {
@@ -412,8 +475,12 @@ export function App() {
     if (!test) return;
 
     setActiveTest(test);
+    const isMock = test.category === 'full-mock' || test.section === 'FULL' || test.isFullMock;
+    const secIdx = session.currentSectionIndex || 0;
+    setCurrentSectionIndex(secIdx);
+    setCompletedSections(session.completedSections || []);
     setCurrentQuestionIndex(session.currentQuestionIndex || 0);
-    setRemainingSeconds(session.remainingSeconds || test.durationMinutes * 60);
+    setRemainingSeconds(session.remainingSeconds || (isMock ? 40 * 60 : test.durationMinutes * 60));
 
     const responses: Record<string, number | string | null> = {};
     const statuses: Record<string, QuestionStatus> = {};
@@ -429,9 +496,15 @@ export function App() {
     setQuestionStatuses(statuses);
     setQuestionTimes(times);
     setVisitedQuestions(new Set(session.visitedQuestions || []));
+    if (session.sectionBreakPromptEnabled !== undefined) {
+      setSectionBreakPromptEnabledState(session.sectionBreakPromptEnabled);
+    }
     setIsPaletteOpen(true);
 
-    pushNavState('exam', test.category === 'topic-wise' ? 'topic-wise' : 'tests', test.id);
+    const targetTab = test.category === 'full-mock'
+      ? 'full-mocks'
+      : (test.category === 'topic-wise' ? 'topic-wise' : 'tests');
+    pushNavState('exam', targetTab, test.id);
   };
 
   const handleDiscardActiveTest = () => {
@@ -442,14 +515,20 @@ export function App() {
   const handleExitTest = () => {
     if (window.confirm('Pause test and return to Dashboard? Your progress is saved and you can resume anytime.')) {
       setActiveSessionState(getActiveSession());
-      pushNavState('dashboard', activeTest?.category === 'topic-wise' ? 'topic-wise' : 'tests');
+      const targetTab = activeTest?.category === 'full-mock'
+        ? 'full-mocks'
+        : (activeTest?.category === 'topic-wise' ? 'topic-wise' : 'tests');
+      pushNavState('dashboard', targetTab);
     }
   };
 
   const selectQuestion = (index: number) => {
     if (!activeTest) return;
-    const currentQ = activeTest.questions[currentQuestionIndex];
-    const targetQ = activeTest.questions[index];
+    const currentQ = activeQuestion;
+    const targetGlobalIndex = activeSectionConfig
+      ? activeSectionConfig.startIndex + index
+      : index;
+    const targetQ = activeTest.questions[targetGlobalIndex];
 
     if (currentQ) {
       const curStatus = questionStatuses[currentQ.id];
@@ -458,45 +537,47 @@ export function App() {
       }
     }
 
-    setVisitedQuestions((prev) => new Set(prev).add(targetQ.id));
-    if (!questionStatuses[targetQ.id] || questionStatuses[targetQ.id] === 'not-visited') {
-      setQuestionStatuses((prev) => ({ ...prev, [targetQ.id]: 'not-answered' }));
+    if (targetQ) {
+      setVisitedQuestions((prev) => new Set(prev).add(targetQ.id));
+      if (!questionStatuses[targetQ.id] || questionStatuses[targetQ.id] === 'not-visited') {
+        setQuestionStatuses((prev) => ({ ...prev, [targetQ.id]: 'not-answered' }));
+      }
     }
 
     setCurrentQuestionIndex(index);
   };
 
   const handleSaveAndNext = () => {
-    if (!activeTest) return;
-    const currentQ = activeTest.questions[currentQuestionIndex];
+    if (!activeTest || !activeQuestion) return;
+    const currentQ = activeQuestion;
     const resp = userResponses[currentQ.id];
     const hasAnswer = resp !== null && resp !== undefined && String(resp).trim() !== '';
 
     const newStatus: QuestionStatus = hasAnswer ? 'answered' : 'not-answered';
     setQuestionStatuses((prev) => ({ ...prev, [currentQ.id]: newStatus }));
 
-    if (currentQuestionIndex < activeTest.questions.length - 1) {
+    if (currentQuestionIndex < currentSectionQuestions.length - 1) {
       selectQuestion(currentQuestionIndex + 1);
     }
   };
 
   const handleMarkForReviewAndNext = () => {
-    if (!activeTest) return;
-    const currentQ = activeTest.questions[currentQuestionIndex];
+    if (!activeTest || !activeQuestion) return;
+    const currentQ = activeQuestion;
     const resp = userResponses[currentQ.id];
     const hasAnswer = resp !== null && resp !== undefined && String(resp).trim() !== '';
 
     const newStatus: QuestionStatus = hasAnswer ? 'marked-answered' : 'marked';
     setQuestionStatuses((prev) => ({ ...prev, [currentQ.id]: newStatus }));
 
-    if (currentQuestionIndex < activeTest.questions.length - 1) {
+    if (currentQuestionIndex < currentSectionQuestions.length - 1) {
       selectQuestion(currentQuestionIndex + 1);
     }
   };
 
   const handleClearResponse = () => {
-    if (!activeTest) return;
-    const currentQ = activeTest.questions[currentQuestionIndex];
+    if (!activeTest || !activeQuestion) return;
+    const currentQ = activeQuestion;
 
     setUserResponses((prev) => {
       const next = { ...prev };
@@ -507,9 +588,137 @@ export function App() {
     setQuestionStatuses((prev) => ({ ...prev, [currentQ.id]: 'not-answered' }));
   };
 
+  const handleToggleBreakPrompt = () => {
+    const nextVal = !sectionBreakPromptEnabled;
+    setSectionBreakPromptEnabledState(nextVal);
+    setSectionBreakPromptEnabled(nextVal);
+  };
+
+  const handleDisableBreakPrompt = () => {
+    setSectionBreakPromptEnabledState(false);
+    setSectionBreakPromptEnabled(false);
+  };
+
+  const handleAdvanceToNextSection = () => {
+    setIsSectionTransitionModalOpen(false);
+    if (!activeTest || !activeTest.sectionsList) return;
+
+    const nextIdx = currentSectionIndex + 1;
+    setCurrentSectionIndex(nextIdx);
+    setCurrentQuestionIndex(0);
+    setRemainingSeconds(40 * 60);
+
+    const nextConfig = activeTest.sectionsList[nextIdx];
+    const firstQ = activeTest.questions[nextConfig.startIndex];
+    if (firstQ) {
+      setQuestionStatuses((prev) => ({
+        ...prev,
+        [firstQ.id]: prev[firstQ.id] && prev[firstQ.id] !== 'not-visited' ? prev[firstQ.id] : 'not-answered',
+      }));
+      setVisitedQuestions((prev) => new Set([...prev, firstQ.id]));
+    }
+
+    const curPayload: Record<string, any> = {};
+    activeTest.questions.forEach((q) => {
+      curPayload[q.id] = {
+        questionId: q.id,
+        response: userResponses[q.id] ?? null,
+        status: questionStatuses[q.id] || 'not-visited',
+        timeSpentSeconds: questionTimes[q.id] || 0,
+      };
+    });
+
+    const updatedCompleted = Array.from(
+      new Set([...completedSections, activeTest.sectionsList[currentSectionIndex].section])
+    );
+    setCompletedSections(updatedCompleted);
+
+    saveActiveSession({
+      testId: activeTest.id,
+      startTime: Date.now(),
+      remainingSeconds: 40 * 60,
+      currentSectionIndex: nextIdx,
+      completedSections: updatedCompleted,
+      currentQuestionIndex: 0,
+      answers: curPayload,
+      visitedQuestions: Array.from(visitedQuestions),
+      sectionBreakPromptEnabled,
+    });
+  };
+
+  const handlePauseAndExitFromTransition = () => {
+    setIsSectionTransitionModalOpen(false);
+    if (!activeTest || !activeTest.sectionsList) return;
+
+    const nextIdx = currentSectionIndex + 1;
+    const updatedCompleted = Array.from(
+      new Set([...completedSections, activeTest.sectionsList[currentSectionIndex].section])
+    );
+    setCompletedSections(updatedCompleted);
+
+    const curPayload: Record<string, any> = {};
+    activeTest.questions.forEach((q) => {
+      curPayload[q.id] = {
+        questionId: q.id,
+        response: userResponses[q.id] ?? null,
+        status: questionStatuses[q.id] || 'not-visited',
+        timeSpentSeconds: questionTimes[q.id] || 0,
+      };
+    });
+
+    saveActiveSession({
+      testId: activeTest.id,
+      startTime: Date.now(),
+      remainingSeconds: 40 * 60,
+      currentSectionIndex: nextIdx,
+      completedSections: updatedCompleted,
+      currentQuestionIndex: 0,
+      answers: curPayload,
+      visitedQuestions: Array.from(visitedQuestions),
+      sectionBreakPromptEnabled,
+    });
+
+    setActiveSessionState(getActiveSession());
+    pushNavState('dashboard', 'full-mocks');
+  };
+
   const handleSubmitExam = () => {
     if (!activeTest) return;
 
+    // Full Mock interim section submission
+    if (isCurrentFullMock && currentSectionIndex < 2) {
+      setIsSubmitModalOpen(false);
+
+      const secConfig = activeTest.sectionsList![currentSectionIndex];
+      const completedSec = secConfig.section;
+      const nextSecConfig = activeTest.sectionsList![currentSectionIndex + 1];
+      const nextSec = nextSecConfig.section;
+
+      const secQuestions = activeTest.questions.slice(secConfig.startIndex, secConfig.endIndex + 1);
+      const attemptedInSec = secQuestions.filter((q) => {
+        const resp = userResponses[q.id];
+        return resp !== null && resp !== undefined && String(resp).trim() !== '';
+      }).length;
+
+      const timeTakenInSec = 40 * 60 - remainingSeconds;
+      setCompletedSections((prev) => Array.from(new Set([...prev, completedSec])));
+
+      if (sectionBreakPromptEnabled) {
+        setTransitionCompletedSection(completedSec);
+        setTransitionNextSection(nextSec);
+        setTransitionStats({
+          attempted: attemptedInSec,
+          total: secQuestions.length,
+          timeSpent: Math.max(1, timeTakenInSec),
+        });
+        setIsSectionTransitionModalOpen(true);
+      } else {
+        handleAdvanceToNextSection();
+      }
+      return;
+    }
+
+    // Final test submission
     const responsePayload: Record<string, { response: number | string | null; status: QuestionStatus; timeSpentSeconds: number }> = {};
 
     activeTest.questions.forEach((q) => {
@@ -533,8 +742,13 @@ export function App() {
       accuracy,
     } = evaluateQuestionResponses(activeTest.questions, responsePayload);
 
-    const totalTimeTaken = activeTest.durationMinutes * 60 - remainingSeconds;
-    const estimatedPercentile = estimatePercentile(totalMarks, activeTest.section);
+    const totalTimeTaken = isCurrentFullMock
+      ? Math.max(1, 120 * 60 - remainingSeconds)
+      : Math.max(1, activeTest.durationMinutes * 60 - remainingSeconds);
+
+    const estimatedPercentile = isCurrentFullMock
+      ? estimateFullMockPercentile(totalMarks)
+      : estimatePercentile(totalMarks, activeTest.section);
 
     const result: TestResult = {
       id: `res-${Date.now()}`,
@@ -544,7 +758,7 @@ export function App() {
       category: activeTest.category,
       year: activeTest.year,
       timestamp: Date.now(),
-      totalTimeSeconds: Math.max(1, totalTimeTaken),
+      totalTimeSeconds: totalTimeTaken,
       totalMarks,
       maxMarks: activeTest.totalMarks,
       correctCount,
@@ -562,7 +776,11 @@ export function App() {
     setCurrentResult(result);
     setIsSubmitModalOpen(false);
     refreshStorageData();
-    pushNavState('scorecard', activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests', activeTest.id, result.id);
+
+    const targetTab = activeTest.category === 'full-mock'
+      ? 'full-mocks'
+      : (activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests');
+    pushNavState('scorecard', targetTab, activeTest.id, result.id);
   };
 
   const handleAutoSubmit = () => {
@@ -606,12 +824,12 @@ export function App() {
       {/* Main Body */}
       <main className="flex-1 flex flex-col bg-white">
         {/* EXAM VIEW (Real CAT TCS iON interface with maximized question area) */}
-        {view === 'exam' && activeTest && (
+        {view === 'exam' && activeTest && activeQuestion && (
           <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
             <ExamHeader
               title={activeTest.title}
-              section={activeTest.section}
-              durationMinutes={activeTest.durationMinutes}
+              section={isCurrentFullMock ? (activeSectionConfig?.section || 'VARC') : activeTest.section}
+              durationMinutes={isCurrentFullMock ? 40 : activeTest.durationMinutes}
               remainingSeconds={remainingSeconds}
               candidateName={candidateName}
               isPaletteOpen={isPaletteOpen}
@@ -620,14 +838,24 @@ export function App() {
               onOpenQuestionPaper={() => setIsPaperModalOpen(true)}
               onSubmitClick={() => setIsSubmitModalOpen(true)}
               onExitTest={handleExitTest}
+              isFullMock={isCurrentFullMock}
+              currentSectionIndex={currentSectionIndex}
+              completedSections={completedSections}
+              sectionBreakPromptEnabled={sectionBreakPromptEnabled}
+              onToggleBreakPrompt={handleToggleBreakPrompt}
+              submitButtonLabel={
+                isCurrentFullMock
+                  ? (currentSectionIndex < 2 ? `Submit Section ${currentSectionIndex + 1}` : 'Submit Full Mock')
+                  : 'Submit'
+              }
             />
 
             <div className="flex-1 flex flex-col lg:flex-row overflow-hidden bg-white">
               <QuestionView
-                question={activeTest.questions[currentQuestionIndex]}
-                selectedOption={userResponses[activeTest.questions[currentQuestionIndex].id] ?? null}
+                question={activeQuestion}
+                selectedOption={userResponses[activeQuestion.id] ?? null}
                 onSelectOption={(val) => {
-                  const qId = activeTest.questions[currentQuestionIndex].id;
+                  const qId = activeQuestion.id;
                   setUserResponses((prev) => ({ ...prev, [qId]: val }));
                 }}
                 onSaveAndNext={handleSaveAndNext}
@@ -639,15 +867,15 @@ export function App() {
                   }
                 }}
                 onNext={() => {
-                  if (currentQuestionIndex < activeTest.questions.length - 1) {
+                  if (currentQuestionIndex < currentSectionQuestions.length - 1) {
                     selectQuestion(currentQuestionIndex + 1);
                   }
                 }}
                 isFirst={currentQuestionIndex === 0}
-                isLast={currentQuestionIndex === activeTest.questions.length - 1}
-                isBookmarked={bookmarks.includes(activeTest.questions[currentQuestionIndex].id)}
+                isLast={currentQuestionIndex === currentSectionQuestions.length - 1}
+                isBookmarked={bookmarks.includes(activeQuestion.id)}
                 onToggleBookmark={() => {
-                  const qId = activeTest.questions[currentQuestionIndex].id;
+                  const qId = activeQuestion.id;
                   toggleBookmark(qId);
                   setBookmarks(getBookmarks());
                 }}
@@ -655,7 +883,7 @@ export function App() {
 
               {isPaletteOpen && (
                 <QuestionPalette
-                  questions={activeTest.questions}
+                  questions={currentSectionQuestions}
                   currentQuestionIndex={currentQuestionIndex}
                   questionStatuses={questionStatuses}
                   onSelectQuestion={selectQuestion}
@@ -682,7 +910,9 @@ export function App() {
                   onReviewSolutions={() => pushNavState('analysis', currentTab, activeTest.id, currentResult.id)}
                   onRetakeTest={() => handleStartTest(activeTest)}
                   onGoHome={() => {
-                    const tab = activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests';
+                    const tab = activeTest && activeTest.category === 'full-mock'
+                      ? 'full-mocks'
+                      : (activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests');
                     pushNavState('dashboard', tab);
                   }}
                 />
@@ -695,15 +925,29 @@ export function App() {
                   result={currentResult}
                   onBackToScorecard={() => pushNavState('scorecard', currentTab, activeTest.id, currentResult.id)}
                   onGoHome={() => {
-                    const tab = activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests';
+                    const tab = activeTest && activeTest.category === 'full-mock'
+                      ? 'full-mocks'
+                      : (activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests');
                     pushNavState('dashboard', tab);
                   }}
                 />
               )}
 
-              {/* DASHBOARD / TOPIC-WISE / TESTS GIVEN / BOOKMARKS TABS */}
+              {/* DASHBOARD / FULL MOCKS / TOPIC-WISE / TESTS GIVEN / BOOKMARKS TABS */}
               {view === 'dashboard' && (
                 <>
+                  {currentTab === 'full-mocks' && (
+                    <FullMocksView
+                      fullMocks={officialFullMockTests}
+                      testHistory={history}
+                      activeSession={activeSession}
+                      onResumeActiveTest={handleResumeActiveTest}
+                      onDiscardActiveTest={handleDiscardActiveTest}
+                      onStartTest={handleStartTest}
+                      onReviewPastTest={handleReviewPastTest}
+                    />
+                  )}
+
                   {(currentTab === 'tests' || currentTab === 'topic-wise') && (
                     <Dashboard
                       tests={sectionalTests}
@@ -736,7 +980,7 @@ export function App() {
                   {currentTab === 'bookmarks' && (
                     <BookmarksView
                       allTests={sectionalTests}
-                      onBackToDashboard={() => pushNavState('dashboard', 'tests')}
+                      onBackToDashboard={() => pushNavState('dashboard', 'full-mocks')}
                     />
                   )}
                 </>
@@ -761,15 +1005,34 @@ export function App() {
         onClose={() => setIsSupportModalOpen(false)}
       />
 
+      {/* Section Transition Break Modal (Full Mocks) */}
+      <SectionTransitionModal
+        isOpen={isSectionTransitionModalOpen}
+        completedSection={transitionCompletedSection}
+        completedSectionNumber={currentSectionIndex + 1}
+        nextSection={transitionNextSection}
+        nextSectionNumber={currentSectionIndex + 2}
+        attemptedCount={transitionStats.attempted}
+        totalQuestions={transitionStats.total}
+        timeSpentSeconds={transitionStats.timeSpent}
+        onStartNextSection={handleAdvanceToNextSection}
+        onPauseAndExit={handlePauseAndExitFromTransition}
+        onDisableFuturePrompts={handleDisableBreakPrompt}
+      />
+
       {/* Confirmation Submit Modal */}
       {view === 'exam' && activeTest && (
         <SubmitModal
           isOpen={isSubmitModalOpen}
           onClose={() => setIsSubmitModalOpen(false)}
           onConfirmSubmit={handleSubmitExam}
-          testTitle={activeTest.title}
-          section={activeTest.section}
-          questions={activeTest.questions}
+          testTitle={
+            isCurrentFullMock
+              ? `${activeTest.title} - Section ${currentSectionIndex + 1} (${activeSectionConfig?.section || ''})`
+              : activeTest.title
+          }
+          section={isCurrentFullMock ? (activeSectionConfig?.section || 'VARC') : activeTest.section}
+          questions={currentSectionQuestions}
           questionStatuses={questionStatuses}
         />
       )}
@@ -779,8 +1042,12 @@ export function App() {
         <QuestionPaperModal
           isOpen={isPaperModalOpen}
           onClose={() => setIsPaperModalOpen(false)}
-          questions={activeTest.questions}
-          testTitle={activeTest.title}
+          questions={currentSectionQuestions}
+          testTitle={
+            isCurrentFullMock
+              ? `${activeTest.title} - Section ${currentSectionIndex + 1} (${activeSectionConfig?.section || ''})`
+              : activeTest.title
+          }
         />
       )}
 

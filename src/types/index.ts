@@ -1,6 +1,6 @@
-export type SectionType = 'VARC' | 'DILR' | 'QA';
+export type SectionType = 'VARC' | 'DILR' | 'QA' | 'FULL';
 
-export type TestCategory = 'sectional-pyq' | 'topic-wise' | 'national-mock';
+export type TestCategory = 'sectional-pyq' | 'topic-wise' | 'national-mock' | 'full-mock';
 
 export type QuestionType = 'MCQ' | 'TITA';
 
@@ -37,12 +37,21 @@ export interface SectionalTest {
   section: SectionType;
   category: TestCategory;
   topicTag?: string; // e.g. "Arithmetic", "Algebra", "RC Masterset", etc.
-  durationMinutes: number; // 40 minutes for standard CAT sectionals, or 20-30 for topic sets
+  durationMinutes: number; // 40 minutes for standard CAT sectionals, or 20-30 for topic sets, 120 for full mocks
   totalMarks: number;
   questionsCount: number;
   description: string;
   difficulty: 'Moderate' | 'Challenging' | 'Very High';
   questions: Question[];
+  isFullMock?: boolean;
+  sectionsList?: Array<{
+    section: 'VARC' | 'DILR' | 'QA';
+    title: string;
+    durationMinutes: number;
+    questionsCount: number;
+    startIndex: number;
+    endIndex: number;
+  }>;
 }
 
 export interface UserAnswer {
@@ -71,6 +80,15 @@ export interface TestResult {
   accuracy: number;
   estimatedPercentile: number;
   answers: Record<string, UserAnswer>;
+  sectionScores?: Partial<Record<'VARC' | 'DILR' | 'QA', {
+    marks: number;
+    maxMarks: number;
+    correct: number;
+    incorrect: number;
+    unattempted: number;
+    accuracy: number;
+    percentile: number;
+  }>>;
 }
 
 export interface ActiveSession {
@@ -78,6 +96,9 @@ export interface ActiveSession {
   startTime: number;
   remainingSeconds: number;
   currentQuestionIndex: number;
+  currentSectionIndex?: number; // 0 for VARC, 1 for DILR, 2 for QA
+  completedSections?: Array<'VARC' | 'DILR' | 'QA'>;
   answers: Record<string, UserAnswer>;
   visitedQuestions: string[];
+  sectionBreakPromptEnabled?: boolean;
 }

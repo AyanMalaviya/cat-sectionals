@@ -22,6 +22,9 @@ import { qa2020Slot1Questions } from './qa2020Slot1';
 import { dilr2020Slot1Questions } from './dilr2020Slot1';
 import { varc2020Slot1Questions } from './varc2020Slot1';
 import { allTopicWiseTests } from './topicWiseData';
+import { officialFullMockTests } from './fullMocksData';
+
+export { officialFullMockTests };
 
 // Full 40-Minute Sectional Tests
 export const fullSectionalTests: SectionalTest[] = [
@@ -348,8 +351,9 @@ export const fullSectionalTests: SectionalTest[] = [
   },
 ];
 
-// All available tests combined (Full Sectionals + Topic-Wise Sets)
+// All available tests combined (Full 120m Mocks + 40m Sectionals + Topic-Wise Sets)
 export const sectionalTests: SectionalTest[] = [
+  ...officialFullMockTests,
   ...fullSectionalTests,
   ...allTopicWiseTests,
 ];

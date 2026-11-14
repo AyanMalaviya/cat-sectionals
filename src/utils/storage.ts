@@ -5,6 +5,25 @@ const STORAGE_KEYS = {
   ACTIVE_SESSION: 'cat_mock_active_session_v1',
   BOOKMARKS: 'cat_mock_bookmarks_v1',
   CANDIDATE_NAME: 'cat_mock_candidate_name',
+  SECTION_BREAK_PROMPT: 'cat_mock_section_break_prompt',
+};
+
+// Section break prompt preference (Default: true)
+export const getSectionBreakPromptEnabled = (): boolean => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.SECTION_BREAK_PROMPT);
+    return raw === null ? true : raw === 'true';
+  } catch {
+    return true;
+  }
+};
+
+export const setSectionBreakPromptEnabled = (enabled: boolean): void => {
+  try {
+    localStorage.setItem(STORAGE_KEYS.SECTION_BREAK_PROMPT, String(enabled));
+  } catch (e) {
+    console.error('Failed to save section break prompt preference', e);
+  }
 };
 
 // Candidate name helper
@@ -262,4 +281,22 @@ export const estimatePercentile = (score: number, section: SectionType): number 
     if (score > 0) return Math.min(55, Math.round(score * 11));
     return 10.0;
   }
+};
+
+// Historical CAT 198-Mark Full Mock Score-to-Percentile Model
+export const estimateFullMockPercentile = (totalScore: number): number => {
+  if (totalScore >= 115) return 99.95;
+  if (totalScore >= 102) return 99.9;
+  if (totalScore >= 88) return 99.5;
+  if (totalScore >= 78) return 99.0;
+  if (totalScore >= 68) return 98.0;
+  if (totalScore >= 58) return 95.0;
+  if (totalScore >= 48) return 90.0;
+  if (totalScore >= 40) return 85.0;
+  if (totalScore >= 33) return 80.0;
+  if (totalScore >= 26) return 70.0;
+  if (totalScore >= 20) return 60.0;
+  if (totalScore >= 14) return 50.0;
+  if (totalScore > 0) return Math.min(45, Math.round(totalScore * 2.8));
+  return 10.0;
 };
