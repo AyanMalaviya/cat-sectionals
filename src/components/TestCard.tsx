@@ -38,7 +38,7 @@ export const TestCard: React.FC<TestCardProps> = ({
   };
 
   return (
-    <div className="bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 md:p-6 transition-all duration-200 shadow-xs hover:shadow-lg flex flex-col justify-between group">
+    <div className="bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-200 shadow-xs hover:shadow-lg flex flex-col justify-between group">
       <div>
         {/* Top Badges */}
         <div className="flex items-center justify-between gap-2 mb-3">

@@ -46,12 +46,13 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 bg-white text-slate-900 animate-in fade-in duration-200">
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white text-slate-900 animate-in fade-in duration-200">
       <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-200">
         <div className="flex items-center gap-3">
           <button
             onClick={onBackToDashboard}
             className="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition border border-slate-300 shadow-2xs"
+            aria-label="Back to Tests"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -71,7 +72,7 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
       </div>
 
       {bookmarkedQuestions.length === 0 ? (
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-12 text-center text-slate-500">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 sm:p-12 text-center text-slate-500">
           <Bookmark className="w-12 h-12 mx-auto text-slate-400 mb-3" />
           <h3 className="text-base font-bold text-slate-800 mb-1">No Bookmarked Questions</h3>
           <p className="text-xs text-slate-500 max-w-sm mx-auto">
@@ -85,18 +86,18 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
               key={q.id}
               className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs hover:border-slate-300 transition"
             >
-              <div className="bg-slate-50 px-5 py-3 border-b border-slate-200 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2.5">
+              <div className="bg-slate-50 px-3.5 sm:px-5 py-3 border-b border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs">
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className="font-bold text-slate-900">
                     {t.section} • Q{q.questionNumber}
                   </span>
-                  <span className="text-slate-500">({t.title})</span>
+                  <span className="text-slate-500 hidden sm:inline">({t.title})</span>
                   <span className="bg-white text-slate-700 px-2 py-0.5 rounded text-[11px] border border-slate-300">
                     {q.topic}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 self-end sm:self-auto">
                   <button
                     onClick={() => handleCopyQuestion(q)}
                     className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition flex items-center gap-1.5 ${
@@ -120,7 +121,7 @@ export const BookmarksView: React.FC<BookmarksViewProps> = ({
                 </div>
               </div>
 
-              <div className="p-5 md:p-6">
+              <div className="p-4 sm:p-5 md:p-6">
                 {(q.passage || q.context) && (
                   <div className="mb-4 bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs md:text-sm text-slate-800 font-serif whitespace-pre-line leading-relaxed max-h-56 overflow-y-auto">
                     <MathText text={q.passage || q.context} />

@@ -73,15 +73,15 @@ export const Scorecard: React.FC<ScorecardProps> = ({
     : result.estimatedPercentile;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 bg-white text-slate-900 animate-in fade-in duration-200">
+    <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white text-slate-900 animate-in fade-in duration-200">
       {/* Header Banner */}
-      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 mb-8 shadow-xs">
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <span className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-2">
               {isFullMock ? 'Full 3-Section CBT Mock' : `${result.section} Sectional Test`} Result
             </span>
-            <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
               {result.testTitle}
             </h1>
             <p className="text-xs text-slate-500 mt-1">
@@ -95,9 +95,9 @@ export const Scorecard: React.FC<ScorecardProps> = ({
               <span className="text-xs uppercase font-bold tracking-wider text-slate-500 block mb-0.5">
                 Total Score
               </span>
-              <div className="text-3xl md:text-4xl font-black text-blue-700 font-mono">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-black text-blue-700 font-mono">
                 {result.totalMarks}{' '}
-                <span className="text-base font-normal text-slate-400 font-sans">
+                <span className="text-sm sm:text-base font-normal text-slate-400 font-sans">
                   / {result.maxMarks}
                 </span>
               </div>
@@ -107,7 +107,7 @@ export const Scorecard: React.FC<ScorecardProps> = ({
               <span className="text-xs uppercase font-bold tracking-wider text-slate-500 block mb-0.5">
                 Est. Percentile
               </span>
-              <div className="text-3xl md:text-4xl font-black text-emerald-700 font-mono">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-mono">
                 {overallPercentile}%ile
               </div>
             </div>
@@ -115,13 +115,13 @@ export const Scorecard: React.FC<ScorecardProps> = ({
         </div>
 
         {/* Essential Metrics Grid: Correct, Incorrect, Unattempted, Time */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200">
-          <div className="bg-white border border-emerald-200 rounded-2xl p-4 shadow-2xs">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-slate-200">
+          <div className="bg-white border border-emerald-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xs">
             <div className="flex items-center justify-between text-xs text-emerald-800 font-bold mb-1">
               <span>Correct</span>
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-2xl md:text-3xl font-black text-slate-900 font-mono">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 font-mono">
               {result.correctCount}
             </div>
             <div className="text-[11px] text-emerald-700 font-medium mt-1">
@@ -129,12 +129,12 @@ export const Scorecard: React.FC<ScorecardProps> = ({
             </div>
           </div>
 
-          <div className="bg-white border border-rose-200 rounded-2xl p-4 shadow-2xs">
+          <div className="bg-white border border-rose-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xs">
             <div className="flex items-center justify-between text-xs text-rose-800 font-bold mb-1">
               <span>Incorrect</span>
               <XCircle className="w-4 h-4 text-rose-600" />
             </div>
-            <div className="text-2xl md:text-3xl font-black text-slate-900 font-mono">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 font-mono">
               {result.incorrectCount}
             </div>
             <div className="text-[11px] text-rose-700 font-medium mt-1">
@@ -142,12 +142,12 @@ export const Scorecard: React.FC<ScorecardProps> = ({
             </div>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-2xs">
+          <div className="bg-white border border-slate-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xs">
             <div className="flex items-center justify-between text-xs text-slate-600 font-bold mb-1">
               <span>Unattempted</span>
               <MinusCircle className="w-4 h-4 text-slate-400" />
             </div>
-            <div className="text-2xl md:text-3xl font-black text-slate-900 font-mono">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 font-mono">
               {result.unattemptedCount}
             </div>
             <div className="text-[11px] text-slate-500 font-medium mt-1">
@@ -155,12 +155,12 @@ export const Scorecard: React.FC<ScorecardProps> = ({
             </div>
           </div>
 
-          <div className="bg-white border border-blue-200 rounded-2xl p-4 shadow-2xs">
+          <div className="bg-white border border-blue-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xs">
             <div className="flex items-center justify-between text-xs text-blue-800 font-bold mb-1">
               <span>Time Taken</span>
               <Clock className="w-4 h-4 text-blue-600" />
             </div>
-            <div className="text-2xl md:text-3xl font-black text-slate-900 font-mono">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 font-mono">
               {minutesTaken}:{secondsTaken < 10 ? `0${secondsTaken}` : secondsTaken}
             </div>
             <div className="text-[11px] text-slate-500 font-medium mt-1">
@@ -176,8 +176,8 @@ export const Scorecard: React.FC<ScorecardProps> = ({
               <Award className="w-4 h-4 text-blue-600" />
               <span>Sectional Performance Breakdown (VARC → DILR → QA)</span>
             </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border border-slate-200 rounded-2xl overflow-hidden bg-white">
+            <div className="overflow-x-auto no-scrollbar -mx-2 px-2 sm:mx-0 sm:px-0">
+              <table className="w-full text-left text-xs border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden bg-white min-w-[480px]">
                 <thead className="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
                   <tr>
                     <th className="py-2.5 px-3">Section</th>
@@ -191,7 +191,8 @@ export const Scorecard: React.FC<ScorecardProps> = ({
                   {sectionBreakdown.map((row) => (
                     <tr key={row.section} className="hover:bg-slate-50/50">
                       <td className="py-2.5 px-3 font-bold text-slate-900">
-                        {row.section}: {row.name}
+                        <span className="sm:hidden">{row.section}</span>
+                        <span className="hidden sm:inline">{row.section}: {row.name}</span>
                       </td>
                       <td className="py-2.5 px-3 font-mono font-bold text-blue-700">
                         {row.marks} <span className="font-normal text-slate-400">/ {row.maxMarks}</span>

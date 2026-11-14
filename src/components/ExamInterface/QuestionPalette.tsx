@@ -1,6 +1,6 @@
 import React from 'react';
 import { Question, QuestionStatus } from '../../types';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, X } from 'lucide-react';
 
 interface QuestionPaletteProps {
   questions: Question[];
@@ -69,104 +69,128 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
     }
   };
 
+  // Helper: On mobile (<1024px), selecting a question auto-closes the drawer
+  const handleSelectQuestion = (idx: number) => {
+    onSelectQuestion(idx);
+    if (typeof window !== 'undefined' && window.innerWidth < 1024 && onClose) {
+      onClose();
+    }
+  };
+
   return (
-    <aside className="w-full lg:w-72 bg-slate-50 border-l border-slate-200 flex flex-col h-full overflow-y-auto shrink-0">
-      {/* Legend Header */}
-      <div className="p-3.5 bg-white border-b border-slate-200">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-            Question Palette
-          </h3>
-          {onClose && (
-            <button
-              onClick={onClose}
-              className="p-1 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded text-xs flex items-center gap-0.5"
-              title="Hide palette to maximize question view"
-            >
-              <span>Hide</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-          )}
-        </div>
+    <>
+      {/* Mobile Backdrop Overlay (< lg) */}
+      <div
+        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 lg:hidden animate-in fade-in duration-150"
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
-        {/* Legend grid */}
-        <div className="grid grid-cols-2 gap-2 text-[11px]">
-          <div className="flex items-center gap-2">
-            <span className="w-5 h-5 rounded bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center">
-              {counts.answered}
-            </span>
-            <span className="text-slate-700 font-medium">Answered</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="w-5 h-5 rounded bg-rose-600 text-white text-[10px] font-bold flex items-center justify-center">
-              {counts.notAnswered}
-            </span>
-            <span className="text-slate-700 font-medium">Not Answered</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="w-5 h-5 rounded bg-white border border-slate-300 text-slate-700 text-[10px] font-bold flex items-center justify-center">
-              {counts.notVisited}
-            </span>
-            <span className="text-slate-500">Not Visited</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="w-5 h-5 rounded-full bg-purple-600 text-white text-[10px] font-bold flex items-center justify-center">
-              {counts.marked}
-            </span>
-            <span className="text-slate-700 font-medium">Marked</span>
-          </div>
-
-          <div className="col-span-2 flex items-center gap-2">
-            <div className="relative w-5 h-5 rounded-full bg-purple-600 text-white text-[10px] font-bold flex items-center justify-center">
-              {counts.markedAnswered}
-              <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-white"></span>
-            </div>
-            <span className="text-slate-700 font-medium leading-tight text-[11px]">
-              Ans & Marked for Review <span className="text-[10px] text-emerald-700 font-bold">(Evaluated)</span>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Grid of Question Numbers */}
-      <div className="p-3.5 flex-1 bg-slate-50">
-        <div className="text-[11px] font-bold text-slate-600 mb-2">
-          Select Question:
-        </div>
-        <div className="grid grid-cols-5 gap-2">
-          {questions.map((q, idx) => {
-            const status = questionStatuses[q.id] || 'not-visited';
-            const isCurrent = idx === currentQuestionIndex;
-
-            return (
+      {/* Palette Container: Slide-over drawer on mobile (< lg), static side column on desktop (lg:) */}
+      <aside className="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-slate-50 border-l border-slate-200 flex flex-col h-full shadow-2xl lg:shadow-none lg:static lg:w-72 lg:z-auto animate-in slide-in-from-right duration-200">
+        {/* Legend Header */}
+        <div className="p-3.5 bg-white border-b border-slate-200 shrink-0">
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+              Question Palette
+            </h3>
+            {onClose && (
               <button
-                key={q.id}
-                onClick={() => onSelectQuestion(idx)}
-                className={getStatusBadgeStyle(status, isCurrent)}
-                title={`Question ${idx + 1}: ${status.replace('-', ' ')}`}
+                onClick={onClose}
+                aria-label="Close question palette"
+                className="p-1 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded text-xs flex items-center gap-0.5"
+                title="Hide palette"
               >
-                {idx + 1}
-                {status === 'marked-answered' && (
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full border border-white"></span>
-                )}
+                <span className="hidden sm:inline text-slate-500 font-semibold">Hide</span>
+                <X className="w-4 h-4 sm:hidden" />
+                <ChevronRight className="w-4 h-4 hidden sm:block" />
               </button>
-            );
-          })}
-        </div>
-      </div>
+            )}
+          </div>
 
-      {/* Bottom Submit Action */}
-      <div className="p-3.5 bg-white border-t border-slate-200">
-        <button
-          onClick={onSubmitClick}
-          className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-sm flex items-center justify-center gap-2"
-        >
-          Submit Test
-        </button>
-      </div>
-    </aside>
+          {/* Legend grid */}
+          <div className="grid grid-cols-2 gap-2 text-[11px]">
+            <div className="flex items-center gap-2">
+              <span className="w-5 h-5 rounded bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center shrink-0">
+                {counts.answered}
+              </span>
+              <span className="text-slate-700 font-medium">Answered</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-5 h-5 rounded bg-rose-600 text-white text-[10px] font-bold flex items-center justify-center shrink-0">
+                {counts.notAnswered}
+              </span>
+              <span className="text-slate-700 font-medium">Not Answered</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-5 h-5 rounded bg-white border border-slate-300 text-slate-700 text-[10px] font-bold flex items-center justify-center shrink-0">
+                {counts.notVisited}
+              </span>
+              <span className="text-slate-500">Not Visited</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-purple-600 text-white text-[10px] font-bold flex items-center justify-center shrink-0">
+                {counts.marked}
+              </span>
+              <span className="text-slate-700 font-medium">Marked</span>
+            </div>
+
+            <div className="col-span-2 flex items-center gap-2">
+              <div className="relative w-5 h-5 rounded-full bg-purple-600 text-white text-[10px] font-bold flex items-center justify-center shrink-0">
+                {counts.markedAnswered}
+                <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-white"></span>
+              </div>
+              <span className="text-slate-700 font-medium leading-tight text-[11px]">
+                Ans &amp; Marked for Review <span className="text-[10px] text-emerald-700 font-bold">(Evaluated)</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Grid of Question Numbers */}
+        <div className="p-3.5 flex-1 bg-slate-50 overflow-y-auto">
+          <div className="text-[11px] font-bold text-slate-600 mb-2">
+            Tap Question to Navigate:
+          </div>
+          <div className="grid grid-cols-5 gap-2">
+            {questions.map((q, idx) => {
+              const status = questionStatuses[q.id] || 'not-visited';
+              const isCurrent = idx === currentQuestionIndex;
+
+              return (
+                <button
+                  key={q.id}
+                  onClick={() => handleSelectQuestion(idx)}
+                  className={getStatusBadgeStyle(status, isCurrent)}
+                  title={`Question ${idx + 1}: ${status.replace('-', ' ')}`}
+                  aria-label={`Jump to Question ${idx + 1}`}
+                >
+                  {idx + 1}
+                  {status === 'marked-answered' && (
+                    <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full border border-white"></span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bottom Submit Action */}
+        <div className="p-3.5 bg-white border-t border-slate-200 shrink-0">
+          <button
+            onClick={onSubmitClick}
+            aria-label="Submit Test"
+            className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-sm flex items-center justify-center gap-2"
+          >
+            Submit Test
+          </button>
+        </div>
+      </aside>
+    </>
   );
 };
+
+export default QuestionPalette;

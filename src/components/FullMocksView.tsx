@@ -50,10 +50,10 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
   const sectionNames = ['1. VARC (40m)', '2. DILR (40m)', '3. QA (40m)'];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 bg-white text-slate-900 animate-in fade-in duration-200">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white text-slate-900 animate-in fade-in duration-200">
       {/* Resume Banner for In-Progress Full Mock */}
       {activeSession && activeTestInfo && (
-        <div className="mb-6 p-5 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-400 rounded-3xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="mb-6 p-4 sm:p-5 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-400 rounded-2xl sm:rounded-3xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
             <div className="w-12 h-12 rounded-2xl bg-amber-400 text-amber-950 flex items-center justify-center shrink-0 shadow-xs">
               <Clock className="w-6 h-6 animate-pulse" />
@@ -100,7 +100,7 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
       )}
 
       {/* Hero Banner: Full Mock Tests */}
-      <div className="mb-8 p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-950 text-white rounded-3xl shadow-lg relative overflow-hidden">
+      <div className="mb-8 p-5 sm:p-8 bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-950 text-white rounded-2xl sm:rounded-3xl shadow-lg relative overflow-hidden">
         <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 space-y-3">
@@ -207,14 +207,14 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
         </div>
       )}
 
-      {/* Year Filter Pills */}
+      {/* Year Filter Pills (Horizontally swipeable on mobile) */}
       <div className="flex items-center justify-between gap-4 mb-6">
-        <div className="flex items-center gap-1.5 flex-wrap">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
           {availableYears.map((yr) => (
             <button
               key={yr}
               onClick={() => setSelectedYear(yr)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+              className={`shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
                 selectedYear === yr
                   ? 'bg-blue-600 text-white shadow-xs'
                   : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-50'
@@ -225,13 +225,13 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
           ))}
         </div>
 
-        <span className="text-xs font-semibold text-slate-500 hidden sm:block">
+        <span className="text-xs font-semibold text-slate-500 hidden sm:block shrink-0">
           {filteredMocks.length} Full Mock Tests Ready
         </span>
       </div>
 
       {/* Full Mock Cards Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
         {filteredMocks.map((test) => {
           const pastAttempts = testHistory.filter((h) => h.testId === test.id);
           const bestAttempt = pastAttempts.length > 0
@@ -242,7 +242,7 @@ export const FullMocksView: React.FC<FullMocksViewProps> = ({
           return (
             <div
               key={test.id}
-              className={`border rounded-3xl p-6 transition flex flex-col justify-between relative overflow-hidden bg-white shadow-xs hover:shadow-md ${
+              className={`border rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition flex flex-col justify-between relative overflow-hidden bg-white shadow-xs hover:shadow-md ${
                 isInProgress ? 'border-amber-400 ring-2 ring-amber-400/40' : 'border-slate-200'
               }`}
             >

@@ -29,9 +29,9 @@ export const AboutView: React.FC<AboutViewProps> = ({
   onOpenSupport,
 }) => {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 bg-white text-slate-900 animate-in fade-in duration-200 space-y-12">
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 bg-white text-slate-900 animate-in fade-in duration-200 space-y-10 sm:space-y-12">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-xl">
         <div className="absolute -right-16 -top-16 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 space-y-4 max-w-3xl">
           <div className="flex flex-wrap items-center gap-2">
@@ -124,8 +124,8 @@ export const AboutView: React.FC<AboutViewProps> = ({
           </p>
         </div>
 
-        <div className="overflow-x-auto border border-slate-200 rounded-3xl shadow-sm bg-white">
-          <table className="w-full text-left text-xs sm:text-sm">
+        <div className="overflow-x-auto border border-slate-200 rounded-2xl sm:rounded-3xl shadow-sm bg-white -mx-1 px-1 sm:mx-0 sm:px-0">
+          <table className="w-full text-left text-xs sm:text-sm min-w-[520px]">
             <thead className="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
               <tr>
                 <th className="py-3 px-4">Feature / Metric</th>

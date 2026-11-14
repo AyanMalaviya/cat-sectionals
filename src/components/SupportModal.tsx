@@ -25,8 +25,8 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white border border-slate-200 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl text-slate-900 relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-white border border-slate-200 rounded-3xl max-w-md w-full max-h-[92vh] overflow-y-auto shadow-2xl text-slate-900 relative">
         {/* Top Header */}
         <div className="bg-gradient-to-r from-rose-500 via-pink-500 to-indigo-600 p-6 text-white text-center relative">
           <button

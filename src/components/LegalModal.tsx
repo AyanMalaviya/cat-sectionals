@@ -24,9 +24,9 @@ export const LegalModal: React.FC<LegalModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
       <div className="bg-white border border-slate-200 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl text-slate-900 overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between shrink-0">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
               {activeTab === 'about' && <Info className="w-5 h-5" />}
               {activeTab === 'contact' && <Mail className="w-5 h-5" />}
               {activeTab === 'privacy' && <ShieldCheck className="w-5 h-5" />}
@@ -34,14 +34,14 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               {activeTab === 'disclaimer' && <AlertTriangle className="w-5 h-5" />}
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-slate-900">
+              <h2 className="text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
                 {activeTab === 'about' && 'About CBTMocks — 100% Free Mock Tests'}
                 {activeTab === 'contact' && 'Contact Us & Student Support'}
                 {activeTab === 'privacy' && 'Privacy Policy & Cookie Disclosures'}
                 {activeTab === 'terms' && 'Terms of Service & Fair Use'}
                 {activeTab === 'disclaimer' && 'Non-Affiliation Disclaimer'}
               </h2>
-              <p className="text-[11px] text-slate-500">
+              <p className="text-[11px] text-slate-500 hidden sm:block">
                 cbtmocks.online • Open Educational Resource for Competitive Exams
               </p>
             </div>
@@ -49,7 +49,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-200 rounded-full transition"
+            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-200 rounded-full transition shrink-0"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -57,7 +57,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex border-b border-slate-200 bg-white px-6 overflow-x-auto shrink-0 gap-1 sm:gap-2">
+        <div className="flex border-b border-slate-200 bg-white px-3 sm:px-6 overflow-x-auto no-scrollbar shrink-0 gap-1 sm:gap-2">
           <button
             onClick={() => onTabChange('about')}
             className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition flex items-center gap-1.5 ${

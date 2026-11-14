@@ -53,32 +53,59 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
 
   return (
     <header className="bg-white border-b border-slate-200 text-slate-900 shadow-xs sticky top-0 z-40">
-      {/* Top Main Bar */}
-      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-3">
-        {/* Left: Test Details */}
-        <div className="flex items-center gap-2.5">
-          <img
-            src="/logo.svg"
-            alt="CAT Mock Test CBT Logo"
-            className="w-8 h-8 rounded-lg shadow-xs shrink-0 object-contain"
-            width={32}
-            height={32}
-          />
-          <div className="bg-blue-50 border border-blue-200 px-2 py-0.5 rounded text-xs font-bold text-blue-700 tracking-wider">
-            {isFullMock ? 'FULL MOCK' : section}
+      {/* Top Main Bar: Responsive 2-tier on mobile, single flex row on desktop */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
+        {/* Row 1: Test Identity & Primary Clock + Submit */}
+        <div className="flex items-center justify-between w-full sm:w-auto gap-2">
+          {/* Test Name & Badge */}
+          <div className="flex items-center gap-2 min-w-0">
+            <img
+              src="/logo.svg"
+              alt="Logo"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg shadow-xs shrink-0 object-contain"
+              width={32}
+              height={32}
+            />
+            <div className="bg-blue-50 border border-blue-200 px-2 py-0.5 rounded text-[11px] font-extrabold text-blue-700 tracking-wider shrink-0">
+              {isFullMock ? 'FULL MOCK' : section}
+            </div>
+            <div className="min-w-0">
+              <h1 className="text-xs sm:text-sm md:text-base font-bold text-slate-900 tracking-tight truncate max-w-[130px] sm:max-w-xs md:max-w-none">
+                {title}
+              </h1>
+              <p className="text-[10px] text-slate-500 font-medium hidden sm:block">
+                {isFullMock ? '120m (40m per section)' : `${durationMinutes}m test`}
+              </p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-sm md:text-base font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              {title}
-            </h1>
-            <p className="text-[11px] text-slate-500 font-medium">
-              {isFullMock ? '120 mins total (40m per section)' : `${durationMinutes} mins`}
-            </p>
+
+          {/* Mobile Right: Clock & Submit */}
+          <div className="flex items-center gap-1.5 sm:hidden shrink-0">
+            <div
+              className={`flex items-center gap-1 px-2 py-1 rounded-lg border font-mono font-bold text-xs tracking-wider transition-all ${
+                isTimeCritical
+                  ? 'bg-rose-50 border-rose-300 text-rose-700 animate-pulse'
+                  : 'bg-slate-100 border-slate-300 text-slate-900'
+              }`}
+            >
+              <Timer className={`w-3.5 h-3.5 ${isTimeCritical ? 'text-rose-600' : 'text-blue-600'}`} />
+              <span>
+                {formatNumber(minutes)}:{formatNumber(seconds)}
+              </span>
+            </div>
+
+            <button
+              onClick={onSubmitClick}
+              aria-label={submitButtonLabel || 'Submit Exam'}
+              className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white rounded-lg text-xs font-bold transition shadow-xs"
+            >
+              Submit
+            </button>
           </div>
         </div>
 
-        {/* Center: Live Timer */}
-        <div className="flex items-center gap-2">
+        {/* Center: Live Timer (Desktop Only) */}
+        <div className="hidden sm:flex items-center gap-2 shrink-0">
           <div
             className={`flex items-center gap-2 px-3.5 py-1 rounded-lg border font-mono font-bold tracking-widest text-base md:text-lg transition-all ${
               isTimeCritical
@@ -92,29 +119,30 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
             </span>
             {isTimeCritical && (
               <span className="text-[10px] uppercase font-sans tracking-normal bg-rose-600 text-white px-1.5 py-0.5 rounded ml-1 font-semibold">
-                Last 5m
+                5m Left
               </span>
             )}
           </div>
         </div>
 
-        {/* Right: Actions & Tools */}
-        <div className="flex items-center gap-2">
-          {/* Section Break Toggle (Only visible for Full Mocks) */}
+        {/* Tools Bar (Scrollable row on mobile, clean row on desktop) */}
+        <div className="flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar w-full sm:w-auto -mx-1 px-1 sm:mx-0 sm:px-0">
+          {/* Section Break Toggle (Full Mocks) */}
           {isFullMock && onToggleBreakPrompt && (
-            <div className="mr-1">
+            <div className="shrink-0 mr-0.5">
               <SectionBreakToggle
                 enabled={sectionBreakPromptEnabled}
                 onToggle={onToggleBreakPrompt}
+                showLabel={false}
               />
             </div>
           )}
 
-          {/* Toggle Palette to maximize question area */}
+          {/* Toggle Palette */}
           <button
             onClick={onTogglePalette}
             aria-label={isPaletteOpen ? 'Maximize Question View (Hide Question Palette)' : 'Show Question Palette'}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 border rounded-lg text-xs font-semibold transition shadow-2xs ${
+            className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 border rounded-lg text-xs font-semibold transition shrink-0 ${
               isPaletteOpen
                 ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800'
                 : 'bg-blue-50 hover:bg-blue-100 border-blue-300 text-blue-800'
@@ -122,50 +150,50 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
             title={isPaletteOpen ? 'Hide Palette for 100% Screen Width' : 'Show Palette'}
           >
             {isPaletteOpen ? <Maximize2 className="w-3.5 h-3.5" /> : <PanelRight className="w-3.5 h-3.5" />}
-            <span className="sr-only">{isPaletteOpen ? 'Maximize Question View' : 'Show Palette'}</span>
-            <span className="hidden sm:inline" aria-hidden="true">{isPaletteOpen ? 'Maximize' : 'Palette'}</span>
+            <span className="text-[11px] sm:text-xs">{isPaletteOpen ? 'Max' : 'Palette'}</span>
           </button>
 
+          {/* Calculator */}
           <button
             onClick={onToggleCalculator}
             aria-label="Open On-Screen Virtual Calculator"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shadow-2xs"
+            className="flex items-center gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shrink-0"
             title="Open On-Screen Virtual Calculator"
           >
             <Calculator className="w-3.5 h-3.5 text-blue-600" />
-            <span className="sr-only">Virtual Calculator</span>
-            <span className="hidden sm:inline" aria-hidden="true">Calc</span>
+            <span className="text-[11px] sm:text-xs">Calc</span>
           </button>
 
+          {/* Question Paper */}
           <button
             onClick={onOpenQuestionPaper}
             aria-label="View Full Question Paper"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shadow-2xs"
+            className="flex items-center gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shrink-0"
             title="View Complete Question Paper"
           >
             <FileText className="w-3.5 h-3.5 text-slate-600" />
-            <span className="sr-only">Full Question Paper</span>
-            <span className="hidden md:inline" aria-hidden="true">Paper</span>
+            <span className="text-[11px] sm:text-xs">Paper</span>
           </button>
 
+          {/* Desktop Submit Button */}
           <button
             onClick={onSubmitClick}
             aria-label={submitButtonLabel || 'Submit Exam'}
-            className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white rounded-lg text-xs font-bold transition shadow-xs flex items-center gap-1.5"
+            className="hidden sm:flex px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white rounded-lg text-xs font-bold transition shadow-xs items-center gap-1.5 shrink-0"
           >
             {submitButtonLabel || 'Submit'}
           </button>
 
+          {/* Pause / Exit Test */}
           {onExitTest && (
             <button
               onClick={onExitTest}
               aria-label="Pause and return to tests dashboard"
-              className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shadow-2xs"
+              className="flex items-center gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 rounded-lg text-xs font-semibold transition shrink-0"
               title="Pause and return to tests dashboard"
             >
               <LogOut className="w-3.5 h-3.5 text-slate-500" />
-              <span className="sr-only">Pause Test</span>
-              <span className="hidden md:inline" aria-hidden="true">Pause</span>
+              <span className="text-[11px] sm:text-xs">Pause</span>
             </button>
           )}
         </div>
@@ -173,13 +201,13 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
 
       {/* Sub-bar for Full Mock: 3-Section Progression Indicators */}
       {isFullMock && (
-        <div className="bg-slate-50 border-t border-slate-200 px-4 py-1.5">
-          <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider hidden sm:inline">
+        <div className="bg-slate-50 border-t border-slate-200 px-3 sm:px-4 py-1.5 overflow-x-auto no-scrollbar">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 min-w-max sm:min-w-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-xs">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider hidden md:inline">
                 Sections:
               </span>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1 sm:gap-1.5">
                 {sections.map((sec, idx) => {
                   const isCompleted = completedSections.includes(sec.id);
                   const isActive = currentSectionIndex === idx;
@@ -188,7 +216,7 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
                   return (
                     <div
                       key={sec.id}
-                      className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+                      className={`flex items-center gap-1 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-[11px] sm:text-xs font-bold transition shrink-0 ${
                         isActive
                           ? 'bg-blue-600 text-white shadow-xs'
                           : isCompleted
@@ -197,14 +225,21 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
                       }`}
                     >
                       {isCompleted ? (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-600" />
                       ) : isLocked ? (
-                        <Lock className="w-3 h-3 text-slate-400" />
+                        <Lock className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-400" />
                       ) : (
-                        <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white animate-pulse"></span>
                       )}
-                      <span>{sec.label}</span>
-                      {isActive && <span className="text-[10px] bg-white/20 px-1 rounded ml-0.5">Active</span>}
+                      <span>
+                        <span className="sm:hidden">{idx + 1}. {sec.id}</span>
+                        <span className="hidden sm:inline">{sec.label}</span>
+                      </span>
+                      {isActive && (
+                        <span className="text-[9px] bg-white/20 px-1 rounded ml-0.5 hidden xs:inline">
+                          Active
+                        </span>
+                      )}
                     </div>
                   );
                 })}
@@ -212,7 +247,7 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
             </div>
 
             <div className="text-[11px] text-slate-500 font-medium hidden md:block">
-              Section Time Left: <span className="font-mono font-bold text-slate-800">{formatNumber(minutes)}:{formatNumber(seconds)}</span> • Automatic section lockout on expiry
+              Section Time: <span className="font-mono font-bold text-slate-800">{formatNumber(minutes)}:{formatNumber(seconds)}</span>
             </div>
           </div>
         </div>
@@ -220,3 +255,5 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
     </header>
   );
 };
+
+export default ExamHeader;

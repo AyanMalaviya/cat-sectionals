@@ -146,11 +146,15 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
     startY: 0,
   });
 
-  // Position at default bottom right if unset
+  // Position at default bottom right if unset, centered comfortably on mobile screens
   useEffect(() => {
     if (isOpen && position === null) {
-      const defaultX = Math.max(16, window.innerWidth - 340);
-      const defaultY = Math.max(70, window.innerHeight - 440);
+      const isMobile = window.innerWidth < 640;
+      const calcWidth = Math.min(320, window.innerWidth - 24);
+      const defaultX = isMobile
+        ? Math.max(12, Math.floor((window.innerWidth - calcWidth) / 2))
+        : Math.max(16, window.innerWidth - 340);
+      const defaultY = Math.max(60, window.innerHeight - (isMobile ? 420 : 440));
       setPosition({ x: defaultX, y: defaultY });
     }
   }, [isOpen, position]);
@@ -160,11 +164,11 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
     const handleResize = () => {
       setPosition((prev) => {
         if (!prev) return prev;
-        const calcWidth = 320;
+        const calcWidth = Math.min(320, window.innerWidth - 24);
         const calcHeight = isMinimized ? 50 : 420;
         return {
-          x: Math.max(10, Math.min(window.innerWidth - calcWidth - 10, prev.x)),
-          y: Math.max(10, Math.min(window.innerHeight - calcHeight - 10, prev.y)),
+          x: Math.max(8, Math.min(window.innerWidth - calcWidth - 8, prev.x)),
+          y: Math.max(8, Math.min(window.innerHeight - calcHeight - 8, prev.y)),
         };
       });
     };
@@ -178,8 +182,9 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
     const target = e.target as HTMLElement;
     if (target.closest('button')) return;
 
-    const currentX = position ? position.x : Math.max(16, window.innerWidth - 340);
-    const currentY = position ? position.y : Math.max(70, window.innerHeight - 440);
+    const currentCalcWidth = Math.min(320, window.innerWidth - 24);
+    const currentX = position ? position.x : Math.max(8, window.innerWidth - currentCalcWidth - 12);
+    const currentY = position ? position.y : Math.max(60, window.innerHeight - 440);
 
     dragStartRef.current = {
       mouseX: e.clientX,
@@ -194,11 +199,11 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
       const deltaX = moveEvent.clientX - dragStartRef.current.mouseX;
       const deltaY = moveEvent.clientY - dragStartRef.current.mouseY;
 
-      const calcWidth = 320;
+      const calcWidth = Math.min(320, window.innerWidth - 24);
       const calcHeight = isMinimized ? 50 : 420;
 
-      const clampedX = Math.max(10, Math.min(window.innerWidth - calcWidth - 10, dragStartRef.current.startX + deltaX));
-      const clampedY = Math.max(10, Math.min(window.innerHeight - calcHeight - 10, dragStartRef.current.startY + deltaY));
+      const clampedX = Math.max(8, Math.min(window.innerWidth - calcWidth - 8, dragStartRef.current.startX + deltaX));
+      const clampedY = Math.max(8, Math.min(window.innerHeight - calcHeight - 8, dragStartRef.current.startY + deltaY));
 
       setPosition({ x: clampedX, y: clampedY });
     };
@@ -446,16 +451,16 @@ export const VirtualCalculator: React.FC<VirtualCalculatorProps> = ({ isOpen, on
       style={
         position
           ? { left: `${position.x}px`, top: `${position.y}px` }
-          : { right: '20px', bottom: '20px' }
+          : { right: '16px', bottom: '16px' }
       }
-      className={`fixed z-50 shadow-2xl rounded-2xl border border-slate-300 overflow-hidden bg-white text-slate-900 w-80 font-mono ${
+      className={`fixed z-50 shadow-2xl rounded-2xl border border-slate-300 overflow-hidden bg-white text-slate-900 w-80 max-w-[calc(100vw-24px)] font-mono ${
         isDragging ? 'select-none ring-2 ring-blue-500/50' : 'transition-shadow duration-150'
       }`}
     >
       {/* Title Bar - Draggable */}
       <div
         onPointerDown={handlePointerDown}
-        className={`bg-slate-900 text-white px-3.5 py-2.5 flex items-center justify-between border-b border-slate-800 select-none ${
+        className={`bg-slate-900 text-white px-3.5 py-2.5 flex items-center justify-between border-b border-slate-800 select-none touch-none ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
         title="Drag to reposition calculator"

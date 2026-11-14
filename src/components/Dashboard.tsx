@@ -75,7 +75,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   ) as string[];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 bg-white text-slate-900 animate-in fade-in duration-200">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white text-slate-900 animate-in fade-in duration-200">
       {/* Resume Unfinished Test Banner */}
       {activeSession && activeTestInfo && (
         <div className="mb-6 p-4 bg-amber-50 border border-amber-300 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -121,7 +121,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       )}
 
       {/* SEO Hero Banner: Free Mock Tests for Competitive Exams */}
-      <div className="mb-8 p-6 sm:p-8 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white rounded-3xl shadow-lg relative overflow-hidden">
+      <div className="mb-8 p-5 sm:p-8 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white rounded-2xl sm:rounded-3xl shadow-lg relative overflow-hidden">
         <div className="absolute -right-12 -top-12 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
         <div className="relative z-10 space-y-3">
           <div className="flex flex-wrap items-center gap-2">
@@ -176,21 +176,21 @@ export const Dashboard: React.FC<DashboardProps> = ({
           </p>
         </div>
 
-        {/* Mode Toggle: Sectionals vs Topic-Wise */}
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200 self-start md:self-auto">
+        {/* Mode Toggle: Sectionals vs Topic-Wise - Full width grid on mobile */}
+        <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200">
           <button
             onClick={() => {
               onSelectCategory('sectional-pyq');
               setSelectedTopicTag('ALL');
             }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition ${
+            className={`flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
               activeCategory === 'sectional-pyq'
                 ? 'bg-white text-blue-700 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>40-Min Sectionals</span>
+            <BookOpen className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">40-Min Sectionals</span>
           </button>
 
           <button
@@ -198,22 +198,22 @@ export const Dashboard: React.FC<DashboardProps> = ({
               onSelectCategory('topic-wise');
               setSelectedYear('ALL');
             }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition ${
+            className={`flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition ${
               activeCategory === 'topic-wise'
                 ? 'bg-white text-blue-700 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            <Layers className="w-3.5 h-3.5" />
-            <span>Topic-Wise Quizzes</span>
+            <Layers className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Topic Quizzes</span>
           </button>
         </div>
       </div>
 
-      {/* Filter Bar: Section Pills & Year/Topic Filter */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      {/* Filter Bar: Section Pills & Year/Topic Filter (Swipeable on Mobile) */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         {/* Section Tabs */}
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
           {(['ALL', 'QA', 'VARC', 'DILR'] as const).map((sec) => {
             const isSelected = selectedSection === sec;
             const labels: Record<string, string> = {
@@ -230,7 +230,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   setSelectedSection(sec);
                   setSelectedTopicTag('ALL');
                 }}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
+                className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
                   isSelected
                     ? 'bg-slate-900 text-white shadow-xs'
                     : 'bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50'
@@ -244,13 +244,13 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
         {/* Sub-Filters: Year (for Sectionals) or Topic Tags (for Topic-Wise) */}
         {activeCategory === 'sectional-pyq' && (
-          <div className="flex items-center gap-1.5 self-start sm:self-auto flex-wrap">
-            <span className="text-xs text-slate-500 font-medium mr-1">Year:</span>
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
+            <span className="text-xs text-slate-500 font-medium mr-1 shrink-0">Year:</span>
             {['ALL', '2026', '2025', '2024', '2023', '2022', '2021', '2020'].map((yr) => (
               <button
                 key={yr}
                 onClick={() => setSelectedYear(yr)}
-                className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
+                className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                   selectedYear === yr
                     ? 'bg-blue-600 text-white'
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
@@ -263,10 +263,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
         )}
 
         {activeCategory === 'topic-wise' && topicTags.length > 0 && (
-          <div className="flex items-center gap-1.5 flex-wrap self-start sm:self-auto">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
             <button
               onClick={() => setSelectedTopicTag('ALL')}
-              className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
+              className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                 selectedTopicTag === 'ALL'
                   ? 'bg-blue-600 text-white'
                   : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
@@ -278,7 +278,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <button
                 key={tag}
                 onClick={() => setSelectedTopicTag(tag)}
-                className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
+                className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                   selectedTopicTag === tag
                     ? 'bg-blue-600 text-white'
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-700'

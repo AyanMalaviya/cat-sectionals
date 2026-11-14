@@ -59,7 +59,7 @@ export const HistoryView: React.FC<HistoryViewProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6 bg-white text-slate-900 animate-in fade-in duration-200">
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 py-5 sm:py-6 bg-white text-slate-900 animate-in fade-in duration-200">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
         <div>
@@ -84,31 +84,31 @@ export const HistoryView: React.FC<HistoryViewProps> = ({
 
       {/* Overview Metric Cards */}
       {totalTests > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 shadow-2xs">
-            <span className="text-xs text-slate-500 font-medium">Total Attempts</span>
-            <div className="text-2xl font-black text-slate-900 font-mono mt-0.5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 mb-6">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 sm:p-3.5 shadow-2xs">
+            <span className="text-[11px] sm:text-xs text-slate-500 font-medium">Total Attempts</span>
+            <div className="text-xl sm:text-2xl font-black text-slate-900 font-mono mt-0.5">
               {totalTests}
             </div>
           </div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 shadow-2xs">
-            <span className="text-xs text-slate-500 font-medium">Average Accuracy</span>
-            <div className="text-2xl font-black text-emerald-700 font-mono mt-0.5">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 sm:p-3.5 shadow-2xs">
+            <span className="text-[11px] sm:text-xs text-slate-500 font-medium">Average Accuracy</span>
+            <div className="text-xl sm:text-2xl font-black text-emerald-700 font-mono mt-0.5">
               {avgAccuracy}%
             </div>
           </div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 shadow-2xs">
-            <span className="text-xs text-slate-500 font-medium">Highest Score</span>
-            <div className="text-2xl font-black text-blue-700 font-mono mt-0.5">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 sm:p-3.5 shadow-2xs">
+            <span className="text-[11px] sm:text-xs text-slate-500 font-medium">Highest Score</span>
+            <div className="text-xl sm:text-2xl font-black text-blue-700 font-mono mt-0.5">
               {bestScore} <span className="text-xs font-normal text-slate-500">marks</span>
             </div>
           </div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 shadow-2xs">
-            <span className="text-xs text-slate-500 font-medium">Total Correct</span>
-            <div className="text-2xl font-black text-emerald-700 font-mono mt-0.5">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 sm:p-3.5 shadow-2xs">
+            <span className="text-[11px] sm:text-xs text-slate-500 font-medium">Total Correct</span>
+            <div className="text-xl sm:text-2xl font-black text-emerald-700 font-mono mt-0.5">
               {totalCorrect}
             </div>
           </div>
@@ -116,12 +116,12 @@ export const HistoryView: React.FC<HistoryViewProps> = ({
       )}
 
       {/* Section Filter Pills */}
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 mb-6 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 max-w-full">
         {(['ALL', 'QA', 'VARC', 'DILR'] as const).map((sec) => (
           <button
             key={sec}
             onClick={() => setSectionFilter(sec)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+            className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
               sectionFilter === sec
                 ? 'bg-slate-900 text-white shadow-xs'
                 : 'bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50'
@@ -182,18 +182,18 @@ export const HistoryView: React.FC<HistoryViewProps> = ({
                   </div>
 
                   {/* Metrics and Actions */}
-                  <div className="flex flex-wrap items-center gap-4 sm:gap-6 self-start md:self-center">
-                    <div className="text-right">
-                      <div className="text-[11px] text-slate-500">Score</div>
-                      <div className="text-base font-black text-slate-900 font-mono">
+                  <div className="flex flex-wrap items-center justify-between sm:justify-start gap-3 sm:gap-6 w-full md:w-auto pt-2.5 md:pt-0 border-t md:border-t-0 border-slate-100">
+                    <div className="text-left sm:text-right">
+                      <div className="text-[10px] sm:text-[11px] text-slate-500">Score</div>
+                      <div className="text-sm sm:text-base font-black text-slate-900 font-mono">
                         {item.totalMarks}{' '}
                         <span className="text-xs font-normal text-slate-400">/ {item.maxMarks}</span>
                       </div>
                     </div>
 
-                    <div className="text-right">
-                      <div className="text-[11px] text-slate-500">Correct / Wrong</div>
-                      <div className="text-base font-bold font-mono">
+                    <div className="text-center sm:text-right">
+                      <div className="text-[10px] sm:text-[11px] text-slate-500">Correct / Wrong</div>
+                      <div className="text-sm sm:text-base font-bold font-mono">
                         <span className="text-emerald-700">{item.correctCount}</span>
                         <span className="text-slate-400 mx-1">/</span>
                         <span className="text-rose-700">{item.incorrectCount}</span>
@@ -201,8 +201,8 @@ export const HistoryView: React.FC<HistoryViewProps> = ({
                     </div>
 
                     <div className="text-right">
-                      <div className="text-[11px] text-slate-500">Accuracy</div>
-                      <div className="text-base font-bold text-slate-900 font-mono">
+                      <div className="text-[10px] sm:text-[11px] text-slate-500">Accuracy</div>
+                      <div className="text-sm sm:text-base font-bold text-slate-900 font-mono">
                         {item.accuracy}%
                       </div>
                     </div>
