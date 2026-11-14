@@ -108,8 +108,8 @@ export const Scorecard: React.FC<ScorecardProps> = ({
         </div>
       </div>
 
-      {/* Recommended CAT Sectional Booster Partner Banner */}
-      <AdBanner slot="scorecard-banner" className="mb-8" />
+      {/* Programmatic Ad Unit (Google AdSense / Media.net In-Feed Display) */}
+      <AdBanner slot="scorecard-native" className="mb-8" />
 
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -27,7 +27,6 @@ import { DetailedAnalysis } from './components/ResultReview/DetailedAnalysis';
 import { HistoryView } from './components/HistoryView';
 import { BookmarksView } from './components/BookmarksView';
 import { VirtualCalculator } from './components/VirtualCalculator';
-import { AdBanner } from './components/AdBanner';
 
 interface HistoryStackState {
   view: 'dashboard' | 'exam' | 'scorecard' | 'analysis';
@@ -539,9 +538,6 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-900">
-      {/* Top Partner Promo Ticker: Visible when NOT in active exam */}
-      {view !== 'exam' && <AdBanner slot="top-ticker" />}
-
       {/* Navbar: Visible when NOT in active exam */}
       {view !== 'exam' && (
         <Navbar

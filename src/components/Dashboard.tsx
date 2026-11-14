@@ -242,8 +242,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
         )}
       </div>
 
-      {/* Sponsored CAT Resource Banner */}
-      <AdBanner slot="dashboard-banner" className="mb-6" />
+      {/* Programmatic Ad Unit (Google AdSense / Media.net Leaderboard) */}
+      <AdBanner slot="dashboard-leaderboard" className="mb-6" />
 
       {/* Tests Grid */}
       {filteredTests.length === 0 ? (
