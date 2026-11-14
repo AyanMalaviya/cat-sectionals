@@ -16,8 +16,8 @@ export function getInitialTheme(): ThemeMode {
     if (saved === 'dark' || saved === 'light') {
       return saved;
     }
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
+    // Default to 'light' mode
+    return 'light';
   } catch {
     return 'light';
   }

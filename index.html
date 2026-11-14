@@ -14,18 +14,19 @@
     <meta name="theme-color" content="#2563eb" />
     <link rel="canonical" href="https://cbtmocks.online/" />
 
-    <!-- Theme Initialization to prevent flash of white in dark mode -->
+    <!-- Theme Initialization: default is light mode; dark mode only if explicitly saved -->
     <script>
       (function() {
         try {
           var saved = localStorage.getItem('cbt_theme');
-          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (saved === 'dark' || (!saved && prefersDark)) {
+          if (saved === 'dark') {
             document.documentElement.classList.add('dark');
             var meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', '#090d16');
           } else {
             document.documentElement.classList.remove('dark');
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', '#1e3a8a');
           }
         } catch (e) {}
       })();
