@@ -6,8 +6,16 @@
       "destination": "/cat.html"
     },
     {
+      "source": "/cat-sectionals",
+      "destination": "/cat-sectionals.html"
+    },
+    {
       "source": "/xat",
       "destination": "/xat.html"
+    },
+    {
+      "source": "/xat-decision-making",
+      "destination": "/xat-decision-making.html"
     },
     {
       "source": "/snap",

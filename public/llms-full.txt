@@ -57,7 +57,9 @@ CBTMocks guarantees:
 ## Resource Links
 - Homepage: https://cbtmocks.online/
 - CAT SEO Portal: https://cbtmocks.online/cat.html
+- CAT Sectionals Guide: https://cbtmocks.online/cat-sectionals.html
 - XAT SEO Portal: https://cbtmocks.online/xat.html
+- XAT Decision Making Guide: https://cbtmocks.online/xat-decision-making.html
 - SNAP SEO Portal: https://cbtmocks.online/snap.html
 - CAT Full Mocks: https://cbtmocks.online/#/cat/full-mocks
 - XAT Full Mocks: https://cbtmocks.online/#/xat/full-mocks

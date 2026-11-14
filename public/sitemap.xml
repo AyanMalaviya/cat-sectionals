@@ -17,10 +17,24 @@
   </url>
 
   <url>
+    <loc>https://cbtmocks.online/cat-sectionals.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
     <loc>https://cbtmocks.online/xat.html</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://cbtmocks.online/xat-decision-making.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
 
   <url>

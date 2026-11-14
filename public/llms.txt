@@ -6,11 +6,13 @@
 
 ### 1. Common Admission Test (CAT)
 - [Free CAT Mock Tests & Sectionals](https://cbtmocks.online/cat.html): Comprehensive SEO portal & syllabus guide.
+- [CAT 40-Minute Sectionals Guide](https://cbtmocks.online/cat-sectionals.html): Strategy and time allocation for VARC, DILR & QA.
 - [CAT 120-Minute Official Full Mocks](https://cbtmocks.online/#/cat/full-mocks): Authentic 3-section simulation (VARC 40m, DILR 40m, QA 40m) with 66 questions, 198 marks, +3/-1 marking, and on-screen calculator.
 - [CAT 40-Minute Sectional Tests](https://cbtmocks.online/#/cat/tests): Timed papers for VARC (24 Qs), DILR (20 Qs), and Quantitative Aptitude (22 Qs) from CAT 2020 to 2026 specimen papers.
 
 ### 2. Xavier Aptitude Test (XAT)
 - [Free XAT Mock Tests & DM Sectionals](https://cbtmocks.online/xat.html): Dedicated XLRI portal, Decision Making strategy, and scoring guide.
+- [XAT Decision Making (DM) Caselets & Strategy](https://cbtmocks.online/xat-decision-making.html): The 5-step elimination framework for ethics, managerial conflicts & HR dilemmas.
 - [XAT 175-Minute Official Full Mocks](https://cbtmocks.online/#/xat/full-mocks): Official XAT 2024, XAT 2023, and 2026 Specimen mocks (75 Qs, 5 options A-E, +1.0/-0.25 marking).
 - [XAT Decision Making (DM) Sectionals](https://cbtmocks.online/#/xat/tests): Real managerial caselets (NeoPharma, EcoCraft, TechSprint, Medix, FinServe) with ethical dilemmas and elimination strategies.
 - [XAT VALR & QA-DI Sectionals](https://cbtmocks.online/#/xat/tests): High-level abstract reading comprehension, critical reasoning, geometry, and multi-chart DI sets.
