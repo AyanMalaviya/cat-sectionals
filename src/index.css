@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Highly readable serif font for Reading Comprehension passages */
+.passage-text {
+  font-family: 'Lora', Georgia, Cambria, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #1e293b;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print and math styles */
+.math-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Allow text selection everywhere for copying questions, passages, and math */
+*::selection {
+  background-color: #bfdbfe;
+  color: #0f172a;
+}
+
+.katex,
+.katex *,
+.math-text-wrapper,
+.math-text-wrapper * {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
