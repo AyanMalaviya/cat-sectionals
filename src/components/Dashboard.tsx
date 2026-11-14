@@ -118,18 +118,59 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       )}
 
+      {/* SEO Hero Banner: Free Mock Tests for Competitive Exams */}
+      <div className="mb-8 p-6 sm:p-8 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white rounded-3xl shadow-lg relative overflow-hidden">
+        <div className="absolute -right-12 -top-12 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="relative z-10 space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="bg-blue-500/30 text-blue-200 border border-blue-400/30 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider">
+              ✨ 100% Free Mock Tests • Zero Paywalls
+            </span>
+            <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-3 py-1 rounded-full text-[11px] font-bold">
+              CAT 2026 Ready
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight">
+            Free Mock Tests CBT for Competitive Exams
+          </h1>
+
+          <p className="text-xs sm:text-sm text-blue-100 max-w-3xl leading-relaxed">
+            Practice 62+ authentic free mock tests with official 40-minute CBT countdowns, full TCS iON simulation, and on-screen virtual calculator. Master Quantitative Aptitude, DILR, and VARC with 866+ questions from CAT 2020 through CAT 2026 specimen mocks. Zero paywalls, zero signups, 100% free forever.
+          </p>
+
+          <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
+            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
+              📊 62+ Free Mock Tests
+            </span>
+            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
+              🎯 866+ Questions
+            </span>
+            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
+              ⚡ Official +3 / -1 Marking
+            </span>
+            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
+              🧮 Built-in Virtual Calculator
+            </span>
+            <span className="bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-xl font-semibold border border-white/15">
+              ₹0 No Coaching Fees
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Top Header & Mode Toggle */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-5 border-b border-slate-200">
         <div>
-          <h1 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
             {activeCategory === 'sectional-pyq'
-              ? 'CAT Mock Test CBT — 40-Min Sectional Tests'
-              : 'CAT Practice Portal — Topic-Wise Sectional Quizzes'}
-          </h1>
+              ? 'Free CAT Mock Tests CBT — 40-Min Sectionals'
+              : 'Free Topic-Wise Mock Quizzes — Practice Sets'}
+          </h2>
           <p className="text-xs text-slate-500 mt-0.5">
             {activeCategory === 'sectional-pyq'
-              ? `Authentic CAT Sectional Mock Tests (QA, DILR, VARC) from 2020 to 2026 • ${filteredTests.length} tests available`
-              : `Targeted CAT Practice sets with official PYQs and specimen mocks • ${filteredTests.length} tests available`}
+              ? `Authentic Free Sectional Mock Tests (QA, DILR, VARC) from 2020 to 2026 • ${filteredTests.length} free tests ready`
+              : `Targeted Free Mock Practice Sets with official PYQs and specimen mocks • ${filteredTests.length} free quizzes ready`}
           </p>
         </div>
 
@@ -292,23 +333,28 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       )}
 
-      {/* SEO Section: CAT Mock Test CBT & Practice Guide */}
-      <section className="mt-16 pt-10 border-t border-slate-200" aria-label="CAT Mock Test CBT Guide">
+      {/* SEO Section: Free Mock Tests for Competitive Exams & Practice Guide */}
+      <section className="mt-16 pt-10 border-t border-slate-200" aria-label="Free Mock Tests CBT Guide">
         <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8">
           <div className="flex items-center gap-2.5 mb-4">
             <span className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">
               <Award className="w-4 h-4" />
             </span>
-            <h2 className="text-lg sm:text-xl font-bold text-slate-900">
-              CAT Mock Test CBT &amp; Sectional Practice Guide
-            </h2>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900">
+                Free Mock Tests for Competitive Exams (CAT 2026) — CBT Strategy Guide
+              </h2>
+              <p className="text-xs text-slate-500">
+                100% Free mock test series designed to replicate real exam pressure, sectional pacing, and interface controls.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
             <div className="space-y-2">
               <h3 className="font-bold text-slate-800 flex items-center gap-1.5 text-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Real CAT CBT Exam Simulation
+                Real CBT Exam Simulation
               </h3>
               <p>
                 Experience the authentic TCS iON Computer Based Test (CBT) environment with a 40-minute strict sectional countdown, question palette status indicators (Answered, Not Answered, Marked for Review), and official marking scheme (+3 marks for correct answers, -1 for wrong MCQs, and 0 penalty for TITA questions).
@@ -318,7 +364,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             <div className="space-y-2">
               <h3 className="font-bold text-slate-800 flex items-center gap-1.5 text-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Full 40-Min Sectional Mock Tests
+                40-Min Free Sectional Mock Tests
               </h3>
               <p>
                 Master sectional time allocation across Quantitative Aptitude (QA, 22 questions), Data Interpretation &amp; Logical Reasoning (DILR, 20 questions), and Verbal Ability &amp; Reading Comprehension (VARC, 24 questions) using authentic past year papers from CAT 2020 through CAT 2026 specimen mocks.
@@ -328,7 +374,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             <div className="space-y-2">
               <h3 className="font-bold text-slate-800 flex items-center gap-1.5 text-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Targeted CAT Practice &amp; Analytics
+                Targeted Free Mock Practice &amp; Analytics
               </h3>
               <p>
                 Strengthen core concepts with focused topic-wise practice quizzes across Arithmetic, Algebra, Geometry, Numbers, RC Passages, Tournaments, and Matrix arrangements. Review detailed solution rationales, accuracy, and question-by-question time tracking after every attempt.
@@ -340,7 +386,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <div className="mt-8 pt-6 border-t border-slate-200">
             <h3 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
               <span className="text-blue-600">⚖️</span>
-              CBTMocks vs. Commercial Coaching Test Series
+              Free Mock Tests vs Commercial Coaching Test Series
             </h3>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden bg-white">
@@ -379,6 +425,52 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          {/* Frequently Asked Questions: Free Mock Tests for Competitive Exams */}
+          <div className="mt-8 pt-6 border-t border-slate-200 space-y-4">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span className="text-blue-600">❓</span>
+              Frequently Asked Questions About Free Mock Tests
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600">
+              <div className="p-3.5 bg-white border border-slate-200 rounded-2xl shadow-2xs space-y-1">
+                <h4 className="font-bold text-slate-800 text-xs">
+                  How many free mock tests are available on CBTMocks?
+                </h4>
+                <p>
+                  You get immediate access to 62+ complete sectional and topic-wise mock tests (over 866+ questions). Unlike coaching websites that offer 1 test and lock the rest, all tests on CBTMocks are 100% free with no paywall.
+                </p>
+              </div>
+
+              <div className="p-3.5 bg-white border border-slate-200 rounded-2xl shadow-2xs space-y-1">
+                <h4 className="font-bold text-slate-800 text-xs">
+                  Do I need to sign up or provide my phone number?
+                </h4>
+                <p>
+                  No. You can start any free mock test instantly with 1 click. We never collect your mobile number, send spam messages, or sell candidate data to marketing callers.
+                </p>
+              </div>
+
+              <div className="p-3.5 bg-white border border-slate-200 rounded-2xl shadow-2xs space-y-1">
+                <h4 className="font-bold text-slate-800 text-xs">
+                  Is the online virtual calculator included in the free mock tests?
+                </h4>
+                <p>
+                  Yes, an authentic on-screen virtual calculator with BODMAS precision evaluation, running calculation tape, and memory functions is provided during all mock tests.
+                </p>
+              </div>
+
+              <div className="p-3.5 bg-white border border-slate-200 rounded-2xl shadow-2xs space-y-1">
+                <h4 className="font-bold text-slate-800 text-xs">
+                  Will more competitive exam mock tests (XAT, SNAP) be added?
+                </h4>
+                <p>
+                  Yes! We are actively adding sectional mock tests for XAT (Decision Making, Verbal &amp; Logical Ability) and SNAP speed practice tests.
+                </p>
+              </div>
             </div>
           </div>
         </div>

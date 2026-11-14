@@ -29,6 +29,8 @@ import { BookmarksView } from './components/BookmarksView';
 import { VirtualCalculator } from './components/VirtualCalculator';
 import { AdBanner } from './components/AdBanner';
 import { SupportModal } from './components/SupportModal';
+import { Footer } from './components/Footer';
+import { LegalModal, LegalTab } from './components/LegalModal';
 
 interface HistoryStackState {
   view: 'dashboard' | 'exam' | 'scorecard' | 'analysis';
@@ -65,6 +67,8 @@ export function App() {
   const [isPaperModalOpen, setIsPaperModalOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
+  const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
+  const [activeLegalTab, setActiveLegalTab] = useState<LegalTab>('about');
 
   const candidateName = getCandidateName();
 
@@ -143,7 +147,10 @@ export function App() {
     let testToLoad: SectionalTest | null = null;
     let resultToLoad: TestResult | null = null;
 
-    if (route === 'topic-wise') {
+    if (['about', 'contact', 'privacy', 'terms', 'disclaimer'].includes(route)) {
+      setActiveLegalTab(route as LegalTab);
+      setIsLegalModalOpen(true);
+    } else if (route === 'topic-wise') {
       initialTab = 'topic-wise';
     } else if (route === 'history') {
       initialTab = 'history';
@@ -254,6 +261,9 @@ export function App() {
             if (res) setCurrentResult(res);
             setView('analysis');
           }
+        } else if (['about', 'contact', 'privacy', 'terms', 'disclaimer'].includes(route)) {
+          setActiveLegalTab(route as LegalTab);
+          setIsLegalModalOpen(true);
         } else if (['tests', 'topic-wise', 'history', 'bookmarks'].includes(route)) {
           setCurrentTab(route as any);
           setView('dashboard');
@@ -271,6 +281,25 @@ export function App() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, [view, currentTab, activeTest]);
+
+  const handleOpenLegalTab = (tab: LegalTab) => {
+    setActiveLegalTab(tab);
+    setIsLegalModalOpen(true);
+    window.history.pushState(
+      { view, tab: currentTab, legalTab: tab },
+      '',
+      `#/${tab}`
+    );
+  };
+
+  const handleCloseLegalModal = () => {
+    setIsLegalModalOpen(false);
+    window.history.pushState(
+      { view, tab: currentTab },
+      '',
+      getHashForState(view, currentTab, activeTest?.id)
+    );
+  };
 
   const refreshStorageData = () => {
     setHistory(getTestHistory());
@@ -308,19 +337,19 @@ export function App() {
   // Dynamic SEO Page Title & Meta Tag Updates for Target Keywords & Free Positioning
   useEffect(() => {
     if (view === 'exam' && activeTest) {
-      document.title = `CBT Exam: ${activeTest.title} (40-Min Sectional) | 62+ Free CAT Mocks`;
+      document.title = `Free Mock Test CBT: ${activeTest.title} (Official Simulation) | CBTMocks`;
     } else if (view === 'scorecard' && activeTest) {
-      document.title = `Scorecard & Performance Analysis: ${activeTest.title} | 100% Free CAT Practice`;
+      document.title = `Free Mock Test Scorecard: ${activeTest.title} | Percentile & Analytics`;
     } else if (view === 'analysis' && activeTest) {
-      document.title = `Detailed Solutions & Review: ${activeTest.title} | 62+ Free CAT Mocks`;
+      document.title = `Free Mock Test Solutions: ${activeTest.title} | Step-by-Step Analysis`;
     } else if (currentTab === 'topic-wise') {
-      document.title = '20+ Topic-Wise CAT Practice Quizzes Online (Quant, DILR, VARC) | 100% Free';
+      document.title = 'Free Mock Tests Topic-Wise - QA, DILR & VARC Practice Quizzes | CBTMocks';
     } else if (currentTab === 'history') {
-      document.title = 'My CAT Practice History & Analytics | 62+ Free CAT Mocks';
+      document.title = 'Free Mock Test History & Analytics | CBTMocks';
     } else if (currentTab === 'bookmarks') {
-      document.title = 'Saved CAT Practice Questions & Formula Bookmarks | 62+ Free CAT Mocks';
+      document.title = 'Saved Free Mock Questions & Formulas | CBTMocks';
     } else {
-      document.title = '62+ Free CAT Mock Tests CBT 2026 - 100% Free Sectionals & Practice (No Paywall)';
+      document.title = 'Free Mock Test - 62+ Free Mock Tests CBT for Competitive Exams (CAT 2026)';
     }
   }, [view, currentTab, activeTest]);
 
@@ -754,6 +783,28 @@ export function App() {
           testTitle={activeTest.title}
         />
       )}
+
+      {/* Footer: Visible on all non-exam views */}
+      {view !== 'exam' && (
+        <Footer
+          onOpenLegalTab={handleOpenLegalTab}
+          onSelectTab={(tab) => pushNavState('dashboard', tab)}
+          onOpenCalculator={() => setIsCalculatorOpen((prev) => !prev)}
+          onOpenSupport={() => setIsSupportModalOpen(true)}
+        />
+      )}
+
+      {/* Legal & Compliance Modal (AdSense Required: About, Contact, Privacy, Terms, Disclaimer) */}
+      <LegalModal
+        isOpen={isLegalModalOpen}
+        activeTab={activeLegalTab}
+        onTabChange={(tab) => {
+          setActiveLegalTab(tab);
+          window.history.replaceState({ view, tab: currentTab, legalTab: tab }, '', `#/${tab}`);
+        }}
+        onClose={handleCloseLegalModal}
+        onOpenSupport={() => setIsSupportModalOpen(true)}
+      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage & 62+ Free CAT Mock Tests CBT Portal -->
+  <!-- Homepage: Free Mock Tests for Competitive Exams (CAT, MBA) -->
   <url>
     <loc>https://cbtmocks.online/</loc>
     <lastmod>2026-11-14</lastmod>
@@ -8,35 +8,32 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- 40-Minute Sectional Tests (QA, DILR, VARC) -->
+  <!-- Static Policy & Compliance Pages (Google AdSense Mandatory) -->
   <url>
-    <loc>https://cbtmocks.online/#/tests</loc>
+    <loc>https://cbtmocks.online/about.html</loc>
     <lastmod>2026-11-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Topic-Wise CAT Practice Quizzes -->
-  <url>
-    <loc>https://cbtmocks.online/#/topic-wise</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- CAT Practice History & Scoring -->
-  <url>
-    <loc>https://cbtmocks.online/#/history</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
-  <!-- Bookmarked Questions & Formulas -->
   <url>
-    <loc>https://cbtmocks.online/#/bookmarks</loc>
+    <loc>https://cbtmocks.online/contact.html</loc>
     <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://cbtmocks.online/privacy.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://cbtmocks.online/terms.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 </urlset>
