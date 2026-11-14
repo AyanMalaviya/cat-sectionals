@@ -18,25 +18,26 @@ export interface AdsConfiguration {
   enabled: boolean;
   provider: 'adsense' | 'custom' | 'demo';
   googleAdSense: {
-    client: string; // e.g. 'ca-pub-1234567890123456'
+    client: string; // e.g. 'ca-pub-8711221458060472'
     slots: {
-      dashboardLeaderboard: string; // e.g. '1234567890'
-      scorecardNative: string;      // e.g. '9876543210'
-      sidebarRectangle: string;     // e.g. '5544332211'
+      dashboardLeaderboard: string;
+      scorecardNative: string;
+      sidebarRectangle: string;
+      examBottomBar: string;
     };
   };
 }
 
 export const ADS_CONFIG: AdsConfiguration = {
   enabled: true,
-  // Change to 'adsense' when your AdSense account is approved
   provider: 'adsense',
   googleAdSense: {
-    client: 'ca-pub-XXXXXXXXXXXXXXXX', // Paste your AdSense Publisher ID here
+    client: 'ca-pub-8711221458060472',
     slots: {
-      dashboardLeaderboard: '1234567890',
-      scorecardNative: '9876543210',
-      sidebarRectangle: '5544332211',
+      dashboardLeaderboard: '',
+      scorecardNative: '',
+      sidebarRectangle: '',
+      examBottomBar: '',
     },
   },
 };

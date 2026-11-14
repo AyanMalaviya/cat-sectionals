@@ -7,7 +7,12 @@ declare global {
   }
 }
 
-export type AdSlotType = 'bottom-leaderboard' | 'side-rail-left' | 'side-rail-right' | 'scorecard-bottom';
+export type AdSlotType =
+  | 'bottom-leaderboard'
+  | 'side-rail-left'
+  | 'side-rail-right'
+  | 'scorecard-bottom'
+  | 'exam-bottom-bar';
 
 interface AdBannerProps {
   slot: AdSlotType;
@@ -21,7 +26,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
   const isRealAdSenseConfigured =
     ADS_CONFIG.enabled &&
     ADS_CONFIG.provider === 'adsense' &&
-    ADS_CONFIG.googleAdSense.client &&
+    Boolean(ADS_CONFIG.googleAdSense.client) &&
     ADS_CONFIG.googleAdSense.client !== 'ca-pub-XXXXXXXXXXXXXXXX';
 
   // Load Google AdSense script only when real publisher credentials exist
@@ -51,8 +56,8 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
     return null;
   }
 
-  // Determine slot ID from configuration
-  const getSlotId = () => {
+  // Determine slot ID from configuration (if created in AdSense console)
+  const getSlotId = (): string => {
     switch (slot) {
       case 'bottom-leaderboard':
         return ADS_CONFIG.googleAdSense.slots.dashboardLeaderboard;
@@ -61,10 +66,36 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
       case 'side-rail-left':
       case 'side-rail-right':
         return ADS_CONFIG.googleAdSense.slots.sidebarRectangle;
+      case 'exam-bottom-bar':
+        return ADS_CONFIG.googleAdSense.slots.examBottomBar;
       default:
-        return ADS_CONFIG.googleAdSense.slots.dashboardLeaderboard;
+        return '';
     }
   };
+
+  const slotId = getSlotId();
+
+  // Thin, non-intrusive bottom bar during exam simulation
+  if (slot === 'exam-bottom-bar') {
+    return (
+      <div
+        className={`w-full bg-slate-50 border-t border-slate-200 px-4 py-1 flex items-center justify-center shrink-0 z-20 ${className}`}
+        aria-label="Sponsored"
+      >
+        <div className="w-full max-w-4xl min-h-[50px] max-h-[60px] flex items-center justify-center overflow-hidden">
+          <ins
+            ref={adRef}
+            className="adsbygoogle block w-full text-center"
+            style={{ display: 'inline-block', width: '100%', height: '50px' }}
+            data-ad-client={ADS_CONFIG.googleAdSense.client}
+            {...(slotId ? { 'data-ad-slot': slotId } : {})}
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          />
+        </div>
+      </div>
+    );
+  }
 
   // Side Rail Slots (Fixed to left and right margins on widescreen displays)
   if (slot === 'side-rail-left' || slot === 'side-rail-right') {
@@ -82,7 +113,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
             className="adsbygoogle"
             style={{ display: 'inline-block', width: '160px', height: '600px' }}
             data-ad-client={ADS_CONFIG.googleAdSense.client}
-            data-ad-slot={getSlotId()}
+            {...(slotId ? { 'data-ad-slot': slotId } : {})}
           />
         </div>
       </aside>
@@ -91,7 +122,10 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
 
   // Bottom Slots (Footer / Bottom of Dashboard or Scorecard)
   return (
-    <div className={`w-full flex flex-col items-center justify-center overflow-hidden my-8 ${className}`} aria-label="Advertisement">
+    <div
+      className={`w-full flex flex-col items-center justify-center overflow-hidden my-8 ${className}`}
+      aria-label="Advertisement"
+    >
       <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-1">
         Advertisement
       </span>
@@ -101,7 +135,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ slot, className = '' }) => {
           className="adsbygoogle w-full block text-center"
           style={{ display: 'block' }}
           data-ad-client={ADS_CONFIG.googleAdSense.client}
-          data-ad-slot={getSlotId()}
+          {...(slotId ? { 'data-ad-slot': slotId } : {})}
           data-ad-format="auto"
           data-full-width-responsive="true"
         />

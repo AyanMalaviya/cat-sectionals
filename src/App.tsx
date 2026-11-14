@@ -899,6 +899,9 @@ export function App() {
                 />
               )}
             </div>
+
+            {/* Non-intrusive thin bottom bar during mock exam */}
+            <AdBanner slot="exam-bottom-bar" />
           </div>
         )}
 
