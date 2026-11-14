@@ -242,9 +242,6 @@ export const Dashboard: React.FC<DashboardProps> = ({
         )}
       </div>
 
-      {/* Programmatic Ad Unit (Google AdSense / Media.net Leaderboard) */}
-      <AdBanner slot="dashboard-leaderboard" className="mb-6" />
-
       {/* Tests Grid */}
       {filteredTests.length === 0 ? (
         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-12 text-center text-slate-500">
@@ -266,6 +263,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
           })}
         </div>
       )}
+
+      {/* Bottom Ad Unit (Only rendered when real Google AdSense ID is configured) */}
+      <AdBanner slot="bottom-leaderboard" className="mt-12" />
     </div>
   );
 };

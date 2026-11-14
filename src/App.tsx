@@ -27,6 +27,7 @@ import { DetailedAnalysis } from './components/ResultReview/DetailedAnalysis';
 import { HistoryView } from './components/HistoryView';
 import { BookmarksView } from './components/BookmarksView';
 import { VirtualCalculator } from './components/VirtualCalculator';
+import { AdBanner } from './components/AdBanner';
 
 interface HistoryStackState {
   view: 'dashboard' | 'exam' | 'scorecard' | 'analysis';
@@ -615,72 +616,85 @@ export function App() {
           </div>
         )}
 
-        {/* POST-EXAM SCORECARD VIEW - BASIC & STREAMLINED */}
-        {view === 'scorecard' && currentResult && activeTest && (
-          <Scorecard
-            result={currentResult}
-            test={activeTest}
-            onReviewSolutions={() => pushNavState('analysis', currentTab, activeTest.id, currentResult.id)}
-            onRetakeTest={() => handleStartTest(activeTest)}
-            onGoHome={() => {
-              const tab = activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests';
-              pushNavState('dashboard', tab);
-            }}
-          />
-        )}
+        {/* NON-EXAM VIEWS (With optional side rails on ultra-wide screens) */}
+        {view !== 'exam' && (
+          <div className="flex justify-center w-full min-h-[calc(100vh-64px)] px-2 sm:px-4">
+            {/* Left Side Rail (Only rendered when real Google AdSense ID is configured) */}
+            <AdBanner slot="side-rail-left" className="mr-4" />
 
-        {/* POST-EXAM RESPONSES REVIEW - BASIC CORRECT/INCORRECT & TIME (NO LONG EXPLANATIONS) */}
-        {view === 'analysis' && currentResult && activeTest && (
-          <DetailedAnalysis
-            test={activeTest}
-            result={currentResult}
-            onBackToScorecard={() => pushNavState('scorecard', currentTab, activeTest.id, currentResult.id)}
-            onGoHome={() => {
-              const tab = activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests';
-              pushNavState('dashboard', tab);
-            }}
-          />
-        )}
+            <div className="flex-1 max-w-7xl w-full">
+              {/* POST-EXAM SCORECARD VIEW - BASIC & STREAMLINED */}
+              {view === 'scorecard' && currentResult && activeTest && (
+                <Scorecard
+                  result={currentResult}
+                  test={activeTest}
+                  onReviewSolutions={() => pushNavState('analysis', currentTab, activeTest.id, currentResult.id)}
+                  onRetakeTest={() => handleStartTest(activeTest)}
+                  onGoHome={() => {
+                    const tab = activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests';
+                    pushNavState('dashboard', tab);
+                  }}
+                />
+              )}
 
-        {/* DASHBOARD / TOPIC-WISE / TESTS GIVEN / BOOKMARKS TABS */}
-        {view === 'dashboard' && (
-          <>
-            {(currentTab === 'tests' || currentTab === 'topic-wise') && (
-              <Dashboard
-                tests={sectionalTests}
-                testHistory={history}
-                activeSession={activeSession}
-                activeCategory={currentTab === 'topic-wise' ? 'topic-wise' : 'sectional-pyq'}
-                onSelectCategory={(cat) => {
-                  const tab = cat === 'topic-wise' ? 'topic-wise' : 'tests';
-                  pushNavState('dashboard', tab);
-                }}
-                onResumeActiveTest={handleResumeActiveTest}
-                onDiscardActiveTest={handleDiscardActiveTest}
-                onStartTest={handleStartTest}
-                onReviewPastTest={handleReviewPastTest}
-              />
-            )}
+              {/* POST-EXAM RESPONSES REVIEW - BASIC CORRECT/INCORRECT & TIME (NO LONG EXPLANATIONS) */}
+              {view === 'analysis' && currentResult && activeTest && (
+                <DetailedAnalysis
+                  test={activeTest}
+                  result={currentResult}
+                  onBackToScorecard={() => pushNavState('scorecard', currentTab, activeTest.id, currentResult.id)}
+                  onGoHome={() => {
+                    const tab = activeTest && activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests';
+                    pushNavState('dashboard', tab);
+                  }}
+                />
+              )}
 
-            {currentTab === 'history' && (
-              <HistoryView
-                history={history}
-                onSelectResult={handleSelectResultFromHistory}
-                onRetakeTest={(testId) => {
-                  const t = getTestById(testId);
-                  if (t) handleStartTest(t);
-                }}
-                onRefreshHistory={refreshStorageData}
-              />
-            )}
+              {/* DASHBOARD / TOPIC-WISE / TESTS GIVEN / BOOKMARKS TABS */}
+              {view === 'dashboard' && (
+                <>
+                  {(currentTab === 'tests' || currentTab === 'topic-wise') && (
+                    <Dashboard
+                      tests={sectionalTests}
+                      testHistory={history}
+                      activeSession={activeSession}
+                      activeCategory={currentTab === 'topic-wise' ? 'topic-wise' : 'sectional-pyq'}
+                      onSelectCategory={(cat) => {
+                        const tab = cat === 'topic-wise' ? 'topic-wise' : 'tests';
+                        pushNavState('dashboard', tab);
+                      }}
+                      onResumeActiveTest={handleResumeActiveTest}
+                      onDiscardActiveTest={handleDiscardActiveTest}
+                      onStartTest={handleStartTest}
+                      onReviewPastTest={handleReviewPastTest}
+                    />
+                  )}
 
-            {currentTab === 'bookmarks' && (
-              <BookmarksView
-                allTests={sectionalTests}
-                onBackToDashboard={() => pushNavState('dashboard', 'tests')}
-              />
-            )}
-          </>
+                  {currentTab === 'history' && (
+                    <HistoryView
+                      history={history}
+                      onSelectResult={handleSelectResultFromHistory}
+                      onRetakeTest={(testId) => {
+                        const t = getTestById(testId);
+                        if (t) handleStartTest(t);
+                      }}
+                      onRefreshHistory={refreshStorageData}
+                    />
+                  )}
+
+                  {currentTab === 'bookmarks' && (
+                    <BookmarksView
+                      allTests={sectionalTests}
+                      onBackToDashboard={() => pushNavState('dashboard', 'tests')}
+                    />
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* Right Side Rail (Only rendered when real Google AdSense ID is configured) */}
+            <AdBanner slot="side-rail-right" className="ml-4" />
+          </div>
         )}
       </main>
 

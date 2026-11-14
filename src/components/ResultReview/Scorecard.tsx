@@ -108,9 +108,6 @@ export const Scorecard: React.FC<ScorecardProps> = ({
         </div>
       </div>
 
-      {/* Programmatic Ad Unit (Google AdSense / Media.net In-Feed Display) */}
-      <AdBanner slot="scorecard-native" className="mb-8" />
-
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <button
@@ -136,6 +133,9 @@ export const Scorecard: React.FC<ScorecardProps> = ({
           Back to Tests
         </button>
       </div>
+
+      {/* Bottom Ad Unit (Only rendered when real Google AdSense ID is configured) */}
+      <AdBanner slot="scorecard-bottom" className="mt-10" />
     </div>
   );
 };
