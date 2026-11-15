@@ -45,7 +45,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
             Support 100% Free Mock Tests
           </h3>
           <p className="text-xs text-rose-100 mt-1 max-w-xs mx-auto leading-relaxed">
-            Help us keep 86+ CAT &amp; MBA mock tests free forever without expensive ₹10,000 paywalls.
+            Help us keep 100+ CAT &amp; MBA mock tests free forever without expensive ₹10,000 paywalls.
           </p>
         </div>
 

@@ -1,408 +1,261 @@
 import { Question } from '../types';
 
-export const dilr2021Slot1Questions: Question[] = [
-  // SET 1: Tech Campus Hiring & Multi-Round Assessment (Questions 1 to 5)
+export const dilr2021Questions: Question[] = [
   {
     id: 'dilr21-s1-q1',
     questionNumber: 1,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
+    topic: 'Logical Reasoning - Seating Arrangements',
     difficulty: 'Moderate',
-    passageTitle: 'Set 1: Tech Campus Recruitment Assessments',
-    passage: `Four candidates—Aarav, Bipasha, Chetan, and Divya—were evaluated across four rounds: Coding, System Design, Data Structures (DS), and Behavioral HR. Each round was scored on a scale of 10 to 50 (in multiples of 5).
-The following clues are known:
-1. No candidate received the same score in two different rounds, and no two candidates received the same score in any round.
-2. Aarav scored 45 in Coding, which was the highest in that round.
-3. Chetan scored 25 in System Design, which was the lowest in that round.
-4. Bipasha’s aggregate score across all four rounds was 155, which was the highest overall total.
-5. In Data Structures, Divya scored 40 points, and Bipasha scored 10 points higher than Chetan.
-6. In Behavioral HR, Aarav scored 30 points, while Divya scored 50 points.
-7. The sum of all four scores in Coding was 140 points.
-8. Chetan’s score in Coding was 35 points.`,
-    question: 'What was the score obtained by Candidate Divya in the Coding round?',
-    options: ['20 points', '25 points', '30 points', '15 points'],
-    correctAnswer: 0,
-    explanation: `Let's analyze the Coding round:
-Total Coding sum = 140 (Clue 7).
-Aarav(Coding) = 45 (Clue 2, highest).
-Chetan(Coding) = 35 (Clue 8).
-Remaining sum for Bipasha and Divya = 140 - (45 + 35) = 140 - 80 = 60 points.
-All scores are multiples of 5 and distinct.
-Possible pairs for {Bipasha, Divya}: (40, 20) or (35, 25 - Chetan is 35 so invalid) or (30, 30 - invalid).
-So the pair must be 40 and 20.
-Who scored 40 and who scored 20?
-From Clue 4: Bipasha has the highest aggregate score = 155.
-If Bipasha scored 20 in Coding, her remaining 3 rounds must average (155 - 20)/3 = 45 points each, which would require scores like (45, 50, 40), but in HR Divya scored 50 (so Bipasha cannot score 50 in HR).
-Thus, Bipasha scored 40 in Coding, and Divya scored 20 in Coding.`
+    context: "![Diagram](/images/questions/dilr21-s1_ctx1_756_489168_0_1011660_4096_psg_jpg.jpg)\n\nThe horizontal bars in the above diagram represent 2020 aggregate sales (in \u20b9 million) of a company for the different subcategories of its products. The top four product subcategories (Bookcases, Chairs, Furnishings, Tables) belong to furniture product category; the bottom four product subcategories (Accessories, Copiers, Machines, Phones) belong to the technology product category while all other product subcategories belong to the office supply product category. For each of the product subcategories, there is a vertical line indicating the sales of the corresponding subcategory in 2019.",
+    question: "The total sales (in \u20b9 million) in 2019 from products in office supplies category is closest to",
+    options: ["16.5", "12.5", "18.0", "13.5"],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q1_42_png.png)"
   },
   {
     id: 'dilr21-s1-q2',
     questionNumber: 2,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
+    topic: 'Logical Reasoning - Seating Arrangements',
     difficulty: 'Moderate',
-    passageTitle: 'Set 1: Tech Campus Recruitment Assessments',
-    passage: `[Refer to Set 1: Tech Campus Recruitment Assessments]`,
-    question: 'What was Bipasha’s score in the Coding round?',
-    options: ['40 points', '35 points', '45 points', '30 points'],
-    correctAnswer: 0,
-    explanation: `From the deduction in Question 1:
-Aarav = 45, Chetan = 35, Divya = 20, Bipasha = 40.
-Total Coding = 45 + 35 + 20 + 40 = 140.
-Hence, Bipasha scored 40 points in Coding.`
+    context: "![Diagram](/images/questions/dilr21-s1_ctx1_756_489168_0_1011660_4096_psg_jpg.jpg)\n\nThe horizontal bars in the above diagram represent 2020 aggregate sales (in \u20b9 million) of a company for the different subcategories of its products. The top four product subcategories (Bookcases, Chairs, Furnishings, Tables) belong to furniture product category; the bottom four product subcategories (Accessories, Copiers, Machines, Phones) belong to the technology product category while all other product subcategories belong to the office supply product category. For each of the product subcategories, there is a vertical line indicating the sales of the corresponding subcategory in 2019.",
+    question: "The percentage increase in sales in Furniture category from 2019 to 2020 is closest to",
+    options: ["1%", "8%", "20%", "25%"],
+    correctAnswer: 1,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q2_42_png.png)"
   },
   {
     id: 'dilr21-s1-q3',
     questionNumber: 3,
     section: 'DILR',
     type: 'TITA',
-    topic: 'Logical Reasoning - Matrix & Constraints',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 1: Tech Campus Recruitment Assessments',
-    passage: `[Refer to Set 1: Tech Campus Recruitment Assessments]`,
-    question: 'What was Candidate Divya’s score in the Behavioral HR round?',
-    correctAnswer: '50',
-    explanation: `Clue 6 explicitly states: "In Behavioral HR, Aarav scored 30 points, while Divya scored 50 points."`
+    topic: 'Logical Reasoning - Seating Arrangements',
+    difficulty: 'Hard',
+    context: "![Diagram](/images/questions/dilr21-s1_ctx1_756_489168_0_1011660_4096_psg_jpg.jpg)\n\nThe horizontal bars in the above diagram represent 2020 aggregate sales (in \u20b9 million) of a company for the different subcategories of its products. The top four product subcategories (Bookcases, Chairs, Furnishings, Tables) belong to furniture product category; the bottom four product subcategories (Accessories, Copiers, Machines, Phones) belong to the technology product category while all other product subcategories belong to the office supply product category. For each of the product subcategories, there is a vertical line indicating the sales of the corresponding subcategory in 2019.",
+    question: "How many subcategories had sales of \u20b9 4 million or more in 2019 and registered an increase in sales in excess of 25% in 2020?",
+    correctAnswer: "1",
+    explanation: "![Diagram](/images/questions/dilr21-s1_q3_42_png.png)"
   },
   {
     id: 'dilr21-s1-q4',
     questionNumber: 4,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
-    difficulty: 'Hard',
-    passageTitle: 'Set 1: Tech Campus Recruitment Assessments',
-    passage: `[Refer to Set 1: Tech Campus Recruitment Assessments]`,
-    question: 'In Data Structures, if Divya scored 40 and the four scores were 25, 30, 35, 40, what did Chetan score in Data Structures?',
-    options: ['25 points', '30 points', '35 points', '20 points'],
-    correctAnswer: 0,
-    explanation: `From Clue 5: In Data Structures, Divya scored 40.
-Bipasha scored 10 points higher than Chetan: Bipasha(DS) = Chetan(DS) + 10.
-From available scores {25, 30, 35}:
-The only pair with a difference of 10 is 35 and 25.
-Therefore, Bipasha scored 35, and Chetan scored 25.
-Aarav then scored 30.
-Hence, Chetan scored 25 points in Data Structures.`
+    topic: 'Logical Reasoning - Seating Arrangements',
+    difficulty: 'Moderate',
+    context: "![Diagram](/images/questions/dilr21-s1_ctx1_756_489168_0_1011660_4096_psg_jpg.jpg)\n\nThe horizontal bars in the above diagram represent 2020 aggregate sales (in \u20b9 million) of a company for the different subcategories of its products. The top four product subcategories (Bookcases, Chairs, Furnishings, Tables) belong to furniture product category; the bottom four product subcategories (Accessories, Copiers, Machines, Phones) belong to the technology product category while all other product subcategories belong to the office supply product category. For each of the product subcategories, there is a vertical line indicating the sales of the corresponding subcategory in 2019.",
+    question: "The improvement index for a category is the maximum percentage increase in sales from 2019 to 2020 among any of its subcategories. The correct order of categories in increasing order of this improvement index is",
+    options: ["office supply, technology, furniture", "technology,\u00a0furniture, office supply", "office supply, furniture, technology", "furniture, technology, office supply"],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q4_42_png.png)"
   },
   {
     id: 'dilr21-s1-q5',
     questionNumber: 5,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 1: Tech Campus Recruitment Assessments',
-    passage: `[Refer to Set 1: Tech Campus Recruitment Assessments]`,
-    question: 'Which round had the highest individual score of 50 awarded to Candidate Divya?',
-    options: ['Behavioral HR', 'System Design', 'Coding', 'Data Structures'],
-    correctAnswer: 0,
-    explanation: `Clue 6 explicitly confirms that Divya scored 50 points in Behavioral HR.`
+    context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
+    question: "Who are Gowtham's acquaintances?",
+    options: ["Amudha, Bharatan and Fani", "Dhinesh, Ezhil and Fani", "Amudha, Dhinesh and Fani", "Bharatan, Dhinesh and Ezhil"],
+    correctAnswer: 1,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q5_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_15_png.png)"
   },
-
-  // SET 2: Electric Vehicle Fleet Analytics (Questions 6 to 10)
   {
     id: 'dilr21-s1-q6',
     questionNumber: 6,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Data Interpretation - Tables & Energy Efficiency',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 2: Electric Vehicle Fleet Efficiency and Range',
-    passage: `An urban taxi fleet operates four models of Electric Vehicles (EVs): Model E1, E2, E3, and E4.
-The table below displays Battery Capacity (kWh), Energy Consumption Rate (Wh/km), and Daily Distance Traveled (km) per vehicle:
-
-Model | Battery Capacity (kWh) | Energy Consumption (Wh/km) | Daily Distance Traveled (km) | Fleet Size (Vehicles)
-E1    | 40                     | 160                        | 200                          | 50
-E2    | 60                     | 200                        | 240                          | 40
-E3    | 75                     | 250                        | 250                          | 30
-E4    | 90                     | 300                        | 270                          | 20
-
-Notes:
-1. 1 kWh = 1,000 Wh.
-2. Full Charge Range (km) = (Battery Capacity in Wh) / (Energy Consumption in Wh/km).
-3. Daily Energy Consumed per vehicle (kWh) = (Daily Distance × Energy Consumption) / 1,000.`,
-    question: 'What is the Full Charge Range (in km) of an E2 vehicle on a single 100% charge?',
-    options: ['300 km', '250 km', '320 km', '280 km'],
-    correctAnswer: 0,
-    explanation: `Battery capacity of E2 = 60 kWh = 60,000 Wh.
-Energy Consumption = 200 Wh/km.
-Range = 60,000 / 200 = 300 km.`
+    context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
+    question: "Which of these pairs share the same type of relationship?",
+    options: ["(Bharatan, Chandran) and (Dhinesh, Ezhil)", "(Chandran, Ezhil) and (Dhinesh, Gowtham)", "(Amudha, Gowtham) and (Ezhil, Fani)", "(Bharatan, Ezhil) and (Fani, Gowtham)"],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q6_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_15_png.png)"
   },
   {
     id: 'dilr21-s1-q7',
     questionNumber: 7,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Data Interpretation - Aggregate Energy',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 2: Electric Vehicle Fleet Efficiency and Range',
-    passage: `[Refer to Set 2: Electric Vehicle Fleet Efficiency and Range]`,
-    question: 'What is the total daily energy consumed (in kWh) by all 50 vehicles of Model E1 combined?',
-    options: ['1600 kWh', '1800 kWh', '2000 kWh', '1500 kWh'],
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Hard',
+    context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
+    question: "Who is an acquaintance of Amudha?",
+    options: ["Dhinesh", "Fani", "Ezhil", "Gowtham"],
     correctAnswer: 0,
-    explanation: `For one E1 vehicle:
-Daily Distance = 200 km.
-Consumption = 160 Wh/km.
-Daily Energy per E1 = (200 × 160) / 1000 = 32 kWh.
-For all 50 vehicles of Model E1:
-Total Energy = 50 × 32 = 1,600 kWh.`
+    explanation: "![Diagram](/images/questions/dilr21-s1_q7_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_15_png.png)"
   },
   {
     id: 'dilr21-s1-q8',
     questionNumber: 8,
     section: 'DILR',
-    type: 'TITA',
-    topic: 'Data Interpretation - Full Charge Range',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 2: Electric Vehicle Fleet Efficiency and Range',
-    passage: `[Refer to Set 2: Electric Vehicle Fleet Efficiency and Range]`,
-    question: 'What is the Full Charge Range (in km) of Model E1 on a single complete charge?',
-    correctAnswer: '250',
-    explanation: `Capacity of E1 = 40 kWh = 40,000 Wh.
-Energy Consumption = 160 Wh/km.
-Full Range = 40,000 / 160 = 250 km.`
+    type: 'MCQ',
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Hard',
+    context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
+    question: "Who is an acquaintance of Chandran?",
+    options: ["Ezhil", "Bharatan", "Fani", "Dhinesh"],
+    correctAnswer: 2,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q8_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_15_png.png)"
   },
   {
     id: 'dilr21-s1-q9',
     questionNumber: 9,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Data Interpretation - Multi-Fleet Comparison',
+    type: 'TITA',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 2: Electric Vehicle Fleet Efficiency and Range',
-    passage: `[Refer to Set 2: Electric Vehicle Fleet Efficiency and Range]`,
-    question: 'Which model requires more than 100% of its battery capacity to cover its daily distance traveled without mid-day recharging?',
-    options: ['None of the models', 'Model E4', 'Model E3', 'Model E1'],
-    correctAnswer: 0,
-    explanation: `Let's check daily consumption vs battery capacity for each model:
-- E1: Daily distance = 200 km. Full range = 40,000/160 = 250 km. (200 < 250, no recharge needed).
-- E2: Daily distance = 240 km. Full range = 60,000/200 = 300 km. (240 < 300, no recharge needed).
-- E3: Daily distance = 250 km. Full range = 75,000/250 = 300 km. (250 < 300, no recharge needed).
-- E4: Daily distance = 270 km. Full range = 90,000/300 = 300 km. (270 < 300, no recharge needed).
-Every model can cover its daily distance on a single full charge without mid-day recharging!
-Hence, 'None of the models'.`
+    context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
+    question: "How many friends does Ezhil have?",
+    correctAnswer: "3",
+    explanation: "![Diagram](/images/questions/dilr21-s1_q9_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_15_png.png)"
   },
   {
     id: 'dilr21-s1-q10',
     questionNumber: 10,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Data Interpretation - Fleet Totals',
-    difficulty: 'Hard',
-    passageTitle: 'Set 2: Electric Vehicle Fleet Efficiency and Range',
-    passage: `[Refer to Set 2: Electric Vehicle Fleet Efficiency and Range]`,
-    question: 'What is the total combined fleet size (number of vehicles) across all four EV models?',
-    options: ['140 vehicles', '150 vehicles', '130 vehicles', '160 vehicles'],
-    correctAnswer: 0,
-    explanation: `Total vehicles = 50 (E1) + 40 (E2) + 30 (E3) + 20 (E4) = 140 vehicles.`
+    type: 'TITA',
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Moderate',
+    context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
+    question: "How many people are either a friend or a friend-of-a-friend of Ezhil?",
+    correctAnswer: "4",
+    explanation: "![Diagram](/images/questions/dilr21-s1_q10_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_15_png.png)"
   },
-
-  // SET 3: Cricket Triangular Tournament (Questions 11 to 15)
   {
     id: 'dilr21-s1-q11',
     questionNumber: 11,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Tournaments & Net Run Rates',
+    topic: 'Data Interpretation - Charts & Graphs',
     difficulty: 'Moderate',
-    passageTitle: 'Set 3: Tri-Series Cricket Championship',
-    passage: `Three national teams—India, Australia, and England—played a triangular ODI tournament where each team played every other team twice (total of 4 matches per team, 6 matches in total).
-Points rule:
-- Win = 4 points
-- Tie / No Result = 2 points
-- Loss = 0 points
-
-Points Table at the end of the group stage:
-Team      | Matches | Won | Lost | Tied | Total Points
-India     | 4       | 3   | 1    | 0    | 12
-Australia | 4       | 2   | 2    | 0    | 8
-England   | 4       | 1   | 3    | 0    | 4
-
-Additional Information:
-1. No match ended in a tie or wash-out.
-2. England won exactly one match, which was against Australia.`,
-    question: 'How many matches did India win against Australia in the tournament?',
-    options: ['1 match', '2 matches', '0 matches', 'Cannot be determined'],
-    correctAnswer: 0,
-    explanation: `Let's analyze all matches:
-Total matches = 6:
-- India vs Australia: 2 matches
-- India vs England: 2 matches
-- Australia vs England: 2 matches
-
-From Clue 2: England won exactly one match, against Australia.
-Since England played 4 and won 1, England lost both of their matches against India!
-So India won 2 matches against England.
-India's total wins = 3.
-Since India won 2 against England, India won 3 - 2 = 1 match against Australia!
-Wait: Clue says India won 1 against Australia and lost 1 against Australia?
-Let's check Australia's record: Australia played 4, won 2, lost 2.
-Australia lost 1 to England (Clue 2). Australia won 1 against England (since England lost 3).
-Now Australia's matches against India: Australia must have 1 win and 1 loss against India!
-Then Australia total wins = 1 (vs Eng) + 1 (vs Ind) = 2 wins.
-India total wins = 2 (vs Eng) + 1 (vs Aus) = 3 wins.
-Matches won by India against Australia = 1 match!
-Wait: Option 0 is '1 match' if we make it Option 0.`
+    context: "Ganga, Kaveri, and Narmada are three women who buy four raw materials (Mango, Apple, Banana and Milk) and sell five finished products (Mango smoothie, Apple smoothie, Banana smoothie, Mixed fruit smoothie and Fruit salad). Table-1 gives information about the raw materials required to produce the five finished products.\u00a0One unit of a finished product requires one unit of each of the raw materials mentioned in the second column of the table.Table-1\n\n| Finished product | Raw materials required |\n| --- | --- |\n| Mango smoothie | Mango, Milk |\n| Apple smoothie | Apple, Milk |\n| Banana smoothie | Banana, Milk |\n| Mixed fruit smoothie | Mango, Apple, Banana, Milk |\n| Fruit salad | Mango, Apple, Banana |\n\nOne unit of milk, mango, apple, and banana cost \u20b95, \u20b93, \u20b92, and \u20b91 respectively. Each unit of a finished product is sold for a profit equal to two times the number of raw materials used to make that product. For example, apple smoothie is made with two raw materials (apple and milk) and will be sold for a profit of \u20b94 per unit. Leftover raw materials are sold during the last business hour of the day for a loss of \u20b91 per unit.The amount, in rupees, received from sales (revenue) for each woman in each of the four business hours of the day is given in Table-2.\u00a0Table-2\n\n| Business Hour | Ganga | Kaveri | Narmada |\n| --- | --- | --- | --- |\n| Hour 1 | 23 | 19 | 31 |\n| Hour 2 | 21 | 22 | 21 |\n| Hour 3 | 29 | 30 | 23 |\n| Hour 4 (last hour) | 30 | 27 | 22 |\n\nThe following additional facts are known.1. No one except possibly Ganga sold any Mango smoothie.2. Each woman sold either zero or one unit of any single finished product in any hour.3. Each woman had exactly one unit each of two different raw materials as leftovers.4. No one had any banana leftover.",
+    question: "What BEST can be concluded about the number of units of fruit salad sold in the first hour?",
+    options: ["Either 0 or 1 or 2.", "Exactly 1.", "Exactly 2.", "Either 1 or 2."],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q11_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q11_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q11_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q11_19_png.png)"
   },
   {
     id: 'dilr21-s1-q12',
     questionNumber: 12,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Tournaments & Net Run Rates',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 3: Tri-Series Cricket Championship',
-    passage: `[Refer to Set 3: Tri-Series Cricket Championship]`,
-    question: 'Which team defeated India in their only defeat of the tournament?',
-    options: ['Australia', 'England', 'Both', 'None'],
-    correctAnswer: 0,
-    explanation: `From the deduction in Question 11:
-India played 4 matches: Won 3 and Lost 1.
-India won both matches against England.
-Therefore, India's only loss was against Australia.`
+    topic: 'Data Interpretation - Charts & Graphs',
+    difficulty: 'Hard',
+    context: "Ganga, Kaveri, and Narmada are three women who buy four raw materials (Mango, Apple, Banana and Milk) and sell five finished products (Mango smoothie, Apple smoothie, Banana smoothie, Mixed fruit smoothie and Fruit salad). Table-1 gives information about the raw materials required to produce the five finished products.\u00a0One unit of a finished product requires one unit of each of the raw materials mentioned in the second column of the table.Table-1\n\n| Finished product | Raw materials required |\n| --- | --- |\n| Mango smoothie | Mango, Milk |\n| Apple smoothie | Apple, Milk |\n| Banana smoothie | Banana, Milk |\n| Mixed fruit smoothie | Mango, Apple, Banana, Milk |\n| Fruit salad | Mango, Apple, Banana |\n\nOne unit of milk, mango, apple, and banana cost \u20b95, \u20b93, \u20b92, and \u20b91 respectively. Each unit of a finished product is sold for a profit equal to two times the number of raw materials used to make that product. For example, apple smoothie is made with two raw materials (apple and milk) and will be sold for a profit of \u20b94 per unit. Leftover raw materials are sold during the last business hour of the day for a loss of \u20b91 per unit.The amount, in rupees, received from sales (revenue) for each woman in each of the four business hours of the day is given in Table-2.\u00a0Table-2\n\n| Business Hour | Ganga | Kaveri | Narmada |\n| --- | --- | --- | --- |\n| Hour 1 | 23 | 19 | 31 |\n| Hour 2 | 21 | 22 | 21 |\n| Hour 3 | 29 | 30 | 23 |\n| Hour 4 (last hour) | 30 | 27 | 22 |\n\nThe following additional facts are known.1. No one except possibly Ganga sold any Mango smoothie.2. Each woman sold either zero or one unit of any single finished product in any hour.3. Each woman had exactly one unit each of two different raw materials as leftovers.4. No one had any banana leftover.",
+    question: "Which of the following is NECESSARILY true?",
+    options: ["Narmada sold one unit of leftover milk.", "Kaveri sold one unit of leftover mangoes.", "Ganga did not sell any leftover apples.", "Ganga did not sell any leftover mangoes."],
+    correctAnswer: 2,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q12_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_19_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_20_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_21_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_22_png.png)"
   },
   {
     id: 'dilr21-s1-q13',
     questionNumber: 13,
     section: 'DILR',
-    type: 'TITA',
-    topic: 'Logical Reasoning - Tournaments & Net Run Rates',
+    type: 'MCQ',
+    topic: 'Data Interpretation - Charts & Graphs',
     difficulty: 'Moderate',
-    passageTitle: 'Set 3: Tri-Series Cricket Championship',
-    passage: `[Refer to Set 3: Tri-Series Cricket Championship]`,
-    question: 'How many matches did England lose against India in the tournament?',
-    correctAnswer: '2',
-    explanation: `England lost 3 matches in total. One loss was to Australia, and two losses were to India.`
+    context: "Ganga, Kaveri, and Narmada are three women who buy four raw materials (Mango, Apple, Banana and Milk) and sell five finished products (Mango smoothie, Apple smoothie, Banana smoothie, Mixed fruit smoothie and Fruit salad). Table-1 gives information about the raw materials required to produce the five finished products.\u00a0One unit of a finished product requires one unit of each of the raw materials mentioned in the second column of the table.Table-1\n\n| Finished product | Raw materials required |\n| --- | --- |\n| Mango smoothie | Mango, Milk |\n| Apple smoothie | Apple, Milk |\n| Banana smoothie | Banana, Milk |\n| Mixed fruit smoothie | Mango, Apple, Banana, Milk |\n| Fruit salad | Mango, Apple, Banana |\n\nOne unit of milk, mango, apple, and banana cost \u20b95, \u20b93, \u20b92, and \u20b91 respectively. Each unit of a finished product is sold for a profit equal to two times the number of raw materials used to make that product. For example, apple smoothie is made with two raw materials (apple and milk) and will be sold for a profit of \u20b94 per unit. Leftover raw materials are sold during the last business hour of the day for a loss of \u20b91 per unit.The amount, in rupees, received from sales (revenue) for each woman in each of the four business hours of the day is given in Table-2.\u00a0Table-2\n\n| Business Hour | Ganga | Kaveri | Narmada |\n| --- | --- | --- | --- |\n| Hour 1 | 23 | 19 | 31 |\n| Hour 2 | 21 | 22 | 21 |\n| Hour 3 | 29 | 30 | 23 |\n| Hour 4 (last hour) | 30 | 27 | 22 |\n\nThe following additional facts are known.1. No one except possibly Ganga sold any Mango smoothie.2. Each woman sold either zero or one unit of any single finished product in any hour.3. Each woman had exactly one unit each of two different raw materials as leftovers.4. No one had any banana leftover.",
+    question: "What BEST can be concluded about the total number of units of milk the three women had in the beginning?",
+    options: ["Either 18 or 19 or 20 units.", "Either 17 or 18 or 19 units.", "Either 19 or 20 units.", "Either 18 or 19 units."],
+    correctAnswer: 0,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q13_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_19_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_23_png.png)"
   },
   {
     id: 'dilr21-s1-q14',
     questionNumber: 14,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Logical Reasoning - Tournaments & Net Run Rates',
+    type: 'TITA',
+    topic: 'Data Interpretation - Charts & Graphs',
     difficulty: 'Moderate',
-    passageTitle: 'Set 3: Tri-Series Cricket Championship',
-    passage: `[Refer to Set 3: Tri-Series Cricket Championship]`,
-    question: 'What was the win-loss head-to-head record between Australia and England across their two encounters?',
-    options: ['1 win for Australia, 1 win for England', '2 wins for Australia', '2 wins for England', 'Both drawn'],
-    correctAnswer: 0,
-    explanation: `England won one match against Australia (Clue 2).
-Australia won the other match against England.
-Head-to-head record was 1-1.`
+    context: "Ganga, Kaveri, and Narmada are three women who buy four raw materials (Mango, Apple, Banana and Milk) and sell five finished products (Mango smoothie, Apple smoothie, Banana smoothie, Mixed fruit smoothie and Fruit salad). Table-1 gives information about the raw materials required to produce the five finished products.\u00a0One unit of a finished product requires one unit of each of the raw materials mentioned in the second column of the table.Table-1\n\n| Finished product | Raw materials required |\n| --- | --- |\n| Mango smoothie | Mango, Milk |\n| Apple smoothie | Apple, Milk |\n| Banana smoothie | Banana, Milk |\n| Mixed fruit smoothie | Mango, Apple, Banana, Milk |\n| Fruit salad | Mango, Apple, Banana |\n\nOne unit of milk, mango, apple, and banana cost \u20b95, \u20b93, \u20b92, and \u20b91 respectively. Each unit of a finished product is sold for a profit equal to two times the number of raw materials used to make that product. For example, apple smoothie is made with two raw materials (apple and milk) and will be sold for a profit of \u20b94 per unit. Leftover raw materials are sold during the last business hour of the day for a loss of \u20b91 per unit.The amount, in rupees, received from sales (revenue) for each woman in each of the four business hours of the day is given in Table-2.\u00a0Table-2\n\n| Business Hour | Ganga | Kaveri | Narmada |\n| --- | --- | --- | --- |\n| Hour 1 | 23 | 19 | 31 |\n| Hour 2 | 21 | 22 | 21 |\n| Hour 3 | 29 | 30 | 23 |\n| Hour 4 (last hour) | 30 | 27 | 22 |\n\nThe following additional facts are known.1. No one except possibly Ganga sold any Mango smoothie.2. Each woman sold either zero or one unit of any single finished product in any hour.3. Each woman had exactly one unit each of two different raw materials as leftovers.4. No one had any banana leftover.",
+    question: "If it is known that three leftover units of mangoes were sold during the last business hour of the day, how many apple smoothies were sold during the day?",
+    correctAnswer: "6",
+    explanation: "![Diagram](/images/questions/dilr21-s1_q14_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_19_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_24_png.png)"
   },
   {
     id: 'dilr21-s1-q15',
     questionNumber: 15,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Tournaments & Net Run Rates',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 3: Tri-Series Cricket Championship',
-    passage: `[Refer to Set 3: Tri-Series Cricket Championship]`,
-    question: 'Which two teams qualified for the Final (top 2 teams on the points table)?',
-    options: ['India and Australia', 'India and England', 'Australia and England', 'All three tied'],
-    correctAnswer: 0,
-    explanation: `India finished 1st with 12 points, and Australia finished 2nd with 8 points. England was eliminated with 4 points.`
+    context: "A journal plans to publish 18 research papers, written by eight authors (A, B, C, D, E, F, G, and H) in four issues of the journal scheduled in January, April, July and October. Each of the research papers was written by exactly one of the eight authors. Five papers were scheduled in each of the first two issues, while four were scheduled in each of the last two issues. Every author wrote at least one paper and at most three papers. The total number of papers written by A, D, G and H was double the total number of papers written by the other four authors. Four of the authors were from India and two each were from Japan and China. Each author belonged to exactly one of the three areas \u2014 Manufacturing, Automation and Logistics. Four of the authors were from the Logistics area and two were from the Automation area. As per the journal policy, none of the authors could have more than one paper in any issue of the journal.\u00a0The following facts are also known.\u00a01. F, an Indian author from the Logistics area, wrote only one paper. It was scheduled in the October issue.2. A was from the Automation area and did not have a paper scheduled in the October issue.3. None of the Indian authors were from the Manufacturing area and none of the Japanese or Chinese authors were from the Automation area.4. A and H were from different countries, but had their papers scheduled in exactly the same issues.5. C and E, both Chinese authors from different areas, had the same number of papers scheduled. Further, E had papers scheduled in consecutive issues of the journal but C did not.6. B, from the Logistics area, had a paper scheduled in the April issue of the journal.7. B and G belonged to the same country. None of their papers were scheduled in the same issue of the journal.8. D, a Japanese author from the Manufacturing area, did not have a paper scheduled in the July issue.9. C and H belonged to different areas.",
+    question: "What is the correct sequence of number of papers written by B, C, E and G, respectively?",
+    options: ["3, 1, 1, 3", "1, 2, 2, 1", "1, 2, 2, 3", "1, 3, 3, 1"],
+    correctAnswer: 2,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q15_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_41_png.png)"
   },
-
-  // SET 4: Metro Transit Lines & Transfer Optimization (Questions 16 to 20)
   {
     id: 'dilr21-s1-q16',
     questionNumber: 16,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Logical Reasoning - Routes & Networks',
+    type: 'TITA',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 4: Capital Metro Transit Network',
-    passage: `A city has three operational metro lines:
-- Red Line: Station R1 -> R2 -> Interchange X -> R3 -> R4
-- Blue Line: Station B1 -> Interchange X -> B2 -> Interchange Y -> B3
-- Green Line: Station G1 -> G2 -> Interchange Y -> G3
-
-Travel time between any two adjacent stations on the same line is 4 minutes.
-Changing lines at an interchange (X or Y) takes a fixed transfer penalty of 5 minutes.`,
-    question: 'What is the shortest total journey time (in minutes) from Station R1 to Station R4 on the Red Line?',
-    options: ['16 minutes', '18 minutes', '20 minutes', '12 minutes'],
-    correctAnswer: 0,
-    explanation: `Path on Red Line: R1 -> R2 -> X -> R3 -> R4.
-There are 4 station-to-station segments:
-1. R1 to R2: 4 mins
-2. R2 to X: 4 mins
-3. X to R3: 4 mins
-4. R3 to R4: 4 mins
-Total time = 4 × 4 = 16 minutes (no line interchange needed).`
+    context: "A journal plans to publish 18 research papers, written by eight authors (A, B, C, D, E, F, G, and H) in four issues of the journal scheduled in January, April, July and October. Each of the research papers was written by exactly one of the eight authors. Five papers were scheduled in each of the first two issues, while four were scheduled in each of the last two issues. Every author wrote at least one paper and at most three papers. The total number of papers written by A, D, G and H was double the total number of papers written by the other four authors. Four of the authors were from India and two each were from Japan and China. Each author belonged to exactly one of the three areas \u2014 Manufacturing, Automation and Logistics. Four of the authors were from the Logistics area and two were from the Automation area. As per the journal policy, none of the authors could have more than one paper in any issue of the journal.\u00a0The following facts are also known.\u00a01. F, an Indian author from the Logistics area, wrote only one paper. It was scheduled in the October issue.2. A was from the Automation area and did not have a paper scheduled in the October issue.3. None of the Indian authors were from the Manufacturing area and none of the Japanese or Chinese authors were from the Automation area.4. A and H were from different countries, but had their papers scheduled in exactly the same issues.5. C and E, both Chinese authors from different areas, had the same number of papers scheduled. Further, E had papers scheduled in consecutive issues of the journal but C did not.6. B, from the Logistics area, had a paper scheduled in the April issue of the journal.7. B and G belonged to the same country. None of their papers were scheduled in the same issue of the journal.8. D, a Japanese author from the Manufacturing area, did not have a paper scheduled in the July issue.9. C and H belonged to different areas.",
+    question: "How many papers were written by Indian authors?",
+    correctAnswer: "8",
+    explanation: "![Diagram](/images/questions/dilr21-s1_q16_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_41_png.png)"
   },
   {
     id: 'dilr21-s1-q17',
     questionNumber: 17,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Routes & Networks',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Hard',
-    passageTitle: 'Set 4: Capital Metro Transit Network',
-    passage: `[Refer to Set 4: Capital Metro Transit Network]`,
-    question: 'What is the total travel time from Station R2 on the Red Line to Station B2 on the Blue Line?',
-    options: ['13 minutes', '12 minutes', '15 minutes', '10 minutes'],
+    context: "A journal plans to publish 18 research papers, written by eight authors (A, B, C, D, E, F, G, and H) in four issues of the journal scheduled in January, April, July and October. Each of the research papers was written by exactly one of the eight authors. Five papers were scheduled in each of the first two issues, while four were scheduled in each of the last two issues. Every author wrote at least one paper and at most three papers. The total number of papers written by A, D, G and H was double the total number of papers written by the other four authors. Four of the authors were from India and two each were from Japan and China. Each author belonged to exactly one of the three areas \u2014 Manufacturing, Automation and Logistics. Four of the authors were from the Logistics area and two were from the Automation area. As per the journal policy, none of the authors could have more than one paper in any issue of the journal.\u00a0The following facts are also known.\u00a01. F, an Indian author from the Logistics area, wrote only one paper. It was scheduled in the October issue.2. A was from the Automation area and did not have a paper scheduled in the October issue.3. None of the Indian authors were from the Manufacturing area and none of the Japanese or Chinese authors were from the Automation area.4. A and H were from different countries, but had their papers scheduled in exactly the same issues.5. C and E, both Chinese authors from different areas, had the same number of papers scheduled. Further, E had papers scheduled in consecutive issues of the journal but C did not.6. B, from the Logistics area, had a paper scheduled in the April issue of the journal.7. B and G belonged to the same country. None of their papers were scheduled in the same issue of the journal.8. D, a Japanese author from the Manufacturing area, did not have a paper scheduled in the July issue.9. C and H belonged to different areas.",
+    question: "Which of the following statement(s) MUST be true?\\nStatement A: Every issue had at least one paper by author(s) from each country.\\nStatement B: Every issue had at most two papers by author(s) from each area.",
+    options: ["Only Statement A", "Neither of the statements", "Both the statements", "Only Statement B"],
     correctAnswer: 0,
-    explanation: `Route: R2 -> Interchange X (Red Line) -> Transfer at X -> X -> B2 (Blue Line).
-Travel segments:
-- R2 to X: 4 mins
-- Transfer at Interchange X: 5 mins
-- X to B2: 4 mins
-Total travel time = 4 + 5 + 4 = 13 minutes.`
+    explanation: "![Diagram](/images/questions/dilr21-s1_q17_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_41_png.png)"
   },
   {
     id: 'dilr21-s1-q18',
     questionNumber: 18,
     section: 'DILR',
-    type: 'TITA',
-    topic: 'Logical Reasoning - Routes & Networks',
+    type: 'MCQ',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 4: Capital Metro Transit Network',
-    passage: `[Refer to Set 4: Capital Metro Transit Network]`,
-    question: 'What is the travel time (in minutes) from Station B1 to Station B3 on the Blue Line without any line changes?',
-    correctAnswer: '16',
-    explanation: `Blue Line path: B1 -> X -> B2 -> Y -> B3.
-Number of segments = 4.
-Travel time = 4 × 4 = 16 minutes.`
+    context: "A journal plans to publish 18 research papers, written by eight authors (A, B, C, D, E, F, G, and H) in four issues of the journal scheduled in January, April, July and October. Each of the research papers was written by exactly one of the eight authors. Five papers were scheduled in each of the first two issues, while four were scheduled in each of the last two issues. Every author wrote at least one paper and at most three papers. The total number of papers written by A, D, G and H was double the total number of papers written by the other four authors. Four of the authors were from India and two each were from Japan and China. Each author belonged to exactly one of the three areas \u2014 Manufacturing, Automation and Logistics. Four of the authors were from the Logistics area and two were from the Automation area. As per the journal policy, none of the authors could have more than one paper in any issue of the journal.\u00a0The following facts are also known.\u00a01. F, an Indian author from the Logistics area, wrote only one paper. It was scheduled in the October issue.2. A was from the Automation area and did not have a paper scheduled in the October issue.3. None of the Indian authors were from the Manufacturing area and none of the Japanese or Chinese authors were from the Automation area.4. A and H were from different countries, but had their papers scheduled in exactly the same issues.5. C and E, both Chinese authors from different areas, had the same number of papers scheduled. Further, E had papers scheduled in consecutive issues of the journal but C did not.6. B, from the Logistics area, had a paper scheduled in the April issue of the journal.7. B and G belonged to the same country. None of their papers were scheduled in the same issue of the journal.8. D, a Japanese author from the Manufacturing area, did not have a paper scheduled in the July issue.9. C and H belonged to different areas.",
+    question: "Which of the following statements is FALSE?",
+    options: ["Every issue had exactly one paper by a Chinese author.", "Every issue had at least one paper by author(s) from Automation area.", "Every issue had exactly two papers by authors from Logistics area.", "Every issue had exactly two papers by Indian authors."],
+    correctAnswer: 2,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q18_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_41_png.png)"
   },
   {
     id: 'dilr21-s1-q19',
     questionNumber: 19,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Routes & Networks',
-    difficulty: 'Hard',
-    passageTitle: 'Set 4: Capital Metro Transit Network',
-    passage: `[Refer to Set 4: Capital Metro Transit Network]`,
-    question: 'What is the total travel time from Station R3 (Red Line) to Station G3 (Green Line)?',
-    options: ['26 minutes', '28 minutes', '24 minutes', '30 minutes'],
-    correctAnswer: 0,
-    explanation: `Route:
-1. R3 -> X (Red Line): 4 mins
-2. Transfer at Interchange X: 5 mins
-3. X -> B2 -> Y (Blue Line): 2 segments = 8 mins
-4. Transfer at Interchange Y: 5 mins
-5. Y -> G3 (Green Line): 4 mins
-Total time = 4 + 5 + 8 + 5 + 4 = 26 minutes.`
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Moderate',
+    context: "A journal plans to publish 18 research papers, written by eight authors (A, B, C, D, E, F, G, and H) in four issues of the journal scheduled in January, April, July and October. Each of the research papers was written by exactly one of the eight authors. Five papers were scheduled in each of the first two issues, while four were scheduled in each of the last two issues. Every author wrote at least one paper and at most three papers. The total number of papers written by A, D, G and H was double the total number of papers written by the other four authors. Four of the authors were from India and two each were from Japan and China. Each author belonged to exactly one of the three areas \u2014 Manufacturing, Automation and Logistics. Four of the authors were from the Logistics area and two were from the Automation area. As per the journal policy, none of the authors could have more than one paper in any issue of the journal.\u00a0The following facts are also known.\u00a01. F, an Indian author from the Logistics area, wrote only one paper. It was scheduled in the October issue.2. A was from the Automation area and did not have a paper scheduled in the October issue.3. None of the Indian authors were from the Manufacturing area and none of the Japanese or Chinese authors were from the Automation area.4. A and H were from different countries, but had their papers scheduled in exactly the same issues.5. C and E, both Chinese authors from different areas, had the same number of papers scheduled. Further, E had papers scheduled in consecutive issues of the journal but C did not.6. B, from the Logistics area, had a paper scheduled in the April issue of the journal.7. B and G belonged to the same country. None of their papers were scheduled in the same issue of the journal.8. D, a Japanese author from the Manufacturing area, did not have a paper scheduled in the July issue.9. C and H belonged to different areas.",
+    question: "Which of the following statements is FALSE?",
+    options: ["There was exactly one paper by an author from Logistics area in the October issue.", "There was exactly one paper by an author from Manufacturing area in the April issue.", "There were exactly two papers by authors from Manufacturing area in the July issue.", "There were exactly two papers by authors from Manufacturing area in the January issue."],
+    correctAnswer: 2,
+    explanation: "![Diagram](/images/questions/dilr21-s1_q19_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_41_png.png)"
   },
   {
     id: 'dilr21-s1-q20',
     questionNumber: 20,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Routes & Networks',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 4: Capital Metro Transit Network',
-    passage: `[Refer to Set 4: Capital Metro Transit Network]`,
-    question: 'Which interchange station connects the Blue Line and the Green Line?',
-    options: ['Interchange Y', 'Interchange X', 'Interchange Z', 'Station B2'],
+    context: "A journal plans to publish 18 research papers, written by eight authors (A, B, C, D, E, F, G, and H) in four issues of the journal scheduled in January, April, July and October. Each of the research papers was written by exactly one of the eight authors. Five papers were scheduled in each of the first two issues, while four were scheduled in each of the last two issues. Every author wrote at least one paper and at most three papers. The total number of papers written by A, D, G and H was double the total number of papers written by the other four authors. Four of the authors were from India and two each were from Japan and China. Each author belonged to exactly one of the three areas \u2014 Manufacturing, Automation and Logistics. Four of the authors were from the Logistics area and two were from the Automation area. As per the journal policy, none of the authors could have more than one paper in any issue of the journal.\u00a0The following facts are also known.\u00a01. F, an Indian author from the Logistics area, wrote only one paper. It was scheduled in the October issue.2. A was from the Automation area and did not have a paper scheduled in the October issue.3. None of the Indian authors were from the Manufacturing area and none of the Japanese or Chinese authors were from the Automation area.4. A and H were from different countries, but had their papers scheduled in exactly the same issues.5. C and E, both Chinese authors from different areas, had the same number of papers scheduled. Further, E had papers scheduled in consecutive issues of the journal but C did not.6. B, from the Logistics area, had a paper scheduled in the April issue of the journal.7. B and G belonged to the same country. None of their papers were scheduled in the same issue of the journal.8. D, a Japanese author from the Manufacturing area, did not have a paper scheduled in the July issue.9. C and H belonged to different areas.",
+    question: "Which of the following is the correct sequence of number of papers by authors from Automation, Manufacturing and Logistics areas, respectively?",
+    options: ["6, 5, 7", "6, 7, 5", "5, 6, 7", "6, 6, 6"],
     correctAnswer: 0,
-    explanation: `The problem statement states:
-- Blue Line passes through Interchange X and Interchange Y.
-- Green Line passes through Interchange Y.
-Hence, Interchange Y connects the Blue Line and the Green Line.`
+    explanation: "![Diagram](/images/questions/dilr21-s1_q20_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_41_png.png)"
   }
 ];
+
+export const dilr2021Slot1Questions = dilr2021Questions;

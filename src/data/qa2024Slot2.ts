@@ -1,0 +1,262 @@
+import { Question } from '../types';
+
+export const qa2024Slot2Questions: Question[] = [
+  {
+    id: 'qa24-s2-q1',
+    questionNumber: 1,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Moderate',
+    question: "If \\( m \\) and \\( n \\) are integers such that \\( ( m + 2 n ) ( 2 m + n ) = 27 \\), then the maximum\r\npossible value of \\( 2 m - 3 n \\) is",
+    correctAnswer: "17",
+    explanation: "Identify all integer factor pairs of 27\n\nSince \\(m\\) and \\(n\\) are integers, \\(m+2n\\) and \\(2m+n\\) must be integer factor pairs of 27:\n\\((9,3),\\ (3,9),\\ (27,1),\\ (1,27),\\)\n\\((-9,-3),\\ (-3,-9),\\ (-27,-1),\\ (-1,-27)\\)\n\nTest factor pair \\((3,9)\\)\n\\(m+2n=3\\)\n\\(2m+n=9\\)\n\nAdding both equations gives \\(3m+3n=12\\Rightarrow m+n=4\\).\n\nSubtracting \\(m+n=4\\) from \\(m+2n=3\\) yields \\(n=-1\\) and \\(m=5\\).\n\\(2m-3n=2(5)-3(-1)=10+3=13\\)\n\nTest factor pair \\((-9,-3)\\)\n\\(m+2n=-9\\)\n\\(2m+n=-3\\)\n\nAdding both equations gives \\(3m+3n=-12\\Rightarrow m+n=-4\\).\n\nSubtracting \\(m+n=-4\\) from \\(m+2n=-9\\) yields \\(n=-5\\) and \\(m=1\\).\n\\(2m-3n=2(1)-3(-5)=2+15=17\\)\n\n(Note: Factor pairs containing 27 and 1 yield non-integer values for \\(m\\) and \\(n\\).)\n\nThe maximum possible value of \\(2m-3n\\) is 17."
+  },
+  {
+    id: 'qa24-s2-q2',
+    questionNumber: 2,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Logarithms & Exponents',
+    difficulty: 'Moderate',
+    question: "If \\( \\log _ { 64 } x ^ { 2 } + \\log _ { 8 } \\sqrt { y } + 3 \\log _ { 512 } ( \\sqrt { y } z ) = 4 \\), where \\( x , y \\) and \\( z \\) are positive real\r\nnumbers, then the minimum possible value of \\( ( x + y + z ) \\) is",
+    options: ["\\( 96 \\)", "\\( 48 \\)", "\\( 36 \\)", "\\( 24 \\)"],
+    correctAnswer: 1,
+    explanation: "Simplify all logarithms to base 2\n\n\\(\\log_{64}x^2=\\frac{2}{6}\\log_2x=\\frac{1}{3}\\log_2x\\)\n\\(\\log_8\\sqrt{y}=\\frac{1}{2}\\cdot\\frac{1}{3}\\log_2y=\\frac{1}{6}\\log_2y\\)\n\\(3\\log_{512}(\\sqrt{y}z)=3\\cdot\\frac{1}{9}\\log_2(\\sqrt{y}z)\\)\n\\(=\\frac{1}{3}\\left(\\frac{1}{2}\\log_2y+\\log_2z\\right)\\)\n\\(=\\frac{1}{6}\\log_2y+\\frac{1}{3}\\log_2z\\)\n\nCombine all logarithmic terms\n\n\\(\\frac{1}{3}\\log_2x+\\frac{1}{6}\\log_2y+\\frac{1}{6}\\log_2y+\\frac{1}{3}\\log_2z=4\\)\n\\(\\frac{1}{3}\\log_2x+\\frac{1}{3}\\log_2y+\\frac{1}{3}\\log_2z=4\\)\n\\(\\frac{1}{3}\\log_2xyz=4\\)\n\\(\\log_2xyz=12\\Rightarrow xyz=2^{12}=4096\\)\n\nApply the AM-GM Inequality\n\n\\(\\frac{x+y+z}{3}\\geq\\sqrt[3]{xyz}\\)\n\\(\\frac{x+y+z}{3}\\geq\\sqrt[3]{4096}=16\\)\n\\(x+y+z\\geq3\\times16=48\\)\n\nChoice 2 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q3',
+    questionNumber: 3,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Hard',
+    question: "The average number of copies of a book sold per day by a shopkeeper is 60 in the initial seven days and 63 in the initial eight days, after the book launch. On the ninth day, she sells 11 copies less than the eighth day, and the average number of copies sold per day from second day to ninth day becomes 66. The number of copies sold on the first day of the book launch is",
+    correctAnswer: "49",
+    explanation: "Total copies sold in initial 7 days \\(=7\\times60=420\\)\nTotal copies sold in initial 8 days \\(=8\\times63=504\\)\nCopies sold on Day 8 \\(=504-420=84\\)\nCopies sold on Day 9 \\(=84-11=73\\)\nTotal sales from Day 1 to Day 9 \\(=504+73=577\\)\nTotal sales from Day 2 to Day 9 \\(=8\\times66=528\\)\nDay 1 \\(=\\) Day 1 to 9 total \u2212 Day 2 to 9 total\n\\(=577-528=49\\)\n\nThe number of copies sold on the 1st day is 49."
+  },
+  {
+    id: 'qa24-s2-q4',
+    questionNumber: 4,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Algebra & Polynomials',
+    difficulty: 'Moderate',
+    question: "Let \\( f ( x ) = \\frac { x } { ( 2 x - 1 ) } \\) and \\( g ( x ) = \\frac { x } { ( x - 1 ) } \\). Then, the domain of the function\r\n\\( h ( x ) = f ( g ( x ) ) + g ( f ( x ) ) \\) is all real numbers except",
+    options: ["\\( - 1 , \\frac { 1 } { 2 } \\), and 1", "\\( \\frac { 1 } { 2 } , 1 \\), and \\( \\frac { 3 } { 2 } \\)", "\\( - \\frac { 1 } { 2 } , \\frac { 1 } { 2 } \\), and 1", "\\( \\frac { 1 } { 2 } \\), and 1"],
+    correctAnswer: 0,
+    explanation: "\\(f(x)\\) is undefined when \\(2x-1=0\\Rightarrow x=\\frac{1}{2}\\)\n\\(g(x)\\) is undefined when \\(x-1=0\\Rightarrow x=1\\)\n\nexclusions where \\(g(x)=\\frac{1}{2}\\)\n\\(g(x)=\\frac{x}{x-1}=\\frac{1}{2}\\Rightarrow2x=x-1\\Rightarrow x=-1\\)\n\nexclusions where \\(f(x)=1\\)\n\\(f(x)=\\frac{x}{2x-1}=1\\Rightarrow x=2x-1\\Rightarrow x=1\\) (already excluded)\n\nThe domain of \\(h(x)\\) is all real numbers except \\(-1,\\frac{1}{2},1\\).\n\nChoice 1 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q5',
+    questionNumber: 5,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Moderate',
+    question: "If \\( 9 ^ { x ^ { 2 } + 2 x - 3 } - 4 \\left( 3 ^ { x ^ { 2 } + 2 x - 2 } \\right) + 27 = 0 \\), then the product of all possible\r\nvalues of \\( x \\) is",
+    options: ["\\( 5 \\)", "\\( 20 \\)", "\\( 30 \\)", "\\( 15 \\)"],
+    correctAnswer: 1,
+    explanation: "Let \\(k=3^{x^2+2x-3}\\).\n\nNotice that \\(3^{x^2+2x-2}=3^{x^2+2x-3+1}=3k\\).\nAlso, \\(3^{2x^2+4x-6}=k^2\\).\n\nSolve the quadratic equation in terms of \\(k\\)\n\n\\(k^2-4(3k)+27=0\\)\n\\(k^2-12k+27=0\\)\n\\((k-3)(k-9)=0\\Rightarrow k=3\\) or \\(k=9\\)\n\nCase 1:\n\\(3^{x^2+2x-3}=3^1\\)\n\\(x^2+2x-3=1\\)\n\\(x^2+2x-4=0\\)\nProduct of roots \\(P_1=\\frac{c}{a}=-4\\)\n\nCase 2:\n\\(3^{x^2+2x-3}=3^2\\)\n\\(x^2+2x-3=2\\)\n\\(x^2+2x-5=0\\)\nProduct of roots \\(P_2=\\frac{c}{a}=-5\\)\n\nCompute the total product of all roots\nTotal Product \\(=P_1\\times P_2=(-4)\\times(-5)=20\\)\n\nChoice 2 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q6',
+    questionNumber: 6,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Ratios, Proportions & Variations',
+    difficulty: 'Moderate',
+    question: "Let ABCDEF be a regular hexagon and P and Q be the midpoints of AB and CD, respectively. Then, the ratio of the areas of trapezium PBCQ and hexagon ABCDEF is",
+    options: ["5 : 24", "7 : 24", "6 : 25", "6 : 19"],
+    correctAnswer: 0,
+    explanation: "Let the side length of the regular hexagon be \\(a\\).\nLength \\(PB=\\frac{a}{2}\\)\nLength \\(QC=\\frac{a}{2}\\)\n\\(BC=a\\)\n\nTrapezium \\(PBCQ\\) has parallel sides \\(BC=a\\) and median line \\(PQ\\).\n\nThe distance from center to midpoint \\(PQ\\) gives \\(PQ=1.5a\\).\n\nHeight of trapezium \\(PBCQ=\\frac{\\sqrt{3}}{4}a\\)\n\nArea of trapezium \\(PBCQ\\)\n\\(=\\frac{1}{2}\\times(a+1.5a)\\times\\frac{\\sqrt{3}}{4}a\\)\n\\(=\\frac{1}{2}\\times2.5a\\times\\frac{\\sqrt{3}}{4}a\\)\n\\(=\\frac{5\\sqrt{3}}{16}a^2\\)\n\nArea of Hexagon \\(ABCDEF\\)\n\\(=6\\times\\left(\\frac{\\sqrt{3}}{4}a^2\\right)\\)\n\\(=\\frac{6\\sqrt{3}}{4}a^2=\\frac{24\\sqrt{3}}{16}a^2\\)\n\nRatio\n\\(=\\frac{\\frac{5\\sqrt{3}}{16}a^2}{\\frac{24\\sqrt{3}}{16}a^2}\\)\n\\(=\\frac{5}{24}\\)\n\nChoice 1 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q7',
+    questionNumber: 7,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Hard',
+    question: "If \\( a , b , c \\) and \\( d \\) are integers such that their sum is 46 , then the minimum\r\npossible value of \\( ( a - b ) ^ { 2 } + ( a - c ) ^ { 2 } + ( a - d ) ^ { 2 } \\) is",
+    correctAnswer: "2",
+    explanation: "Distribute values evenly to minimize square differences\n\nTo minimize differences between integer values summing to 46:\n\\(\\frac{46}{4}=11.5\\)\n\nThe best integer distribution for \\(a,b,c,d\\) is \\(11,11,12,12\\).\n\nEvaluate the expression\nLet \\(a=11,\\ b=11,\\ c=12,\\) and \\(d=12\\):\n\n\\((a-b)^2+(a-c)^2+(a-d)^2\\)\n\\(=(11-11)^2+(11-12)^2+(11-12)^2\\)\n\\(=0^2+(-1)^2+(-1)^2\\)\n\\(=0+1+1=2\\)"
+  },
+  {
+    id: 'qa24-s2-q8',
+    questionNumber: 8,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Hard',
+    question: "Let \\( a _ { n } \\) be the \\( n ^ { \\text {th } } \\) term of a decreasing infinite geometric progression.\r\nIf \\( a _ { 1 } + a _ { 2 } + a _ { 3 } = 52 \\) and \\( a _ { 1 } a _ { 2 } + a _ { 2 } a _ { 3 } + a _ { 3 } a _ { 1 } = 624 \\), then the sum of\r\nthis geometric progression is",
+    options: ["\\( 63 \\)", "\\( 60 \\)", "\\( 54 \\)", "\\( 57 \\)"],
+    correctAnswer: 2,
+    explanation: "Let terms be \\(a,ar,ar^2\\):\n\n\\(a+ar+ar^2=52\\)\n\\(a^2r+a^2r^2+a^2r^3=624\\)\n\\(\\Rightarrow ar(a+ar+ar^2)=624\\)\n\nSolve for second term \\(a_2=ar\\)\n\\(ar\\times52=624\\Rightarrow ar=12\\)\n\nSolve for first term \\(a\\) and common ratio \\(r\\)\nSince \\(ar=12\\Rightarrow a=\\frac{12}{r}\\):\n\n\\(\\frac{12}{r}+12+12r=52\\)\n\\(12+12r^2-40r=0\\)\n\\(3r^2-10r+3=0\\)\n\\((3r-1)(r-3)=0\\)\n\nSince it is a decreasing GP \\((|r|<1)\\), \\(r=\\frac{1}{3}\\).\n\\(a=\\frac{12}{1/3}=36\\)\n\nCompute infinite sum\n\\(S=\\frac{a}{1-r}\\)\n\\(=\\frac{36}{1-\\frac{1}{3}}\\)\n\\(=\\frac{36}{\\frac{2}{3}}=54\\)\n\nChoice 3 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q9',
+    questionNumber: 9,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Moderate',
+    question: "Suppose \\( a , b , c \\) are three distinct natural numbers, such that \\( 3 a c = 8 ( a + b ) \\). Then, the smallest possible\r\nvalue of \\( 3 a + 2 b + c \\) is",
+    correctAnswer: "12",
+    explanation: "Rearrange equation for natural numbers\n\n\\(3ac=8a+8b\\)\n\\(\\Rightarrow b=\\frac{3ac-8a}{8}=\\frac{a(3c-8)}{8}\\)\n\nTest smallest valid integer values for \\(a,b,c\\)\n\nSince \\(a,b,c\\) are positive distinct integers:\nTry \\(c=4\\):\n\\(b=\\frac{a(12-8)}{8}=\\frac{4a}{8}=\\frac{a}{2}\\)\n\nLet \\(a=2\\Rightarrow b=1\\).\n\nChecking distinctness: \\(a=2,\\ b=1,\\ c=4\\) (all distinct natural numbers).\n\nCompute \\(3a+2b+c\\)\n\\(=3(2)+2(1)+4\\)\n\\(=6+2+4=12\\)"
+  },
+  {
+    id: 'qa24-s2-q10',
+    questionNumber: 10,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Geometry & Mensuration',
+    difficulty: 'Moderate',
+    question: "Two tangents drawn from a point \\( P \\) touch a circle with center \\( O \\) at points\r\n\\( Q \\) and \\( R \\). Points \\( A \\) and \\( B \\) lie on \\( P Q \\) and \\( P R \\), respectively, such that \\( A B \\) is also\r\na tangent to the same circle. If \\( \\angle A O B = 50 ^ { \\circ } \\), then \\( \\angle A P B \\), in degrees, equals",
+    correctAnswer: "80",
+    explanation: "Use tangency properties to relate angles\n\nLet \\(AB\\) touch the circle at point \\(C\\).\nRay \\(OA\\) bisects \\(\\angle QOC\\), so \\(\\angle QOA=\\angle AOC=x\\).\nRay \\(OB\\) bisects \\(\\angle COR\\), so \\(\\angle COB=\\angle BOR=y\\).\n\nFind total central angle \\(\\angle QOR\\)\n\\(\\angle AOB=x+y=50^\\circ\\)\n\\(\\angle QOR=2x+2y=2(50^\\circ)=100^\\circ\\)\n\nCalculate \\(\\angle QPR\\) from cyclic quadrilateral \\(PQOR\\)\n\nIn quadrilateral \\(PQOR\\), \\(\\angle PQO=90^\\circ\\) and \\(\\angle PRO=90^\\circ\\):\n\\(\\angle QPR+\\angle QOR=180^\\circ\\)\n\\(\\angle QPR=180^\\circ-100^\\circ=80^\\circ\\)"
+  },
+  {
+    id: 'qa24-s2-q11',
+    questionNumber: 11,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Moderate',
+    question: "The number of divisors of \\( \\left( 2 ^ { 6 } \\times 3 ^ { 5 } \\times 5 ^ { 3 } \\times 7 ^ { 2 } \\right) \\), which are of the form \\( ( 3 r + 1 ) \\), where \\( r \\) is a\r\nnon-negative integer, is",
+    options: ["\\( 42 \\)", "\\( 36 \\)", "\\( 56 \\)", "\\( 24 \\)"],
+    correctAnswer: 0,
+    explanation: "Exclude factor 3\n\nNo multiple of 3 can be of the form \\(3r+1\\). Thus, power of 3 must be \\(3^0\\).\n(1 possibility.)\n\nAnalyze powers of 7\n\\(7\\equiv1\\pmod3\\), so any power of 7 leaves remainder 1.\n\\(c\\in\\{0,1,2\\}\\Rightarrow3\\) choices for powers of 7.\n\nDetermine valid combinations of powers of 2 and 5\n\\(2\\equiv2\\pmod3\\) and \\(5\\equiv2\\pmod3\\).\n\n\\(2^a\\pmod3=1\\) when \\(a\\) is even:\n\\(a\\in\\{0,2,4,6\\}\\) (4 choices).\n\n\\(2^a\\pmod3=2\\) when \\(a\\) is odd:\n\\(a\\in\\{1,3,5\\}\\) (3 choices).\n\n\\(5^b\\pmod3=1\\) when \\(b\\) is even:\n\\(b\\in\\{0,2\\}\\) (2 choices).\n\n\\(5^b\\pmod3=2\\) when \\(b\\) is odd:\n\\(b\\in\\{1,3\\}\\) (2 choices).\n\nTo get product \\(\\equiv1\\pmod3\\):\nCase A (Both Remainder 1): even \\(a\\)\\(\\times\\)even \\(b=4\\times2=8\\) pairs\nCase B (Both Remainder 2): odd \\(a\\)\\(\\times\\)odd \\(b=3\\times2=6\\) pairs\n\nTotal valid \\(a,b\\) pairs \\(=8+6=14\\).\n\nCompute total divisors\nTotal Divisors \\(=14\\times3=42\\)\n\nChoice 1 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q12',
+    questionNumber: 12,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Hard',
+    question: "Ankita is twice as efficient as Bipin, while Bipin is twice as efficient as Chandan. All three of them start together on a job, and Bipin leaves the job after 20 days. If the job got completed in 60 days, the number of days needed by Chandan to complete the job alone, is",
+    correctAnswer: "340",
+    explanation: "Let Chandan's efficiency \\(=1k\\) unit/day.\nBipin's efficiency \\(=2k\\) units/day.\nAnkita's efficiency \\(=4k\\) units/day.\n\nCalculate total work done\n\nBipin works for 20 days:\n\\(20\\times2k=40k\\) units.\n\nAnkita works for 60 days:\n\\(60\\times4k=240k\\) units.\n\nChandan works for 60 days:\n\\(60\\times1k=60k\\) units.\n\nTotal Work \\(=40k+240k+60k=340k\\) units.\n\nCalculate days for Chandan alone\n\n taken by Chandan \\(=\\frac{340k}{1k}=340\\) days."
+  },
+  {
+    id: 'qa24-s2-q13',
+    questionNumber: 13,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Ratios, Proportions & Variations',
+    difficulty: 'Moderate',
+    question: "The ratio of expenditures of Lakshmi and Meenakshi is 2 : 3, and the ratio of income of Lakshmi to expenditure of Meenakshi is 6 : 7. If excess of income over expenditure is saved by Lakshmi and Meenakshi, and the ratio of their savings is 4 : 9, then the ratio of their incomes is",
+    options: ["5 : 6", "3 : 5", "7 : 8", "2 : 1"],
+    correctAnswer: 1,
+    explanation: "Let Meenakshi's expenditure = \\(21k\\).\nLakshmi's expenditure = \\(\\frac{2}{3}\\times21k=14k\\).\nLakshmi's income = \\(\\frac{6}{7}\\times21k=18k\\).\n\nLakshmi's Savings = \\(18k-14k=4k\\)\nGiven savings ratio is 4:9:\nMeenakshi's Savings = \\(9k\\)\n\nMeenakshi's Income = Expenditure + Savings = \\(21k+9k=30k\\)\n\nRatio of Incomes = \\(\\frac{\\text{Lakshmi's Income}}{\\text{Meenakshi's Income}}=\\frac{18k}{30k}=\\frac{3}{5}\\)\n\nChoice 2 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q14',
+    questionNumber: 14,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Quantitative Aptitude',
+    difficulty: 'Moderate',
+    question: "The set of all real values of \\( x \\) for which \\( \\left( x ^ { 2 } - | x + 9 | + x \\right) > 0 \\), is",
+    options: ["\\( ( - \\infty , - 9 ) \\cup ( 9 , \\infty ) \\)", "\\( ( - \\infty , - 3 ) \\cup ( 3 , \\infty ) \\)", "\\( ( - 9 , - 3 ) \\cup ( 3 , \\infty ) \\)", "\\( ( - \\infty , - 9 ) \\cup ( 3 , \\infty ) \\)"],
+    correctAnswer: 1,
+    explanation: "Case 1 \\((x\\geq-9)\\)\n\\(|x+9|=x+9\\)\n\\(x^2-(x+9)+x>0\\Rightarrow x^2-9>0\\Rightarrow(x-3)(x+3)>0\\)\nFor \\(x\\geq-9\\), this holds for \\(x\\in[-9,-3)\\cup(3,\\infty)\\).\n\nCase 2 \\((x\\leq-9)\\)\n\\(|x+9|=-(x+9)\\)\n\\(x^2-(-(x+9))+x>0\\Rightarrow x^2+2x+9>0\\)\n\nCompleting the square gives \\((x+1)^2+8>0\\), which is true for all real \\(x\\).\nFor \\(x\\leq-9\\), this holds for \\(x\\in(-\\infty,-9]\\).\n\nCombine solution intervals\nSolution Set \\(=(-\\infty,-9]\\cup[-9,-3)\\cup(3,\\infty)=(-\\infty,-3)\\cup(3,\\infty)\\)\n\nChoice 2 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q15',
+    questionNumber: 15,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Profit, Loss & Discount',
+    difficulty: 'Moderate',
+    question: "An item with a cost price of Rs. 1650 is sold at a certain discount on a fixed marked price to earn a profit of 20% on the cost price. If the discount was doubled, the profit would have been Rs. 110. The rate of discount, in percentage, at which the profit percentage would be equal to the rate of discount, is nearest to",
+    options: ["12", "14", "16", "18"],
+    correctAnswer: 1,
+    explanation: "Cost Price (CP) = 1650\nOriginal Profit = \\(20\\%\\) of \\(1650=\\frac{1}{5}\\times1650=330\\)\nOriginal Selling Price (SP\u2081) = \\(1650+330=1980\\)\n\nNew Profit = 110\nNew Selling Price (SP\u2082) = \\(1650+110=1760\\)\nDifference in Selling Prices = SP\u2081 \u2212 SP\u2082 = \\(1980-1760=220\\)\n\nSince doubling the discount reduces the selling price by 220, the original discount was 220.\n\nMarked Price (MP) = SP\u2081 + Original Discount = \\(1980+220=2200\\)\n\nRatio of CP to MP:\n\\[\n\\frac{CP}{MP}=\\frac{1650}{2200}=\\frac{3}{4}\n\\]\n\nLet the common discount/profit rate fraction be \\(x\\):\n\\(3(1+x)=4(1-x)\\)\n\\(3+3x=4-4x\\Rightarrow7x=1\\Rightarrow x=\\frac{1}{7}\\)\n\nPercentage \\(=\\frac{1}{7}\\times100\\%=14.28\\%\\)\n\nChoice 2 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q16',
+    questionNumber: 16,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Algebra & Polynomials',
+    difficulty: 'Moderate',
+    question: "The equations \\( 3 x ^ { 2 } - 5 x + p = 0 \\) and \\( 2 x ^ { 2 } - 2 x + q = 0 \\) have one common\r\nroot. The sum of the other roots of these two equations is",
+    options: ["\\( \\frac { 2 } { 3 } - p + \\frac { 3 } { 2 } q \\)", "\\( \\frac { 8 } { 3 } + p + \\frac { 1 } { 3 } q \\)", "\\( \\frac { 2 } { 3 } - 2 p + \\frac { 2 } { 3 } q \\)", "\\( \\frac { 8 } { 3 } - p + \\frac { 3 } { 2 } q \\)"],
+    correctAnswer: 3,
+    explanation: "Let \\(k\\) be the common root.\n\nFor \\(3x^2-5x+p=0\\), let roots be \\(k\\) and \\(\\alpha\\):\n\\(k+\\alpha=\\frac{5}{3}\\)\n\nFor \\(2x^2-2x+q=0\\), let roots be \\(k\\) and \\(\\beta\\):\n\\(k+\\beta=\\frac{2}{2}=1\\)\n\nSince \\(k\\) satisfies both equations:\n\\(2k+\\alpha+\\beta=\\frac{5}{3}+1=\\frac{8}{3}\\)\n\\(\\alpha+\\beta=\\frac{8}{3}-2k\\)\n\nSubtracting the two equations to eliminate \\(k^2\\):\n\\(3k^2-5k+p=0\\Rightarrow6k^2-10k+2p=0\\)\n\\(2k^2-2k+q=0\\Rightarrow6k^2-6k+3q=0\\)\n\n\\((6k^2-6k+3q)-(6k^2-10k+2p)=0\\)\n\\(4k+3q-2p=0\\Rightarrow2k=\\frac{2p-3q}{2}\\)\n\nCompute the sum of the other roots \\((\\alpha+\\beta)\\):\n\\[\n\\alpha+\\beta=\\frac{8}{3}-\\frac{2p-3q}{2}\n=\\frac{8}{3}-p+\\frac{3q}{2}\n\\]\n\nChoice 4 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q17',
+    questionNumber: 17,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Mixtures & Alligations',
+    difficulty: 'Hard',
+    question: "A mixture of coffee and cocoa, 16% of which is coffee, costs Rs 240 per kg. Another mixture of coffee and cocoa, of which 36% is coffee, costs Rs 320 per kg. If a new mixture of coffee and cocoa costs Rs 376 per kg, then the quantity, in kg, of coffee in 10 kg of this new mixture is",
+    options: ["4", "6", "2.5", "5"],
+    correctAnswer: 3,
+    explanation: "Mixture 1: 16% coffee \u2192 Rs. 240/kg\nMixture 2: 36% coffee \u2192 Rs. 320/kg\n\nIncreasing coffee proportion by 20% increases price by \\(320-240=80\\).\nTherefore, a 100% shift from cocoa to coffee changes the price by:\nCoffee Price \u2212 Cocoa Price \\(=\\frac{80}{0.20}=400\\)\n\nPrice increase from 36% coffee (Rs. 320) to Rs. 376 is:\n\\(376-320=56\\)\n\nAdditional proportion of coffee required:\n\\[\n\\frac{56}{400}=0.14=14\\%\n\\]\n\nTotal coffee percentage in the new mixture:\n\\(36\\%+14\\%=50\\%\\)\n\nCalculate the quantity of coffee in 10 kg of the mixture\nCoffee in 10 kg = 50% of 10 kg = 5 kg\n\nChoice 4 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q18',
+    questionNumber: 18,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Simple & Compound Interest',
+    difficulty: 'Moderate',
+    question: "A loan of Rs 1000 is fully repaid by two installments of Rs 530 and Rs 594, paid at the end of first and second year, respectively. If the interest is compounded annually, then the rate of interest, in percentage, is",
+    options: ["8", "10", "11", "9"],
+    correctAnswer: 0,
+    explanation: "Let interest multiplier be \\((1+x)\\), where \\(x=\\frac{r}{100}\\).\n\nEnd of Year 1:\nAmount before payment = \\(1000(1+x)\\)\nRemaining balance = \\(1000(1+x)-530=470+1000x\\)\n\nEnd of Year 2:\nAmount before payment = \\((470+1000x)(1+x)=594\\)\n\\(470+1470x+1000x^2=594\\)\n\\(40x+1000x^2-124=0\\)\n\\(25x^2+x-3.1=0\\)\n\nTaking the positive root:\n\\(25x=2\\Rightarrow x=\\frac{2}{25}=0.08\\)\n\nRate of interest \\(r=0.08\\times100=8\\%\\)\n\nChoice 1 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q19',
+    questionNumber: 19,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Speed, Time & Distance',
+    difficulty: 'Moderate',
+    question: "Rita and Sneha can row a boat at 5 km/h and 6 km/h in still water, respectively. In a river flowing with a constant velocity, Sneha takes 48 minutes more to row 14 km upstream than to row the same distance downstream. If Rita starts from a certain location in the river, and returns downstream to the same location, taking a total of 100 minutes, then the total distance, in km, Rita will cover is",
+    correctAnswer: "8",
+    explanation: "Sneha's speed = 6 km/h, distance = 14 km,\n difference = 48 minutes = \\(\\frac{4}{5}\\) hours.\n\nLet river speed be \\(S\\) km/h.\n\n\\[\n\\frac{14}{6-S}-\\frac{14}{6+S}=\\frac{4}{5}\n\\]\n\n\\[\n\\frac{14[(6+S)-(6-S)]}{36-S^2}=\\frac{4}{5}\n\\]\n\n\\[\n\\frac{28S}{36-S^2}=\\frac{4}{5}\n\\]\n\n\\(35S=36-S^2\\)\n\\(S^2+35S-36=0\\)\n\\((S+36)(S-1)=0\\Rightarrow S=1\\) km/h\n\nRita's speed = 5 km/h, total  = 100 minutes = \\(\\frac{5}{3}\\) hours.\nDownstream speed = \\(5+1=6\\) km/h\nUpstream speed = \\(5-1=4\\) km/h\n\n\\[\n\\frac{d}{6}+\\frac{d}{4}=\\frac{5}{3}\n\\]\n\n\\[\n\\frac{2d+3d}{12}=\\frac{5}{3}\n\\Rightarrow\\frac{5d}{12}=\\frac{5}{3}\n\\Rightarrow d=4\\text{ km}\n\\]\n\nTotal Distance = \\(d+d=4+4=8\\) km"
+  },
+  {
+    id: 'qa24-s2-q20',
+    questionNumber: 20,
+    section: 'QA',
+    type: 'TITA',
+    topic: 'Number Systems',
+    difficulty: 'Moderate',
+    question: "The sum of digits of the number \\( ( 625 ) ^ { 65 } \\times ( 128 ) ^ { 36 } \\), is",
+    correctAnswer: "25",
+    explanation: "Convert to powers of 2 and 5\n\n\\((625)^65=(5^4)^65=5^{260}\\)\n\\((128)^36=(2^7)^{36}=2^{252}\\)\n\n\\(N=5^{260}\\times2^{252}=5^8\\times(5^{252}\\times2^{252})\\)\n\\(=5^8\\times10^{252}\\)\n\nCalculate \\(5^8\\)\n\\(5^8=(5^4)^2=625^2=390625\\)\n\nSo, \\(N=390625\\times10^{252}=390625000\\ldots000\\) (followed by 252 zeros).\n\nCalculate the sum of digits\nSum of digits \\(=3+9+0+6+2+5=25\\)"
+  },
+  {
+    id: 'qa24-s2-q21',
+    questionNumber: 21,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Geometry & Mensuration',
+    difficulty: 'Hard',
+    question: "In a \\( \\triangle A B C \\), points D and E are on the sides BC and AC , respectively. BE and\r\nAD intersect at point T such that \\( \\mathrm { AD } : A T = 4 : 3 \\), and \\( \\mathrm { BE } : \\mathrm { BT } = 5 : 4 \\). Point\r\nF lies on AC such that DF is parallel to BE . Then, \\( \\mathrm { BD } : \\mathrm { CD } \\) is",
+    options: ["\\( 9 : 4 \\)", "\\( 15 : 4 \\)", "\\( 11 : 4 \\)", "\\( 7 : 4 \\)"],
+    correctAnswer: 2,
+    explanation: "Understand point \\(T\\) splits on segments\n\n\\(AT:TD=4:3\\)\n\\(BE:BT=5:4\\Rightarrow BT:TE=4:1\\)\n\nUse similar triangles on \\(\\triangle ADC\\)\nSince \\(DF\\parallel TE\\) in \\(\\triangle ADC\\):\n\\[\n\\frac{AE}{EF}=\\frac{AT}{TD}=\\frac{4}{3}\n\\]\n\nSo, \\(AE=4x\\) and \\(EF=3x\\).\n\nUse similar triangles \\(\\triangle CBE\\) and \\(\\triangle CDF\\)\nSince \\(DF\\parallel BE\\), \\(\\triangle CDF\\sim\\triangle CBE\\):\n\\[\n\\frac{CD}{CB}=\\frac{CF}{CE}\n\\]\n\nWe know \\(CE=EF+FC=3x+FC\\).\n\nUsing intercept properties on parallel lines \\(DF\\parallel BE\\):\n\\[\n\\frac{CD}{CB}=\\frac{4}{15}\n\\]\n\nDetermine \\(BD:DC\\)\nSince \\(CD=4\\) parts of total \\(CB=15\\) parts:\n\\(BD=CB-CD=15-4=11\\) parts\n\n\\[\n\\frac{BD}{DC}=\\frac{11}{4}=11:4\n\\]\n\nChoice 3 is the correct answer."
+  },
+  {
+    id: 'qa24-s2-q22',
+    questionNumber: 22,
+    section: 'QA',
+    type: 'MCQ',
+    topic: 'Ratios, Proportions & Variations',
+    difficulty: 'Moderate',
+    question: "A certain amount of money was divided among Pinu, Meena, Rinu and Seema. Pinu received 20% of the total amount and Meena received 40% of the remaining amount. If Seema received 20% less than Pinu, the ratio of the amounts received by Pinu and Rinu is",
+    options: ["8 : 5", "5 : 8", "2 : 1", "1 : 2"],
+    correctAnswer: 1,
+    explanation: "Pinu's share:\n\\(P=20\\%\\text{ of }T=20\\%\\) (Where \\(T\\) is total amount)\n\nMeena's share:\nRemaining after Pinu \\(=100\\%-20\\%=80\\%\\)\n\\(M=40\\%\\text{ of }80\\%=32\\%\\)\n\nSeema's share:\n\\(S=20\\%\\text{ less than Pinu}=20\\%-(20\\%\\text{ of }20\\%)=16\\%\\)\n\nRenu's share:\n\\(R=100\\%-(P+M+S)=100\\%-(20\\%+32\\%+16\\%)=32\\%\\)\n\nRatio \\(P:R=20:32=5:8\\)\n\nChoice 2 is the correct answer."
+  }
+];
+
+export const qa2025Slot2Questions = qa2024Slot2Questions;

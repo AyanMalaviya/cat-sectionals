@@ -1,6 +1,18 @@
 import { SectionalTest } from '../types';
 
 // Import Sectional Question Banks
+import { varc2024Slot1Questions } from './varc2024Slot1';
+import { dilr2024Slot1Questions } from './dilr2024Slot1';
+import { qa2024Slot1Questions } from './qa2024Slot1';
+
+import { varc2024Slot2Questions } from './varc2024Slot2';
+import { dilr2024Slot2Questions } from './dilr2024Slot2';
+import { qa2024Slot2Questions } from './qa2024Slot2';
+
+import { varc2024Slot3Questions } from './varc2024Slot3';
+import { dilr2024Slot3Questions } from './dilr2024Slot3';
+import { qa2024Slot3Questions } from './qa2024Slot3';
+
 import { varc2020Slot1Questions } from './varc2020Slot1';
 import { dilr2020Slot1Questions } from './dilr2020Slot1';
 import { qa2020Slot1Questions } from './qa2020Slot1';
@@ -73,6 +85,84 @@ export const officialFullMockTests: SectionalTest[] = [
       varc2026MockQuestions.length,
       dilr2026MockQuestions.length,
       qa2026MockQuestions.length
+    ),
+  },
+
+  // 1a. CAT 2024 Slot 1 Official Full Mock
+  {
+    id: 'cat-2024-slot1-full-mock',
+    title: 'CAT 2024 Slot 1 - Official Full Mock Test',
+    year: 'CAT 2024',
+    slot: 'Slot 1 Official Full Mock',
+    section: 'FULL',
+    category: 'full-mock',
+    isFullMock: true,
+    durationMinutes: 120,
+    totalMarks: 204,
+    questionsCount: 68,
+    difficulty: 'Challenging',
+    description: 'Complete 120-minute authentic CAT 2024 Slot 1 Full Mock Test: Section 1 VARC (Alienists & Criminal Responsibility, Economic Inequality, Electronic Music Ontology) → Section 2 DILR (Round Table Shift, InnovateX Matrix, Trade Radar Chart, Train Routes) → Section 3 QA (Functions Min/Max, Shruti Travel, Arithmetic & Geometry). Real TCS iON interface.',
+    questions: [
+      ...varc2024Slot1Questions,
+      ...dilr2024Slot1Questions,
+      ...qa2024Slot1Questions,
+    ],
+    sectionsList: createFullMockSectionsList(
+      varc2024Slot1Questions.length,
+      dilr2024Slot1Questions.length,
+      qa2024Slot1Questions.length
+    ),
+  },
+
+  // 1b. CAT 2024 Slot 2 Official Full Mock
+  {
+    id: 'cat-2024-slot2-full-mock',
+    title: 'CAT 2024 Slot 2 - Official Full Mock Test',
+    year: 'CAT 2024',
+    slot: 'Slot 2 Official Full Mock',
+    section: 'FULL',
+    category: 'full-mock',
+    isFullMock: true,
+    durationMinutes: 120,
+    totalMarks: 204,
+    questionsCount: 68,
+    difficulty: 'Challenging',
+    description: 'Complete 120-minute authentic CAT 2024 Slot 2 Full Mock Test: Section 1 VARC (Mexican Tetra Cavefish, Evolution, Behavioral Ecology) → Section 2 DILR (Whimshire NUR Population, Spherical Balls, Musicians Training, Sustainability Index) → Section 3 QA (Logarithms, Functions, Sequences, Geometry).',
+    questions: [
+      ...varc2024Slot2Questions,
+      ...dilr2024Slot2Questions,
+      ...qa2024Slot2Questions,
+    ],
+    sectionsList: createFullMockSectionsList(
+      varc2024Slot2Questions.length,
+      dilr2024Slot2Questions.length,
+      qa2024Slot2Questions.length
+    ),
+  },
+
+  // 1c. CAT 2024 Slot 3 Official Full Mock
+  {
+    id: 'cat-2024-slot3-full-mock',
+    title: 'CAT 2024 Slot 3 - Official Full Mock Test',
+    year: 'CAT 2024',
+    slot: 'Slot 3 Official Full Mock',
+    section: 'FULL',
+    category: 'full-mock',
+    isFullMock: true,
+    durationMinutes: 120,
+    totalMarks: 204,
+    questionsCount: 68,
+    difficulty: 'Very High',
+    description: 'Complete 120-minute authentic CAT 2024 Slot 3 Full Mock Test: Section 1 VARC (Philosophy of Science, Linguistics, Archaeology) → Section 2 DILR (Phone Operator Calls, Image Puzzles, Matrix Rankings) → Section 3 QA (Triangle 50-50-80, Equations, Arithmetic).',
+    questions: [
+      ...varc2024Slot3Questions,
+      ...dilr2024Slot3Questions,
+      ...qa2024Slot3Questions,
+    ],
+    sectionsList: createFullMockSectionsList(
+      varc2024Slot3Questions.length,
+      dilr2024Slot3Questions.length,
+      qa2024Slot3Questions.length
     ),
   },
 

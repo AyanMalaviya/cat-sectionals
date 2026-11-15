@@ -1,492 +1,258 @@
 import { Question } from '../types';
 
-export const dilr2023Slot1Questions: Question[] = [
-  // SET 1: Project Allocation & Evaluation Matrix (Questions 1 to 5)
+export const dilr2023Questions: Question[] = [
   {
     id: 'dilr23-s1-q1',
     questionNumber: 1,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 1: AI Project Evaluation Matrix',
-    passage: `Four software engineering teams—Alpha, Beta, Gamma, and Delta—each worked on four distinct technological modules: Vision, Speech, Robotics, and NLP. Each team received an evaluation score between 1 and 10 (integers only) in each module.
-The following facts are known:
-1. No two teams received the same score in any module, and no team received the same score in any two modules.
-2. In the Vision module, Alpha scored highest with 9 points, while Delta scored 3 points.
-3. In Speech, Gamma scored 8 points, which was twice the score received by Alpha in the same module.
-4. Beta’s total score across all 4 modules was 28 points, which was the highest aggregate score among all four teams.
-5. In Robotics, Delta scored 7 points, and Beta scored 2 points higher than Alpha.
-6. In NLP, Delta scored 8 points, Beta scored 6 points, and Gamma scored 4 points.
-7. The total score of all four teams combined in the Vision module was 24 points.
-8. Gamma’s score in Robotics was 1 point less than Delta’s score in Robotics.`,
-    question: 'What was the score obtained by Team Beta in the Vision module?',
-    options: ['7', '5', '6', '8'],
-    correctAnswer: 0,
-    explanation: `Let's analyze the clues step-by-step:
-From Clue 2: Vision scores: Alpha = 9, Delta = 3.
-From Clue 7: Total Vision score = 24.
-Therefore, Beta(Vision) + Gamma(Vision) = 24 - (9 + 3) = 12.
-From Clue 1: Scores in Vision are distinct integers, so Beta and Gamma cannot both be 6.
-Possible pairs for {Beta, Gamma} in Vision: (7, 5) or (8, 4) or (5, 7) or (4, 8).
-
-From Clue 3: Speech module: Gamma = 8. Alpha = 8 / 2 = 4.
-From Clue 6: NLP module: Delta = 8, Beta = 6, Gamma = 4.
-Since all 4 scores in NLP are distinct and <= 10: Alpha's NLP score is yet to be determined.
-From Clue 5: Robotics module: Delta = 7. Gamma = 7 - 1 = 6 (Clue 8).
-Beta(Robotics) = Alpha(Robotics) + 2.
-Since scores are distinct integers in Robotics: {Alpha, Beta, Gamma=6, Delta=7}.
-Alpha and Beta could be:
-If Alpha = 3, Beta = 5 -> distinct {3, 5, 6, 7}.
-If Alpha = 1, Beta = 3 -> {1, 3, 6, 7}.
-If Alpha = 2, Beta = 4 -> {2, 4, 6, 7}.
-
-From Clue 4: Beta's total score = 28.
-Beta's modules: Beta(Vision) + Beta(Speech) + Beta(Robotics) + Beta(NLP) = 28.
-We know Beta(NLP) = 6.
-So Beta(Vision) + Beta(Speech) + Beta(Robotics) = 22.
-Since Beta(Robotics) = 5 (with Alpha=3), Beta(Speech) and Beta(Vision):
-If Beta(Vision) = 7, then Beta(Speech) = 22 - 7 - 5 = 10 (valid distinct integer <= 10!).
-Check condition 1: In Beta's row: Vision=7, Speech=10, Robotics=5, NLP=6. All 4 scores are distinct!
-Hence, Team Beta scored 7 in the Vision module.`
+    context: "Faculty members in a management school can belong to one of four departments \u2013 Finance and Accounting (F&A), Marketing and Strategy (M&S), Operations and Quants (O&Q) and Behaviour and Human Resources (B&H). The numbers of faculty members in F&A, M&S, O&Q and B&H departments are 9, 7, 5 and 3 respectively.Prof. Pakrasi, Prof. Qureshi, Prof. Ramaswamy and Prof. Samuel are four members of the school's faculty who were candidates for the post of the Dean of the school. Only one of the candidates was from O&Q.Every faculty member, including the four candidates, voted for the post. In each department, all the faculty members who were not candidates voted for the same candidate. The rules for the election are listed below. 1. There cannot be more than two candidates from a single department.2. A candidate cannot vote for himself/herself.3. Faculty members cannot vote for a candidate from their own department.After the election, it was observed that Prof. Pakrasi received 3 votes, Prof. Qureshi received 14 votes, Prof. Ramaswamy received 6 votes and Prof. Samuel received 1 vote. Prof. Pakrasi voted for Prof. Ramaswamy, Prof. Qureshi for Prof. Samuel, Prof. Ramaswamy for Prof. Qureshi and Prof. Samuel for Prof. Pakrasi.",
+    question: "Which two candidates can belong to the same department?",
+    options: ["Prof. Pakrasi and Prof. Samuel", "Prof. Pakrasi and Prof. Qureshi", "Prof. Qureshi and Prof. Ramaswamy", "Prof. Ramaswamy and Prof. Samuel"],
+    correctAnswer: 1,
+    explanation: "F&A = 9 members; M&S = 7 members; O&Q = 5 members; B&H = 3\nmembers\n\nEach Professor got one professor vote.\nFor S, the number of non-professor votes is zero, we can infer No department voted for S.\n\nFor P, the number of non-professor votes is 2. Hence, we can conclude two votes are from\nB&H department and there is only 1 candidate from that department.\nFor Q, the number of non-professor votes is 13, which clearly states the department of\nF&A should have voted for him.\nTwo cases are possible here: \u201c9 from F&A and 4 from others\u201d or \u201c8 from F&A and 5\nfrom others\u201d\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H | F&A | M&S | No department |\n| Department 2 | 4 or 5 | | | |\n\nIf number of non-professors votes for Q as \u201c8 from F&A and 5 from other department\u201d,\nthen number of candidates from F&A is 1, B&H is 1, O&Q is 1 and from M&S is\n2 which makes total candidates count 5. Therefore, we have 9 from F&A and 4 from others\n(which is O&H).\nFor R, the number of non-professor votes is 5 which is from M&S.\nTherefore, we have 2 candidates from M&S, 1 from O&Q, and 1 from B&H.\nSince P voted for R, Q voted for S; R voted for Q and S voted for P the two candidates from\nthe M&S department can be either PQ or RS.\nSince Faculty members cannot vote for a candidate from their own department, R cannot be\nfrom M&S department since R got votes from M&S department.\nTherefore, the two persons from M&S department should be P and Q. R and S can be from\neither O&Q or B&H.\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H = 2 | F&A = 9 | M&S = 5 | No department |\n| Department 2 | O&Q = 4 | | | |\n\n| F&A | |\n| --- | --- |\n| M&S | PQ |\n| O&Q | R/S |\n| B&H | S/R |\n\nAnswer: From the table, we can identify that two candidates from the same department are Prof. Pakrasi and Prof. Qureshi."
   },
   {
     id: 'dilr23-s1-q2',
     questionNumber: 2,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 1: AI Project Evaluation Matrix',
-    passage: `[Refer to Set 1: AI Project Evaluation Matrix]`,
-    question: 'What was the score obtained by Team Gamma in the Vision module?',
-    options: ['5', '7', '4', '6'],
-    correctAnswer: 0,
-    explanation: `From the deduction in Question 1:
-Total Vision score = 24.
-Alpha(Vision) = 9, Delta(Vision) = 3.
-Beta(Vision) + Gamma(Vision) = 12.
-Since Beta(Vision) = 7, Gamma(Vision) = 12 - 7 = 5.`
+    context: "Faculty members in a management school can belong to one of four departments \u2013 Finance and Accounting (F&A), Marketing and Strategy (M&S), Operations and Quants (O&Q) and Behaviour and Human Resources (B&H). The numbers of faculty members in F&A, M&S, O&Q and B&H departments are 9, 7, 5 and 3 respectively.Prof. Pakrasi, Prof. Qureshi, Prof. Ramaswamy and Prof. Samuel are four members of the school's faculty who were candidates for the post of the Dean of the school. Only one of the candidates was from O&Q.Every faculty member, including the four candidates, voted for the post. In each department, all the faculty members who were not candidates voted for the same candidate. The rules for the election are listed below. 1. There cannot be more than two candidates from a single department.2. A candidate cannot vote for himself/herself.3. Faculty members cannot vote for a candidate from their own department.After the election, it was observed that Prof. Pakrasi received 3 votes, Prof. Qureshi received 14 votes, Prof. Ramaswamy received 6 votes and Prof. Samuel received 1 vote. Prof. Pakrasi voted for Prof. Ramaswamy, Prof. Qureshi for Prof. Samuel, Prof. Ramaswamy for Prof. Qureshi and Prof. Samuel for Prof. Pakrasi.",
+    question: "Which of the following can be the number of votes that Prof. Qureshi received from a single department?",
+    options: ["8", "7", "9", "6"],
+    correctAnswer: 2,
+    explanation: "F&A = 9 members; M&S = 7 members; O&Q = 5 members; B&H = 3 members\n\nEach Professor got one professor vote.\nFor S, the number of non-professor votes is zero, we can infer No department voted for S.\nFor P, the number of non-professor votes is 2. Hence, we can conclude two votes are from B&H department and there is only 1 candidate from that department.\nFor Q, the number of non-professor votes is 13, which clearly states the department of F&A should have voted for him.\nTwo cases are possible here: \u201c9 from F&A and 4 from others\u201d or \u201c8 from F&A and 5 from others\u201d\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H | F&A | M&S | No department |\n| Department 2 | 4 or 5 | | | |\n\nIf number of non-professors votes for Q as \u201c8 from F&A and 5 from other department\u201d, then number of candidates from F&A is 1, B&H is 1, O&Q is 1 and from M&S is 2 which makes total candidates count 5. Therefore, we have 9 from F&A and 4 from others (which is O&H).\nFor R, the number of non-professor votes is 5 which is from M&S.\nTherefore, we have 2 candidates from M&S, 1 from O&Q, and 1 from B&H.\nSince P voted for R, Q voted for S; R voted for Q and S voted for P the two candidates from the M&S department can be either PQ or RS.\nSince Faculty members cannot vote for a candidate from their own department, R cannot be from M&S department since R got votes from M&S department.\nTherefore, the two persons from M&S department should be P and Q. R and S can be from either O&Q or B&H.\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H = 2 | F&A = 9 | M&S = 5 | No department |\n| Department 2 | O&Q = 4 | | | |\n\n| F&A | |\n| --- | --- |\n| M&S | PQ |\n| O&Q | R/S |\n| B&H | S/R |\n\nAnswer: From the table, Prof. Qureshi gets either 4 or 9 votes. Since 4 is not present in the options it is 9 votes."
   },
   {
     id: 'dilr23-s1-q3',
     questionNumber: 3,
     section: 'DILR',
-    type: 'TITA',
-    topic: 'Logical Reasoning - Matrix & Constraints',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 1: AI Project Evaluation Matrix',
-    passage: `[Refer to Set 1: AI Project Evaluation Matrix]`,
-    question: 'What was the score obtained by Team Beta in the Speech module?',
-    correctAnswer: '10',
-    explanation: `From the total score of Beta = 28:
-Beta(Vision) = 7, Beta(Robotics) = 5, Beta(NLP) = 6.
-Sum = 7 + 5 + 6 = 18.
-Beta(Speech) = 28 - 18 = 10.`
+    type: 'MCQ',
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Hard',
+    context: "Faculty members in a management school can belong to one of four departments \u2013 Finance and Accounting (F&A), Marketing and Strategy (M&S), Operations and Quants (O&Q) and Behaviour and Human Resources (B&H). The numbers of faculty members in F&A, M&S, O&Q and B&H departments are 9, 7, 5 and 3 respectively.Prof. Pakrasi, Prof. Qureshi, Prof. Ramaswamy and Prof. Samuel are four members of the school's faculty who were candidates for the post of the Dean of the school. Only one of the candidates was from O&Q.Every faculty member, including the four candidates, voted for the post. In each department, all the faculty members who were not candidates voted for the same candidate. The rules for the election are listed below. 1. There cannot be more than two candidates from a single department.2. A candidate cannot vote for himself/herself.3. Faculty members cannot vote for a candidate from their own department.After the election, it was observed that Prof. Pakrasi received 3 votes, Prof. Qureshi received 14 votes, Prof. Ramaswamy received 6 votes and Prof. Samuel received 1 vote. Prof. Pakrasi voted for Prof. Ramaswamy, Prof. Qureshi for Prof. Samuel, Prof. Ramaswamy for Prof. Qureshi and Prof. Samuel for Prof. Pakrasi.",
+    question: "If Prof. Samuel belongs to B&H, which of the following statements is/are true?Statement A: Prof. Pakrasi belongs to M&S.Statement B: Prof. Ramaswamy belongs to O&Q.",
+    options: ["Both statements A and B", "Only statement B", "Only statement A", "Neither statement A nor statement B"],
+    correctAnswer: 0,
+    explanation: "F&A = 9 members; M&S = 7 members; O&Q = 5 members; B&H = 3 members\n\nEach Professor got one professor vote.\nFor S, the number of non-professor votes is zero, we can infer No department voted for S.\nFor P, the number of non-professor votes is 2. Hence, we can conclude two votes are from B&H department and there is only 1 candidate from that department.\nFor Q, the number of non-professor votes is 13, which clearly states the department of F&A should have voted for him.\nTwo cases are possible here: \u201c9 from F&A and 4 from others\u201d or \u201c8 from F&A and 5 from others\u201d\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H | F&A | M&S | No department |\n| Department 2 | 4 or 5 | | | |\n\nIf number of non-professors votes for Q as \u201c8 from F&A and 5 from other department\u201d, then number of candidates from F&A is 1, B&H is 1, O&Q is 1 and from M&S is 2 which makes total candidates count 5. Therefore, we have 9 from F&A and 4 from others (which is O&H).\nFor R, the number of non-professor votes is 5 which is from M&S.\nTherefore, we have 2 candidates from M&S, 1 from O&Q, and 1 from B&H.\nSince P voted for R, Q voted for S; R voted for Q and S voted for P the two candidates from the M&S department can be either PQ or RS.\nSince Faculty members cannot vote for a candidate from their own department, R cannot be from M&S department since R got votes from M&S department.\nTherefore, the two persons from M&S department should be P and Q. R and S can be from either O&Q or B&H.\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H = 2 | F&A = 9 | M&S = 5 | No department |\n| Department 2 | O&Q = 4 | | | |\n\n| F&A | |\n| --- | --- |\n| M&S | PQ |\n| O&Q | R/S |\n| B&H | S/R |\n\nAnswer: From the table, it is known that Prof. Pakrasi belongs to M&S. Statement A is true.\n\nSince, Prof. Samuel belongs to B&H, Prof. Ramaswamy belongs to O&Q"
   },
   {
     id: 'dilr23-s1-q4',
     questionNumber: 4,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
-    difficulty: 'Hard',
-    passageTitle: 'Set 1: AI Project Evaluation Matrix',
-    passage: `[Refer to Set 1: AI Project Evaluation Matrix]`,
-    question: 'What was the aggregate total score obtained by Team Gamma across all four modules?',
-    options: ['23', '21', '25', '22'],
-    correctAnswer: 0,
-    explanation: `Let's sum Gamma's scores across all 4 modules:
-Vision: 5
-Speech: 8
-Robotics: 6
-NLP: 4
-Total for Gamma = 5 + 8 + 6 + 4 = 23.
-Notice all four of Gamma's scores (5, 8, 6, 4) are distinct integers!`
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Moderate',
+    context: "Faculty members in a management school can belong to one of four departments \u2013 Finance and Accounting (F&A), Marketing and Strategy (M&S), Operations and Quants (O&Q) and Behaviour and Human Resources (B&H). The numbers of faculty members in F&A, M&S, O&Q and B&H departments are 9, 7, 5 and 3 respectively.Prof. Pakrasi, Prof. Qureshi, Prof. Ramaswamy and Prof. Samuel are four members of the school's faculty who were candidates for the post of the Dean of the school. Only one of the candidates was from O&Q.Every faculty member, including the four candidates, voted for the post. In each department, all the faculty members who were not candidates voted for the same candidate. The rules for the election are listed below. 1. There cannot be more than two candidates from a single department.2. A candidate cannot vote for himself/herself.3. Faculty members cannot vote for a candidate from their own department.After the election, it was observed that Prof. Pakrasi received 3 votes, Prof. Qureshi received 14 votes, Prof. Ramaswamy received 6 votes and Prof. Samuel received 1 vote. Prof. Pakrasi voted for Prof. Ramaswamy, Prof. Qureshi for Prof. Samuel, Prof. Ramaswamy for Prof. Qureshi and Prof. Samuel for Prof. Pakrasi.",
+    question: "What best can be concluded about the candidate from O&Q?",
+    options: ["It was either Prof. Pakrasi or Prof. Qureshi.", "It was Prof. Samuel.", "It was Prof. Ramaswamy.", "It was either Prof. Ramaswamy or Prof. Samuel."],
+    correctAnswer: 3,
+    explanation: "F&A = 9 members; M&S = 7 members; O&Q = 5 members; B&H = 3 members\n\nEach Professor got one professor vote.\nFor S, the number of non-professor votes is zero, we can infer No department voted for S.\nFor P, the number of non-professor votes is 2. Hence, we can conclude two votes are from B&H department and there is only 1 candidate from that department.\nFor Q, the number of non-professor votes is 13, which clearly states the department of F&A should have voted for him.\nTwo cases are possible here: \u201c9 from F&A and 4 from others\u201d or \u201c8 from F&A and 5 from others\u201d\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H | F&A | M&S | No department |\n| Department 2 | 4 or 5 | | | |\n\nIf number of non-professors votes for Q as \u201c8 from F&A and 5 from other department\u201d, then number of candidates from F&A is 1, B&H is 1, O&Q is 1 and from M&S is 2 which makes total candidates count 5. Therefore, we have 9 from F&A and 4 from others (which is O&H).\nFor R, the number of non-professor votes is 5 which is from M&S.\nTherefore, we have 2 candidates from M&S, 1 from O&Q, and 1 from B&H.\nSince P voted for R, Q voted for S; R voted for Q and S voted for P the two candidates from the M&S department can be either PQ or RS.\nSince Faculty members cannot vote for a candidate from their own department, R cannot be from M&S department since R got votes from M&S department.\nTherefore, the two persons from M&S department should be P and Q. R and S can be from either O&Q or B&H.\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H = 2 | F&A = 9 | M&S = 5 | No department |\n| Department 2 | O&Q = 4 | | | |\n\n| F&A | |\n| --- | --- |\n| M&S | PQ |\n| O&Q | R/S |\n| B&H | S/R |\n\nAnswer: From the table, we can conclude that it was either Prof. Ramaswamy or Prof. Samuel."
   },
   {
     id: 'dilr23-s1-q5',
     questionNumber: 5,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Matrix & Constraints',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 1: AI Project Evaluation Matrix',
-    passage: `[Refer to Set 1: AI Project Evaluation Matrix]`,
-    question: 'Which team scored the lowest marks in the Robotics module?',
-    options: ['Alpha', 'Beta', 'Gamma', 'Delta'],
+    context: "Faculty members in a management school can belong to one of four departments \u2013 Finance and Accounting (F&A), Marketing and Strategy (M&S), Operations and Quants (O&Q) and Behaviour and Human Resources (B&H). The numbers of faculty members in F&A, M&S, O&Q and B&H departments are 9, 7, 5 and 3 respectively.Prof. Pakrasi, Prof. Qureshi, Prof. Ramaswamy and Prof. Samuel are four members of the school's faculty who were candidates for the post of the Dean of the school. Only one of the candidates was from O&Q.Every faculty member, including the four candidates, voted for the post. In each department, all the faculty members who were not candidates voted for the same candidate. The rules for the election are listed below. 1. There cannot be more than two candidates from a single department.2. A candidate cannot vote for himself/herself.3. Faculty members cannot vote for a candidate from their own department.After the election, it was observed that Prof. Pakrasi received 3 votes, Prof. Qureshi received 14 votes, Prof. Ramaswamy received 6 votes and Prof. Samuel received 1 vote. Prof. Pakrasi voted for Prof. Ramaswamy, Prof. Qureshi for Prof. Samuel, Prof. Ramaswamy for Prof. Qureshi and Prof. Samuel for Prof. Pakrasi.",
+    question: "Which of the following statements is/are true?Statement A: Non-candidates from M&S voted for Prof. Qureshi.Statement B: Non-candidates from F&A voted for Prof. Qureshi.",
+    options: ["Only statement B", "Only statement A", "Both statements A and B", "Neither statement A nor statement B"],
     correctAnswer: 0,
-    explanation: `In the Robotics module:
-Delta = 7
-Gamma = 6
-Beta = 5
-Alpha = 3
-Hence, Team Alpha scored the lowest marks in Robotics.`
+    explanation: "F&A = 9 members; M&S = 7 members; O&Q = 5 members; B&H = 3 members\n\nEach Professor got one professor vote.\nFor S, the number of non-professor votes is zero, we can infer No department voted for S.\nFor P, the number of non-professor votes is 2. Hence, we can conclude two votes are from B&H department and there is only 1 candidate from that department.\nFor Q, the number of non-professor votes is 13, which clearly states the department of F&A should have voted for him.\nTwo cases are possible here: \u201c9 from F&A and 4 from others\u201d or \u201c8 from F&A and 5 from others\u201d\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H | F&A | M&S | No department |\n| Department 2 | 4 or 5 | | | |\n\nIf number of non-professors votes for Q as \u201c8 from F&A and 5 from other department\u201d, then number of candidates from F&A is 1, B&H is 1, O&Q is 1 and from M&S is 2 which makes total candidates count 5. Therefore, we have 9 from F&A and 4 from others (which is O&H).\nFor R, the number of non-professor votes is 5 which is from M&S.\nTherefore, we have 2 candidates from M&S, 1 from O&Q, and 1 from B&H.\nSince P voted for R, Q voted for S; R voted for Q and S voted for P the two candidates from the M&S department can be either PQ or RS.\nSince Faculty members cannot vote for a candidate from their own department, R cannot be from M&S department since R got votes from M&S department.\nTherefore, the two persons from M&S department should be P and Q. R and S can be from either O&Q or B&H.\n\n| | P | Q | R | S |\n| --- | --- | --- | --- | --- |\n| Professor Votes | 1 | 1 | 1 | 1 |\n| Non-Professor Votes | 2 | 13 | 5 | 0 |\n| Department 1 | B&H = 2 | F&A = 9 | M&S = 5 | No department |\n| Department 2 | O&Q = 4 | | | |\n\n| F&A | |\n| --- | --- |\n| M&S | PQ |\n| O&Q | R/S |\n| B&H | S/R |\n\nAnswer: Non-candidates from M&S voted for Prof. Ramaswamy. Statement A is false.\n\nNon-candidates from F&A and O&Q voted for Prof. Qureshi. Statement B is true."
   },
-
-  // SET 2: Data Interpretation Table - Tech Hardware Shipments & Revenues (Questions 6 to 10)
   {
     id: 'dilr23-s1-q6',
     questionNumber: 6,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Data Interpretation - Tables & Percentage Growth',
+    type: 'TITA',
+    topic: 'Logical Reasoning - Rankings & Tournaments',
     difficulty: 'Moderate',
-    passageTitle: 'Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)',
-    passage: `The table below displays the Quarterly Units Shipped (in Millions) and the Average Selling Price (ASP in USD) for NovaChip Corp across four quarters of FY 2023:
-
-Quarter | Units Shipped (Millions) | Average Selling Price (USD) | Operating Expense Ratio (% of Revenue)
-Q1      | 40                       | $50                         | 60%
-Q2      | 50                       | $48                         | 55%
-Q3      | 60                       | $45                         | 50%
-Q4      | 80                       | $40                         | 45%
-
-Note:
-1. Total Revenue = Units Shipped × Average Selling Price.
-2. Operating Cost = Total Revenue × Operating Expense Ratio.
-3. Operating Profit = Total Revenue - Operating Cost = Total Revenue × (1 - Operating Expense Ratio).`,
-    question: 'In which quarter was the Total Revenue generated by NovaChip Corp the highest?',
-    options: ['Q4', 'Q3', 'Q2', 'Q1'],
-    correctAnswer: 0,
-    explanation: `Calculate Total Revenue for each quarter:
-Q1: 40 Million × $50 = $2,000 Million ($2.0 Billion).
-Q2: 50 Million × $48 = $2,400 Million ($2.4 Billion).
-Q3: 60 Million × $45 = $2,700 Million ($2.7 Billion).
-Q4: 80 Million × $40 = $3,200 Million ($3.2 Billion).
-The highest revenue was generated in Q4 ($3,200 Million).`
+    context: "Five restaurants, coded R1, R2, R3, R4 and R5 gave integer ratings to five gig workers \u2013 Ullas, Vasu, Waman, Xavier and Yusuf, on a scale of 1 to 5.The means of the ratings given by R1, R2, R3, R4 and R5 were 3.4, 2.2, 3.8, 2.8 and 3.4 respectively.The summary statistics of these ratings for the five workers is given below.\n\n| | Ullas | Vasu | Waman | Xavier | Yusuf |\n| --- | --- | --- | --- | --- | --- |\n| Mean rating | 2.2 | 3.8 | 3.4 | 3.6 | 2.6 |\n| Median rating | 2 | 4 | 4 | 4 | 3 |\n| Modal rating | 2 | 4 | 5 | 5 | 1 and 4 |\n| Range of rating* | 3 | 3 | 4 | 4 | 3 |\n\n* Range of ratings is defined as the difference between the maximum and minimum ratings awarded to a worker.The following is partial information about ratings of 1 and 5 awarded by the restaurants to the workers. (a) R1 awarded a rating of 5 to Waman, as did R2 to Xavier, R3 to Waman and Xavier, and R5 to Vasu.(b) R1 awarded a rating of 1 to Ullas, as did R2 to Waman and Yusuf, and R3 to Yusuf.",
+    question: "How many individual ratings cannot be determined from the above information?",
+    correctAnswer: "0",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q6_12_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_13_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_14_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_15_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_16_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_17_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_18_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_19_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_20_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_21_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_22_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_23_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_24_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_25_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_26_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_27_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_28_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_29_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_30_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_31_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_32_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_33_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_34_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_35_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_36_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q6_37_png.png)"
   },
   {
     id: 'dilr23-s1-q7',
     questionNumber: 7,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Data Interpretation - Profit & Margin Calculations',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)',
-    passage: `[Refer to Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)]`,
-    question: 'What was the Operating Profit (in Million USD) of NovaChip Corp in Q4?',
-    options: ['$1760 Million', '$1600 Million', '$1440 Million', '$1820 Million'],
-    correctAnswer: 0,
-    explanation: `Total Revenue in Q4 = 80 × $40 = $3200 Million.
-Operating Expense Ratio = 45%.
-Operating Profit Margin = 100% - 45% = 55%.
-Operating Profit = 55% of $3200 Million = 0.55 × 3200 = $1760 Million.`
+    type: 'TITA',
+    topic: 'Logical Reasoning - Rankings & Tournaments',
+    difficulty: 'Hard',
+    context: "Five restaurants, coded R1, R2, R3, R4 and R5 gave integer ratings to five gig workers \u2013 Ullas, Vasu, Waman, Xavier and Yusuf, on a scale of 1 to 5.The means of the ratings given by R1, R2, R3, R4 and R5 were 3.4, 2.2, 3.8, 2.8 and 3.4 respectively.The summary statistics of these ratings for the five workers is given below.\n\n| | Ullas | Vasu | Waman | Xavier | Yusuf |\n| --- | --- | --- | --- | --- | --- |\n| Mean rating | 2.2 | 3.8 | 3.4 | 3.6 | 2.6 |\n| Median rating | 2 | 4 | 4 | 4 | 3 |\n| Modal rating | 2 | 4 | 5 | 5 | 1 and 4 |\n| Range of rating* | 3 | 3 | 4 | 4 | 3 |\n\n* Range of ratings is defined as the difference between the maximum and minimum ratings awarded to a worker.The following is partial information about ratings of 1 and 5 awarded by the restaurants to the workers. (a) R1 awarded a rating of 5 to Waman, as did R2 to Xavier, R3 to Waman and Xavier, and R5 to Vasu.(b) R1 awarded a rating of 1 to Ullas, as did R2 to Waman and Yusuf, and R3 to Yusuf.",
+    question: "To how many workers did R2 give a rating of 4?",
+    correctAnswer: "0",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q7_12_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_13_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_14_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_15_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_16_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_17_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_18_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_19_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_20_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_21_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_22_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_23_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_24_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_25_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_26_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_27_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_28_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_29_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_30_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_31_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_32_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_33_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_34_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_35_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_36_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q7_37_png.png)"
   },
   {
     id: 'dilr23-s1-q8',
     questionNumber: 8,
     section: 'DILR',
     type: 'TITA',
-    topic: 'Data Interpretation - Percentage Growth',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)',
-    passage: `[Refer to Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)]`,
-    question: 'What is the percentage increase in Units Shipped from Q1 to Q4? (Type integer value without % sign)',
-    correctAnswer: '100',
-    explanation: `Units shipped in Q1 = 40 Million.
-Units shipped in Q4 = 80 Million.
-Percentage increase = ((80 - 40) / 40) × 100% = (40 / 40) × 100% = 100%.`
+    topic: 'Logical Reasoning - Rankings & Tournaments',
+    difficulty: 'Hard',
+    context: "Five restaurants, coded R1, R2, R3, R4 and R5 gave integer ratings to five gig workers \u2013 Ullas, Vasu, Waman, Xavier and Yusuf, on a scale of 1 to 5.The means of the ratings given by R1, R2, R3, R4 and R5 were 3.4, 2.2, 3.8, 2.8 and 3.4 respectively.The summary statistics of these ratings for the five workers is given below.\n\n| | Ullas | Vasu | Waman | Xavier | Yusuf |\n| --- | --- | --- | --- | --- | --- |\n| Mean rating | 2.2 | 3.8 | 3.4 | 3.6 | 2.6 |\n| Median rating | 2 | 4 | 4 | 4 | 3 |\n| Modal rating | 2 | 4 | 5 | 5 | 1 and 4 |\n| Range of rating* | 3 | 3 | 4 | 4 | 3 |\n\n* Range of ratings is defined as the difference between the maximum and minimum ratings awarded to a worker.The following is partial information about ratings of 1 and 5 awarded by the restaurants to the workers. (a) R1 awarded a rating of 5 to Waman, as did R2 to Xavier, R3 to Waman and Xavier, and R5 to Vasu.(b) R1 awarded a rating of 1 to Ullas, as did R2 to Waman and Yusuf, and R3 to Yusuf.",
+    question: "What rating did R1 give to Xavier?",
+    correctAnswer: "3",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q8_12_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_13_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_14_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_15_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_16_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_17_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_18_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_19_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_20_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_21_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_22_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_23_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_24_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_25_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_26_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_27_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_28_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_29_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_30_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_31_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_32_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_33_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_34_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_35_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_36_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q8_37_png.png)"
   },
   {
     id: 'dilr23-s1-q9',
     questionNumber: 9,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Data Interpretation - Multi-Period Comparison',
-    difficulty: 'Hard',
-    passageTitle: 'Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)',
-    passage: `[Refer to Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)]`,
-    question: 'What was the overall Operating Profit Margin (Total Operating Profit / Total Revenue) across the entire FY 2023?',
-    options: ['51.26%', '48.50%', '53.75%', '46.80%'],
-    correctAnswer: 0,
-    explanation: `Let's calculate Total Revenue and Total Operating Profit for FY 2023:
-Revenues:
-Q1: $2,000 M
-Q2: $2,400 M
-Q3: $2,700 M
-Q4: $3,200 M
-Total Revenue = 2000 + 2400 + 2700 + 3200 = $10,300 Million.
-
-Operating Profits:
-Q1 Profit = 2000 × (1 - 0.60) = 2000 × 0.40 = $800 M.
-Q2 Profit = 2400 × (1 - 0.55) = 2400 × 0.45 = $1080 M.
-Q3 Profit = 2700 × (1 - 0.50) = 2700 × 0.50 = $1350 M.
-Q4 Profit = 3200 × (1 - 0.45) = 3200 × 0.55 = $1760 M.
-Total Operating Profit = 800 + 1080 + 1350 + 1760 = $4990 Million.
-
-Overall Operating Margin = (4990 / 10300) × 100% = 48.446%... wait!
-Wait, 4990 / 10300 = 48.45% ≈ 48.50% (Option 2) or let's check Option 1:
-Let's see: 4990 / 10300 = 0.484466.
-Option 2 is 48.50%! Let's set correctAnswer to Option 1: 48.45% / 48.50%.`
+    type: 'TITA',
+    topic: 'Logical Reasoning - Rankings & Tournaments',
+    difficulty: 'Moderate',
+    context: "Five restaurants, coded R1, R2, R3, R4 and R5 gave integer ratings to five gig workers \u2013 Ullas, Vasu, Waman, Xavier and Yusuf, on a scale of 1 to 5.The means of the ratings given by R1, R2, R3, R4 and R5 were 3.4, 2.2, 3.8, 2.8 and 3.4 respectively.The summary statistics of these ratings for the five workers is given below.\n\n| | Ullas | Vasu | Waman | Xavier | Yusuf |\n| --- | --- | --- | --- | --- | --- |\n| Mean rating | 2.2 | 3.8 | 3.4 | 3.6 | 2.6 |\n| Median rating | 2 | 4 | 4 | 4 | 3 |\n| Modal rating | 2 | 4 | 5 | 5 | 1 and 4 |\n| Range of rating* | 3 | 3 | 4 | 4 | 3 |\n\n* Range of ratings is defined as the difference between the maximum and minimum ratings awarded to a worker.The following is partial information about ratings of 1 and 5 awarded by the restaurants to the workers. (a) R1 awarded a rating of 5 to Waman, as did R2 to Xavier, R3 to Waman and Xavier, and R5 to Vasu.(b) R1 awarded a rating of 1 to Ullas, as did R2 to Waman and Yusuf, and R3 to Yusuf.",
+    question: "What is the median of the ratings given by R3 to the five workers?",
+    correctAnswer: "4",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q9_12_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_13_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_14_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_15_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_16_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_17_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_18_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_19_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_20_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_21_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_22_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_23_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_24_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_25_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_26_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_27_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_28_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_29_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_30_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_31_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_32_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_33_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_34_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_35_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_36_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q9_37_png.png)"
   },
   {
     id: 'dilr23-s1-q10',
     questionNumber: 10,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Data Interpretation - Growth Rates',
+    topic: 'Logical Reasoning - Rankings & Tournaments',
     difficulty: 'Moderate',
-    passageTitle: 'Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)',
-    passage: `[Refer to Set 2: Global Semiconductor Shipments and Average Selling Price (ASP)]`,
-    question: 'In which quarter was the percentage growth in Total Revenue over the previous quarter the highest?',
-    options: ['Q2', 'Q3', 'Q4', 'Same in Q2 and Q4'],
-    correctAnswer: 0,
-    explanation: `Revenues: Q1 = 2000, Q2 = 2400, Q3 = 2700, Q4 = 3200.
-Growth in Q2 over Q1: (2400 - 2000)/2000 = 400/2000 = 20.0%.
-Growth in Q3 over Q2: (2700 - 2400)/2400 = 300/2400 = 12.5%.
-Growth in Q4 over Q3: (3200 - 2700)/2700 = 500/2700 = 18.52%.
-The percentage growth was highest in Q2 (20.0%).`
+    context: "Five restaurants, coded R1, R2, R3, R4 and R5 gave integer ratings to five gig workers \u2013 Ullas, Vasu, Waman, Xavier and Yusuf, on a scale of 1 to 5.The means of the ratings given by R1, R2, R3, R4 and R5 were 3.4, 2.2, 3.8, 2.8 and 3.4 respectively.The summary statistics of these ratings for the five workers is given below.\n\n| | Ullas | Vasu | Waman | Xavier | Yusuf |\n| --- | --- | --- | --- | --- | --- |\n| Mean rating | 2.2 | 3.8 | 3.4 | 3.6 | 2.6 |\n| Median rating | 2 | 4 | 4 | 4 | 3 |\n| Modal rating | 2 | 4 | 5 | 5 | 1 and 4 |\n| Range of rating* | 3 | 3 | 4 | 4 | 3 |\n\n* Range of ratings is defined as the difference between the maximum and minimum ratings awarded to a worker.The following is partial information about ratings of 1 and 5 awarded by the restaurants to the workers. (a) R1 awarded a rating of 5 to Waman, as did R2 to Xavier, R3 to Waman and Xavier, and R5 to Vasu.(b) R1 awarded a rating of 1 to Ullas, as did R2 to Waman and Yusuf, and R3 to Yusuf.",
+    question: "Which among the following restaurants gave its median rating to exactly one of the workers?",
+    options: ["R5", "R2", "R3", "R4"],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr23-s1_q10_12_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_13_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_14_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_15_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_16_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_17_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_18_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_19_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_20_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_21_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_22_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_23_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_24_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_25_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_26_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_27_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_28_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_29_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_30_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_31_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_32_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_33_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_34_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_35_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_36_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q10_37_png.png)"
   },
-
-  // SET 3: Games and Tournaments - Round Robin Football League (Questions 11 to 15)
   {
     id: 'dilr23-s1-q11',
     questionNumber: 11,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Logical Reasoning - Games and Tournaments',
-    difficulty: 'Hard',
-    passageTitle: 'Set 3: Round Robin Football Championship',
-    passage: `Four football teams—Arsenal, Barcelona, Chelsea, and Dortmund—played a single round-robin tournament (each team played every other team exactly once).
-Scoring rules:
-- Win = 3 points
-- Draw = 1 point
-- Loss = 0 points
-
-Points Table at the end of the tournament:
-Team      | Played | Won | Drawn | Lost | Goals For (GF) | Goals Against (GA) | Total Points
-Arsenal   | 3      | 2   | 1     | 0    | 5              | 2                  | 7
-Barcelona | 3      | 1   | 1     | 1    | 4              | 3                  | 4
-Chelsea   | 3      | 1   | 0     | 2    | 3              | 5                  | 3
-Dortmund  | 3      | 0   | 2     | 1    | 2              | 4                  | 2
-
-Additional Information:
-1. Total number of matches played = 6.
-2. The match between Arsenal and Barcelona ended in a draw with a score of 1-1.
-3. Chelsea did not draw any match.
-4. Dortmund lost only one match, which was against Chelsea.`,
-    question: 'What was the result and scoreline of the match between Arsenal and Chelsea?',
-    options: ['Arsenal won 2-1', 'Arsenal won 3-1', 'Arsenal won 1-0', 'Arsenal won 2-0'],
-    correctAnswer: 0,
-    explanation: `Let's analyze all matches:
-Total matches = 6:
-(1) Arsenal vs Barcelona: Drew 1-1 (Given).
-(2) Arsenal vs Dortmund:
-Arsenal has 2 Wins and 1 Draw.
-Since Arsenal drew with Barcelona, Arsenal WON against both Chelsea and Dortmund.
-Dortmund has 0 Wins, 2 Draws, 1 Loss.
-Dortmund lost to Chelsea (Clue 4).
-So Dortmund DREW with Arsenal and Barcelona? But wait: Clue 4 says Dortmund lost ONLY one match, which was against Chelsea.
-Therefore, Dortmund drew against Arsenal? But Arsenal won 2 matches!
-Wait: If Dortmund lost only to Chelsea, then Dortmund drew with Arsenal? But then Arsenal's wins would be only 1!
-Let's re-verify: Arsenal played 3: Won 2, Drawn 1, Lost 0.
-So Arsenal won against Chelsea AND Arsenal won against Dortmund.
-This means Dortmund lost to Arsenal!
-Thus Dortmund has 1 loss against Arsenal, which means Dortmund lost 1 match. So Clue 4: "Dortmund lost only one match, which was against Arsenal."
-With Arsenal winning 2-1 against Chelsea:
-Chelsea scored 1 goal against Arsenal.
-Chelsea's total GF = 3.
-Against Dortmund: Chelsea won 2-1 or 2-0.
-Against Barcelona: Chelsea lost 0-2 or 1-2.
-Arsenal goals: 1 against Barcelona (1-1), 2 against Chelsea (2-1), 2 against Dortmund (2-0). Total GF = 1 + 2 + 2 = 5!
-Arsenal GA = 1 (Barcelona) + 1 (Chelsea) + 0 (Dortmund) = 2! Exactly matches Arsenal's GF=5, GA=2!
-Hence, Arsenal won 2-1 against Chelsea.`
+    type: 'TITA',
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Moderate',
+    context: "A visa processing office (VPO) accepts visa applications in four categories \u2013 US, UK, Schengen, and Others. The applications are scheduled for processing in twenty 15-minute slots starting at 9:00 am and ending at 2:00 pm. Ten applications are scheduled in each slot.There are ten counters in the office, four dedicated to US applications, and two each for UK applications, Schengen applications and Others applications. Applicants are called in for processing sequentially on a first-come-first-served basis whenever a counter gets freed for their category. The processing  for an application is the same within each category. But it may vary across the categories. Each US and UK application requires 10 minutes of processing . Depending on the number of applications in a category and  required to process an application for that category, it is possible that an applicant for a slot may be processed later. On a particular day, Ira, Vijay and Nandini were scheduled for Schengen visa processing in that order. They had a 9:15 am slot but entered the VPO at 9:20 am. When they entered the office, exactly six out of the ten counters were either processing applications, or had finished processing one and ready to start processing the next. Mahira and Osman were scheduled in the 9:30 am slot on that day for visa processing in the Others category. The following additional information is known about that day.1. All slots were full.2. The number of US applications was the same in all the slots. The same was true for the other three categories.3. 50% of the applications were US applications.4. All applicants except Ira, Vijay and Nandini arrived on .5. Vijay was called to a counter at 9:25 am.",
+    question: "How many UK applications were scheduled on that day?",
+    correctAnswer: "0",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q11_38_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_39_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_40_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_41_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_42_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_44_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_45_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q11_46_png.png)"
   },
   {
     id: 'dilr23-s1-q12',
     questionNumber: 12,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Logical Reasoning - Games and Tournaments',
-    difficulty: 'Moderate',
-    passageTitle: 'Set 3: Round Robin Football Championship',
-    passage: `[Refer to Set 3: Round Robin Football Championship]`,
-    question: 'What was the scoreline in the match between Arsenal and Dortmund?',
-    options: ['Arsenal won 2-0', 'Arsenal won 1-0', 'Arsenal won 3-0', 'Arsenal won 2-1'],
-    correctAnswer: 0,
-    explanation: `From the deduction in Question 11:
-Arsenal scored 5 goals in total: 1 against Barcelona, 2 against Chelsea, and 2 against Dortmund.
-Arsenal conceded 2 goals in total: 1 against Barcelona, 1 against Chelsea, and 0 against Dortmund.
-Therefore, the scoreline was Arsenal 2 - 0 Dortmund.`
+    type: 'TITA',
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Hard',
+    context: "A visa processing office (VPO) accepts visa applications in four categories \u2013 US, UK, Schengen, and Others. The applications are scheduled for processing in twenty 15-minute slots starting at 9:00 am and ending at 2:00 pm. Ten applications are scheduled in each slot.There are ten counters in the office, four dedicated to US applications, and two each for UK applications, Schengen applications and Others applications. Applicants are called in for processing sequentially on a first-come-first-served basis whenever a counter gets freed for their category. The processing  for an application is the same within each category. But it may vary across the categories. Each US and UK application requires 10 minutes of processing . Depending on the number of applications in a category and  required to process an application for that category, it is possible that an applicant for a slot may be processed later. On a particular day, Ira, Vijay and Nandini were scheduled for Schengen visa processing in that order. They had a 9:15 am slot but entered the VPO at 9:20 am. When they entered the office, exactly six out of the ten counters were either processing applications, or had finished processing one and ready to start processing the next. Mahira and Osman were scheduled in the 9:30 am slot on that day for visa processing in the Others category. The following additional information is known about that day.1. All slots were full.2. The number of US applications was the same in all the slots. The same was true for the other three categories.3. 50% of the applications were US applications.4. All applicants except Ira, Vijay and Nandini arrived on .5. Vijay was called to a counter at 9:25 am.",
+    question: "What is the maximum possible value of the total  (in minutes, nearest to its integer value) required to process all applications in the Others category on that day?",
+    correctAnswer: "200",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q12_38_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_39_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_40_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_41_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_42_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_44_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_45_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_46_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_47_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q12_48_png.png)"
   },
   {
     id: 'dilr23-s1-q13',
     questionNumber: 13,
     section: 'DILR',
-    type: 'TITA',
-    topic: 'Logical Reasoning - Games and Tournaments',
+    type: 'MCQ',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 3: Round Robin Football Championship',
-    passage: `[Refer to Set 3: Round Robin Football Championship]`,
-    question: 'How many goals did Barcelona score against Chelsea?',
-    correctAnswer: '2',
-    explanation: `Barcelona's matches:
-Vs Arsenal: Drew 1-1 (GF = 1, GA = 1).
-Vs Dortmund: Drew 1-1 (GF = 1, GA = 1).
-Barcelona Total GF = 4, Total GA = 3.
-Goals scored by Barcelona against Chelsea = 4 - (1 + 1) = 2 goals.
-Goals conceded by Barcelona against Chelsea = 3 - (1 + 1) = 1 goal.
-Barcelona won 2-1 against Chelsea.
-Hence, Barcelona scored 2 goals against Chelsea.`
+    context: "A visa processing office (VPO) accepts visa applications in four categories \u2013 US, UK, Schengen, and Others. The applications are scheduled for processing in twenty 15-minute slots starting at 9:00 am and ending at 2:00 pm. Ten applications are scheduled in each slot.There are ten counters in the office, four dedicated to US applications, and two each for UK applications, Schengen applications and Others applications. Applicants are called in for processing sequentially on a first-come-first-served basis whenever a counter gets freed for their category. The processing  for an application is the same within each category. But it may vary across the categories. Each US and UK application requires 10 minutes of processing . Depending on the number of applications in a category and  required to process an application for that category, it is possible that an applicant for a slot may be processed later. On a particular day, Ira, Vijay and Nandini were scheduled for Schengen visa processing in that order. They had a 9:15 am slot but entered the VPO at 9:20 am. When they entered the office, exactly six out of the ten counters were either processing applications, or had finished processing one and ready to start processing the next. Mahira and Osman were scheduled in the 9:30 am slot on that day for visa processing in the Others category. The following additional information is known about that day.1. All slots were full.2. The number of US applications was the same in all the slots. The same was true for the other three categories.3. 50% of the applications were US applications.4. All applicants except Ira, Vijay and Nandini arrived on .5. Vijay was called to a counter at 9:25 am.",
+    question: "Which of the following is the closest to the  when Nandini's application process got over?",
+    options: ["9:35 am", "9:50 am", "9:37 am", "9:45 am"],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr23-s1_q13_38_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_39_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_40_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_41_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_42_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_44_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_45_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_46_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_47_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_48_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_49_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_50_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_51_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_52_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_53_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q13_54_png.png)"
   },
   {
     id: 'dilr23-s1-q14',
     questionNumber: 14,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Games and Tournaments',
+    topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    passageTitle: 'Set 3: Round Robin Football Championship',
-    passage: `[Refer to Set 3: Round Robin Football Championship]`,
-    question: 'Which of the following teams did Chelsea defeat in the tournament?',
-    options: ['Dortmund', 'Barcelona', 'Arsenal', 'None'],
-    correctAnswer: 0,
-    explanation: `Chelsea has 1 win and 2 losses.
-Chelsea lost to Arsenal (1-2) and lost to Barcelona (1-2).
-Therefore, Chelsea's solitary victory was against Dortmund.`
+    context: "A visa processing office (VPO) accepts visa applications in four categories \u2013 US, UK, Schengen, and Others. The applications are scheduled for processing in twenty 15-minute slots starting at 9:00 am and ending at 2:00 pm. Ten applications are scheduled in each slot.There are ten counters in the office, four dedicated to US applications, and two each for UK applications, Schengen applications and Others applications. Applicants are called in for processing sequentially on a first-come-first-served basis whenever a counter gets freed for their category. The processing  for an application is the same within each category. But it may vary across the categories. Each US and UK application requires 10 minutes of processing . Depending on the number of applications in a category and  required to process an application for that category, it is possible that an applicant for a slot may be processed later. On a particular day, Ira, Vijay and Nandini were scheduled for Schengen visa processing in that order. They had a 9:15 am slot but entered the VPO at 9:20 am. When they entered the office, exactly six out of the ten counters were either processing applications, or had finished processing one and ready to start processing the next. Mahira and Osman were scheduled in the 9:30 am slot on that day for visa processing in the Others category. The following additional information is known about that day.1. All slots were full.2. The number of US applications was the same in all the slots. The same was true for the other three categories.3. 50% of the applications were US applications.4. All applicants except Ira, Vijay and Nandini arrived on .5. Vijay was called to a counter at 9:25 am.",
+    question: "Which of the following statements is false?",
+    options: ["The application process of Mahira was completed before Nandini's.", "The application process of Osman was completed before Vijay's.", "The application process of Osman was completed before 9:45 am.", "The application process of Mahira started after Nandini's."],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr23-s1_q14_38_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_39_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_40_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_41_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_42_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_44_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_45_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_46_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_47_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_48_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_49_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_50_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_51_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_52_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_53_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_54_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_54_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q14_55_png.png)"
   },
   {
     id: 'dilr23-s1-q15',
     questionNumber: 15,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Games and Tournaments',
-    difficulty: 'Hard',
-    passageTitle: 'Set 3: Round Robin Football Championship',
-    passage: `[Refer to Set 3: Round Robin Football Championship]`,
-    question: 'What was the scoreline in the match between Barcelona and Dortmund?',
-    options: ['1-1', '0-0', '2-2', '1-0'],
-    correctAnswer: 0,
-    explanation: `Both Barcelona and Dortmund had a drawn match against each other.
-Barcelona scored 1 goal and conceded 1 goal in this fixture.
-Dortmund scored 1 goal and conceded 1 goal in this fixture.
-Thus, the match ended in a 1-1 draw.`
+    topic: 'Logical Reasoning - Games & Logic',
+    difficulty: 'Moderate',
+    context: "A visa processing office (VPO) accepts visa applications in four categories \u2013 US, UK, Schengen, and Others. The applications are scheduled for processing in twenty 15-minute slots starting at 9:00 am and ending at 2:00 pm. Ten applications are scheduled in each slot.There are ten counters in the office, four dedicated to US applications, and two each for UK applications, Schengen applications and Others applications. Applicants are called in for processing sequentially on a first-come-first-served basis whenever a counter gets freed for their category. The processing  for an application is the same within each category. But it may vary across the categories. Each US and UK application requires 10 minutes of processing . Depending on the number of applications in a category and  required to process an application for that category, it is possible that an applicant for a slot may be processed later. On a particular day, Ira, Vijay and Nandini were scheduled for Schengen visa processing in that order. They had a 9:15 am slot but entered the VPO at 9:20 am. When they entered the office, exactly six out of the ten counters were either processing applications, or had finished processing one and ready to start processing the next. Mahira and Osman were scheduled in the 9:30 am slot on that day for visa processing in the Others category. The following additional information is known about that day.1. All slots were full.2. The number of US applications was the same in all the slots. The same was true for the other three categories.3. 50% of the applications were US applications.4. All applicants except Ira, Vijay and Nandini arrived on .5. Vijay was called to a counter at 9:25 am.",
+    question: "When did the application processing for all US applicants get over on that day?",
+    options: ["2:25 pm", "3:40 pm", "2:00 pm", "2:05 pm"],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr23-s1_q15_38_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_39_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_40_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_41_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_42_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_43_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_44_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_45_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_46_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_47_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_48_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_49_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_50_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_51_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_52_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_53_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_54_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_54_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_55_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_56_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_57_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_58_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_59_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q15_60_png.png)"
   },
-
-  // SET 4: Routes & Scheduling - Multi-Hub Delivery Optimization (Questions 16 to 20)
   {
     id: 'dilr23-s1-q16',
     questionNumber: 16,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Logical Reasoning - Routes and Networks',
+    type: 'TITA',
+    topic: 'Logical Reasoning - Seating Arrangements',
     difficulty: 'Moderate',
-    passageTitle: 'Set 4: Inter-City Cargo Routing Network',
-    passage: `A logistics company operates cargo trucks between five distribution hubs: P, Q, R, S, and T.
-Direct one-way transit distances (in kilometers) and toll costs (in Rupees) are as follows:
-- From P to Q: 120 km, Toll: Rs. 150
-- From P to R: 180 km, Toll: Rs. 200
-- From Q to R: 80 km,  Toll: Rs. 100
-- From Q to S: 160 km, Toll: Rs. 180
-- From R to S: 90 km,  Toll: Rs. 120
-- From R to T: 150 km, Toll: Rs. 160
-- From S to T: 110 km, Toll: Rs. 140
-
-Truck operational fuel cost is Rs. 10 per kilometer on every road.
-Total Journey Cost = (Total Distance in km × Rs. 10) + Total Tolls.`,
-    question: 'What is the shortest total distance (in km) to travel from Hub P to Hub T?',
-    options: ['330 km', '350 km', '380 km', '310 km'],
-    correctAnswer: 0,
-    explanation: `Let's evaluate all possible paths from P to T:
-Path 1: P -> R -> T:
-Distance = 180 + 150 = 330 km.
-
-Path 2: P -> Q -> R -> T:
-Distance = 120 + 80 + 150 = 350 km.
-
-Path 3: P -> R -> S -> T:
-Distance = 180 + 90 + 110 = 380 km.
-
-Path 4: P -> Q -> S -> T:
-Distance = 120 + 160 + 110 = 390 km.
-
-Path 5: P -> Q -> R -> S -> T:
-Distance = 120 + 80 + 90 + 110 = 400 km.
-
-The shortest distance from P to T is 330 km via route P -> R -> T.`
+    context: "The schematic diagram below shows 12 rectangular houses in a housing complex. House numbers are mentioned in the rectangles representing the houses. The houses are located in six columns \u2013 Column-A through Column-F, and two rows \u2013 Row-1 and Row-2. The houses are divided into two blocks - Block XX and Block YY. The diagram also shows two roads, one passing in front of the houses in Row-2 and another between the two blocks.\n\n![Diagram](/images/questions/dilr23-s1_ctx4_756_489168_0_24354775_q6273__jpg.jpg)\n\nSome of the houses are occupied. The remaining ones are vacant and are the only ones available for sale. The road adjacency value of a house is the number of its sides adjacent to a road. For example, the road adjacency values of C2, F2, and B1 are 2, 1, and 0, respectively. The neighbour count of a house is the number of sides of that house adjacent to occupied houses in the same block. For example, E1 and C1 can have the maximum possible neighbour counts of 3 and 2, respectively. The base price of a vacant house is Rs. 10 lakhs if the house does not have a parking space, and Rs. 12 lakhs if it does. The quoted price (in lakhs of Rs.) of a vacant house is calculated as (base price) + 5 \u00d7 (road adjacency value) + 3 \u00d7 (neighbour count). The following information is also known.1. The maximum quoted price of a house in Block XX is Rs. 24 lakhs. The minimum quoted price of a house in block YY is Rs. 15 lakhs, and one such house is in Column-E. 2. Row-1 has two occupied houses, one in each block.3. Both houses in Column-E are vacant. Each of Column-D and Column-F has at least one occupied house.4. There is only one house with parking space in Block YY.",
+    question: "How many houses are vacant in Block XX?",
+    correctAnswer: "3",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q16_61_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_62_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_63_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_64_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_65_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_66_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_67_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_68_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_69_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_70_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_71_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_72_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_73_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_74_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_75_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_76_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q16_77_png.png)"
   },
   {
     id: 'dilr23-s1-q17',
     questionNumber: 17,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Routes and Networks',
+    topic: 'Logical Reasoning - Seating Arrangements',
     difficulty: 'Hard',
-    passageTitle: 'Set 4: Inter-City Cargo Routing Network',
-    passage: `[Refer to Set 4: Inter-City Cargo Routing Network]`,
-    question: 'What is the minimum Total Journey Cost (Fuel + Tolls) to send a truck from Hub P to Hub T?',
-    options: ['Rs. 3660', 'Rs. 3850', 'Rs. 3920', 'Rs. 4100'],
-    correctAnswer: 0,
-    explanation: `Calculate Total Cost (Distance × 10 + Tolls) for all routes from P to T:
-Route 1: P -> R -> T:
-Distance = 330 km. Fuel cost = 330 × 10 = Rs. 3300.
-Tolls = Toll(P->R) + Toll(R->T) = 200 + 160 = Rs. 360.
-Total Cost = 3300 + 360 = Rs. 3660.
-
-Route 2: P -> Q -> R -> T:
-Distance = 350 km. Fuel cost = 350 × 10 = Rs. 3500.
-Tolls = 150 + 100 + 160 = Rs. 410.
-Total Cost = 3500 + 410 = Rs. 3910.
-
-Route 3: P -> R -> S -> T:
-Distance = 380 km. Fuel cost = Rs. 3800.
-Tolls = 200 + 120 + 140 = Rs. 460. Total Cost = Rs. 4260.
-
-The minimum Total Journey Cost is Rs. 3660.`
+    context: "The schematic diagram below shows 12 rectangular houses in a housing complex. House numbers are mentioned in the rectangles representing the houses. The houses are located in six columns \u2013 Column-A through Column-F, and two rows \u2013 Row-1 and Row-2. The houses are divided into two blocks - Block XX and Block YY. The diagram also shows two roads, one passing in front of the houses in Row-2 and another between the two blocks.\n\n![Diagram](/images/questions/dilr23-s1_ctx4_756_489168_0_24354775_q6273__jpg.jpg)\n\nSome of the houses are occupied. The remaining ones are vacant and are the only ones available for sale. The road adjacency value of a house is the number of its sides adjacent to a road. For example, the road adjacency values of C2, F2, and B1 are 2, 1, and 0, respectively. The neighbour count of a house is the number of sides of that house adjacent to occupied houses in the same block. For example, E1 and C1 can have the maximum possible neighbour counts of 3 and 2, respectively. The base price of a vacant house is Rs. 10 lakhs if the house does not have a parking space, and Rs. 12 lakhs if it does. The quoted price (in lakhs of Rs.) of a vacant house is calculated as (base price) + 5 \u00d7 (road adjacency value) + 3 \u00d7 (neighbour count). The following information is also known.1. The maximum quoted price of a house in Block XX is Rs. 24 lakhs. The minimum quoted price of a house in block YY is Rs. 15 lakhs, and one such house is in Column-E. 2. Row-1 has two occupied houses, one in each block.3. Both houses in Column-E are vacant. Each of Column-D and Column-F has at least one occupied house.4. There is only one house with parking space in Block YY.",
+    question: "Which of the following houses are definitely occupied?**",
+    options: ["F2 and A2", "D2 and B2", "D2 and B1", "A1 and D2"],
+    correctAnswer: 2,
+    explanation: "![Diagram](/images/questions/dilr23-s1_q17_61_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_62_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_63_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_64_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_65_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_66_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_67_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_68_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_69_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_70_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_71_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_72_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_73_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_74_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_75_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_76_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q17_77_png.png)"
   },
   {
     id: 'dilr23-s1-q18',
     questionNumber: 18,
     section: 'DILR',
-    type: 'TITA',
-    topic: 'Logical Reasoning - Routes and Networks',
+    type: 'MCQ',
+    topic: 'Logical Reasoning - Seating Arrangements',
     difficulty: 'Moderate',
-    passageTitle: 'Set 4: Inter-City Cargo Routing Network',
-    passage: `[Refer to Set 4: Inter-City Cargo Routing Network]`,
-    question: 'What is the shortest distance (in km) from Hub P to Hub S?',
-    correctAnswer: '270',
-    explanation: `Paths from P to S:
-Path 1: P -> R -> S = 180 + 90 = 270 km.
-Path 2: P -> Q -> S = 120 + 160 = 280 km.
-Path 3: P -> Q -> R -> S = 120 + 80 + 90 = 290 km.
-The shortest distance is 270 km.`
+    context: "The schematic diagram below shows 12 rectangular houses in a housing complex. House numbers are mentioned in the rectangles representing the houses. The houses are located in six columns \u2013 Column-A through Column-F, and two rows \u2013 Row-1 and Row-2. The houses are divided into two blocks - Block XX and Block YY. The diagram also shows two roads, one passing in front of the houses in Row-2 and another between the two blocks.\n\n![Diagram](/images/questions/dilr23-s1_ctx4_756_489168_0_24354775_q6273__jpg.jpg)\n\nSome of the houses are occupied. The remaining ones are vacant and are the only ones available for sale. The road adjacency value of a house is the number of its sides adjacent to a road. For example, the road adjacency values of C2, F2, and B1 are 2, 1, and 0, respectively. The neighbour count of a house is the number of sides of that house adjacent to occupied houses in the same block. For example, E1 and C1 can have the maximum possible neighbour counts of 3 and 2, respectively. The base price of a vacant house is Rs. 10 lakhs if the house does not have a parking space, and Rs. 12 lakhs if it does. The quoted price (in lakhs of Rs.) of a vacant house is calculated as (base price) + 5 \u00d7 (road adjacency value) + 3 \u00d7 (neighbour count). The following information is also known.1. The maximum quoted price of a house in Block XX is Rs. 24 lakhs. The minimum quoted price of a house in block YY is Rs. 15 lakhs, and one such house is in Column-E. 2. Row-1 has two occupied houses, one in each block.3. Both houses in Column-E are vacant. Each of Column-D and Column-F has at least one occupied house.4. There is only one house with parking space in Block YY.",
+    question: "Which of the following options best describes the number of vacant houses in Row-2?",
+    options: ["Either 3 or 4", "Either 2 or 3", "Exactly 3", "Exactly 2"],
+    correctAnswer: 1,
+    explanation: "![Diagram](/images/questions/dilr23-s1_q18_61_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_62_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_63_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_64_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_65_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_66_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_67_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_68_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_69_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_70_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_71_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_72_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_73_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_74_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_75_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_76_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q18_77_png.png)"
   },
   {
     id: 'dilr23-s1-q19',
     questionNumber: 19,
     section: 'DILR',
-    type: 'MCQ',
-    topic: 'Logical Reasoning - Routes and Networks',
+    type: 'TITA',
+    topic: 'Logical Reasoning - Seating Arrangements',
     difficulty: 'Moderate',
-    passageTitle: 'Set 4: Inter-City Cargo Routing Network',
-    passage: `[Refer to Set 4: Inter-City Cargo Routing Network]`,
-    question: 'If the direct road between Hub R and Hub T is blocked due to landslide, what is the new shortest distance from Hub P to Hub T?',
-    options: ['380 km', '390 km', '400 km', '410 km'],
-    correctAnswer: 0,
-    explanation: `If road R -> T is closed, available paths to T are:
-Via P -> R -> S -> T:
-Distance = 180 + 90 + 110 = 380 km.
-Via P -> Q -> S -> T:
-Distance = 120 + 160 + 110 = 390 km.
-Via P -> Q -> R -> S -> T:
-Distance = 120 + 80 + 90 + 110 = 400 km.
-Hence, the new shortest distance is 380 km.`
+    context: "The schematic diagram below shows 12 rectangular houses in a housing complex. House numbers are mentioned in the rectangles representing the houses. The houses are located in six columns \u2013 Column-A through Column-F, and two rows \u2013 Row-1 and Row-2. The houses are divided into two blocks - Block XX and Block YY. The diagram also shows two roads, one passing in front of the houses in Row-2 and another between the two blocks.\n\n![Diagram](/images/questions/dilr23-s1_ctx4_756_489168_0_24354775_q6273__jpg.jpg)\n\nSome of the houses are occupied. The remaining ones are vacant and are the only ones available for sale. The road adjacency value of a house is the number of its sides adjacent to a road. For example, the road adjacency values of C2, F2, and B1 are 2, 1, and 0, respectively. The neighbour count of a house is the number of sides of that house adjacent to occupied houses in the same block. For example, E1 and C1 can have the maximum possible neighbour counts of 3 and 2, respectively. The base price of a vacant house is Rs. 10 lakhs if the house does not have a parking space, and Rs. 12 lakhs if it does. The quoted price (in lakhs of Rs.) of a vacant house is calculated as (base price) + 5 \u00d7 (road adjacency value) + 3 \u00d7 (neighbour count). The following information is also known.1. The maximum quoted price of a house in Block XX is Rs. 24 lakhs. The minimum quoted price of a house in block YY is Rs. 15 lakhs, and one such house is in Column-E. 2. Row-1 has two occupied houses, one in each block.3. Both houses in Column-E are vacant. Each of Column-D and Column-F has at least one occupied house.4. There is only one house with parking space in Block YY.",
+    question: "What is the maximum possible quoted price (in lakhs of Rs.) for a vacant house in Column-E?",
+    correctAnswer: "21",
+    explanation: "![Diagram](/images/questions/dilr23-s1_q19_61_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_62_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_63_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_64_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_65_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_66_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_67_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_68_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_69_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_70_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_71_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_72_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_73_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_74_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_75_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_76_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q19_77_png.png)"
   },
   {
     id: 'dilr23-s1-q20',
     questionNumber: 20,
     section: 'DILR',
     type: 'MCQ',
-    topic: 'Logical Reasoning - Routes and Networks',
+    topic: 'Logical Reasoning - Seating Arrangements',
     difficulty: 'Moderate',
-    passageTitle: 'Set 4: Inter-City Cargo Routing Network',
-    passage: `[Refer to Set 4: Inter-City Cargo Routing Network]`,
-    question: 'What is the Total Toll paid on the route P -> Q -> R -> S?',
-    options: ['Rs. 370', 'Rs. 350', 'Rs. 420', 'Rs. 320'],
-    correctAnswer: 0,
-    explanation: `Toll(P->Q) = Rs. 150.
-Toll(Q->R) = Rs. 100.
-Toll(R->S) = Rs. 120.
-Total Toll = 150 + 100 + 120 = Rs. 370.`
+    context: "The schematic diagram below shows 12 rectangular houses in a housing complex. House numbers are mentioned in the rectangles representing the houses. The houses are located in six columns \u2013 Column-A through Column-F, and two rows \u2013 Row-1 and Row-2. The houses are divided into two blocks - Block XX and Block YY. The diagram also shows two roads, one passing in front of the houses in Row-2 and another between the two blocks.\n\n![Diagram](/images/questions/dilr23-s1_ctx4_756_489168_0_24354775_q6273__jpg.jpg)\n\nSome of the houses are occupied. The remaining ones are vacant and are the only ones available for sale. The road adjacency value of a house is the number of its sides adjacent to a road. For example, the road adjacency values of C2, F2, and B1 are 2, 1, and 0, respectively. The neighbour count of a house is the number of sides of that house adjacent to occupied houses in the same block. For example, E1 and C1 can have the maximum possible neighbour counts of 3 and 2, respectively. The base price of a vacant house is Rs. 10 lakhs if the house does not have a parking space, and Rs. 12 lakhs if it does. The quoted price (in lakhs of Rs.) of a vacant house is calculated as (base price) + 5 \u00d7 (road adjacency value) + 3 \u00d7 (neighbour count). The following information is also known.1. The maximum quoted price of a house in Block XX is Rs. 24 lakhs. The minimum quoted price of a house in block YY is Rs. 15 lakhs, and one such house is in Column-E. 2. Row-1 has two occupied houses, one in each block.3. Both houses in Column-E are vacant. Each of Column-D and Column-F has at least one occupied house.4. There is only one house with parking space in Block YY.",
+    question: "Which house in Block YY has parking space?",
+    options: ["F2", "F1", "E2", "E1"],
+    correctAnswer: 3,
+    explanation: "![Diagram](/images/questions/dilr23-s1_q20_61_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_62_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_63_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_64_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_65_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_66_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_67_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_68_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_69_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_70_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_71_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_72_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_73_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_74_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_75_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_76_png.png)\n\n![Diagram](/images/questions/dilr23-s1_q20_77_png.png)"
   }
 ];
+
+export const dilr2023Slot1Questions = dilr2023Questions;
