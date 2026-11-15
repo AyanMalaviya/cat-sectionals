@@ -14,7 +14,9 @@ import {
   ChevronDown,
   ChevronUp,
   ArrowLeft,
-  Copy
+  Copy,
+  Lightbulb,
+  AlertCircle
 } from 'lucide-react';
 import { MathText } from '../MathText';
 import { formatQuestionForClipboard, copyTextToClipboard } from '../../utils/clipboard';
@@ -111,6 +113,28 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
           >
             Dashboard
           </button>
+        </div>
+      </div>
+
+      {/* Solutions Verification Notice */}
+      <div className="mb-6 p-4 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 rounded-2xl flex items-start gap-3 text-xs sm:text-sm text-amber-900 dark:text-amber-200 shadow-2xs">
+        <div className="p-1.5 bg-amber-100 dark:bg-amber-900/60 rounded-lg shrink-0 mt-0.5 text-amber-700 dark:text-amber-300">
+          <AlertCircle className="w-4 h-4" />
+        </div>
+        <div className="space-y-1">
+          <p className="font-bold text-slate-900 dark:text-slate-100">
+            Solution Verification Note
+          </p>
+          <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+            In case you believe a solution is incorrect, please confirm it once with Google or official exam keys and email us at{' '}
+            <a
+              href={`mailto:contact@cbtmocks.online?subject=${encodeURIComponent(`Solution Review: ${test.title}`)}`}
+              className="font-bold text-blue-700 dark:text-blue-400 hover:underline"
+            >
+              contact@cbtmocks.online
+            </a>
+            —we will look into it right away.
+          </p>
         </div>
       </div>
 
@@ -419,6 +443,38 @@ export const DetailedAnalysis: React.FC<DetailedAnalysisProps> = ({
                         <div className="font-mono text-lg font-bold px-4 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border-2 border-emerald-400 dark:border-emerald-600 text-emerald-800 dark:text-emerald-300">
                           <MathText text={String(q.correctAnswer)} />
                         </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Solution & Explanation */}
+                  {q.explanation && (
+                    <div className="mt-6 bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 rounded-2xl p-4 sm:p-5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed">
+                      <div className="flex items-center gap-2 mb-2 text-blue-900 dark:text-blue-300 font-bold text-xs uppercase tracking-wider">
+                        <Lightbulb className="w-4 h-4 text-amber-500 shrink-0" />
+                        <span>Solution &amp; Explanation</span>
+                      </div>
+                      <div className="font-normal whitespace-pre-line leading-relaxed space-y-2">
+                        <MathText text={q.explanation} />
+                      </div>
+
+                      {/* Verification Note */}
+                      <div className="mt-3.5 pt-3 border-t border-blue-200/60 dark:border-blue-900/40 flex items-start gap-2 text-[11px] sm:text-xs text-slate-600 dark:text-slate-400">
+                        <span className="text-blue-600 dark:text-blue-400 font-bold shrink-0">📌 Note:</span>
+                        <span>
+                          In case a solution is incorrect, confirm it once with Google and email{' '}
+                          <a
+                            href={`mailto:contact@cbtmocks.online?subject=${encodeURIComponent(
+                              `Question Discrepancy: ${test.title} (Q${q.questionNumber})`
+                            )}&body=${encodeURIComponent(
+                              `Hi CBTMocks Team,\n\nI noticed an issue with Question ${q.questionNumber} (ID: ${q.id}) in test "${test.title}".\n\nIssue Details:\n`
+                            )}`}
+                            className="font-semibold text-blue-700 dark:text-blue-400 hover:underline"
+                          >
+                            contact@cbtmocks.online
+                          </a>
+                          —we will look into it.
+                        </span>
                       </div>
                     </div>
                   )}
