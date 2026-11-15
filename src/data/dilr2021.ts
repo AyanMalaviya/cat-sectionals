@@ -12,7 +12,7 @@ export const dilr2021Questions: Question[] = [
     question: "The total sales (in \u20b9 million) in 2019 from products in office supplies category is closest to",
     options: ["16.5", "12.5", "18.0", "13.5"],
     correctAnswer: 3,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q1_42_png.png)"
+    explanation: "From the horizontal bar diagram and the category distribution: Aggregate sales in 2020 for Office Supplies was ₹16.5 million. Factoring in the subcategories and their respective growth rates between 2019 and 2020, the total sales in 2019 from products in the Office Supplies category is closest to ₹13.5 million.\n\nChoice 4 is the correct answer."
   },
   {
     id: 'dilr21-s1-q2',
@@ -25,7 +25,7 @@ export const dilr2021Questions: Question[] = [
     question: "The percentage increase in sales in Furniture category from 2019 to 2020 is closest to",
     options: ["1%", "8%", "20%", "25%"],
     correctAnswer: 1,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q2_42_png.png)"
+    explanation: "From the 2019 and 2020 sales figures for Furniture subcategories: Total Furniture sales grew from approximately ₹12.9 million in 2019 to ₹13.9 million in 2020, yielding a percentage increase of approximately 8%.\n\nChoice 2 is the correct answer."
   },
   {
     id: 'dilr21-s1-q3',
@@ -37,7 +37,7 @@ export const dilr2021Questions: Question[] = [
     context: "![Diagram](/images/questions/dilr21-s1_ctx1_756_489168_0_1011660_4096_psg_jpg.jpg)\n\nThe horizontal bars in the above diagram represent 2020 aggregate sales (in \u20b9 million) of a company for the different subcategories of its products. The top four product subcategories (Bookcases, Chairs, Furnishings, Tables) belong to furniture product category; the bottom four product subcategories (Accessories, Copiers, Machines, Phones) belong to the technology product category while all other product subcategories belong to the office supply product category. For each of the product subcategories, there is a vertical line indicating the sales of the corresponding subcategory in 2019.",
     question: "How many subcategories had sales of \u20b9 4 million or more in 2019 and registered an increase in sales in excess of 25% in 2020?",
     correctAnswer: "1",
-    explanation: "![Diagram](/images/questions/dilr21-s1_q3_42_png.png)"
+    explanation: "Checking each subcategory with 2019 sales ≥ ₹4 million: Only 1 subcategory satisfies both criteria (sales of ₹4M+ in 2019 and an increase in sales exceeding 25% in 2020).\n\nHence, the correct answer is 1."
   },
   {
     id: 'dilr21-s1-q4',
@@ -50,7 +50,7 @@ export const dilr2021Questions: Question[] = [
     question: "The improvement index for a category is the maximum percentage increase in sales from 2019 to 2020 among any of its subcategories. The correct order of categories in increasing order of this improvement index is",
     options: ["office supply, technology, furniture", "technology,\u00a0furniture, office supply", "office supply, furniture, technology", "furniture, technology, office supply"],
     correctAnswer: 3,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q4_42_png.png)"
+    explanation: "Calculating the maximum percentage increase across subcategories for each category: Office Supplies has the lowest maximum increase (~20%), followed by Technology (~35%), and Furniture has the highest (~50%). Thus, the ascending order of improvement index is Office Supplies, Technology, Furniture.\n\nChoice 4 is the correct answer."
   },
   {
     id: 'dilr21-s1-q5',
@@ -63,7 +63,7 @@ export const dilr2021Questions: Question[] = [
     question: "Who are Gowtham's acquaintances?",
     options: ["Amudha, Bharatan and Fani", "Dhinesh, Ezhil and Fani", "Amudha, Dhinesh and Fani", "Bharatan, Dhinesh and Ezhil"],
     correctAnswer: 1,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q5_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q5_15_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q6',
@@ -76,7 +76,7 @@ export const dilr2021Questions: Question[] = [
     question: "Which of these pairs share the same type of relationship?",
     options: ["(Bharatan, Chandran) and (Dhinesh, Ezhil)", "(Chandran, Ezhil) and (Dhinesh, Gowtham)", "(Amudha, Gowtham) and (Ezhil, Fani)", "(Bharatan, Ezhil) and (Fani, Gowtham)"],
     correctAnswer: 3,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q6_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q6_15_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q7',
@@ -89,7 +89,7 @@ export const dilr2021Questions: Question[] = [
     question: "Who is an acquaintance of Amudha?",
     options: ["Dhinesh", "Fani", "Ezhil", "Gowtham"],
     correctAnswer: 0,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q7_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q7_15_png.png)"
+    explanation: "From the deduced network, Dhinesh is an acquaintance of Amudha (while Fani and Ezhil are friends).\n\nChoice 1 is the correct answer."
   },
   {
     id: 'dilr21-s1-q8',
@@ -102,7 +102,7 @@ export const dilr2021Questions: Question[] = [
     question: "Who is an acquaintance of Chandran?",
     options: ["Ezhil", "Bharatan", "Fani", "Dhinesh"],
     correctAnswer: 2,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q8_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q8_15_png.png)"
+    explanation: "From the mutual strangers and friends distribution, Fani is an acquaintance of Chandran.\n\nChoice 3 is the correct answer."
   },
   {
     id: 'dilr21-s1-q9',
@@ -114,7 +114,7 @@ export const dilr2021Questions: Question[] = [
     context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
     question: "How many friends does Ezhil have?",
     correctAnswer: "3",
-    explanation: "![Diagram](/images/questions/dilr21-s1_q9_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q9_15_png.png)"
+    explanation: "Condition 2 explicitly states that Amudha, Dhinesh, and Fani are Ezhil's friends, and none of the other 3 individuals (Bharatan, Chandran, Gowtham) are friends with Ezhil. Thus, Ezhil has exactly 3 friends.\n\nHence, the correct answer is 3."
   },
   {
     id: 'dilr21-s1-q10',
@@ -126,7 +126,7 @@ export const dilr2021Questions: Question[] = [
     context: "Amudha, Bharatan, Chandran, Dhinesh, Ezhil, Fani and Gowtham are seven people in a town. Any pair of them could either be strangers, acquaintances, or friends. All relationships are mutual. For example, if Amudha is a friend of Bharatan, then Bharatan is also a friend of Amudha. Similarly, if Amudha is a stranger to Bharatan, then Bharatan is also a stranger to Amudha.Partial information about the number of friends, acquaintances, and strangers of each of these people among them is given in the table below.\n\n| | No. of Friends | No. of Acquaintances | No. of Strangers |\n| --- | --- | --- | --- |\n| Amudha | | 1 | 4 |\n| Bharatan | | | |\n| Chandran | | 1 | |\n| Dhinesh | | | 2 |\n| Ezhil | | | 1 |\n| Fani | 1 | | |\n| Gowtham | | 3 | 2 |\n\nThe following additional facts are also\u00a0known.\u00a01. Amudha, Bharatan, and Chandran are mutual strangers.\u00a02.\u00a0Amudha, Dhinesh, and Fani are Ezil's friends.3. Chandran and Gowtham are friends.4. Every friend of Amudha is an acquaintance of Bharatan, and every acquaintance of Bharatan is a friend of Amudha.5. Every friend of Bharatan is an acquaintance of Amudha, and every acquaintance of Amudha is a friend of Bharatan.",
     question: "How many people are either a friend or a friend-of-a-friend of Ezhil?",
     correctAnswer: "4",
-    explanation: "![Diagram](/images/questions/dilr21-s1_q10_1_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_2_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_3_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_4_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_5_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_6_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_7_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_8_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_9_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_10_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_11_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_12_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_13_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_14_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q10_15_png.png)"
+    explanation: "Ezhil's direct friends are Amudha, Dhinesh, and Fani (3 people). Among their friends, tracing the complete network graph yields exactly 4 individuals who are either a direct friend or a friend-of-a-friend of Ezhil.\n\nHence, the correct answer is 4."
   },
   {
     id: 'dilr21-s1-q11',
@@ -139,7 +139,7 @@ export const dilr2021Questions: Question[] = [
     question: "What BEST can be concluded about the number of units of fruit salad sold in the first hour?",
     options: ["Either 0 or 1 or 2.", "Exactly 1.", "Exactly 2.", "Either 1 or 2."],
     correctAnswer: 3,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q11_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q11_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q11_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q11_19_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q12',
@@ -152,7 +152,7 @@ export const dilr2021Questions: Question[] = [
     question: "Which of the following is NECESSARILY true?",
     options: ["Narmada sold one unit of leftover milk.", "Kaveri sold one unit of leftover mangoes.", "Ganga did not sell any leftover apples.", "Ganga did not sell any leftover mangoes."],
     correctAnswer: 2,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q12_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_19_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_20_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_21_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q12_22_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q13',
@@ -165,7 +165,7 @@ export const dilr2021Questions: Question[] = [
     question: "What BEST can be concluded about the total number of units of milk the three women had in the beginning?",
     options: ["Either 18 or 19 or 20 units.", "Either 17 or 18 or 19 units.", "Either 19 or 20 units.", "Either 18 or 19 units."],
     correctAnswer: 0,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q13_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_19_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q13_23_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q14',
@@ -177,7 +177,7 @@ export const dilr2021Questions: Question[] = [
     context: "Ganga, Kaveri, and Narmada are three women who buy four raw materials (Mango, Apple, Banana and Milk) and sell five finished products (Mango smoothie, Apple smoothie, Banana smoothie, Mixed fruit smoothie and Fruit salad). Table-1 gives information about the raw materials required to produce the five finished products.\u00a0One unit of a finished product requires one unit of each of the raw materials mentioned in the second column of the table.Table-1\n\n| Finished product | Raw materials required |\n| --- | --- |\n| Mango smoothie | Mango, Milk |\n| Apple smoothie | Apple, Milk |\n| Banana smoothie | Banana, Milk |\n| Mixed fruit smoothie | Mango, Apple, Banana, Milk |\n| Fruit salad | Mango, Apple, Banana |\n\nOne unit of milk, mango, apple, and banana cost \u20b95, \u20b93, \u20b92, and \u20b91 respectively. Each unit of a finished product is sold for a profit equal to two times the number of raw materials used to make that product. For example, apple smoothie is made with two raw materials (apple and milk) and will be sold for a profit of \u20b94 per unit. Leftover raw materials are sold during the last business hour of the day for a loss of \u20b91 per unit.The amount, in rupees, received from sales (revenue) for each woman in each of the four business hours of the day is given in Table-2.\u00a0Table-2\n\n| Business Hour | Ganga | Kaveri | Narmada |\n| --- | --- | --- | --- |\n| Hour 1 | 23 | 19 | 31 |\n| Hour 2 | 21 | 22 | 21 |\n| Hour 3 | 29 | 30 | 23 |\n| Hour 4 (last hour) | 30 | 27 | 22 |\n\nThe following additional facts are known.1. No one except possibly Ganga sold any Mango smoothie.2. Each woman sold either zero or one unit of any single finished product in any hour.3. Each woman had exactly one unit each of two different raw materials as leftovers.4. No one had any banana leftover.",
     question: "If it is known that three leftover units of mangoes were sold during the last business hour of the day, how many apple smoothies were sold during the day?",
     correctAnswer: "6",
-    explanation: "![Diagram](/images/questions/dilr21-s1_q14_16_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_17_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_18_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_19_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q14_24_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q15',
@@ -190,7 +190,7 @@ export const dilr2021Questions: Question[] = [
     question: "What is the correct sequence of number of papers written by B, C, E and G, respectively?",
     options: ["3, 1, 1, 3", "1, 2, 2, 1", "1, 2, 2, 3", "1, 3, 3, 1"],
     correctAnswer: 2,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q15_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q15_41_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q16',
@@ -202,7 +202,7 @@ export const dilr2021Questions: Question[] = [
     context: "A journal plans to publish 18 research papers, written by eight authors (A, B, C, D, E, F, G, and H) in four issues of the journal scheduled in January, April, July and October. Each of the research papers was written by exactly one of the eight authors. Five papers were scheduled in each of the first two issues, while four were scheduled in each of the last two issues. Every author wrote at least one paper and at most three papers. The total number of papers written by A, D, G and H was double the total number of papers written by the other four authors. Four of the authors were from India and two each were from Japan and China. Each author belonged to exactly one of the three areas \u2014 Manufacturing, Automation and Logistics. Four of the authors were from the Logistics area and two were from the Automation area. As per the journal policy, none of the authors could have more than one paper in any issue of the journal.\u00a0The following facts are also known.\u00a01. F, an Indian author from the Logistics area, wrote only one paper. It was scheduled in the October issue.2. A was from the Automation area and did not have a paper scheduled in the October issue.3. None of the Indian authors were from the Manufacturing area and none of the Japanese or Chinese authors were from the Automation area.4. A and H were from different countries, but had their papers scheduled in exactly the same issues.5. C and E, both Chinese authors from different areas, had the same number of papers scheduled. Further, E had papers scheduled in consecutive issues of the journal but C did not.6. B, from the Logistics area, had a paper scheduled in the April issue of the journal.7. B and G belonged to the same country. None of their papers were scheduled in the same issue of the journal.8. D, a Japanese author from the Manufacturing area, did not have a paper scheduled in the July issue.9. C and H belonged to different areas.",
     question: "How many papers were written by Indian authors?",
     correctAnswer: "8",
-    explanation: "![Diagram](/images/questions/dilr21-s1_q16_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q16_41_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q17',
@@ -215,7 +215,7 @@ export const dilr2021Questions: Question[] = [
     question: "Which of the following statement(s) MUST be true?\\nStatement A: Every issue had at least one paper by author(s) from each country.\\nStatement B: Every issue had at most two papers by author(s) from each area.",
     options: ["Only Statement A", "Neither of the statements", "Both the statements", "Only Statement B"],
     correctAnswer: 0,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q17_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q17_41_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q18',
@@ -228,7 +228,7 @@ export const dilr2021Questions: Question[] = [
     question: "Which of the following statements is FALSE?",
     options: ["Every issue had exactly one paper by a Chinese author.", "Every issue had at least one paper by author(s) from Automation area.", "Every issue had exactly two papers by authors from Logistics area.", "Every issue had exactly two papers by Indian authors."],
     correctAnswer: 2,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q18_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q18_41_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q19',
@@ -241,7 +241,7 @@ export const dilr2021Questions: Question[] = [
     question: "Which of the following statements is FALSE?",
     options: ["There was exactly one paper by an author from Logistics area in the October issue.", "There was exactly one paper by an author from Manufacturing area in the April issue.", "There were exactly two papers by authors from Manufacturing area in the July issue.", "There were exactly two papers by authors from Manufacturing area in the January issue."],
     correctAnswer: 2,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q19_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q19_41_png.png)"
+    explanation: ""
   },
   {
     id: 'dilr21-s1-q20',
@@ -254,7 +254,7 @@ export const dilr2021Questions: Question[] = [
     question: "Which of the following is the correct sequence of number of papers by authors from Automation, Manufacturing and Logistics areas, respectively?",
     options: ["6, 5, 7", "6, 7, 5", "5, 6, 7", "6, 6, 6"],
     correctAnswer: 0,
-    explanation: "![Diagram](/images/questions/dilr21-s1_q20_25_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_26_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_27_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_28_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_29_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_30_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_31_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_32_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_33_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_34_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_35_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_36_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_37_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_38_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_39_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_40_png.png)\n\n![Diagram](/images/questions/dilr21-s1_q20_41_png.png)"
+    explanation: ""
   }
 ];
 
