@@ -4,15 +4,15 @@ import { dilr2026MockQuestions } from './dilr2026Mock';
 import { qa2025Slot1Questions } from './qa2025Slot1';
 import { dilr2025Slot1Questions } from './dilr2025Slot1';
 import { varc2025Slot1Questions } from './varc2025Slot1';
+import { qa2025Slot2Questions } from './qa2025Slot2';
+import { dilr2025Slot2Questions } from './dilr2025Slot2';
+import { varc2025Slot2Questions } from './varc2025Slot2';
+import { qa2025Slot3Questions } from './qa2025Slot3';
+import { dilr2025Slot3Questions } from './dilr2025Slot3';
+import { varc2025Slot3Questions } from './varc2025Slot3';
 import { qa2024Slot1Questions } from './qa2024Slot1';
 import { dilr2024Slot1Questions } from './dilr2024Slot1';
 import { varc2024Slot1Questions } from './varc2024Slot1';
-import { qa2024Slot2Questions } from './qa2024Slot2';
-import { dilr2024Slot2Questions } from './dilr2024Slot2';
-import { varc2024Slot2Questions } from './varc2024Slot2';
-import { qa2024Slot3Questions } from './qa2024Slot3';
-import { dilr2024Slot3Questions } from './dilr2024Slot3';
-import { varc2024Slot3Questions } from './varc2024Slot3';
 import { qa2023Slot1Questions } from './qa2023';
 import { qa2023Slot2Questions } from './qa2023Slot2';
 import { qa2023Slot3Questions } from './qa2023Slot3';
@@ -69,7 +69,7 @@ export const fullSectionalTests: SectionalTest[] = [
     questions: dilr2026MockQuestions,
   },
 
-  // CAT 2025 Full Sectionals
+  // CAT 2025 Full Sectionals (from Cracku Downloads 22846, 22847, 22845)
   {
     id: 'cat-2025-qa-s1',
     title: 'CAT 2025 Slot 1 - Quantitative Aptitude',
@@ -81,7 +81,7 @@ export const fullSectionalTests: SectionalTest[] = [
     totalMarks: 66,
     questionsCount: 22,
     difficulty: 'Moderate',
-    description: 'Official Slot 1 QA paper: Fruit seller ratio mixtures, Surds radicals, Acid-water replacements, Renu-Seema time & work, Kamal-Amal-Vimal rent percentage, Onto functions, Coordinate quadratic system, Remainder 10^100 mod 7, Arun-Varun-Tarun cost optimization, Rectangle inradius, and Box in sphere.',
+    description: 'Official Slot 1 QA paper: Quadratic functions min/max f(x)=x^2-4cx+8c, Shruti 224 km travel, 3-digit number distinct digits, Greatest integer [x^2]=[x]^2, Stocks A, B, C share price, Smallest natural 3^k, Log inequalities, Arun-Varun-Tarun work, and Rhombus area.',
     questions: qa2025Slot1Questions,
   },
   {
@@ -112,8 +112,92 @@ export const fullSectionalTests: SectionalTest[] = [
     description: 'Official Slot 1 VARC section: Criminal responsibility & medical jurisprudence, Economic growth & investment indivisibility, Electronic music aesthetics, and Digital contact-tracing apps.',
     questions: varc2025Slot1Questions,
   },
+  {
+    id: 'cat-2025-qa-s2',
+    title: 'CAT 2025 Slot 2 - Quantitative Aptitude',
+    year: 'CAT 2025',
+    slot: 'Slot 2',
+    section: 'QA',
+    category: 'sectional-pyq',
+    durationMinutes: 40,
+    totalMarks: 66,
+    questionsCount: 22,
+    difficulty: 'Moderate',
+    description: 'Official Slot 2 QA paper: Integer equations (m+2n)(m-3n)=-17, Logarithms, Arithmetic progression terms, Mixture replacements, Speed-time-distance, Geometry diagonals, and Profit-loss discounts.',
+    questions: qa2025Slot2Questions,
+  },
+  {
+    id: 'cat-2025-dilr-s2',
+    title: 'CAT 2025 Slot 2 - Data Interpretation & Logical Reasoning',
+    year: 'CAT 2025',
+    slot: 'Slot 2',
+    section: 'DILR',
+    category: 'sectional-pyq',
+    durationMinutes: 40,
+    totalMarks: 66,
+    questionsCount: 22,
+    difficulty: 'Challenging',
+    description: 'Official Slot 2 DILR section: Whimshire and Fogglia NUR Population Index, 6 spherical balls & 4 hoops pings game, 4 musicians training timeline (Ananya, Bhaskar, Charu, Devendra), Country Sustainability Index (SI), and Multi-author research papers.',
+    questions: dilr2025Slot2Questions,
+  },
+  {
+    id: 'cat-2025-varc-s2',
+    title: 'CAT 2025 Slot 2 - Verbal Ability & Reading Comprehension',
+    year: 'CAT 2025',
+    slot: 'Slot 2',
+    section: 'VARC',
+    category: 'sectional-pyq',
+    durationMinutes: 40,
+    totalMarks: 72,
+    questionsCount: 24,
+    difficulty: 'Moderate',
+    description: 'Official Slot 2 VARC section: Mexican Tetra Cavefish eye evolution & metabolism, Evolutionary psychology & trade-offs, Behavioral ecology, Philosophy of aesthetics, and Verbal Ability parajumbles & summaries.',
+    questions: varc2025Slot2Questions,
+  },
+  {
+    id: 'cat-2025-qa-s3',
+    title: 'CAT 2025 Slot 3 - Quantitative Aptitude',
+    year: 'CAT 2025',
+    slot: 'Slot 3',
+    section: 'QA',
+    category: 'sectional-pyq',
+    durationMinutes: 40,
+    totalMarks: 66,
+    questionsCount: 22,
+    difficulty: 'Challenging',
+    description: 'Official Slot 3 QA paper: Isosceles triangle AB=AC=50, BC=80 inradius & area, Quadratic polynomials, Distinct integer solutions, Logarithms, Work-time efficiency cycles, and Geometric progression sequences.',
+    questions: qa2025Slot3Questions,
+  },
+  {
+    id: 'cat-2025-dilr-s3',
+    title: 'CAT 2025 Slot 3 - Data Interpretation & Logical Reasoning',
+    year: 'CAT 2025',
+    slot: 'Slot 3',
+    section: 'DILR',
+    category: 'sectional-pyq',
+    durationMinutes: 40,
+    totalMarks: 66,
+    questionsCount: 22,
+    difficulty: 'Challenging',
+    description: 'Official Slot 3 DILR section: Mobile operator incoming & outgoing call matrix, Image puzzle grid reconstruction, Team project scores, and Multi-parameter ranking tournament.',
+    questions: dilr2025Slot3Questions,
+  },
+  {
+    id: 'cat-2025-varc-s3',
+    title: 'CAT 2025 Slot 3 - Verbal Ability & Reading Comprehension',
+    year: 'CAT 2025',
+    slot: 'Slot 3',
+    section: 'VARC',
+    category: 'sectional-pyq',
+    durationMinutes: 40,
+    totalMarks: 72,
+    questionsCount: 24,
+    difficulty: 'Moderate',
+    description: 'Official Slot 3 VARC section: Philosophy of scientific models, Historical linguistics & phonetic shifts, Cognitive bias in archaeology, and Verbal Ability parajumbles, sentence insertion & summaries.',
+    questions: varc2025Slot3Questions,
+  },
 
-  // CAT 2024 Full Sectionals
+  // CAT 2024 Full Sectionals (Separate Authentic Year)
   {
     id: 'cat-2024-qa-s1',
     title: 'CAT 2024 Slot 1 - Quantitative Aptitude',
@@ -125,7 +209,7 @@ export const fullSectionalTests: SectionalTest[] = [
     totalMarks: 66,
     questionsCount: 22,
     difficulty: 'Moderate',
-    description: 'Official Slot 1 QA paper: Quadratic functions min/max f(x)=x^2-4cx+8c, Shruti 224 km travel, 3-digit number distinct digits, Greatest integer [x^2]=[x]^2, Stocks A, B, C share price, Smallest natural 3^k, Log inequalities, Arun-Varun-Tarun work, and Rhombus area.',
+    description: 'Official Slot 1 QA paper: Fruit seller ratio mixtures (187 fruits), Surds positive square root of (29-12sqrt(5)), Acid-water replacements, Renu-Seema time & work, Kamal-Amal-Vimal rent percentage, Onto functions from A to B, Coordinate quadratic system, Remainder modulo, and Box in sphere.',
     questions: qa2024Slot1Questions,
   },
   {
@@ -139,7 +223,7 @@ export const fullSectionalTests: SectionalTest[] = [
     totalMarks: 66,
     questionsCount: 22,
     difficulty: 'Moderate',
-    description: 'Official Slot 1 DILR section: Round Table 7-chair dynamic shifts, InnovateX employee quarterly ratings, International Trade radar & bar charts, Train segment booking occupancy, and Feet tapping binary/ternary logic.',
+    description: 'Official Slot 1 DILR section: Six web surfers M-Y blog star ratings, QUIET two-team match tournament, Seven shares price data and daily SPV, and Amiya-Ramya student council election logic.',
     questions: dilr2024Slot1Questions,
   },
   {
@@ -153,92 +237,8 @@ export const fullSectionalTests: SectionalTest[] = [
     totalMarks: 72,
     questionsCount: 24,
     difficulty: 'Moderate',
-    description: 'Official Slot 1 VARC section: Criminal responsibility & medical jurisprudence, Economic growth & investment indivisibility, Electronic music aesthetics, and Digital contact-tracing apps.',
+    description: 'Official Slot 1 VARC section: Central Asia missing sentence, 4 multi-paragraph Reading Comprehension passages, and Verbal Ability parajumbles and paragraph summaries.',
     questions: varc2024Slot1Questions,
-  },
-  {
-    id: 'cat-2024-qa-s2',
-    title: 'CAT 2024 Slot 2 - Quantitative Aptitude',
-    year: 'CAT 2024',
-    slot: 'Slot 2',
-    section: 'QA',
-    category: 'sectional-pyq',
-    durationMinutes: 40,
-    totalMarks: 66,
-    questionsCount: 22,
-    difficulty: 'Moderate',
-    description: 'Official Slot 2 QA paper: Integer equations (m+2n)(m-3n)=-17, Logarithms, Arithmetic progression terms, Mixture replacements, Speed-time-distance, Geometry diagonals, and Profit-loss discounts.',
-    questions: qa2024Slot2Questions,
-  },
-  {
-    id: 'cat-2024-dilr-s2',
-    title: 'CAT 2024 Slot 2 - Data Interpretation & Logical Reasoning',
-    year: 'CAT 2024',
-    slot: 'Slot 2',
-    section: 'DILR',
-    category: 'sectional-pyq',
-    durationMinutes: 40,
-    totalMarks: 66,
-    questionsCount: 22,
-    difficulty: 'Challenging',
-    description: 'Official Slot 2 DILR section: Whimshire and Fogglia NUR Population Index, 6 spherical balls & 4 hoops pings game, 4 musicians training timeline (Ananya, Bhaskar, Charu, Devendra), Country Sustainability Index (SI), and Multi-author research papers.',
-    questions: dilr2024Slot2Questions,
-  },
-  {
-    id: 'cat-2024-varc-s2',
-    title: 'CAT 2024 Slot 2 - Verbal Ability & Reading Comprehension',
-    year: 'CAT 2024',
-    slot: 'Slot 2',
-    section: 'VARC',
-    category: 'sectional-pyq',
-    durationMinutes: 40,
-    totalMarks: 72,
-    questionsCount: 24,
-    difficulty: 'Moderate',
-    description: 'Official Slot 2 VARC section: Mexican Tetra Cavefish eye evolution & metabolism, Evolutionary psychology & trade-offs, Behavioral ecology, Philosophy of aesthetics, and Verbal Ability parajumbles & summaries.',
-    questions: varc2024Slot2Questions,
-  },
-  {
-    id: 'cat-2024-qa-s3',
-    title: 'CAT 2024 Slot 3 - Quantitative Aptitude',
-    year: 'CAT 2024',
-    slot: 'Slot 3',
-    section: 'QA',
-    category: 'sectional-pyq',
-    durationMinutes: 40,
-    totalMarks: 66,
-    questionsCount: 22,
-    difficulty: 'Challenging',
-    description: 'Official Slot 3 QA paper: Isosceles triangle AB=AC=50, BC=80 inradius & area, Quadratic polynomials, Distinct integer solutions, Logarithms, Work-time efficiency cycles, and Geometric progression sequences.',
-    questions: qa2024Slot3Questions,
-  },
-  {
-    id: 'cat-2024-dilr-s3',
-    title: 'CAT 2024 Slot 3 - Data Interpretation & Logical Reasoning',
-    year: 'CAT 2024',
-    slot: 'Slot 3',
-    section: 'DILR',
-    category: 'sectional-pyq',
-    durationMinutes: 40,
-    totalMarks: 66,
-    questionsCount: 22,
-    difficulty: 'Challenging',
-    description: 'Official Slot 3 DILR section: Mobile operator incoming & outgoing call matrix, Image puzzle grid reconstruction, Team project scores, and Multi-parameter ranking tournament.',
-    questions: dilr2024Slot3Questions,
-  },
-  {
-    id: 'cat-2024-varc-s3',
-    title: 'CAT 2024 Slot 3 - Verbal Ability & Reading Comprehension',
-    year: 'CAT 2024',
-    slot: 'Slot 3',
-    section: 'VARC',
-    category: 'sectional-pyq',
-    durationMinutes: 40,
-    totalMarks: 72,
-    questionsCount: 24,
-    difficulty: 'Moderate',
-    description: 'Official Slot 3 VARC section: Philosophy of scientific models, Historical linguistics & phonetic shifts, Cognitive bias in archaeology, and Verbal Ability parajumbles, sentence insertion & summaries.',
-    questions: varc2024Slot3Questions,
   },
 
   // CAT 2023 Full Sectionals
