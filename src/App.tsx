@@ -48,7 +48,31 @@ interface HistoryStackState {
   testId?: string;
   resultId?: string;
   exam?: ExamType;
+  scrollY?: number;
+  legalTab?: LegalTab;
 }
+
+export const getPageKey = (
+  v: 'dashboard' | 'exam' | 'scorecard' | 'analysis',
+  t: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about' = 'full-mocks',
+  exam: ExamType = 'CAT',
+  testId?: string,
+  resultId?: string
+): string => {
+  if (v === 'dashboard') {
+    return `dashboard:${exam}:${t}`;
+  }
+  if (v === 'exam') {
+    return `exam:${testId || ''}`;
+  }
+  if (v === 'scorecard') {
+    return `scorecard:${testId || ''}:${resultId || ''}`;
+  }
+  if (v === 'analysis') {
+    return `analysis:${testId || ''}:${resultId || ''}`;
+  }
+  return `${v}:${t}`;
+};
 
 export function App() {
   // Theme state (Dark / Light)
@@ -105,6 +129,78 @@ export function App() {
   // Flag to avoid pushing history entry when navigating via browser Back/Forward (popstate)
   const isPopStateRef = useRef(false);
 
+  // Scroll restoration tracking for independent tabs & stack pages
+  const scrollPositionsRef = useRef<Record<string, number>>({});
+  const pendingScrollRef = useRef<number | null>(null);
+
+  const currentPageKey = getPageKey(view, currentTab, activeExam, activeTest?.id, currentResult?.id);
+  const currentPageKeyRef = useRef(currentPageKey);
+  const prevPageKeyRef = useRef(currentPageKey);
+
+  useEffect(() => {
+    currentPageKeyRef.current = currentPageKey;
+  }, [currentPageKey]);
+
+  // Window scroll listener: records scroll position for current page/tab
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    let saveTimeout: number | undefined;
+
+    const handleWindowScroll = () => {
+      const currentKey = currentPageKeyRef.current;
+      if (currentKey.startsWith('exam:')) return;
+
+      const currentScrollY = window.scrollY;
+      scrollPositionsRef.current[currentKey] = currentScrollY;
+
+      clearTimeout(saveTimeout);
+      saveTimeout = window.setTimeout(() => {
+        const state = window.history.state;
+        if (state) {
+          window.history.replaceState({ ...state, scrollY: currentScrollY }, '', window.location.hash);
+        }
+      }, 100);
+    };
+
+    window.addEventListener('scroll', handleWindowScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleWindowScroll);
+      clearTimeout(saveTimeout);
+    };
+  }, []);
+
+  // Scroll restoration effect: runs whenever page or tab changes
+  useEffect(() => {
+    if (prevPageKeyRef.current !== currentPageKey) {
+      prevPageKeyRef.current = currentPageKey;
+
+      const targetScroll = pendingScrollRef.current !== null
+        ? pendingScrollRef.current
+        : (scrollPositionsRef.current[currentPageKey] ?? 0);
+
+      pendingScrollRef.current = null;
+
+      // Apply scroll restoration immediately and verify with requestAnimationFrame
+      window.scrollTo({ top: targetScroll, left: 0, behavior: 'instant' as ScrollBehavior });
+
+      let rafId2: number | undefined;
+      const rafId1 = requestAnimationFrame(() => {
+        window.scrollTo({ top: targetScroll, left: 0, behavior: 'instant' as ScrollBehavior });
+        rafId2 = requestAnimationFrame(() => {
+          window.scrollTo({ top: targetScroll, left: 0, behavior: 'instant' as ScrollBehavior });
+        });
+      });
+
+      return () => {
+        cancelAnimationFrame(rafId1);
+        if (rafId2 !== undefined) cancelAnimationFrame(rafId2);
+      };
+    }
+  }, [currentPageKey]);
+
   const getHashForState = (
     v: 'dashboard' | 'exam' | 'scorecard' | 'analysis',
     t: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about',
@@ -141,6 +237,24 @@ export function App() {
       const targetResultId = resultId || currentResult?.id;
       const targetExam = exam || activeExam;
 
+      // 1. Record current page's scroll position before navigating away
+      const currentKey = getPageKey(view, currentTab, activeExam, activeTest?.id, currentResult?.id);
+      scrollPositionsRef.current[currentKey] = window.scrollY;
+
+      // 2. Determine target page key and desired scroll position
+      const targetKey = getPageKey(newView, targetTab, targetExam, targetTestId, targetResultId);
+
+      let targetScroll = 0;
+      if (newView === 'exam') {
+        targetScroll = 0;
+      } else if (scrollPositionsRef.current[targetKey] !== undefined) {
+        targetScroll = scrollPositionsRef.current[targetKey];
+      } else {
+        targetScroll = 0;
+      }
+
+      pendingScrollRef.current = targetScroll;
+
       const hash = getHashForState(newView, targetTab, targetTestId, targetExam);
 
       const stateObj: HistoryStackState = {
@@ -149,6 +263,7 @@ export function App() {
         testId: targetTestId,
         resultId: targetResultId,
         exam: targetExam,
+        scrollY: targetScroll,
       };
 
       if (!isPopStateRef.current) {
@@ -167,7 +282,7 @@ export function App() {
         setActiveExam(exam);
       }
     },
-    [currentTab, activeTest, currentResult, activeExam]
+    [view, currentTab, activeTest, currentResult, activeExam]
   );
 
   const handleSelectExam = (newExam: ExamType) => {
@@ -292,10 +407,25 @@ export function App() {
       isPopStateRef.current = true;
       const state: HistoryStackState | null = event.state;
 
+      let targetView: 'dashboard' | 'exam' | 'scorecard' | 'analysis' = 'dashboard';
+      let targetTab: 'full-mocks' | 'tests' | 'topic-wise' | 'history' | 'bookmarks' | 'about' = currentTab;
+      let targetExam: ExamType = activeExam;
+      let targetTestId = activeTest?.id;
+      let targetResultId = currentResult?.id;
+
       if (state && state.view) {
+        targetView = state.view;
+        if (state.tab) targetTab = state.tab;
+        if (state.exam) targetExam = state.exam;
+        if (state.testId) targetTestId = state.testId;
+        if (state.resultId) targetResultId = state.resultId;
+
         setView(state.view);
         if (state.tab) {
           setCurrentTab(state.tab);
+        }
+        if (state.exam) {
+          setActiveExam(state.exam);
         }
         if (state.testId) {
           const test = getTestById(state.testId);
@@ -312,36 +442,59 @@ export function App() {
         if (route === 'exam' && id) {
           const t = getTestById(id);
           if (t) {
+            targetView = 'exam';
+            targetTestId = id;
             setActiveTest(t);
             setView('exam');
           }
         } else if (route === 'scorecard' && id) {
           const t = getTestById(id);
           if (t) {
+            targetView = 'scorecard';
+            targetTestId = id;
             setActiveTest(t);
             const res = getTestHistory().find((r) => r.testId === id);
-            if (res) setCurrentResult(res);
+            if (res) {
+              targetResultId = res.id;
+              setCurrentResult(res);
+            }
             setView('scorecard');
           }
         } else if (route === 'analysis' && id) {
           const t = getTestById(id);
           if (t) {
+            targetView = 'analysis';
+            targetTestId = id;
             setActiveTest(t);
             const res = getTestHistory().find((r) => r.testId === id);
-            if (res) setCurrentResult(res);
+            if (res) {
+              targetResultId = res.id;
+              setCurrentResult(res);
+            }
             setView('analysis');
           }
         } else if (['about', 'contact', 'privacy', 'terms', 'disclaimer'].includes(route)) {
           setActiveLegalTab(route as LegalTab);
           setIsLegalModalOpen(true);
-        } else if (['tests', 'topic-wise', 'history', 'bookmarks'].includes(route)) {
+        } else if (['full-mocks', 'tests', 'topic-wise', 'history', 'bookmarks'].includes(route)) {
+          targetView = 'dashboard';
+          targetTab = route as any;
           setCurrentTab(route as any);
           setView('dashboard');
         } else {
+          targetView = 'dashboard';
+          targetTab = 'full-mocks';
           setView('dashboard');
-          setCurrentTab('tests');
+          setCurrentTab('full-mocks');
         }
       }
+
+      const targetKey = getPageKey(targetView, targetTab, targetExam, targetTestId, targetResultId);
+      const targetScroll = state?.scrollY !== undefined
+        ? state.scrollY
+        : (scrollPositionsRef.current[targetKey] ?? 0);
+
+      pendingScrollRef.current = targetScroll;
 
       setTimeout(() => {
         isPopStateRef.current = false;
@@ -551,6 +704,8 @@ export function App() {
     const targetTab = test.category === 'full-mock'
       ? 'full-mocks'
       : (test.category === 'topic-wise' ? 'topic-wise' : 'tests');
+    scrollPositionsRef.current[`exam:${test.id}`] = 0;
+    pendingScrollRef.current = 0;
     pushNavState('exam', targetTab, test.id);
   };
 
@@ -595,6 +750,8 @@ export function App() {
     const targetTab = test.category === 'full-mock'
       ? 'full-mocks'
       : (test.category === 'topic-wise' ? 'topic-wise' : 'tests');
+    scrollPositionsRef.current[`exam:${test.id}`] = 0;
+    pendingScrollRef.current = 0;
     pushNavState('exam', targetTab, test.id);
   };
 
@@ -876,6 +1033,9 @@ export function App() {
     const targetTab = activeTest.category === 'full-mock'
       ? 'full-mocks'
       : (activeTest.category === 'topic-wise' ? 'topic-wise' : 'tests');
+    const scorecardKey = getPageKey('scorecard', targetTab, activeExam, activeTest.id, result.id);
+    scrollPositionsRef.current[scorecardKey] = 0;
+    pendingScrollRef.current = 0;
     pushNavState('scorecard', targetTab, activeTest.id, result.id);
   };
 
@@ -908,7 +1068,13 @@ export function App() {
         <Navbar
           currentTab={currentTab}
           onSelectTab={(tab) => {
-            pushNavState('dashboard', tab);
+            if (view === 'dashboard' && tab === currentTab) {
+              const currentKey = getPageKey('dashboard', tab, activeExam);
+              scrollPositionsRef.current[currentKey] = 0;
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            } else {
+              pushNavState('dashboard', tab);
+            }
           }}
           activeExam={activeExam}
           onSelectExam={handleSelectExam}
@@ -1113,7 +1279,15 @@ export function App() {
       {view !== 'exam' && (
         <Footer
           onOpenLegalTab={handleOpenLegalTab}
-          onSelectTab={(tab) => pushNavState('dashboard', tab)}
+          onSelectTab={(tab) => {
+            if (view === 'dashboard' && tab === currentTab) {
+              const currentKey = getPageKey('dashboard', tab, activeExam);
+              scrollPositionsRef.current[currentKey] = 0;
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            } else {
+              pushNavState('dashboard', tab);
+            }
+          }}
           onOpenCalculator={() => setIsCalculatorOpen((prev) => !prev)}
           onOpenSupport={() => setIsSupportModalOpen(true)}
         />
