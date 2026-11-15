@@ -2,7 +2,7 @@ import { Question } from '../types';
 
 export const varc2025Slot2Questions: Question[] = [
   {
-    id: 'varc24-s2-q1',
+    id: 'varc25-s2-q1',
     questionNumber: 1,
     section: 'VARC',
     type: 'MCQ',
@@ -14,7 +14,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The missing sentence says that while taste is related to judgment, the fact that\nit also retains a vital link to pleasure, embodiment, and personal specificity is ignored in\npost-Kantian ideas about judgment. Blank 1 is not a good choice to place this sentence as\nthe sentence that follows it is not about taste being linked to pleasure and personal\npreference. The line says that Denneny focused on taste rather than judgment, in order to\nhighlight what he believed was \"a crucial but neglected historical change\". The line that\nfollows it explains what this change was: in the 17th-18th seventeenth century, across Western\nEurope, the word taste no longer referred specifically to gustatory sensation but became linked\nto aesthetic\u2014and ethical\u2014thinking. Placing the missing sentence in blank 2 would\ninterrupt the flow of ideas here. So, blank 2 is also ruled out. Now, the missing sentence is\nabout taste being linked to aesthetics. This is the idea in the sentence just before blank 3.\nThe missing sentence also says Arendt was working to restore the link between taste, pleasure\nand personal specificity, a link that was largely ignored by post-Kantian thinkers. The sentence\nthat follows blank 3 also talks of writing of a set of thinkers neglected by professional\nphilosophy. Both sentences before and after blank 3 relate to the ideas in the missing sentence,\nso this is an apt choice to plug in the sentence. Blank 4 is easily ruled out as the paragraph\nmoves on in terms of ideas. The missing sentence does not fit in well here. So, blank 3 is the\ncorrect choice.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s2-q2',
+    id: 'varc25-s2-q2',
     questionNumber: 2,
     section: 'VARC',
     type: 'MCQ',
@@ -27,7 +27,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Trickily worded question with double negatives. Note that \"if false, would\ncontradict...\" is roughly equivalent to \"if true, is in line with the contents of the passage\".\nConsider option 1. If true, this is in line with what the passage says: 'Some of the best\nwriting is highly vivid, employing the language of the senses because this is the primary means\nthrough which humans know physical space'...'Human consciousness of place is experienced in a\nmulti-modal manner'. So, option 1, if false, would contradict the contents of the passage. We\nrule this one out. Consider option 2. This is in line with what the second paragraph says:\n'Unlike scientific reports, a literary narrative can provide the emotional component missing\nfrom the scientific record. In human experience, geographical places have a spiritual or\nemotional component in addition to and as part of a physical layout and topography. This\nemotional component, although subjective, is no less \u201creal\u201d than a surveyor\u2019s\nmap.' So, option 2 is also ruled out. Option 3 simply paraphrases what the passage says,\ntoo: 'Literary texts can also account for the way in which absence\u2014of other people,\nanimals, and so on\u2014affects a human observer or inhabitant.' So, option 3 is also ruled\nout. Consider option 4. The passage states that humans interact with places in subjective,\nemotional ways. This option contradicts this key idea. So, option 4 is the correct choice.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q3',
+    id: 'varc25-s2-q3',
     questionNumber: 3,
     section: 'VARC',
     type: 'MCQ',
@@ -40,7 +40,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The quoted sentence simply means that combining knowledge from art and science\ncan help understand the human condition better. Option 4 is the correct choice. Option 1\ncompletely inverts what the quoted line says. This option is easily ruled out. The given\nline does not talks about emotions at all. Option 2 is out. Option 3, again, does not make\nsense and is easily ruled out.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q4',
+    id: 'varc25-s2-q4',
     questionNumber: 4,
     section: 'VARC',
     type: 'MCQ',
@@ -53,7 +53,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Option 1 is true, based on the line: 'Histories of places live on in many forms,\none of which is the human memory or imagination'. Option 2 is also true, based on the line,\n'This emotional component, although subjective, is no less \u201creal\u201d than a\nsurveyor\u2019s map.' Option 3 is true, too. This is the main idea of the paragraph.\nOption 4, on the other hand, is not true. The passage does not claim that the emotional and\nspiritual experience of a place can replace a surveyor\u2019s map. It only says the emotional\nand spiritual experience of a place can be considered as real as a surveyor's map or an actual\nphysical experience of it. Option 4 is the correct answer.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q5',
+    id: 'varc25-s2-q5',
     questionNumber: 5,
     section: 'VARC',
     type: 'MCQ',
@@ -66,7 +66,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: ""
   },
   {
-    id: 'varc24-s2-q6',
+    id: 'varc25-s2-q6',
     questionNumber: 6,
     section: 'VARC',
     type: 'TITA',
@@ -78,7 +78,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "All sentences except 3 describe the sit-down comedy show featuring Torres.\nSentence 3 talks of Torres' failure in his 'colour-scouting mission', which is unrelated to the\nother 4 sentences. If we were to order the sentences in a paragraph, sentence 4 would go\nfirst, as it sets the context. 4 talks about the hour-long sit-down comedy show featuring\nTorres. The best sentence to follow this would be 1, which describes Torres' appearance. Both\nsentences 5 and 2 describe Torres' ideas. 4152 is a cogent paragraph. 3 is the odd one out."
   },
   {
-    id: 'varc24-s2-q7',
+    id: 'varc25-s2-q7',
     questionNumber: 7,
     section: 'VARC',
     type: 'MCQ',
@@ -91,7 +91,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "All options except 4 are statements that explain specific adaptions in Mexican\ntetra fish. Option1 talks of their ability survive on a meager diet of mostly bat feces and\norganic waste, option 2 of these fish losing expensive tissues they don't use, and option 3, of\nthese fish getting fat even in sparse cave conditions. Option 4, on the other hand, explains\nwhat happens when there is chronic inflammation, whether it is in humans or tetra cavefish or\nother animals. So, option 4 is the correct choice.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q8',
+    id: 'varc25-s2-q8',
     questionNumber: 8,
     section: 'VARC',
     type: 'MCQ',
@@ -104,7 +104,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Refer to the last two lines of the second paragraph. The least disruptive way for\neyelessness to evolve may be to start making an eye and then get rid of it as the early\ndevelopment of the brain and the eye are completely intertwined. In other words, Mexican tetra\ncavefish are similar to non-cave-dwelling variants in their early stages of development. Option\n1 is the correct choice. Option 2 incorrectly links eyelessness and tastebud enhancement.\nOption 3 is also incorrect based on the contents of the passage. Eyelessness in Mexican cavefish\nis not related to the poor and inconsistent availability of food. So, option 4 is also ruled\nout.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s2-q9',
+    id: 'varc25-s2-q9',
     questionNumber: 9,
     section: 'VARC',
     type: 'MCQ',
@@ -117,7 +117,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Riddle's observation was that there is no link between eye presence or size and\nthe accumulation of carotenoids. From the passage, we know that if there are high levels of\ncarotenoids, the fat is yellow and if the carotenoid levels are low, the fat is white. If only\neyeless offspring had yellow fat, then that would mean eyelessness and high carotenoid levels\nare linked. This is not the case. So, option 1, if true, would invalidate Riddle\u2019s\ninference from the experiment. All other options talk of 'some' offspring with or without\neyes having white/yellow fat. These would not invalidate Riddle's inference but be in line with\nit.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s2-q10',
+    id: 'varc25-s2-q10',
     questionNumber: 10,
     section: 'VARC',
     type: 'MCQ',
@@ -130,7 +130,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Refer to the last line of the passage: 'Instead, Riddle thinks these carotenoids\nmay be another adaptation to suppress inflammation, which might be important in the wild, as\ncavefish are likely overeating whenever food arrives'. Option 3 is the correct choice.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s2-q11',
+    id: 'varc25-s2-q11',
     questionNumber: 11,
     section: 'VARC',
     type: 'TITA',
@@ -142,7 +142,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "2 is the best sentence to start the paragraph, a it states the main idea. 21 is a\nlink: 2 says old books carry a scent people love; 1 explains what the smell is due to slow\nchemical changes in the paper and ink. 1 and 3 explain how these chemical changes take place.\n2413 is the correct order."
   },
   {
-    id: 'varc24-s2-q12',
+    id: 'varc25-s2-q12',
     questionNumber: 12,
     section: 'VARC',
     type: 'MCQ',
@@ -155,7 +155,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The missing sentence says \"the region's Western customers\" found it hard to\nbelieve that Dhaka muslin was made by human hands. This line, in praise of the fabric, is more\nlikely to be in the first few lines of the paragraph than at the end. Consider blank 1. The\nlines before it talk about where Dhaka muslin was spun and call it 'the world\u2019s most\ncoveted cloth'. If the missing sentence is laced in blank 1, we have a reference to the region\nwhere the cloth was spun in the lines before and also an explanation for why it was the world's\nmost coveted cloth. So, blank 1 is a very good choice to insert the sentence. Blanks 2 and 3 are\nplaced between sentences that explain how the cloth is spun. Placing the missing sentence here\nwould interrupt the flow of ideas. While the line before blank 4 seems to mention some Western\ncustomers, the missing sentence does not fit in well here as it is more of an introduction to\nthe cloth than a conclusion about it.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s2-q13',
+    id: 'varc25-s2-q13',
     questionNumber: 13,
     section: 'VARC',
     type: 'MCQ',
@@ -168,7 +168,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The main idea of the paragraph is that it is wrong-headed to think that humans\nare always antithetical to nature; human presence is as likely to increase biodiversity as\nreduce it. Option 4 touches upon these points and is the best of the given summaries.\nOptions 1 and 3 just pick up on one idea stated in the paragraph but do not summarise it\nwell. Option 2 is one-sided. The paragraph says human presence is as likely to increase\nbiodiversity as reduce it.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q14',
+    id: 'varc25-s2-q14',
     questionNumber: 14,
     section: 'VARC',
     type: 'MCQ',
@@ -181,7 +181,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The paragraph explains that a left-wing feminist, Elizabeth Magie, invented the\noriginal version of Monopoly as a twin game with an anti-capitalist message. However, an\nunemployed man who sold a simplified version of her game without the underlying message got\ncredit for it. Option 3 touches upon all key points. Option 1 is easily ruled out. The\nparagraph does not talk about the Parker Brothers\u2019 capitalist intent. Option 2\nincorrectly calls Charles Darrow and Parker Brothers 'celebrated icons'. So, this option is\nruled out too. Option 3 is also incorrect. Darrow did not do relentless work to refine\nMagie's game.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s2-q15',
+    id: 'varc25-s2-q15',
     questionNumber: 15,
     section: 'VARC',
     type: 'TITA',
@@ -193,7 +193,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Sentences 2, 4 and 5 all link Pfas to diseases. Sentence 2 introduces Pfas and\nsays research links these to multiple cancers, neurological disorders and autoimmune\ndisease. Sentence 4 says there could be other diseases not yet identified that are linked to\nPfas. 5 follows this up saying that the findings are a major step toward determining the\nmechanism by which the chemicals cause disease. Between 1 and 3, 1 is a general statement about\nwhat Pfas are. This sentence could fit into a paragraph about Pfas and disease. On the other\nhand, 3 is about the biodegradability of Pfas. This does not relate well to the other sentences.\nSo, option 3 is the odd one out."
   },
   {
-    id: 'varc24-s2-q16',
+    id: 'varc25-s2-q16',
     questionNumber: 16,
     section: 'VARC',
     type: 'MCQ',
@@ -206,7 +206,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Consider each option in order. Option 1 says the product's 'veneer of collegial\nneutrality' lulls us into absorbing biased or false responses. This clearly relates to a\ndisconnect between what AI cla and what it does. Now, consider option 2. The passage says\nAI's outputs are built to be generic, professional and trust-worthy. Option 2 exposes a sexist\nbias in the AI response. This option too, therefore, relates to a disconnect between cla and\nreality. Option 3 says we are both vict and beneficiaries of big tech. In the last\nparagraph, the passage talks about OpenAI seeking to build AI that benefits humanity. Yet we are\nvict of big tech too. Option 3 also affirms the disjunct between the cla about AI made by\ntech companies and what AI actually does. Consider option 4. The author says he is not aware\nof research on whether AI favors big tech and only guesses why it seemed that way. So there is\nno specific claim made as to AI bias here and hence no disjunct as such. Option 4 is the answer\nchoice we are looking for.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q17',
+    id: 'varc25-s2-q17',
     questionNumber: 17,
     section: 'VARC',
     type: 'MCQ',
@@ -218,7 +218,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "Refer to the second paragraph. The author talks of the 'bland' or 'generic'\nresponses (that is, the lack of specificity and nuance) from AI when comparing it to a a beige\noffice building. He also says AI's responses are built to sound like those from a polite\ncolleague in order to seem professional and approachable. All of these relate to options 1, 2\nand 3. Option 4 is completely unconnected to the question. So, this is the correct answer\nchoice.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q18',
+    id: 'varc25-s2-q18',
     questionNumber: 18,
     section: 'VARC',
     type: 'MCQ',
@@ -230,7 +230,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "All options except 4 relate to problems the author found with AI generated\nresponses. Option 4 is an admission by AI that states why its responses could be both helpful\nand potentially misleading. This is the odd one out.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q19',
+    id: 'varc25-s2-q19',
     questionNumber: 19,
     section: 'VARC',
     type: 'MCQ',
@@ -242,7 +242,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The author is not likely to agree with the statement that the neutrality of AI is\nconducive to critical thinking. Refer to the line, 'In my own ChatGPT dialogues, I wanted to\nenact how the product\u2019s veneer of collegial neutrality could lull us into absorbing false\nor biased responses without much critical engagement.' So, option 4 is the correct choice.\nThe author states that AI edited his description of Sam Altman calling him a 'visionary and\npragmatist'. So, the author will agree with statement 1. Option 2 relates to the idea in the\nlast line of the passage. Only by getting people to use ChatGPT more, OpenAI can get returns on\nits investment. Option 3 relates to the idea in the first paragraph that we are both\nvict and beneficiaries of AI. This is also a statement the author will agree with.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s2-q20',
+    id: 'varc25-s2-q20',
     questionNumber: 20,
     section: 'VARC',
     type: 'MCQ',
@@ -254,7 +254,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "'None of the statements, if true, contradicts the arguments in the passage,\nexcept...' is the same as 'Which of the following, if true, contradicts the arguments in the\npassage?' Consider option 1. According to the passage, in the times of Galileo and Newton,\ninstruments for observation were just about beginning to be developed. So, option 1, if true,\ndoes not contradict the arguments of the passage. Look at option 2. This option implies\nthat mathematics did not have a scientific culture before and is only now developing this\nculture due to the use of computational machinery. This is clearly incorrect. The passage\ncategorically declares mathematics as a scientific discipline (refer to the last line). So,\noption 2 is the answer choice we are looking for. Option 3, if true, does not contradict\nthe contents of the passage. Just like in one scientific field, in another scientific field too,\ninstruments have been designed to move beyond the visible spectrum. Option 4, too, if true\ndoes not contradict the arguments of the passage in any way.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'varc24-s2-q21',
+    id: 'varc25-s2-q21',
     questionNumber: 21,
     section: 'VARC',
     type: 'MCQ',
@@ -266,7 +266,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The question asks which of the given options is a valid inference from the\npassage. Option 1 is incorrect. The 'new astronomy' telescopes are those that open the full\nknown electromagnetic spectrum to observation. Newton did not develop one of these. Option 2\nis also not a valid inference. Refer to the last paragraph. The passage says interventionist\ninstruments used in microbiology are, like the instruments used in astronomy, also embodied. It\nis just the styles of embodiment that differ. Now consider option 3. The passage says that\nastronomy is a 'receptive' science dependent upon instrumentation which can detect and receive\nemissions. It contrasts this to the scientific culture in microbiology where instrumentation is\ninterventional in style. Option 3 is true, based on the contents of the passage. Option 4 is\nincorrect. The passage says it was Galileo who observed the phases of Venus and the satellites\nof Jupiter with his telescopes. Option 3 is the correct choice.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s2-q22',
+    id: 'varc25-s2-q22',
     questionNumber: 22,
     section: 'VARC',
     type: 'MCQ',
@@ -278,7 +278,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The given line says the sciences today could not progress successfully without\nconstant improvements upon the respective instrumental trajectories, that is their progress has\nbeen a consequence of the refinements or improvements to the instruments they use. Option 2 is\nthe correct choice.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'varc24-s2-q23',
+    id: 'varc25-s2-q23',
     questionNumber: 23,
     section: 'VARC',
     type: 'MCQ',
@@ -290,7 +290,7 @@ export const varc2025Slot2Questions: Question[] = [
     explanation: "The passage talks of instruments that have been improved over  to aid\nprogress. A milestone is not strictly an instrument and it is not something that has refined\nover , either. So, it is the one for which the characterisations of instruments in the\npassage is least applicable.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s2-q24',
+    id: 'varc25-s2-q24',
     questionNumber: 24,
     section: 'VARC',
     type: 'TITA',

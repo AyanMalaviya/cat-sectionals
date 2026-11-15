@@ -2,56 +2,56 @@ import { Question } from '../types';
 
 export const dilr2025Slot3Questions: Question[] = [
   {
-    id: 'dilr24-s3-q1',
+    id: 'dilr25-s3-q1',
     questionNumber: 1,
     section: 'DILR',
     type: 'TITA',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Diagram](/images/questions/dilr24-s3_ctx1_32842_332818_0_27970723_dilr_phone_op_jpg.jpg)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
+    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Mobile Operators Usage Table](/images/questions/cat2025_s3_mobile_operators.png)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
     question: "What was the duration of calls (in minutes) from Bijay to Anu?",
     correctAnswer: "50",
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q2',
+    id: 'dilr25-s3-q2',
     questionNumber: 2,
     section: 'DILR',
     type: 'TITA',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Diagram](/images/questions/dilr24-s3_ctx1_32842_332818_0_27970723_dilr_phone_op_jpg.jpg)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
+    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Mobile Operators Usage Table](/images/questions/cat2025_s3_mobile_operators.png)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
     question: "What was the total duration of calls (in minutes) made by Anu to friends having mobile\r\n                                numbers from Operator Yocel?",
     correctAnswer: "525",
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q3',
+    id: 'dilr25-s3-q3',
     questionNumber: 3,
     section: 'DILR',
     type: 'TITA',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Hard',
-    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Diagram](/images/questions/dilr24-s3_ctx1_32842_332818_0_27970723_dilr_phone_op_jpg.jpg)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
+    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Mobile Operators Usage Table](/images/questions/cat2025_s3_mobile_operators.png)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
     question: "What was the total duration of calls (in minutes) made by Faruq to friends having mobile\r\n                                numbers from Operator Yocel?",
     correctAnswer: "350",
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q4',
+    id: 'dilr25-s3-q4',
     questionNumber: 4,
     section: 'DILR',
     type: 'MCQ',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Diagram](/images/questions/dilr24-s3_ctx1_32842_332818_0_27970723_dilr_phone_op_jpg.jpg)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
+    context: "Anu, Bijay, Chetan, Deepak, Eshan, and Faruq are six friends. Each of them uses\na mobile number from exactly one of the two mobile operators - Xitel and Yocel. During the\nlast month, the six friends made several calls to each other. Each call was made by one of\nthese six friends to another. The table below summarizes the number of minutes of calls that\neach of the six made to (outgoing minutes) and received from (incoming minutes) these\nfriends, grouped by the operators. Some of the entries are missing.\n\n![Mobile Operators Usage Table](/images/questions/cat2025_s3_mobile_operators.png)\n\nIt is known that the duration of calls from Faruq to Eshan was 200\nminutes.Also, there were no calls from:i. Bijay to Eshan,ii. Chetan to Anu\nand Chetan to Deepak,iii. Deepak to Bijay and Deepak to Faruq,iv. Eshan to\nChetan and Eshan to Deepak.",
     question: "What was the duration of calls (in minutes) from Deepak to Chetan?",
     options: ["0", "125", "100", "50"],
     correctAnswer: 2,
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q5',
+    id: 'dilr25-s3-q5',
     questionNumber: 5,
     section: 'DILR',
     type: 'TITA',
@@ -63,7 +63,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q6',
+    id: 'dilr25-s3-q6',
     questionNumber: 6,
     section: 'DILR',
     type: 'TITA',
@@ -75,7 +75,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q7',
+    id: 'dilr25-s3-q7',
     questionNumber: 7,
     section: 'DILR',
     type: 'TITA',
@@ -87,7 +87,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q8',
+    id: 'dilr25-s3-q8',
     questionNumber: 8,
     section: 'DILR',
     type: 'MCQ',
@@ -100,7 +100,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q9',
+    id: 'dilr25-s3-q9',
     questionNumber: 9,
     section: 'DILR',
     type: 'MCQ',
@@ -113,109 +113,109 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q10',
+    id: 'dilr25-s3-q10',
     questionNumber: 10,
     section: 'DILR',
     type: 'MCQ',
     topic: 'Data Interpretation - Charts & Graphs',
     difficulty: 'Moderate',
-    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Diagram](/images/questions/dilr24-s3_ctx3_32842_332818_0_27970684_image_puzz_jpg.jpg)",
+    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Puzzle Competition Performance Chart](/images/questions/cat2025_s3_puzzle_competition.png)",
     question: "Who had solved the largest number of puzzles by the 20-th minute from the start of the\r\n                                competition?",
     options: ["Chandranath", "Koushik", "Anirbid", "Suranjan"],
     correctAnswer: 1,
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q11',
+    id: 'dilr25-s3-q11',
     questionNumber: 11,
     section: 'DILR',
     type: 'TITA',
     topic: 'Data Interpretation - Charts & Graphs',
     difficulty: 'Moderate',
-    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Diagram](/images/questions/dilr24-s3_ctx3_32842_332818_0_27970684_image_puzz_jpg.jpg)",
+    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Puzzle Competition Performance Chart](/images/questions/cat2025_s3_puzzle_competition.png)",
     question: "How many minutes did Suranjan take to solve the third visual puzzle in the competition?",
     correctAnswer: "2",
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q12',
+    id: 'dilr25-s3-q12',
     questionNumber: 12,
     section: 'DILR',
     type: 'TITA',
     topic: 'Data Interpretation - Charts & Graphs',
     difficulty: 'Hard',
-    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Diagram](/images/questions/dilr24-s3_ctx3_32842_332818_0_27970684_image_puzz_jpg.jpg)",
+    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Puzzle Competition Performance Chart](/images/questions/cat2025_s3_puzzle_competition.png)",
     question: "At what number in the sequence was the fourth number-based puzzle?",
     correctAnswer: "6",
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q13',
+    id: 'dilr25-s3-q13',
     questionNumber: 13,
     section: 'DILR',
     type: 'MCQ',
     topic: 'Data Interpretation - Charts & Graphs',
     difficulty: 'Moderate',
-    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Diagram](/images/questions/dilr24-s3_ctx3_32842_332818_0_27970684_image_puzz_jpg.jpg)",
+    context: "Anirbid, Chandranath, Koushik, and Suranjan participated in a puzzle solving\ncompetition. The competition comprised 10 puzzles that had to be solved in the same\nsequence, i.e., a competitor got access to a puzzle as soon as they solved the previous\npuzzle. Some of the puzzles were visual puzzles and the others were number-based puzzles.\nThe winner of the competition was the one who solved all puzzles in the least .\nThe following charts describe their progress in the competition. The chart on the left\nshows the number of puzzles solved by each competitor at a given  (in minutes) after the\nstart of the competition. The chart on the right shows the number of visual puzzles solved\nby each competitor at a given  (in minutes) after the start of the\ncompetition.\n\n![Puzzle Competition Performance Chart](/images/questions/cat2025_s3_puzzle_competition.png)",
     question: "Which of the following is the closest to the average  taken by Anirbid to solve the\r\n                                number-based puzzles in the competition?",
     options: ["3.3 minutes", "2.5 minutes", "4.0 minutes", "3.8 minutes"],
     correctAnswer: 2,
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q14',
+    id: 'dilr25-s3-q14',
     questionNumber: 14,
     section: 'DILR',
     type: 'MCQ',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |",
+    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |\n\n![Seven Children Circle Game Table](/images/questions/cat2025_s3_seven_children.png)",
     question: "Who is sitting immediately to the right of Bina?",
     options: ["Chirag", "Aarav", "Farhan", "Eshan"],
     correctAnswer: 3,
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q15',
+    id: 'dilr25-s3-q15',
     questionNumber: 15,
     section: 'DILR',
     type: 'MCQ',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |",
+    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |\n\n![Seven Children Circle Game Table](/images/questions/cat2025_s3_seven_children.png)",
     question: "Who is sitting third to the left of Eshan?",
     options: ["Aarav", "Chirag", "Gaurav", "Divya"],
     correctAnswer: 1,
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q16',
+    id: 'dilr25-s3-q16',
     questionNumber: 16,
     section: 'DILR',
     type: 'MCQ',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Moderate',
-    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |",
+    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |\n\n![Seven Children Circle Game Table](/images/questions/cat2025_s3_seven_children.png)",
     question: "For which of the following pass types can the total number of occurrences be uniquely\r\n                                determined?",
     options: ["Second to the right", "Second to the left", "Immediately to the left", "Immediately to the right"],
     correctAnswer: 3,
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q17',
+    id: 'dilr25-s3-q17',
     questionNumber: 17,
     section: 'DILR',
     type: 'MCQ',
     topic: 'Logical Reasoning - Games & Logic',
     difficulty: 'Hard',
-    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |",
+    context: "Seven children, Aarav, Bina, Chirag, Diya, Eshan, Farhan, and Gaurav, are\nsitting in a circle facing inside (not necessarily in the same order) and playing a game of\n'Passing the Buck'.The game is played over 10 rounds. In each round, the child\nholding the Buck must pass it directly to a child sitting in one of the following\npositions:\u2022 Immediately to the left;\u2022 Immediate to the right;\u2022\nSecond to the left; or\u2022 Second to the right.The game starts with Bina\npassing the Buck and ends with Chirag receiving the Buck. The table below provides some\ninformation about the pass types and the child receiving the Buck. Some information is\nmissing and labelled as '?'.\n\n| Round | Position | Name |\n| --- | --- | --- |\n| 1 | Immediately to the left | Aarav |\n| 2 | Second to the right | ? |\n| 3 | Immediately to the right | Diya |\n| 4 | ? | ? |\n| 5 | ? | Aarav |\n| 6 | Second to the left | ? |\n| 7 | Immediately to the left | Gaurav |\n| 8 | Immediately to the left | ? |\n| 9 | ? | Farhan |\n| 10 | ? | Chirag |\n\n![Seven Children Circle Game Table](/images/questions/cat2025_s3_seven_children.png)",
     question: "For which of the following children is it possible to determine how many times they\r\n                                received the Buck?",
     options: ["Bina", "Gaurav", "Farhan", "Eshan"],
     correctAnswer: 1,
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q18',
+    id: 'dilr25-s3-q18',
     questionNumber: 18,
     section: 'DILR',
     type: 'TITA',
@@ -227,7 +227,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q19',
+    id: 'dilr25-s3-q19',
     questionNumber: 19,
     section: 'DILR',
     type: 'TITA',
@@ -239,7 +239,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q20',
+    id: 'dilr25-s3-q20',
     questionNumber: 20,
     section: 'DILR',
     type: 'TITA',
@@ -251,7 +251,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon..."
   },
   {
-    id: 'dilr24-s3-q21',
+    id: 'dilr25-s3-q21',
     questionNumber: 21,
     section: 'DILR',
     type: 'MCQ',
@@ -264,7 +264,7 @@ export const dilr2025Slot3Questions: Question[] = [
     explanation: "Text Explanation will be transcribed soon...\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'dilr24-s3-q22',
+    id: 'dilr25-s3-q22',
     questionNumber: 22,
     section: 'DILR',
     type: 'MCQ',

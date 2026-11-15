@@ -2,7 +2,7 @@ import { Question } from '../types';
 
 export const varc2025Slot3Questions: Question[] = [
   {
-    id: 'varc24-s3-q1',
+    id: 'varc25-s3-q1',
     questionNumber: 1,
     section: 'VARC',
     type: 'TITA',
@@ -13,7 +13,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "While all other sentences are about how music is a cognitively challenging task\nthat is inherently human, option 1 is about music and its relationship with emotions, which is a\ndifferent idea. If the sentences are to be put in a paragraph, 4 is the best choice to begin the\nparagraph. 43 is a link: 4 says the tendency to create and appreciate music is ubiquitous among\nhumans and 3 follows this up by saying 'this inherent connection to musical expression' is\ndeeply intertwined with human identity and experience. 25 is a link too. 2 says music uses 'a\nmyriad brain resources'. 5 talks about the same idea, that music is cognitively demanding. Only\nsentence 1 does not fit in with the others."
   },
   {
-    id: 'varc24-s3-q2',
+    id: 'varc25-s3-q2',
     questionNumber: 2,
     section: 'VARC',
     type: 'TITA',
@@ -24,7 +24,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Tricky question. Sentences 2 and 4 talk about a discovery. The discovery relates\nto polymetallic nodules mentioned in 5. Note that sentences 5 and 2 are structured in a 'not\nonly...but also' format. So, we have the link 524. Between 1 and 3, 1 relates better to the idea\ndiscussed in 524 than 3. Sentence 4 says oxygen is made by plants and organisms with the help of\nthe sun. 1 relates to this idea- about half of all the oxygen we breathe is made near the\nsurface of the ocean. 5241 is a cogent paragraph. Sentence 3 discusses how the research was\nconducted. This is a slightly different idea that none of the other sentences elaborate on. So,\n3 is the odd one out."
   },
   {
-    id: 'varc24-s3-q3',
+    id: 'varc25-s3-q3',
     questionNumber: 3,
     section: 'VARC',
     type: 'MCQ',
@@ -37,7 +37,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The question asks which of the given options would not, if true, weaken the\npassage's cla. Consider option 1. The passage says that tribals in India worship objects\nrepresenting their ancestors and aspire to converse with the dead. So, if shamanic rituals\ninvolving conversing with the dead feature in tribal stories, there is no surprise, as tribals\nbelieve in speaking to the dead. Option 1, if true, does not weaken the passage's cla.\nConsider option 2. If this option were true, and tribal art excluded the depiction of the\nmundane reality of everyday life and objects, then it would contradict what the passage says\nabout tribal art: 'The boundaries between art and non-art become almost invisible. A tribal epic\ncan begin its narration from a trivial everyday event; tribal paintings merge with living space\nas if the two were one and the same.' So, option 2, if true, would weaken the passage's\ncla. Option 3 contradicts what the passage says too:' And within the narrative itself, or\nwithin the painted imagery, there is no deliberate attempt to follow a sequence.' So, this\noption, if true, would also weaken the passage's cla. Option 4 is easily ruled out. A key\nidea in the passage is that the tribal imagination is dreamlike and hallucinatory. So,\noption 1 is the correct answer choice.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s3-q4',
+    id: 'varc25-s3-q4',
     questionNumber: 4,
     section: 'VARC',
     type: 'MCQ',
@@ -50,7 +50,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Refer to the second paragraph: 'The image-making faculty is a genetic gift to the\nhuman mind\u2014this power of imagination helps us understand the space that envelops us. With\nregard to , we make connections with the help of memory...'. In other words, imagination\nhelps us understand space while memory helps us relate to . Option 2 is the correct\nchoice. Option 1 is unrelated to the question, so it is easily ruled out. The passage\nsays tribal artists work more on the basis of their racial and sensory memory than on the basis\nof a cultivated imagination. This does not imply that all imagination is cultivated or that all\nmemory is racial and sensory. Option 3 is incorrect. Option 4 does not relate to what the\npassage says is the difference between imagination and memory.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'varc24-s3-q5',
+    id: 'varc25-s3-q5',
     questionNumber: 5,
     section: 'VARC',
     type: 'MCQ',
@@ -63,7 +63,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Refer to the third paragraph. The passage says that tribals obsess about gaining\ndomination over  and hence engage in the ritual of conversing with their dead ancestors.\nOption 3 is the correct choice. Options 1 and 2, while true, do not explain why tribals in\nIndia worship their dead ancestors. Option 4 is incorrect. The passage says tribals gave up\nthe goal of domination of space and focussed on domination of  instead.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s3-q6',
+    id: 'varc25-s3-q6',
     questionNumber: 6,
     section: 'VARC',
     type: 'MCQ',
@@ -76,7 +76,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "In the first paragraph, the passage observes that spatial order and temporal\nsequence do not restrict the 'dreamlike' tribal narrative. These narratives admit 'fusion\nbetween various planes of existence and levels of ' and they 'admit the principle of\nassociation between emotion and the narrative motif'. In other words, tribal narratives\naccommodate existential fluidity. Option 4 is the correct choice. The passage does not label\ntribal narratives as rudimentary or underdeveloped. Option 1 is ruled out. Option 2\ncontradicts what the passage says: ' This is not to say that tribal creations have no\nconventions or rules...' Option 3 is also incorrect. The first two lines state that the\ntribal imagination is in contrast to a secular model of creativity that assumes a self-conscious\nform.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s3-q7',
+    id: 'varc25-s3-q7',
     questionNumber: 7,
     section: 'VARC',
     type: 'MCQ',
@@ -89,7 +89,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The last line of the given paragraph sums up the main idea: Occurrences which are\ncalled knowledge of the past are actually logically independent of the past. Memory-beliefs\nhappen now, not in the past and so they might just be what they are even if there was no past.\nOption 1 is the correct summary. Option 2 is a true statement based on the contents of the\nparagraph. But it is not as comprehensive a summary as option 1. Option 2 does not mention the\nkey idea that occurrences which are called knowledge of the past are actually logically\nindependent of the past. Option 3 is ruled out as it contradicts the main idea.\nMemory-beliefs do not depend totally on what is remembered. Option 4 is similar to option 2.\nWhile true, it is not a good summary.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s3-q8',
+    id: 'varc25-s3-q8',
     questionNumber: 8,
     section: 'VARC',
     type: 'MCQ',
@@ -102,7 +102,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The passage argues that as moral judgment resists formalisation, entrusting AI\nwith moral responsibilities would merely reflect human shortcomings, stripping morality of its\ndepth. It uses an analogy of Physics, which has relied on formalisation for centuries, to\nexplain how ethical theories describe the moral landscape. Option 1 touches upon all key ideas\nof the passage. Option 2 is easily ruled out. The passage does not reject all formal\nmethods. Option 3 incorrectly states that codified schemes retain case nuance at scale. So,\nthis option too, is ruled out. Option 4 contradicts the main idea if the passage.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s3-q9',
+    id: 'varc25-s3-q9',
     questionNumber: 9,
     section: 'VARC',
     type: 'MCQ',
@@ -115,7 +115,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The passage says that utilitarianism takes the principle that one should act to\nmaximise overall wellbeing as its foundational axiom. So, we need to look for the option that\ndoes not emphasise maximising overall wellbeing. Consider option 1. Deontological ethics\nfavours the option that delivers the highest total benefit to citizens. This is in line with\nwhat utilitarianism attempts to do. So, option 1 is out. Option 2 also talks of evaluating\nchoices by broadest societal benefit. This is not the opposite of utilitarianism. In case of\noption 3, too, we see that the non-egoist framework ranks policies by their contribution to\noverall social welfare. This is not the opposite of utilitarianism. Now consider option 4.\nIt says the prioritarian approach assigns greater moral weight to improvements for the worst-off\nrather than to maximising total welfare. As maximising total welfare is not the goal of this\napproach, it is the opposite of utilitarianism. Option 4 is the correct choice.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s3-q10',
+    id: 'varc25-s3-q10',
     questionNumber: 10,
     section: 'VARC',
     type: 'MCQ',
@@ -128,7 +128,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Option 1 goes against the main idea of the passage. The passage argues that moral\njudgment resists formalisation and that ethical theories, like physical theories, diverge and\neven when they recommend similar actions, such as giving to charity, they justify them in\ndifferent ways. The passage does not forecast convergence on one ethical system or treat\ncontextual judgement as unnecessary. Option 2 restates the idea in the second paragraph:\n'Moral judgment draws on intuition, historical awareness and context \u2013 qualities that\nresist formalisation. Ethics may be so embedded in lived experience that any attempt to encode\nit into formal structures risks flattening its most essential features. If so, AI would not\nmerely reflect human shortcomings; it would strip morality of the very depth that makes ethical\nreflection possible in the first place.' Option 3 summarises the contents of the last\nparagraph. Option 4, again, relates to the main idea of the passage. Only option 1 is\nnot true, based on the passage.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s3-q11',
+    id: 'varc25-s3-q11',
     questionNumber: 11,
     section: 'VARC',
     type: 'MCQ',
@@ -141,7 +141,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The passage states that physical theories are each designed to describe specific\naspects of the Universe. So for AI to reason from fixed starting points in complex cases,\nsimilarly, it must be possible to decide which ethical framework applies to which class of cases\nso that the relevant framework can be applied. Option 1 is the correct choice. All other\noptions are easily eliminated. Option 2 talks of a single master framework replacing others.\nThis is clearly incorrect. Option 3 states the recommendation must be the same regardless of the\nethical framework applied. This beats the point of applying different frameworks, so this option\nis also out. Option 4 is incorrect too, as real cases straddle different areas.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s3-q12',
+    id: 'varc25-s3-q12',
     questionNumber: 12,
     section: 'VARC',
     type: 'TITA',
@@ -153,7 +153,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Sentence 4 introduces Latinx, so it is the starting sentence. 43 is a link. The\n'they' in 3 clearly refers to activists seeking to render names gender-neutral. They have\ndevised Latinx though gender in languages is grammatical, not sociological or sexual. 12 is also\na link. 1 talks about the reluctance of a female LGBTQ activist to refer to herself using\nLatinx. 2 follows this up stating that of the accumulated ethnic population, less than 2 percent\nrecognize Latinx. 2 is a better concluding statement than 1, so it goes after 1. So, 4312 is the\ncorrect order."
   },
   {
-    id: 'varc24-s3-q13',
+    id: 'varc25-s3-q13',
     questionNumber: 13,
     section: 'VARC',
     type: 'MCQ',
@@ -166,7 +166,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The missing sentence is about the location of a genetic defect in affected males.\nBlank 1 is easily ruled out as the context is not right to introduce the missing sentence here.\nThe sentence before blank 2 talks of 'abnormal behaviour' and the one that follows it explains\nwhat the undesirable behaviour included. Placing the missing sentence in blank 2 will break this\nlogical flow of ideas. So, blank 2 is also ruled out. The sentence that follows blank 3 seems to\nbe very specific in terms of the mutation it describes. The missing sentence is more general and\nrelates to the 'affected males' from the study. So, the missing sentence fits in blank 3, not 4.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s3-q14',
+    id: 'varc25-s3-q14',
     questionNumber: 14,
     section: 'VARC',
     type: 'MCQ',
@@ -179,7 +179,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The last line of the given paragraph sums up its main idea: \u2018For the\nindividual with a keen fashion sense and a genuine desire to move away from the waste and\nuniformity of fast fashion without paying the premium for it that indie brands would invariably\ndemand, the tailor is the perfect crossover\u2019. The key points in the paragraph -- move away\nfrom waste and uniformity and desire for customisation without paying the premium for it--are\nmentioned in option 3. So, this is the correct choice. Option 1 does not touch upon waste\nand uniformity in fast fashion. So, this choice is ruled out. Option 2 is too sweeping,\nreferring to 'all Indian shoppers'. So, we rule this option out. Option 4, again,\nover-generalises and misses key ideas. So, this option is eliminated.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s3-q15',
+    id: 'varc25-s3-q15',
     questionNumber: 15,
     section: 'VARC',
     type: 'MCQ',
@@ -192,7 +192,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The missing sentence says productivity gains have not fed through to broader\nliving standards but serve instead to enhance returns to wealth. The first sentence of the\ngiven paragraph says inequality is no longer a by-product of growth but a condition of it. The\nsentence that follows blank 1 explains how wealth can ease access to assets, favourable\ninstitutional conditions and public policies. The sentence that follows blank 2 also links to\nthis idea: wealth depends on political choices in ways that income currently does not. We can\nrule out blanks 1 and 2 as placing the missing sentence here would break the flow of ideas about\nhow wealth and income differ. Now, the sentence before blank 3 refers to an erosion of\nmechanisms that constrained inequality. The missing sentence is also about a mechanism that\nreduces inequality: productivity gains. So, blank 3 looks like a possible choice to place the\nmissing sentence. However, the sentence that follows blank 3 loops back to the idea in the\nsentence before blank 3, as it mentions inequality again and says wealth and income inequality\nare linked. So, blank 3 is not apt. Consider blank 4. The sentence before it explains how\ncapital income has been boosted where wages are stagnant and collective bargaining weak. The\nmissing sentence adds to this idea, explaining how yet another factor that was expected to\nreduce inequality now serves to enhance returns to wealth. The missing sentence fits in best in\nblank 4.\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s3-q16',
+    id: 'varc25-s3-q16',
     questionNumber: 16,
     section: 'VARC',
     type: 'TITA',
@@ -204,7 +204,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Tricky question. Of the given sentences, 2 is the best one to start the paragraph\nas it sets the context: the supposition that photography has a power to convert in elections is\nwhat is analysed in the paragraph. While 1, 3 and 4 all seem to make sense after 2, 1 links\nbetter to 2 than the others. This is because 2 mentions the electoral prospectus and 1 says the\ncandidate not only offers a programme for judgement, but also something more. The 'programme for\njudgement' in 1 links to the 'electoral prospectus' in 2. So, we have the link 21. Now, 1 says\nthe effigy of a candidate suggests 'a physical climate, a set of daily choices expressed in a\nmorphology, a way of dressing, a posture'. Sentence 4, too, relates to how photography links to\nthe 'image' of a candidate. Also, between 3 and 4, 3 is a better concluding sentence than 4 as\nit helps sum up how photography can help the candidate present his socio-moral status to voters.\nSo, 2143 is the correct order."
   },
   {
-    id: 'varc24-s3-q17',
+    id: 'varc25-s3-q17',
     questionNumber: 17,
     section: 'VARC',
     type: 'MCQ',
@@ -216,7 +216,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Option 3 is the correct choice. Refer to the lines, 'In response to its critics,\nthe government has made some important changes in forest policy, e.g., no longer treating\nforests as a source of revenue, and stopping ecologically hazardous practices such as the\nclearfelling of natural forests. At the same , it has shown little inclination to meet the\nmajor demand of the critics of forest policy\u2014namely, abandoning the principle of state\nmonopoly over forest land by handing over areas of degraded forests to individuals and\ncommunities for afforestation.'\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'varc24-s3-q18',
+    id: 'varc25-s3-q18',
     questionNumber: 18,
     section: 'VARC',
     type: 'MCQ',
@@ -228,7 +228,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Options 2, 3 and 4 all relate to points mentioned in the passage as similarities\nbetween the 1878 Forest Act and the 1982 draft forest act: 'It was pointed out, for example,\nthat the draft act was closely modelled on its predecessor, the Forest Act of 1878. The earlier\nAct rested on a usurpation of rights of ownership by the colonial state which had little\nprecedent in precolonial history. It was further argued that the system of forestry introduced\nby the British\u2014and continued, with little modification, after 1947 \u2014emphasised\nrevenue generation and commercial exploitation, while its policing orientation excluded\nvillagers who had the most longstanding claim on forest resources.' The passage does not\nsay both these Acts resulted in large scale deforestation. So, option 1 is the correct answer\nchoice.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s3-q19',
+    id: 'varc25-s3-q19',
     questionNumber: 19,
     section: 'VARC',
     type: 'MCQ',
@@ -240,7 +240,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Refer to the second paragraph. The passage says the raging controversy over the\ndraft forest act fuelled a larger controversy over the orientation of state forest policy as the\ndraft act was modelled on an earlier one which was formulated by the colonial state to\ncommercially exploit forests. Option 2 is the correct choice. Option 1 does not explain any\nlarger controversy. Option 3 relates to why there was a controversy about the 1982 draft act. It\ndoes not, like option 1, explain what the larger controversy was. Option 4 incorrectly states\nthat the 1982 draft act enabled the commercial exploitation of forest resources by 'the forest\nbureaucracy'. This option is also hence ruled out.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'varc24-s3-q20',
+    id: 'varc25-s3-q20',
     questionNumber: 20,
     section: 'VARC',
     type: 'MCQ',
@@ -252,7 +252,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The question asks us to choose the option that would\u00a0not weaken the\nnarrative presented in the passage. Consider option 1. The passage says that the expansion\nof the railway network from 1853 onwards led to tremendous deforestation in peninsular India. If\noption 1 were true and the timber requirements of railways in India were met through imports\nfrom China, then what the passage says would be weakened. So, option 1 is not the choice we are\nlooking for. Consider option 2. The passage says the British called in German experts to\ncommence systematic forest management. It also says the forest acts of the nineteenth century\nemphasised revenue generation and commercial exploitation, while its policing orientation\nexcluded villagers. If it were true that nineteenth century German forestry experts were\ninfamous for violating the rights of indigenous communities that lived in forest regions, then\nit would only strengthen what the passage says about the colonial era thinking with regard to\nforests. Option 2 is the answer choice that we are looking for. Let us still rule out the\nother options. Option 3 says that even before British rule, peasants and tribals were denied\naccess to forests. This contradicts what the passage says about these groups, that they had 'the\nmost longstanding claim on forest resources'. So, option 3, if true, would weaken the passage's\ncla. In the same way, if option 4 were true and tribal groups indulged in mass scale\ndeforestation, then the narrative presented in the passage would be weakened as the passage\nargues for the handing over of degraded forests to individuals and communities for\nafforestation. So, option 4 is also not the correct choice. The correct answer is option\n2.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'varc24-s3-q21',
+    id: 'varc25-s3-q21',
     questionNumber: 21,
     section: 'VARC',
     type: 'MCQ',
@@ -264,7 +264,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The terms mentioned in option 1 relate to key ideas in the passage. 'Quarter\ncentury' in option 2, 'lucrative contracts' in option 3 and 'decided democratically' in option 4\nare highly irrelevant terms which can help rule these options out at a glance.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'varc24-s3-q22',
+    id: 'varc25-s3-q22',
     questionNumber: 22,
     section: 'VARC',
     type: 'MCQ',
@@ -276,7 +276,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "The first paragraph describes dams as the ' physical instantiation of a messianic\ndrive to conquer territories and control nature'. Physical instantiation means concrete example.\nOption 4- exemplification and manifestation- would be the best substitute for the term in the\ngiven context.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'varc24-s3-q23',
+    id: 'varc25-s3-q23',
     questionNumber: 23,
     section: 'VARC',
     type: 'MCQ',
@@ -288,7 +288,7 @@ export const varc2025Slot3Questions: Question[] = [
     explanation: "Option 2 is not a valid inference that can be made from the passage. The passage\ndoes not claim or imply that smaller dams are safer than larger ones. Option 1 is true,\nbased on the line, ' In the western United States, dams were often an instrument of colonialism,\nused to dispossess Indigenous people and subsidize settler agriculture.' Option 3 is true,\nbased on the last line of the passage. Option 4 is true based on the contents of the\npenultimate paragraph.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'varc24-s3-q24',
+    id: 'varc25-s3-q24',
     questionNumber: 24,
     section: 'VARC',
     type: 'MCQ',

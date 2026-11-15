@@ -92,7 +92,7 @@ export const officialFullMockTests: SectionalTest[] = [
     ),
   },
 
-  // 1a. CAT 2025 Slot 1 Official Full Mock (from Cracku downloads/22846)
+  // 1a. CAT 2025 Slot 1 Official Full Mock (from Official download 22846)
   {
     id: 'cat-2025-slot1-full-mock',
     title: 'CAT 2025 Slot 1 - Official Full Mock Test',
@@ -118,7 +118,7 @@ export const officialFullMockTests: SectionalTest[] = [
     ),
   },
 
-  // 1b. CAT 2025 Slot 2 Official Full Mock (from Cracku downloads/22847)
+  // 1b. CAT 2025 Slot 2 Official Full Mock (from Official download 22847)
   {
     id: 'cat-2025-slot2-full-mock',
     title: 'CAT 2025 Slot 2 - Official Full Mock Test',
@@ -144,7 +144,7 @@ export const officialFullMockTests: SectionalTest[] = [
     ),
   },
 
-  // 1c. CAT 2025 Slot 3 Official Full Mock (from Cracku downloads/22845)
+  // 1c. CAT 2025 Slot 3 Official Full Mock (from Official download 22845)
   {
     id: 'cat-2025-slot3-full-mock',
     title: 'CAT 2025 Slot 3 - Official Full Mock Test',

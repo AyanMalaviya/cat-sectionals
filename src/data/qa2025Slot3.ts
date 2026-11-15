@@ -2,7 +2,7 @@ import { Question } from '../types';
 
 export const qa2025Slot3Questions: Question[] = [
   {
-    id: 'qa24-s3-q1',
+    id: 'qa25-s3-q1',
     questionNumber: 1,
     section: 'QA',
     type: 'TITA',
@@ -13,7 +13,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Since \\(\\triangle ABC\\) is isosceles with \\(AB=AC=50\\) cm, dropping altitude \\(AD\\) to base \\(BC\\) bisects \\(BC\\):\n\\(BD=DC=\\frac{80}{2}=40\\) cm.\nUsing Pythagoras theorem in right-angled \\(\\triangle ABD\\):\n\\(AD=\\sqrt{50^2-40^2}=\\sqrt{2500-1600}=\\sqrt{900}=30\\) cm.\nArea of \\(\\triangle ABC=\\frac{1}{2}\\times80\\times30=1200\\text{ cm}^2\\).\nSince \\(AB=AC=50\\) cm, the corresponding altitudes to \\(AB\\) and \\(AC\\) are equal:\n\\(h_B=h_C=\\frac{2\\times1200}{50}=48\\) cm.\nSum of all three altitudes \\(=30+48+48=126\\) cm."
   },
   {
-    id: 'qa24-s3-q2',
+    id: 'qa25-s3-q2',
     questionNumber: 2,
     section: 'QA',
     type: 'TITA',
@@ -24,7 +24,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let the first term be \\(a\\) and common difference be \\(d\\).\nThe fourth, seventh and tenth terms are \\(a+3d,\\ a+6d,\\ a+9d\\).\nGiven:\n\\[\n(a+3d)+(a+6d)+(a+9d)=99\n\\]\n\\[\n3(a+6d)=99\\Rightarrow a+6d=33\n\\]\nThe sum of the first 14 terms is:\n\\[\nS_{14}=\\frac{14}{2}[2a+13d]=497\n\\]\n\\[\n2a+13d=71\n\\]\nFrom \\(a+6d=33\\):\n\\(2a+12d=66\\).\nSubtracting:\n\\(d=5\\), hence \\(a=3\\).\nSum of first five terms:\n\\[\nS_5=\\frac{5}{2}[2a+4d]\n=\\frac{5}{2}[6+20]\n=65\n\\]"
   },
   {
-    id: 'qa24-s3-q3',
+    id: 'qa25-s3-q3',
     questionNumber: 3,
     section: 'QA',
     type: 'MCQ',
@@ -36,7 +36,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Since the circle has radius \\(3\\) cm and touches both parallel sides, the height of the trapezium is the diameter:\n\\(AD=2\\times3=6\\) cm.\nLet \\(DC=c\\). Given \\(AB=3DC\\):\n\\(DC=c,\\quad AB=3c\\).\nTake \\(B(3c,0)\\) and \\(C(c,6)\\). The slope of \\(BC\\) is:\n\\[\n\\frac{6-0}{c-3c}=-\\frac{3}{c}\n\\]\nTherefore, the equation of \\(BC\\) is:\n\\[\n3x+cy-9c=0\n\\]\nThe centre of the circle is \\(O(3,3)\\). Since the circle touches \\(BC\\), the perpendicular distance from \\(O\\) to \\(BC\\) equals the radius \\(3\\):\n\\[\n\\frac{|3(3)+c(3)-9c|}{\\sqrt{3^2+c^2}}=3\n\\]\n\\[\n\\frac{|9-6c|}{\\sqrt{9+c^2}}=3\n\\]\nDividing by \\(3\\) and squaring:\n\\[\n(3-2c)^2=9+c^2\n\\]\n\\[\n3c(c-4)=0\n\\]\nSince \\(c>0\\), \\(c=4\\).\nTherefore:\n\\(DC=4\\) cm and \\(AB=12\\) cm.\nArea of trapezium:\n\\[\n\\frac{1}{2}(AB+DC)\\times AD\n=\\frac{1}{2}(12+4)\\times6\n=48\\text{ cm}^2\n\\]\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'qa24-s3-q4',
+    id: 'qa25-s3-q4',
     questionNumber: 4,
     section: 'QA',
     type: 'MCQ',
@@ -48,7 +48,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Given:\n\\[\nx^2+\\frac{1}{x^2}=25,\\quad x>0\n\\]\nFind \\(x+\\frac{1}{x}\\):\n\\[\n\\left(x+\\frac{1}{x}\\right)^2\n=x^2+\\frac{1}{x^2}+2\n=25+2=27\n\\]\nSince \\(x>0\\):\n\\[\nx+\\frac{1}{x}=3\\sqrt3\n\\]\nFind \\(x^3+\\frac{1}{x^3}\\):\n\\[\nx^3+\\frac{1}{x^3}\n=\\left(x+\\frac{1}{x}\\right)^3-3\\left(x+\\frac{1}{x}\\right)\n\\]\n\\[\n=(3\\sqrt3)^3-3(3\\sqrt3)\n=81\\sqrt3-9\\sqrt3\n=72\\sqrt3\n\\]\nFind \\(x^4+\\frac{1}{x^4}\\):\n\\[\n\\left(x^2+\\frac{1}{x^2}\\right)^2-2\n=25^2-2=623\n\\]\nMultiply \\(x^4+\\frac{1}{x^4}\\) and \\(x^3+\\frac{1}{x^3}\\):\n\\[\n623(72\\sqrt3)\n=x^7+\\frac{1}{x^7}+x+\\frac{1}{x}\n\\]\n\\[\nx^7+\\frac{1}{x^7}\n=623(72\\sqrt3)-3\\sqrt3\n=44853\\sqrt3\n\\]\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'qa24-s3-q5',
+    id: 'qa25-s3-q5',
     questionNumber: 5,
     section: 'QA',
     type: 'MCQ',
@@ -60,7 +60,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Total units sold:\n\\(120+135+150+165=570\\) units.\nCost price per unit = \u20b9240.\nTotal Cost \\(=570\\times240=\u20b9136800\\).\nGiven total profit = \u20b9138825.\nTherefore, total revenue:\n\\[\n136800+138825=\u20b9275625\n\\]\nLet the fixed marked price per unit be \\(M\\).\nJanuary selling price \\(=80\\%M=0.8M\\).\nFebruary selling price \\(=90\\%M=0.9M\\).\nMarch selling price \\(=95\\%M=0.95M\\).\nApril selling price \\(=M\\).\nTotal revenue:\n\\[\n120(0.8M)+135(0.9M)+150(0.95M)+165M=275625\n\\]\n\\[\n(96+121.5+142.5+165)M=275625\n\\]\n\\[\n525M=275625\n\\]\n\\(M=525\\).\nMarked Price per unit = \u20b9525.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s3-q6',
+    id: 'qa25-s3-q6',
     questionNumber: 6,
     section: 'QA',
     type: 'MCQ',
@@ -72,7 +72,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Rahul's total journey  is \\(6\\) hours.\nLet his initial speed be \\(v\\) km/h and the remaining distance after the stop be \\(d\\) km.\nSince his original journey takes 6 hours, total distance is \\(6v\\).\nScenario 1: He stops for 20 minutes \\(=\\frac{1}{3}\\) hour and increases speed by 3 km/h.\nRemaining travel  is:\n\\[\n6-\\frac{1}{3}=\\frac{17}{3}\n\\]\nTherefore:\n\\[\n\\frac{6v-d}{v}+\\frac{d}{v+3}=\\frac{17}{3}\n\\]\nScenario 2: He stops for 30 minutes \\(=\\frac{1}{2}\\) hour and increases speed by 5 km/h.\nRemaining travel  is:\n\\[\n6-\\frac{1}{2}=\\frac{11}{2}\n\\]\nTherefore:\n\\[\n\\frac{6v-d}{v}+\\frac{d}{v+5}=\\frac{11}{2}\n\\]\nSolving the two equations gives:\n\\(v=15\\) km/h and \\(d=30\\) km.\nRahul's initial speed was \\(15\\) km/h.\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'qa24-s3-q7',
+    id: 'qa25-s3-q7',
     questionNumber: 7,
     section: 'QA',
     type: 'MCQ',
@@ -84,7 +84,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Given:\n\\[\n\\log_{(x-3)}(x^2-9)=\\log_{(x-3)}(x+1)+2\n\\]\nApply domain constraints:\n\\(x-3>0\\) and \\(x-3\\neq1\\), so \\(x>3\\) and \\(x\\neq4\\).\nAlso, \\(x^2-9>0\\) and \\(x+1>0\\).\nThus, the domain is \\(x>3,\\ x\\neq4\\).\nUsing \\(\\log a-\\log b=\\log\\frac{a}{b}\\):\n\\[\n\\log_{(x-3)}\\left(\\frac{x^2-9}{x+1}\\right)=2\n\\]\n\\[\n\\frac{x^2-9}{x+1}=(x-3)^2\n\\]\nSince \\(x>3\\), divide by \\(x-3\\):\n\\[\n\\frac{x+3}{x+1}=x-3\n\\]\n\\[\nx+3=(x-3)(x+1)\n\\]\n\\[\nx^2-3x-6=0\n\\]\nUsing the quadratic formula:\n\\[\nx=\\frac{3\\pm\\sqrt{33}}{2}\n\\]\nThe negative root is rejected since \\(x>3\\).\nThe valid root is:\n\\[\nx=\\frac{3+\\sqrt{33}}{2}\n\\]\nSum of all possible real values of \\(x\\):\n\\[\n\\frac{3+\\sqrt{33}}{2}\n\\]\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'qa24-s3-q8',
+    id: 'qa25-s3-q8',
     questionNumber: 8,
     section: 'QA',
     type: 'TITA',
@@ -95,7 +95,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let the initial number of coins in boxes A and B be \\(17k\\) and \\(7k\\), respectively.\nAfter 108 coins are shifted from A to B:\nCoins in A \\(=17k-108\\).\nCoins in B \\(=7k+108\\).\nGiven the new ratio is \\(37:20\\):\n\\[\n\\frac{17k-108}{7k+108}=\\frac{37}{20}\n\\]\n\\[\n20(17k-108)=37(7k+108)\n\\]\n\\[\n340k-2160=259k+3996\n\\]\n\\(81k=6156\\Rightarrow k=76\\).\nInitial total coins:\n\\[\n17(76)+7(76)=24(76)=1824\n\\]\nAfter the first transfer, box B has:\n\\[\n7(76)+108=640\n\\]\nFor equal numbers, each box must contain:\n\\[\n\\frac{1824}{2}=912\n\\]\nAdditional coins to shift from A to B:\n\\[\n912-640=272\n\\]"
   },
   {
-    id: 'qa24-s3-q9',
+    id: 'qa25-s3-q9',
     questionNumber: 9,
     section: 'QA',
     type: 'TITA',
@@ -106,7 +106,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Given:\n\\[\n12^{12x}\\times4^{24x+12}\\times5^{2y}\n=8^{4z}\\times20^{12x}\\times243^{3x-6}\n\\]\nExpress all numbers in prime factors.\nLeft-Hand Side:\n\\[\n12^{12x}=2^{24x}\\times3^{12x}\n\\]\n\\[\n4^{24x+12}=2^{48x+24}\n\\]\nTherefore:\n\\[\nLHS=2^{72x+24}\\times3^{12x}\\times5^{2y}\n\\]\nRight-Hand Side:\n\\[\n8^{4z}=2^{12z}\n\\]\n\\[\n20^{12x}=2^{24x}\\times5^{12x}\n\\]\n\\[\n243^{3x-6}=3^{15x-30}\n\\]\nTherefore:\n\\[\nRHS=2^{12z+24x}\\times3^{15x-30}\\times5^{12x}\n\\]\nEquating powers of 3:\n\\[\n12x=15x-30\\Rightarrow x=10\n\\]\nEquating powers of 5:\n\\[\n2y=12x\\Rightarrow y=6x=60\n\\]\nEquating powers of 2:\n\\[\n72x+24=12z+24x\n\\]\n\\[\n48x+24=12z\n\\]\n\\[\nz=4x+2=42\n\\]\nTherefore:\n\\[\nx+y+z=10+60+42=112\n\\]"
   },
   {
-    id: 'qa24-s3-q10',
+    id: 'qa25-s3-q10',
     questionNumber: 10,
     section: 'QA',
     type: 'MCQ',
@@ -118,7 +118,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let \\(a,b,c\\) be the rate per hour of one member from Teams A, B and C respectively.\nIf the total work is \\(W\\):\n\\[\nW=5a\\times40=200a\\Rightarrow a=\\frac{W}{200}\n\\]\n\\[\nW=8b\\times50=400b\\Rightarrow b=\\frac{W}{400}\n\\]\n\\[\nW=10c\\times4=40c\\Rightarrow c=\\frac{W}{40}\n\\]\nHence:\n\\(c=10b,\\quad a=2b\\).\nInitial team: 2 from A, 3 from B and 1 from C.\nWork done per hour:\n\\[\n2a+3b+c=2(2b)+3b+10b=17b\n\\]\nWork done in 23 hours:\n\\[\n23\\times17b=391b\n\\]\nRemaining work:\n\\[\n400b-391b=9b\n\\]\nIn the 24th hour, C leaves and \\(N\\) additional members from B join.\nWork done in that hour:\n\\[\n2a+(3+N)b=(4+3+N)b=(7+N)b\n\\]\nThis must equal the remaining \\(9b\\):\n\\[\n7+N=9\\Rightarrow N=2\n\\]\nAdditional members required from Team B = 2.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s3-q11',
+    id: 'qa25-s3-q11',
     questionNumber: 11,
     section: 'QA',
     type: 'MCQ',
@@ -130,7 +130,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Given:\n\\[\nf(x)=(x^2+3x)(x^2+3x+2)\n\\]\nLet:\n\\[\nn=x^2+3x+1\n\\]\nThen:\n\\[\nx^2+3x=n-1\n\\]\n\\[\nx^2+3x+2=n+1\n\\]\nTherefore:\n\\[\nf(x)=(n-1)(n+1)=n^2-1\n\\]\nGiven:\n\\[\n\\sqrt{f(x)+1}=9701\n\\]\n\\[\n\\sqrt{n^2}=9701\\Rightarrow |n|=9701\n\\]\nCase 1: \\(n=9701\\)\n\\[\nx^2+3x+1=9701\n\\Rightarrow x^2+3x-9700=0\n\\]\nIts discriminant is positive, so it has two real roots. Their sum is:\n\\[\n-\\frac{3}{1}=-3\n\\]\nCase 2: \\(n=-9701\\)\n\\[\nx^2+3x+1=-9701\n\\Rightarrow x^2+3x+9702=0\n\\]\nIts discriminant is negative, so there are no real roots.\nSum of all real roots \\(=-3\\).\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s3-q12',
+    id: 'qa25-s3-q12',
     questionNumber: 12,
     section: 'QA',
     type: 'MCQ',
@@ -142,7 +142,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Total number of employees \\(=5+25=30\\).\nInitial average salary = \u20b960000.\nTherefore, initial total salary:\n\\[\n30\\times60000=\u20b91800000\n\\]\nAfter the managers receive a 20% increase, the overall average increases by 5%.\nNew average salary:\n\\[\n60000\\times1.05=\u20b963000\n\\]\nNew total salary:\n\\[\n30\\times63000=\u20b91890000\n\\]\nIncrease in total salary:\n\\[\n1890000-1800000=\u20b990000\n\\]\nThis increase is 20% of the total salary of the 5 managers.\nTherefore, initial total manager salary:\n\\[\n\\frac{90000}{0.20}=\u20b9450000\n\\]\nInitial total engineer salary:\n\\[\n1800000-450000=\u20b91350000\n\\]\nAverage salary of engineers:\n\\[\n\\frac{1350000}{25}=\u20b954000\n\\]\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s3-q13',
+    id: 'qa25-s3-q13',
     questionNumber: 13,
     section: 'QA',
     type: 'TITA',
@@ -153,7 +153,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let the number of Science, Arts and Commerce students be \\(S,A,C\\), respectively.\nTotal student count:\n\\[\nS+A+C=1500\n\\]\nTotal fee revenue:\n\\[\n1100S+1000A+800C=1550000\n\\]\nMultiply the first equation by 800:\n\\[\n800S+800A+800C=1200000\n\\]\nSubtract from the fee equation:\n\\[\n300S+200A=350000\n\\]\n\\[\n3S+2A=3500\n\\]\nTherefore:\n\\[\nA=\\frac{3500-3S}{2}\n\\]\nGiven Science students are not more than Arts students:\n\\[\nS\\leq A\n\\]\n\\[\nS\\leq\\frac{3500-3S}{2}\n\\]\n\\[\n5S\\leq3500\n\\]\n\\[\nS\\leq700\n\\]\nTaking \\(S=700\\):\n\\(A=700\\), \\(C=100\\), all valid whole numbers.\nMaximum possible number of Science students = 700."
   },
   {
-    id: 'qa24-s3-q14',
+    id: 'qa25-s3-q14',
     questionNumber: 14,
     section: 'QA',
     type: 'MCQ',
@@ -165,7 +165,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let \\(P,M,C\\) represent Physics, Mathematics and Chemistry respectively.\nTotal students \\(=150\\).\nLet the number of students taking all three subjects be \\(t\\).\nLet the total intersections \\(P\\cap C\\) and \\(C\\cap M\\) each be \\(k\\), while \\(P\\cap M=2k\\).\nTherefore, the regions containing exactly two subjects are:\n\\(P\\cap M\\) only \\(=2k-t\\).\n\\(P\\cap C\\) only \\(=k-t\\).\n\\(C\\cap M\\) only \\(=k-t\\).\nPhysics only:\n\\[\n75-(2k-t)-(k-t)-t=75-3k+t\n\\]\nMathematics only:\n\\[\n111-(2k-t)-(k-t)-t=111-3k+t\n\\]\nChemistry only:\n\\[\n40-(k-t)-(k-t)-t=40-2k+t\n\\]\nSince every student takes at least one subject, the union is 150:\n\\[\nt=4k-76\n\\]\nStudents taking Physics but not Mathematics:\n\\[\n(75-3k+t)+(k-t)=75-2k\n\\]\nTo maximize this, minimize \\(k\\). Since at least one student takes all three:\n\\[\nt=4k-76\\geq1\n\\]\nHence \\(k\\geq20\\).\nTaking \\(k=20\\):\n\\[\n75-2(20)=35\n\\]\nMaximum possible number of students who chose Physics but not Mathematics = 35.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s3-q15',
+    id: 'qa25-s3-q15',
     questionNumber: 15,
     section: 'QA',
     type: 'MCQ',
@@ -177,7 +177,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let:\n\\[\ny=\\frac{2x-3}{2x^2+4x-6}\n\\]\nRearranging:\n\\[\ny(2x^2+4x-6)=2x-3\n\\]\n\\[\n2yx^2+(4y-2)x+(3-6y)=0\n\\]\nFor real \\(x\\), the discriminant must be non-negative:\n\\[\n(4y-2)^2-4(2y)(3-6y)\\geq0\n\\]\n\\[\n16y^2-16y+4-24y+48y^2\\geq0\n\\]\n\\[\n(2y-1)(8y-1)\\geq0\n\\]\nTherefore:\n\\[\ny\\leq\\frac18\\quad\\text{or}\\quad y\\geq\\frac12\n\\]\nHence the range is:\n\\[\n\\left(-\\infty,\\frac18\\right]\\cup\\left[\\frac12,\\infty\\right)\n\\]\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s3-q16',
+    id: 'qa25-s3-q16',
     questionNumber: 16,
     section: 'QA',
     type: 'TITA',
@@ -188,7 +188,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let Ankita's walking speed be \\(v\\) and running speed be \\(1.4v\\).\nFor a fixed distance,  is inversely proportional to speed.\nShe takes 3 hours 30 minutes \\(=3.5\\) hours to walk from B to C.\nTherefore:\n\\[\nBC=3.5v\n\\]\nShe also takes 3.5 hours to run from B to A.\nSince running speed is \\(1.4v\\):\n\\[\nBA=3.5(1.4v)=4.9v\n\\]\n to walk from A to B:\n\\[\n4.9\\text{ hours}\n\\]\n to run from B to C:\n\\[\n\\frac{3.5}{1.4}=2.5\\text{ hours}\n\\]\nTotal :\n\\[\n4.9+2.5=7.4\\text{ hours}\n\\]\nConverting to minutes:\n\\[\n7.4\\times60=444\\text{ minutes}\n\\]"
   },
   {
-    id: 'qa24-s3-q17',
+    id: 'qa25-s3-q17',
     questionNumber: 17,
     section: 'QA',
     type: 'MCQ',
@@ -200,7 +200,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Consider the number:\n\\[\n10^{50}+10^{25}-123\n\\]\n\\(10^{50}\\) is 1 followed by 50 zeros.\nAlso:\n\\[\n10^{25}-123=9999999999999999999999877\n\\]\nTherefore, the resulting number has:\nOne leading digit \\(1\\), followed by zeros, then 22 nines and the ending digits \\(877\\).\nSum of digits:\n\\[\n1+(22\\times9)+8+7+7\n\\]\n\\[\n=1+198+22=221\n\\]\nSum of all digits = 221.\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s3-q18',
+    id: 'qa25-s3-q18',
     questionNumber: 18,
     section: 'QA',
     type: 'MCQ',
@@ -212,7 +212,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "In \\(\\triangle ABC\\), \\(AB=AC=12\\) cm, so:\n\\[\n\\angle ABC=\\angle ACB\n\\]\nWe are given:\n\\[\n\\angle ACB=\\angle AEB\n\\]\nTherefore:\n\\[\n\\angle ABC=\\angle AEB\n\\]\nSince side \\(AB\\) subtends equal angles at \\(C\\) and \\(E\\), the points \\(A,C,E,B\\) lie on a common circle, forming cyclic quadrilateral \\(ACEB\\).\nIn cyclic quadrilateral \\(ACEB\\):\n\\[\n\\angle AEC=\\angle ABC\n\\]\nSince \\(\\triangle ABC\\) is isosceles:\n\\[\n\\angle ABC=\\angle ACB=\\angle ACD\n\\]\nTherefore:\n\\[\n\\angle AEC=\\angle ACD\n\\]\nAlso, \\(\\angle DAC=\\angle CAE\\) because \\(AD\\) and \\(AE\\) lie on the same line.\nHence, by AA similarity:\n\\[\n\\triangle ADC\\sim\\triangle ACE\n\\]\nCorresponding sides give:\n\\[\n\\frac{AD}{AC}=\\frac{AC}{AE}\n\\]\nSubstituting \\(AD=8\\) and \\(AC=12\\):\n\\[\n\\frac{8}{12}=\\frac{12}{AE}\n\\]\n\\[\n2AE=36\\Rightarrow AE=18\\text{ cm}\n\\]\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'qa24-s3-q19',
+    id: 'qa25-s3-q19',
     questionNumber: 19,
     section: 'QA',
     type: 'MCQ',
@@ -224,7 +224,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "The flow rates of pipes A, B and C are in the ratio \\(4:9:36\\).\nPipe A fills the tank in 15 hours, so its rate is:\n\\[\n\\frac{1}{15}\n\\]\nTherefore:\n\\[\nB=\\frac{9}{4}\\times\\frac{1}{15}=\\frac{3}{20}\n\\]\n\\[\nC=\\frac{36}{4}\\times\\frac{1}{15}=\\frac35\n\\]\nCombined rate:\n\\[\n\\frac{1}{15}+\\frac{3}{20}+\\frac35\n=\\frac{4+9+36}{60}\n=\\frac{49}{60}\n\\]\n required:\n\\[\n\\frac{1}{49/60}=\\frac{60}{49}\\text{ hours}\n\\]\nConverting to minutes:\n\\[\n\\frac{60}{49}\\times60\n=\\frac{3600}{49}\n\\approx73.47\n\\]\nNearest value = 73 minutes.\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s3-q20',
+    id: 'qa25-s3-q20',
     questionNumber: 20,
     section: 'QA',
     type: 'MCQ',
@@ -236,7 +236,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Let the four digits be \\(a,b,c,d\\), from thousands to units place.\nGiven:\n\\[\na+b+c=15\n\\]\n\\[\nb+c+d=16\n\\]\n\\[\nc=d+6\n\\]\nSubtracting the first equation from the second:\n\\[\nd-a=1\n\\]\nTherefore:\n\\[\nd=a+1\n\\]\nHence:\n\\[\nc=a+7\n\\]\nFrom \\(a+b+c=15\\):\n\\[\na+b+a+7=15\n\\]\n\\[\nb=8-2a\n\\]\nSince \\(c\\) must be a single digit, \\(a\\) can be 1 or 2.\nCase 1: \\(a=1\\)\n\\[\nb=6,\\quad c=8,\\quad d=2\n\\]\nFirst number \\(=1682\\).\nCase 2: \\(a=2\\)\n\\[\nb=4,\\quad c=9,\\quad d=3\n\\]\nSecond number \\(=2493\\).\nLargest possible value \\(=2493\\).\nSmallest possible value \\(=1682\\).\nDifference:\n\\[\n2493-1682=811\n\\]\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'qa24-s3-q21',
+    id: 'qa25-s3-q21',
     questionNumber: 21,
     section: 'QA',
     type: 'TITA',
@@ -247,7 +247,7 @@ export const qa2025Slot3Questions: Question[] = [
     explanation: "Given:\n\\[\np+q+r=900\n\\]\nand \\(r\\) is a perfect square between 150 and 500.\nAlso:\n\\[\n0.3q\\leq p\\leq0.7q\n\\]\nSince:\n\\[\nq=900-r-p\n\\]\nTo maximize \\(p\\), take the minimum possible \\(r\\).\nThe smallest perfect square greater than 150 is:\n\\[\nr=169\n\\]\nUsing the upper bound \\(p\\leq0.7q\\):\n\\[\np\\leq0.7(900-169-p)\n\\]\n\\[\n1.7p\\leq511.7\n\\]\n\\[\np\\leq301\n\\]\nTaking \\(p=301\\):\n\\[\nq=900-169-301=430\n\\]\nand \\(301=0.7(430)\\), so it is valid.\nTo minimize \\(p\\), take the maximum possible \\(r\\).\nThe largest perfect square below 500 is:\n\\[\nr=484\n\\]\nUsing the lower bound \\(p\\geq0.3q\\):\n\\[\np\\geq0.3(900-484-p)\n\\]\n\\[\n1.3p\\geq124.8\n\\]\n\\[\np\\geq96\n\\]\nTaking \\(p=96\\):\n\\[\nq=900-484-96=320\n\\]\nand \\(96=0.3(320)\\), so it is valid.\nSum of maximum and minimum possible values:\n\\[\n301+96=397\n\\]"
   },
   {
-    id: 'qa24-s3-q22',
+    id: 'qa25-s3-q22',
     questionNumber: 22,
     section: 'QA',
     type: 'TITA',

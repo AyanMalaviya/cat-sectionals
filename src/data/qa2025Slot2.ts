@@ -2,7 +2,7 @@ import { Question } from '../types';
 
 export const qa2025Slot2Questions: Question[] = [
   {
-    id: 'qa24-s2-q1',
+    id: 'qa25-s2-q1',
     questionNumber: 1,
     section: 'QA',
     type: 'TITA',
@@ -13,7 +13,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Identify all integer factor pairs of 27\n\nSince \\(m\\) and \\(n\\) are integers, \\(m+2n\\) and \\(2m+n\\) must be integer factor pairs of 27:\n\\((9,3),\\ (3,9),\\ (27,1),\\ (1,27),\\)\n\\((-9,-3),\\ (-3,-9),\\ (-27,-1),\\ (-1,-27)\\)\n\nTest factor pair \\((3,9)\\)\n\\(m+2n=3\\)\n\\(2m+n=9\\)\n\nAdding both equations gives \\(3m+3n=12\\Rightarrow m+n=4\\).\n\nSubtracting \\(m+n=4\\) from \\(m+2n=3\\) yields \\(n=-1\\) and \\(m=5\\).\n\\(2m-3n=2(5)-3(-1)=10+3=13\\)\n\nTest factor pair \\((-9,-3)\\)\n\\(m+2n=-9\\)\n\\(2m+n=-3\\)\n\nAdding both equations gives \\(3m+3n=-12\\Rightarrow m+n=-4\\).\n\nSubtracting \\(m+n=-4\\) from \\(m+2n=-9\\) yields \\(n=-5\\) and \\(m=1\\).\n\\(2m-3n=2(1)-3(-5)=2+15=17\\)\n\n(Note: Factor pairs containing 27 and 1 yield non-integer values for \\(m\\) and \\(n\\).)\n\nThe maximum possible value of \\(2m-3n\\) is 17."
   },
   {
-    id: 'qa24-s2-q2',
+    id: 'qa25-s2-q2',
     questionNumber: 2,
     section: 'QA',
     type: 'MCQ',
@@ -25,7 +25,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Simplify all logarithms to base 2\n\n\\(\\log_{64}x^2=\\frac{2}{6}\\log_2x=\\frac{1}{3}\\log_2x\\)\n\\(\\log_8\\sqrt{y}=\\frac{1}{2}\\cdot\\frac{1}{3}\\log_2y=\\frac{1}{6}\\log_2y\\)\n\\(3\\log_{512}(\\sqrt{y}z)=3\\cdot\\frac{1}{9}\\log_2(\\sqrt{y}z)\\)\n\\(=\\frac{1}{3}\\left(\\frac{1}{2}\\log_2y+\\log_2z\\right)\\)\n\\(=\\frac{1}{6}\\log_2y+\\frac{1}{3}\\log_2z\\)\n\nCombine all logarithmic terms\n\n\\(\\frac{1}{3}\\log_2x+\\frac{1}{6}\\log_2y+\\frac{1}{6}\\log_2y+\\frac{1}{3}\\log_2z=4\\)\n\\(\\frac{1}{3}\\log_2x+\\frac{1}{3}\\log_2y+\\frac{1}{3}\\log_2z=4\\)\n\\(\\frac{1}{3}\\log_2xyz=4\\)\n\\(\\log_2xyz=12\\Rightarrow xyz=2^{12}=4096\\)\n\nApply the AM-GM Inequality\n\n\\(\\frac{x+y+z}{3}\\geq\\sqrt[3]{xyz}\\)\n\\(\\frac{x+y+z}{3}\\geq\\sqrt[3]{4096}=16\\)\n\\(x+y+z\\geq3\\times16=48\\)\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s2-q3',
+    id: 'qa25-s2-q3',
     questionNumber: 3,
     section: 'QA',
     type: 'TITA',
@@ -36,7 +36,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Total copies sold in initial 7 days \\(=7\\times60=420\\)\nTotal copies sold in initial 8 days \\(=8\\times63=504\\)\nCopies sold on Day 8 \\(=504-420=84\\)\nCopies sold on Day 9 \\(=84-11=73\\)\nTotal sales from Day 1 to Day 9 \\(=504+73=577\\)\nTotal sales from Day 2 to Day 9 \\(=8\\times66=528\\)\nDay 1 \\(=\\) Day 1 to 9 total \u2212 Day 2 to 9 total\n\\(=577-528=49\\)\n\nThe number of copies sold on the 1st day is 49."
   },
   {
-    id: 'qa24-s2-q4',
+    id: 'qa25-s2-q4',
     questionNumber: 4,
     section: 'QA',
     type: 'MCQ',
@@ -48,7 +48,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "\\(f(x)\\) is undefined when \\(2x-1=0\\Rightarrow x=\\frac{1}{2}\\)\n\\(g(x)\\) is undefined when \\(x-1=0\\Rightarrow x=1\\)\n\nexclusions where \\(g(x)=\\frac{1}{2}\\)\n\\(g(x)=\\frac{x}{x-1}=\\frac{1}{2}\\Rightarrow2x=x-1\\Rightarrow x=-1\\)\n\nexclusions where \\(f(x)=1\\)\n\\(f(x)=\\frac{x}{2x-1}=1\\Rightarrow x=2x-1\\Rightarrow x=1\\) (already excluded)\n\nThe domain of \\(h(x)\\) is all real numbers except \\(-1,\\frac{1}{2},1\\).\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s2-q5',
+    id: 'qa25-s2-q5',
     questionNumber: 5,
     section: 'QA',
     type: 'MCQ',
@@ -60,7 +60,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Let \\(k=3^{x^2+2x-3}\\).\n\nNotice that \\(3^{x^2+2x-2}=3^{x^2+2x-3+1}=3k\\).\nAlso, \\(3^{2x^2+4x-6}=k^2\\).\n\nSolve the quadratic equation in terms of \\(k\\)\n\n\\(k^2-4(3k)+27=0\\)\n\\(k^2-12k+27=0\\)\n\\((k-3)(k-9)=0\\Rightarrow k=3\\) or \\(k=9\\)\n\nCase 1:\n\\(3^{x^2+2x-3}=3^1\\)\n\\(x^2+2x-3=1\\)\n\\(x^2+2x-4=0\\)\nProduct of roots \\(P_1=\\frac{c}{a}=-4\\)\n\nCase 2:\n\\(3^{x^2+2x-3}=3^2\\)\n\\(x^2+2x-3=2\\)\n\\(x^2+2x-5=0\\)\nProduct of roots \\(P_2=\\frac{c}{a}=-5\\)\n\nCompute the total product of all roots\nTotal Product \\(=P_1\\times P_2=(-4)\\times(-5)=20\\)\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s2-q6',
+    id: 'qa25-s2-q6',
     questionNumber: 6,
     section: 'QA',
     type: 'MCQ',
@@ -72,7 +72,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Let the side length of the regular hexagon be \\(a\\).\nLength \\(PB=\\frac{a}{2}\\)\nLength \\(QC=\\frac{a}{2}\\)\n\\(BC=a\\)\n\nTrapezium \\(PBCQ\\) has parallel sides \\(BC=a\\) and median line \\(PQ\\).\n\nThe distance from center to midpoint \\(PQ\\) gives \\(PQ=1.5a\\).\n\nHeight of trapezium \\(PBCQ=\\frac{\\sqrt{3}}{4}a\\)\n\nArea of trapezium \\(PBCQ\\)\n\\(=\\frac{1}{2}\\times(a+1.5a)\\times\\frac{\\sqrt{3}}{4}a\\)\n\\(=\\frac{1}{2}\\times2.5a\\times\\frac{\\sqrt{3}}{4}a\\)\n\\(=\\frac{5\\sqrt{3}}{16}a^2\\)\n\nArea of Hexagon \\(ABCDEF\\)\n\\(=6\\times\\left(\\frac{\\sqrt{3}}{4}a^2\\right)\\)\n\\(=\\frac{6\\sqrt{3}}{4}a^2=\\frac{24\\sqrt{3}}{16}a^2\\)\n\nRatio\n\\(=\\frac{\\frac{5\\sqrt{3}}{16}a^2}{\\frac{24\\sqrt{3}}{16}a^2}\\)\n\\(=\\frac{5}{24}\\)\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s2-q7',
+    id: 'qa25-s2-q7',
     questionNumber: 7,
     section: 'QA',
     type: 'TITA',
@@ -83,7 +83,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Distribute values evenly to minimize square differences\n\nTo minimize differences between integer values summing to 46:\n\\(\\frac{46}{4}=11.5\\)\n\nThe best integer distribution for \\(a,b,c,d\\) is \\(11,11,12,12\\).\n\nEvaluate the expression\nLet \\(a=11,\\ b=11,\\ c=12,\\) and \\(d=12\\):\n\n\\((a-b)^2+(a-c)^2+(a-d)^2\\)\n\\(=(11-11)^2+(11-12)^2+(11-12)^2\\)\n\\(=0^2+(-1)^2+(-1)^2\\)\n\\(=0+1+1=2\\)"
   },
   {
-    id: 'qa24-s2-q8',
+    id: 'qa25-s2-q8',
     questionNumber: 8,
     section: 'QA',
     type: 'MCQ',
@@ -95,7 +95,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Let terms be \\(a,ar,ar^2\\):\n\n\\(a+ar+ar^2=52\\)\n\\(a^2r+a^2r^2+a^2r^3=624\\)\n\\(\\Rightarrow ar(a+ar+ar^2)=624\\)\n\nSolve for second term \\(a_2=ar\\)\n\\(ar\\times52=624\\Rightarrow ar=12\\)\n\nSolve for first term \\(a\\) and common ratio \\(r\\)\nSince \\(ar=12\\Rightarrow a=\\frac{12}{r}\\):\n\n\\(\\frac{12}{r}+12+12r=52\\)\n\\(12+12r^2-40r=0\\)\n\\(3r^2-10r+3=0\\)\n\\((3r-1)(r-3)=0\\)\n\nSince it is a decreasing GP \\((|r|<1)\\), \\(r=\\frac{1}{3}\\).\n\\(a=\\frac{12}{1/3}=36\\)\n\nCompute infinite sum\n\\(S=\\frac{a}{1-r}\\)\n\\(=\\frac{36}{1-\\frac{1}{3}}\\)\n\\(=\\frac{36}{\\frac{2}{3}}=54\\)\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'qa24-s2-q9',
+    id: 'qa25-s2-q9',
     questionNumber: 9,
     section: 'QA',
     type: 'TITA',
@@ -106,7 +106,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Rearrange equation for natural numbers\n\n\\(3ac=8a+8b\\)\n\\(\\Rightarrow b=\\frac{3ac-8a}{8}=\\frac{a(3c-8)}{8}\\)\n\nTest smallest valid integer values for \\(a,b,c\\)\n\nSince \\(a,b,c\\) are positive distinct integers:\nTry \\(c=4\\):\n\\(b=\\frac{a(12-8)}{8}=\\frac{4a}{8}=\\frac{a}{2}\\)\n\nLet \\(a=2\\Rightarrow b=1\\).\n\nChecking distinctness: \\(a=2,\\ b=1,\\ c=4\\) (all distinct natural numbers).\n\nCompute \\(3a+2b+c\\)\n\\(=3(2)+2(1)+4\\)\n\\(=6+2+4=12\\)"
   },
   {
-    id: 'qa24-s2-q10',
+    id: 'qa25-s2-q10',
     questionNumber: 10,
     section: 'QA',
     type: 'TITA',
@@ -117,7 +117,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Use tangency properties to relate angles\n\nLet \\(AB\\) touch the circle at point \\(C\\).\nRay \\(OA\\) bisects \\(\\angle QOC\\), so \\(\\angle QOA=\\angle AOC=x\\).\nRay \\(OB\\) bisects \\(\\angle COR\\), so \\(\\angle COB=\\angle BOR=y\\).\n\nFind total central angle \\(\\angle QOR\\)\n\\(\\angle AOB=x+y=50^\\circ\\)\n\\(\\angle QOR=2x+2y=2(50^\\circ)=100^\\circ\\)\n\nCalculate \\(\\angle QPR\\) from cyclic quadrilateral \\(PQOR\\)\n\nIn quadrilateral \\(PQOR\\), \\(\\angle PQO=90^\\circ\\) and \\(\\angle PRO=90^\\circ\\):\n\\(\\angle QPR+\\angle QOR=180^\\circ\\)\n\\(\\angle QPR=180^\\circ-100^\\circ=80^\\circ\\)"
   },
   {
-    id: 'qa24-s2-q11',
+    id: 'qa25-s2-q11',
     questionNumber: 11,
     section: 'QA',
     type: 'MCQ',
@@ -129,7 +129,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Exclude factor 3\n\nNo multiple of 3 can be of the form \\(3r+1\\). Thus, power of 3 must be \\(3^0\\).\n(1 possibility.)\n\nAnalyze powers of 7\n\\(7\\equiv1\\pmod3\\), so any power of 7 leaves remainder 1.\n\\(c\\in\\{0,1,2\\}\\Rightarrow3\\) choices for powers of 7.\n\nDetermine valid combinations of powers of 2 and 5\n\\(2\\equiv2\\pmod3\\) and \\(5\\equiv2\\pmod3\\).\n\n\\(2^a\\pmod3=1\\) when \\(a\\) is even:\n\\(a\\in\\{0,2,4,6\\}\\) (4 choices).\n\n\\(2^a\\pmod3=2\\) when \\(a\\) is odd:\n\\(a\\in\\{1,3,5\\}\\) (3 choices).\n\n\\(5^b\\pmod3=1\\) when \\(b\\) is even:\n\\(b\\in\\{0,2\\}\\) (2 choices).\n\n\\(5^b\\pmod3=2\\) when \\(b\\) is odd:\n\\(b\\in\\{1,3\\}\\) (2 choices).\n\nTo get product \\(\\equiv1\\pmod3\\):\nCase A (Both Remainder 1): even \\(a\\)\\(\\times\\)even \\(b=4\\times2=8\\) pairs\nCase B (Both Remainder 2): odd \\(a\\)\\(\\times\\)odd \\(b=3\\times2=6\\) pairs\n\nTotal valid \\(a,b\\) pairs \\(=8+6=14\\).\n\nCompute total divisors\nTotal Divisors \\(=14\\times3=42\\)\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s2-q12',
+    id: 'qa25-s2-q12',
     questionNumber: 12,
     section: 'QA',
     type: 'TITA',
@@ -140,7 +140,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Let Chandan's efficiency \\(=1k\\) unit/day.\nBipin's efficiency \\(=2k\\) units/day.\nAnkita's efficiency \\(=4k\\) units/day.\n\nCalculate total work done\n\nBipin works for 20 days:\n\\(20\\times2k=40k\\) units.\n\nAnkita works for 60 days:\n\\(60\\times4k=240k\\) units.\n\nChandan works for 60 days:\n\\(60\\times1k=60k\\) units.\n\nTotal Work \\(=40k+240k+60k=340k\\) units.\n\nCalculate days for Chandan alone\n\n taken by Chandan \\(=\\frac{340k}{1k}=340\\) days."
   },
   {
-    id: 'qa24-s2-q13',
+    id: 'qa25-s2-q13',
     questionNumber: 13,
     section: 'QA',
     type: 'MCQ',
@@ -152,7 +152,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Let Meenakshi's expenditure = \\(21k\\).\nLakshmi's expenditure = \\(\\frac{2}{3}\\times21k=14k\\).\nLakshmi's income = \\(\\frac{6}{7}\\times21k=18k\\).\n\nLakshmi's Savings = \\(18k-14k=4k\\)\nGiven savings ratio is 4:9:\nMeenakshi's Savings = \\(9k\\)\n\nMeenakshi's Income = Expenditure + Savings = \\(21k+9k=30k\\)\n\nRatio of Incomes = \\(\\frac{\\text{Lakshmi's Income}}{\\text{Meenakshi's Income}}=\\frac{18k}{30k}=\\frac{3}{5}\\)\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s2-q14',
+    id: 'qa25-s2-q14',
     questionNumber: 14,
     section: 'QA',
     type: 'MCQ',
@@ -164,7 +164,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Case 1 \\((x\\geq-9)\\)\n\\(|x+9|=x+9\\)\n\\(x^2-(x+9)+x>0\\Rightarrow x^2-9>0\\Rightarrow(x-3)(x+3)>0\\)\nFor \\(x\\geq-9\\), this holds for \\(x\\in[-9,-3)\\cup(3,\\infty)\\).\n\nCase 2 \\((x\\leq-9)\\)\n\\(|x+9|=-(x+9)\\)\n\\(x^2-(-(x+9))+x>0\\Rightarrow x^2+2x+9>0\\)\n\nCompleting the square gives \\((x+1)^2+8>0\\), which is true for all real \\(x\\).\nFor \\(x\\leq-9\\), this holds for \\(x\\in(-\\infty,-9]\\).\n\nCombine solution intervals\nSolution Set \\(=(-\\infty,-9]\\cup[-9,-3)\\cup(3,\\infty)=(-\\infty,-3)\\cup(3,\\infty)\\)\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s2-q15',
+    id: 'qa25-s2-q15',
     questionNumber: 15,
     section: 'QA',
     type: 'MCQ',
@@ -176,7 +176,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Cost Price (CP) = 1650\nOriginal Profit = \\(20\\%\\) of \\(1650=\\frac{1}{5}\\times1650=330\\)\nOriginal Selling Price (SP\u2081) = \\(1650+330=1980\\)\n\nNew Profit = 110\nNew Selling Price (SP\u2082) = \\(1650+110=1760\\)\nDifference in Selling Prices = SP\u2081 \u2212 SP\u2082 = \\(1980-1760=220\\)\n\nSince doubling the discount reduces the selling price by 220, the original discount was 220.\n\nMarked Price (MP) = SP\u2081 + Original Discount = \\(1980+220=2200\\)\n\nRatio of CP to MP:\n\\[\n\\frac{CP}{MP}=\\frac{1650}{2200}=\\frac{3}{4}\n\\]\n\nLet the common discount/profit rate fraction be \\(x\\):\n\\(3(1+x)=4(1-x)\\)\n\\(3+3x=4-4x\\Rightarrow7x=1\\Rightarrow x=\\frac{1}{7}\\)\n\nPercentage \\(=\\frac{1}{7}\\times100\\%=14.28\\%\\)\n\nChoice 2 is the correct answer."
   },
   {
-    id: 'qa24-s2-q16',
+    id: 'qa25-s2-q16',
     questionNumber: 16,
     section: 'QA',
     type: 'MCQ',
@@ -188,7 +188,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Let \\(k\\) be the common root.\n\nFor \\(3x^2-5x+p=0\\), let roots be \\(k\\) and \\(\\alpha\\):\n\\(k+\\alpha=\\frac{5}{3}\\)\n\nFor \\(2x^2-2x+q=0\\), let roots be \\(k\\) and \\(\\beta\\):\n\\(k+\\beta=\\frac{2}{2}=1\\)\n\nSince \\(k\\) satisfies both equations:\n\\(2k+\\alpha+\\beta=\\frac{5}{3}+1=\\frac{8}{3}\\)\n\\(\\alpha+\\beta=\\frac{8}{3}-2k\\)\n\nSubtracting the two equations to eliminate \\(k^2\\):\n\\(3k^2-5k+p=0\\Rightarrow6k^2-10k+2p=0\\)\n\\(2k^2-2k+q=0\\Rightarrow6k^2-6k+3q=0\\)\n\n\\((6k^2-6k+3q)-(6k^2-10k+2p)=0\\)\n\\(4k+3q-2p=0\\Rightarrow2k=\\frac{2p-3q}{2}\\)\n\nCompute the sum of the other roots \\((\\alpha+\\beta)\\):\n\\[\n\\alpha+\\beta=\\frac{8}{3}-\\frac{2p-3q}{2}\n=\\frac{8}{3}-p+\\frac{3q}{2}\n\\]\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'qa24-s2-q17',
+    id: 'qa25-s2-q17',
     questionNumber: 17,
     section: 'QA',
     type: 'MCQ',
@@ -200,7 +200,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Mixture 1: 16% coffee \u2192 Rs. 240/kg\nMixture 2: 36% coffee \u2192 Rs. 320/kg\n\nIncreasing coffee proportion by 20% increases price by \\(320-240=80\\).\nTherefore, a 100% shift from cocoa to coffee changes the price by:\nCoffee Price \u2212 Cocoa Price \\(=\\frac{80}{0.20}=400\\)\n\nPrice increase from 36% coffee (Rs. 320) to Rs. 376 is:\n\\(376-320=56\\)\n\nAdditional proportion of coffee required:\n\\[\n\\frac{56}{400}=0.14=14\\%\n\\]\n\nTotal coffee percentage in the new mixture:\n\\(36\\%+14\\%=50\\%\\)\n\nCalculate the quantity of coffee in 10 kg of the mixture\nCoffee in 10 kg = 50% of 10 kg = 5 kg\n\nChoice 4 is the correct answer."
   },
   {
-    id: 'qa24-s2-q18',
+    id: 'qa25-s2-q18',
     questionNumber: 18,
     section: 'QA',
     type: 'MCQ',
@@ -212,7 +212,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Let interest multiplier be \\((1+x)\\), where \\(x=\\frac{r}{100}\\).\n\nEnd of Year 1:\nAmount before payment = \\(1000(1+x)\\)\nRemaining balance = \\(1000(1+x)-530=470+1000x\\)\n\nEnd of Year 2:\nAmount before payment = \\((470+1000x)(1+x)=594\\)\n\\(470+1470x+1000x^2=594\\)\n\\(40x+1000x^2-124=0\\)\n\\(25x^2+x-3.1=0\\)\n\nTaking the positive root:\n\\(25x=2\\Rightarrow x=\\frac{2}{25}=0.08\\)\n\nRate of interest \\(r=0.08\\times100=8\\%\\)\n\nChoice 1 is the correct answer."
   },
   {
-    id: 'qa24-s2-q19',
+    id: 'qa25-s2-q19',
     questionNumber: 19,
     section: 'QA',
     type: 'TITA',
@@ -223,7 +223,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Sneha's speed = 6 km/h, distance = 14 km,\n difference = 48 minutes = \\(\\frac{4}{5}\\) hours.\n\nLet river speed be \\(S\\) km/h.\n\n\\[\n\\frac{14}{6-S}-\\frac{14}{6+S}=\\frac{4}{5}\n\\]\n\n\\[\n\\frac{14[(6+S)-(6-S)]}{36-S^2}=\\frac{4}{5}\n\\]\n\n\\[\n\\frac{28S}{36-S^2}=\\frac{4}{5}\n\\]\n\n\\(35S=36-S^2\\)\n\\(S^2+35S-36=0\\)\n\\((S+36)(S-1)=0\\Rightarrow S=1\\) km/h\n\nRita's speed = 5 km/h, total  = 100 minutes = \\(\\frac{5}{3}\\) hours.\nDownstream speed = \\(5+1=6\\) km/h\nUpstream speed = \\(5-1=4\\) km/h\n\n\\[\n\\frac{d}{6}+\\frac{d}{4}=\\frac{5}{3}\n\\]\n\n\\[\n\\frac{2d+3d}{12}=\\frac{5}{3}\n\\Rightarrow\\frac{5d}{12}=\\frac{5}{3}\n\\Rightarrow d=4\\text{ km}\n\\]\n\nTotal Distance = \\(d+d=4+4=8\\) km"
   },
   {
-    id: 'qa24-s2-q20',
+    id: 'qa25-s2-q20',
     questionNumber: 20,
     section: 'QA',
     type: 'TITA',
@@ -234,7 +234,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Convert to powers of 2 and 5\n\n\\((625)^65=(5^4)^65=5^{260}\\)\n\\((128)^36=(2^7)^{36}=2^{252}\\)\n\n\\(N=5^{260}\\times2^{252}=5^8\\times(5^{252}\\times2^{252})\\)\n\\(=5^8\\times10^{252}\\)\n\nCalculate \\(5^8\\)\n\\(5^8=(5^4)^2=625^2=390625\\)\n\nSo, \\(N=390625\\times10^{252}=390625000\\ldots000\\) (followed by 252 zeros).\n\nCalculate the sum of digits\nSum of digits \\(=3+9+0+6+2+5=25\\)"
   },
   {
-    id: 'qa24-s2-q21',
+    id: 'qa25-s2-q21',
     questionNumber: 21,
     section: 'QA',
     type: 'MCQ',
@@ -246,7 +246,7 @@ export const qa2025Slot2Questions: Question[] = [
     explanation: "Understand point \\(T\\) splits on segments\n\n\\(AT:TD=4:3\\)\n\\(BE:BT=5:4\\Rightarrow BT:TE=4:1\\)\n\nUse similar triangles on \\(\\triangle ADC\\)\nSince \\(DF\\parallel TE\\) in \\(\\triangle ADC\\):\n\\[\n\\frac{AE}{EF}=\\frac{AT}{TD}=\\frac{4}{3}\n\\]\n\nSo, \\(AE=4x\\) and \\(EF=3x\\).\n\nUse similar triangles \\(\\triangle CBE\\) and \\(\\triangle CDF\\)\nSince \\(DF\\parallel BE\\), \\(\\triangle CDF\\sim\\triangle CBE\\):\n\\[\n\\frac{CD}{CB}=\\frac{CF}{CE}\n\\]\n\nWe know \\(CE=EF+FC=3x+FC\\).\n\nUsing intercept properties on parallel lines \\(DF\\parallel BE\\):\n\\[\n\\frac{CD}{CB}=\\frac{4}{15}\n\\]\n\nDetermine \\(BD:DC\\)\nSince \\(CD=4\\) parts of total \\(CB=15\\) parts:\n\\(BD=CB-CD=15-4=11\\) parts\n\n\\[\n\\frac{BD}{DC}=\\frac{11}{4}=11:4\n\\]\n\nChoice 3 is the correct answer."
   },
   {
-    id: 'qa24-s2-q22',
+    id: 'qa25-s2-q22',
     questionNumber: 22,
     section: 'QA',
     type: 'MCQ',

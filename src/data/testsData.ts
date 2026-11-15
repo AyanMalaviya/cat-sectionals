@@ -69,7 +69,7 @@ export const fullSectionalTests: SectionalTest[] = [
     questions: dilr2026MockQuestions,
   },
 
-  // CAT 2025 Full Sectionals (from Cracku Downloads 22846, 22847, 22845)
+  // CAT 2025 Full Sectionals (from Official Downloads 22846, 22847, 22845)
   {
     id: 'cat-2025-qa-s1',
     title: 'CAT 2025 Slot 1 - Quantitative Aptitude',
