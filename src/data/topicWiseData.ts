@@ -518,9 +518,9 @@ export const arithmeticSpeedRacesTest: SectionalTest = {
   difficulty: 'Challenging',
   description: 'High-speed Arithmetic challenges: Circular track overtaking, moving escalators, multi-stage races, replacement mixtures, and compound interest doubling from CAT 2020-2025.',
   questions: [
-    qa2025Slot1Questions[1], // Circular track overtaking
-    qa2024Slot1Questions[4], // Anil-Sunil road meeting
-    qa2024Slot1Questions[10], // Fruit seller mixture
+    qa2025Slot1Questions[15], // Anil-Sunil road meeting (Time, Speed & Distance)
+    qa2024Slot1Questions[0], // Fruit seller ratio mixture
+    qa2024Slot1Questions[3], // Acid-water successive replacements
     qa2026MockQuestions[2], // Time & work alternate shifts
     qa2023Slot3Questions[5], // Speed & fuel efficiency
     qa2023Slot3Questions[11], // Profit & Loss discounts
@@ -548,10 +548,10 @@ export const algebraFunctionsSequencesTest: SectionalTest = {
   questions: [
     qa2026MockQuestions[0], // Quadratic AM-GM limits
     qa2026MockQuestions[4], // Telescoping series
-    qa2025Slot1Questions[0], // Absolute quadratic inequalities
-    qa2025Slot1Questions[6], // Telescoping log series
-    qa2024Slot1Questions[1], // Surds radical equation
-    qa2024Slot1Questions[9], // Diophantine equations
+    qa2025Slot1Questions[1], // Surds & Radicals root of (29 - 12sqrt(5))
+    qa2025Slot1Questions[6], // Onto functions f: A -> B
+    qa2024Slot1Questions[7], // Quadratic system 4(x^2+y^2+z^2) = a
+    qa2024Slot1Questions[20], // Floor function sum floor(sqrt(n))
     qa2023Slot3Questions[3], // Functions f(x+y) = f(x)f(y)
     qa2023Slot3Questions[8], // Modulus absolute inequality
     qa2022Slot3Questions[1], // Rational function cycle f^2024(3)
@@ -576,10 +576,10 @@ export const geometryCoordsHexagonsTest: SectionalTest = {
   questions: [
     qa2026MockQuestions[3], // Hexagon geometry
     qa2026MockQuestions[11], // 3D Mensuration frustum
-    qa2025Slot1Questions[7], // Tangent-secant circle
-    qa2025Slot1Questions[12], // Coordinate geometry reflection
-    qa2024Slot1Questions[6], // Rectangle inradius
-    qa2024Slot1Questions[14], // Cylinder-cone melting
+    qa2025Slot1Questions[16], // 3D Box inscribed in sphere
+    qa2025Slot1Questions[18], // Rectangle 56x45 inradius of triangle ADE
+    qa2023Slot1Questions[12], // Geometry - Circles & Tangents
+    qa2023Slot2Questions[16], // Geometry - Coordinate Geometry
     qa2023Slot3Questions[2], // Incenter & circumcenter
     qa2023Slot3Questions[14], // Cyclic quadrilateral area
     qa2022Slot3Questions[4], // Regular hexagon diagonal
@@ -604,10 +604,10 @@ export const numberSystemsTotientDivisibilityTest: SectionalTest = {
   questions: [
     qa2026MockQuestions[1], // Trailing zeros in factorial products
     qa2026MockQuestions[8], // Modular arithmetic remainders
-    qa2025Slot1Questions[3], // Prime factorization powers
-    qa2025Slot1Questions[9], // Diophantine number integer solutions
-    qa2024Slot1Questions[3], // Powers of 2 divisibility
-    qa2024Slot1Questions[12], // Base 7 to base 10 conversion
+    qa2025Slot1Questions[9], // Remainder when 10^100 is divided by 7
+    qa2023Slot1Questions[15], // Numbers - Highest Power & Factorials
+    qa2023Slot2Questions[4], // Number Systems - Divisibility
+    qa2023Slot2Questions[21], // Number Systems - Remainders
     qa2023Slot3Questions[1], // Powers of 2 bounds
     qa2023Slot3Questions[9], // Remainder modulo prime
     qa2022Slot3Questions[3], // Number of divisors
@@ -632,10 +632,10 @@ export const permutationsCircularPathsTest: SectionalTest = {
   questions: [
     qa2026MockQuestions[6], // Circular table arrangements
     qa2026MockQuestions[13], // Conditional probability card draws
-    qa2025Slot1Questions[5], // Grid paths with blocked intersections
-    qa2025Slot1Questions[11], // Colored balls urn probability
-    qa2024Slot1Questions[7], // Committee selection with husband-wife constraint
-    qa2024Slot1Questions[15], // Two dice prime product probability
+    qa2025Slot1Questions[8], // Sum of all 24 four-digit numbers formed with distinct digits
+    qa2025Slot1Questions[6], // Onto functions mapping 6 to 3 elements
+    qa2023Slot1Questions[7], // Modern Math - Permutations & Combinations
+    qa2023Slot2Questions[17], // Modern Math - Probability
     qa2023Slot3Questions[6], // Permutations vowels together
     qa2023Slot3Questions[15], // Independent events probability
     qa2022Slot3Questions[7], // Circular necklace permutations
@@ -660,10 +660,10 @@ export const quantHardestClassicsVol2Test: SectionalTest = {
   questions: [
     qa2026MockQuestions[5], // Challenging AM-GM optimization
     qa2026MockQuestions[9], // Advanced geometry circumradius
-    qa2025Slot1Questions[2], // Hardest quadratic inequality
-    qa2025Slot1Questions[14], // Coordinate triangle area bound
-    qa2024Slot1Questions[0], // Surd radical equation
-    qa2024Slot1Questions[13], // Highest power prime factorial
+    qa2025Slot1Questions[2], // Exponents & powers equation with 32768
+    qa2025Slot1Questions[11], // Diophantine optimization a+b+c+d=46 minimizing sum of squares
+    qa2024Slot1Questions[1], // Surd radical equation positive square root
+    qa2024Slot1Questions[7], // Quadratic system 4(x^2+y^2+z^2) = a
     qa2023Slot3Questions[4], // Complex rational function
     qa2023Slot3Questions[17], // Advanced logarithm series
     qa2022Slot3Questions[8], // Logarithm base inequality

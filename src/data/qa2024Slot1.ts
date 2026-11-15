@@ -5,466 +5,851 @@ export const qa2024Slot1Questions: Question[] = [
     id: 'qa24-s1-q1',
     questionNumber: 1,
     section: 'QA',
-    type: 'MCQ',
-    topic: 'Algebra - Surds & Radicals',
+    type: 'TITA',
+    topic: 'Arithmetic - Ratios & Mixtures',
     difficulty: 'Moderate',
-    question: 'If \\( (a + b\\sqrt{n}) \\) is the positive square root of \\( (29 - 12\\sqrt{5}) \\), where \\( a \\) and \\( b \\) are integers, and \\( n \\) is a square-free natural number, then the maximum possible value of \\( (a + b + n) \\) is:',
-    options: ['18', '22', '6', '4'],
-    correctAnswer: 0,
-    explanation: `We are given:
-\\( (a + b\\sqrt{n})^2 = 29 - 12\\sqrt{5} \\)
-\\( a^2 + b^2 n + 2ab\\sqrt{n} = 29 - 12\\sqrt{5} \\).
+    question: 'A fruit seller has a total of 187 fruits consisting of apples, mangoes, and oranges. The number of apples and mangoes are in the ratio 5 : 2. After she sells 75 apples, 26 mangoes, and half of the oranges, the ratio of the number of unsold apples to the number of unsold oranges becomes 3 : 2. The total number of unsold fruits is',
+    correctAnswer: '66',
+    explanation: `Let the initial number of apples be \\( 5x \\) and mangoes be \\( 2x \\).
+Total apples and mangoes = \\( 7x \\).
+Initial number of oranges = \\( 187 - 7x \\).
 
-Comparing rational and irrational parts:
-\\( a^2 + b^2 n = 29 \\)
-\\( 2ab\\sqrt{n} = -12\\sqrt{5} \\implies ab\\sqrt{n} = -6\\sqrt{5} \\).
+After sales:
+- Unsold apples = \\( 5x - 75 \\)
+- Unsold mangoes = \\( 2x - 26 \\)
+- Unsold oranges = \\( \\frac{187 - 7x}{2} \\)
 
-Case 1: Let \\( n = 5 \\):
-Then \\( ab = -6 \\).
-Also \\( a^2 + 5b^2 = 29 \\).
-Testing factors of \\( -6 \\):
-If \\( b = -2 \\implies 5b^2 = 20 \\implies a^2 = 29 - 20 = 9 \\implies a = 3 \\).
-Check: \\( ab = 3 \\times (-2) = -6 \\).
-The positive square root is:
-\\( 2\\sqrt{5} - 3 > 0 \\) (since \\( \\sqrt{20} \\approx 4.47 > 3 \\)) or \\( -3 + 2\\sqrt{5} \\).
-Here \\( a = -3, b = 2, n = 5 \\implies a + b + n = -3 + 2 + 5 = 4 \\).
-Or if \\( a = 3, b = -2, n = 5 \\implies a + b + n = 3 - 2 + 5 = 6 \\).
+We are given:
+\\[
+\\frac{\\text{Unsold Apples}}{\\text{Unsold Oranges}} = \\frac{5x - 75}{\\frac{187 - 7x}{2}} = \\frac{3}{2}
+\\]
+\\[
+\\frac{2(5x - 75)}{187 - 7x} = \\frac{3}{2}
+\\]
+\\[
+4(5x - 75) = 3(187 - 7x)
+\\]
+\\[
+20x - 300 = 561 - 21x
+\\]
+\\[
+41x = 861 \\implies x = 21
+\\]
 
-Case 2: Consider \\( n = 1 \\)? But \\( n \\) is square-free with \\( \\sqrt{5} \\).
-If \\( 12\\sqrt{5} = 2\\sqrt{180} \\):
-\\( 29 - 2\\sqrt{180} = (\\sqrt{20} - \\sqrt{9})^2 = (2\\sqrt{5} - 3)^2 \\).
-If written as \\( a = -3, b = 1, n = 20 \\) (not square free).
-Maximum possible value under integer constraints evaluates to 18.`
+Now substitute \\( x = 21 \\):
+- Unsold apples = \\( 5(21) - 75 = 105 - 75 = 30 \\)
+- Unsold mangoes = \\( 2(21) - 26 = 42 - 26 = 16 \\)
+- Unsold oranges = \\( \\frac{187 - 7(21)}{2} = \\frac{187 - 147}{2} = \\frac{40}{2} = 20 \\)
+
+Total number of unsold fruits:
+\\[
+30 + 16 + 20 = 66
+\\]`
   },
   {
     id: 'qa24-s1-q2',
     questionNumber: 2,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Algebra - Logarithms & Exponents',
+    topic: 'Algebra - Surds & Radicals',
     difficulty: 'Moderate',
-    question: 'The sum of all real values of \\( k \\) for which \\( \\left(\\frac{1}{8}\\right)^k \\times (32768)^{\\frac{1}{3}} = \\frac{1}{8} \\times (32768)^{\\frac{1}{k}} \\) is:',
-    options: ['\\( -\\frac{2}{3} \\)', '\\( \\frac{2}{3} \\)', '\\( \\frac{4}{3} \\)', '\\( -\\frac{4}{3} \\)'],
+    question: 'If \\( (a + b\\sqrt{n}) \\) is the positive square root of \\( (29 - 12\\sqrt{5}) \\), where \\( a \\) and \\( b \\) are integers and \\( n \\) is a natural number, then the maximum possible value of \\( (a + b + n) \\) is',
+    options: ['18', '22', '6', '4'],
     correctAnswer: 0,
-    explanation: `Express both sides in powers of base 2:
-\\( \\frac{1}{8} = 2^{-3} \\)
-\\( 32768 = 2^{15} \\).
+    explanation: `We are given:
+\\[
+(a + b\\sqrt{n})^2 = 29 - 12\\sqrt{5}
+\\]
+\\[
+a^2 + b^2 n + 2ab\\sqrt{n} = 29 - 12\\sqrt{5}
+\\]
+where \\( a + b\\sqrt{n} > 0 \\), \\( a, b \\in \\mathbb{Z} \\), and \\( n \\in \\mathbb{N} \\).
 
-Substitute into the equation:
-\\( (2^{-3})^k \\times (2^{15})^{1/3} = 2^{-3} \\times (2^{15})^{1/k} \\)
-\\( 2^{-3k} \\times 2^{5} = 2^{-3} \\times 2^{15/k} \\)
-\\( 2^{-3k + 5} = 2^{-3 + 15/k} \\).
+Comparing the irrational parts:
+\\[
+2ab\\sqrt{n} = -12\\sqrt{5} \\implies ab\\sqrt{n} = -6\\sqrt{5}
+\\]
+Also, \\( a^2 + b^2 n = 29 \\).
 
-Equating exponents:
-\\( -3k + 5 = -3 + \\frac{15}{k} \\)
-\\( -3k + 8 = \\frac{15}{k} \\)
-Multiply through by \\( k \\):
-\\( -3k^2 + 8k = 15 \\implies 3k^2 - 8k + 15 = 0 \\)?
-Wait: if \\( -3k + 5 = -3 + 15/k \\implies 8 - 3k = 15/k \\implies 3k^2 - 8k + 15 = 0 \\).
-If \\( (1/32768)^{1/3} \\):
-\\( -3k - 5 = -3 - 15/k \\implies 3k + 2 = 15/k \\implies 3k^2 + 2k - 15 = 0 \\).
-By Vieta\'s formulas, sum of roots \\( = -b/a = -\\frac{2}{3} \\).`
+Case 1: Let \\( n = 5 \\):
+Then \\( ab = -6 \\) and \\( a^2 + 5b^2 = 29 \\).
+Testing factors: if \\( b = 2, a = -3 \\), then \\( (-3)^2 + 5(2)^2 = 9 + 20 = 29 \\).
+The square root is \\( -3 + 2\\sqrt{5} \\approx -3 + 4.47 > 0 \\) (positive root).
+Here, \\( a + b + n = -3 + 2 + 5 = 4 \\).
+
+Case 2: Notice we can absorb factors into \\( \\sqrt{n} \\):
+Rewrite \\( -6\\sqrt{5} = -3\\sqrt{20} \\).
+Here \\( a = -3, b = 1, n = 20 \\).
+Check: \\( a^2 + b^2 n = (-3)^2 + (1)^2(20) = 9 + 20 = 29 \\).
+And \\( 2ab\\sqrt{n} = 2(-3)(1)\\sqrt{20} = -6(2\\sqrt{5}) = -12\\sqrt{5} \\).
+The positive root is \\( -3 + \\sqrt{20} > 0 \\).
+Here, \\( a + b + n = -3 + 1 + 20 = 18 \\).
+
+Checking other cases yields no larger sum.
+Hence, the maximum possible value is 18.`
   },
   {
     id: 'qa24-s1-q3',
     questionNumber: 3,
     section: 'QA',
-    type: 'TITA',
-    topic: 'Arithmetic - Ratios & Mixtures',
+    type: 'MCQ',
+    topic: 'Algebra - Logarithms & Exponents',
     difficulty: 'Moderate',
-    question: 'A fruit seller has a total of 187 fruits consisting of apples, mangoes, and oranges. The number of apples and mangoes are in the ratio 5 : 2. After she sells 75 apples, 26 mangoes, and half of the oranges, the ratio of the number of unsold apples to unsold oranges becomes 3 : 2. Find the total number of unsold fruits.',
-    correctAnswer: '66',
-    explanation: `Let initial apples = \\( 5x \\), initial mangoes = \\( 2x \\).
-Total apples + mangoes = \\( 7x \\).
-Initial oranges = \\( 187 - 7x \\).
+    question: 'The sum of all real values of \\( k \\) for which \\( \\left(\\frac{1}{8}\\right)^k \\times \\left(\\frac{1}{32768}\\right)^{\\frac{1}{3}} = \\frac{1}{8} \\times \\left(\\frac{1}{32768}\\right)^{\\frac{1}{k}} \\) is',
+    options: ['\\( -\\frac{2}{3} \\)', '\\( \\frac{2}{3} \\)', '\\( \\frac{4}{3} \\)', '\\( -\\frac{4}{3} \\)'],
+    correctAnswer: 0,
+    explanation: `Express all terms as powers of base 2:
+\\[
+\\frac{1}{8} = 2^{-3}
+\\]
+\\[
+\\frac{1}{32768} = \\frac{1}{2^{15}} = 2^{-15}
+\\]
 
-Unsold fruits:
-Unsold apples = \\( 5x - 75 \\).
-Unsold mangoes = \\( 2x - 26 \\).
-Unsold oranges = \\( \\frac{187 - 7x}{2} \\).
+Substitute these into the equation:
+\\[
+(2^{-3})^k \\times (2^{-15})^{1/3} = 2^{-3} \\times (2^{-15})^{1/k}
+\\]
+\\[
+2^{-3k} \\times 2^{-5} = 2^{-3} \\times 2^{-15/k}
+\\]
+\\[
+2^{-3k - 5} = 2^{-3 - 15/k}
+\\]
 
-Given ratio of unsold apples to unsold oranges is 3 : 2:
-\\( \\frac{5x - 75}{\\frac{187 - 7x}{2}} = \\frac{3}{2} \\)
-\\( \\frac{2(5x - 75)}{187 - 7x} = \\frac{3}{2} \\)
-\\( 4(5x - 75) = 3(187 - 7x) \\)
-\\( 20x - 300 = 561 - 21x \\)
-\\( 41x = 861 \\implies x = 21 \\).
+Equate the exponents:
+\\[
+-3k - 5 = -3 - \\frac{15}{k}
+\\]
+\\[
+-3k - 2 = -\\frac{15}{k}
+\\]
+Multiply both sides by \\( -1 \\):
+\\[
+3k + 2 = \\frac{15}{k}
+\\]
+Multiply through by \\( k \\):
+\\[
+3k^2 + 2k - 15 = 0
+\\]
 
-Calculating unsold quantities:
-Unsold apples = \\( 5(21) - 75 = 105 - 75 = 30 \\).
-Unsold mangoes = \\( 2(21) - 26 = 42 - 26 = 16 \\).
-Initial oranges = \\( 187 - 7(21) = 187 - 147 = 40 \\).
-Unsold oranges = \\( 40 / 2 = 20 \\).
-
-Total unsold fruits = \\( 30 + 16 + 20 = 66 \\).`
+Discriminant \\( D = b^2 - 4ac = 4 - 4(3)(-15) = 4 + 180 = 184 > 0 \\).
+Since \\( D > 0 \\), both roots are real.
+By Vieta\'s formulas, the sum of the roots is:
+\\[
+\\text{Sum of roots} = -\\frac{b}{a} = -\\frac{2}{3}
+\\]`
   },
   {
     id: 'qa24-s1-q4',
     questionNumber: 4,
     section: 'QA',
-    type: 'TITA',
-    topic: 'Geometry - Rectangle & Incircle',
+    type: 'MCQ',
+    topic: 'Arithmetic - Mixtures & Replacements',
     difficulty: 'Moderate',
-    question: 'ABCD is a rectangle with sides AB = 56 cm and BC = 45 cm, and E is the midpoint of side CD. Find the length, in cm, of the radius of the incircle of triangle ADE.',
-    correctAnswer: '10',
-    explanation: `In rectangle \\( ABCD \\):
-Side \\( AD = BC = 45 \\) cm.
-Side \\( CD = AB = 56 \\) cm.
-\\( E \\) is the midpoint of \\( CD \\implies DE = \\frac{56}{2} = 28 \\) cm.
+    question: 'A container holds 200 litres of a solution of acid and water, having 30% acid by volume. Atul replaces 20% of this solution with water, then replaces 10% of the resulting solution with acid, and finally replaces 15% of the solution thus obtained with water. The percentage of acid by volume in the final solution obtained after these three replacements is nearest to',
+    options: ['27%', '25%', '29%', '23%'],
+    correctAnswer: 0,
+    explanation: `Initial total volume = 200 litres.
+Initial volume of acid = \\( 30\\% \\times 200 = 60 \\) litres.
 
-Triangle \\( ADE \\) is a right-angled triangle at vertex \\( D \\) (since rectangle angles are \\( 90^\\circ \\)).
-Legs: \\( AD = 45 \\) cm, \\( DE = 28 \\) cm.
-Hypotenuse \\( AE = \\sqrt{45^2 + 28^2} = \\sqrt{2025 + 784} = \\sqrt{2809} = 53 \\) cm.
+Replacement 1: Replace 20% with water
+- 20% of the solution is removed, so 80% remains.
+- Acid remaining = \\( 60 \\times 0.80 = 48 \\) litres.
 
-For a right-angled triangle, inradius \\( r \\) is given by:
-\\( r = \\frac{\\text{Base} + \\text{Height} - \\text{Hypotenuse}}{2} \\)
-\\( r = \\frac{28 + 45 - 53}{2} = \\frac{73 - 53}{2} = \\frac{20}{2} = 10 \\) cm.`
+Replacement 2: Replace 10% with pure acid
+- 10% of the solution is removed, so 90% of the acid remains:
+  \\( 48 \\times 0.90 = 43.2 \\) litres.
+- 10% of 200 L = 20 L of pure acid is added:
+  New acid = \\( 43.2 + 20 = 63.2 \\) litres.
+
+Replacement 3: Replace 15% with water
+- 15% of the solution is removed, so 85% of the acid remains:
+  Final acid = \\( 63.2 \\times 0.85 = 53.72 \\) litres.
+
+Final percentage of acid in the 200-litre container:
+\\[
+\\text{Percentage} = \\frac{53.72}{200} \\times 100 = 26.86\\% \\approx 27\\%
+\\]`
   },
   {
     id: 'qa24-s1-q5',
     questionNumber: 5,
     section: 'QA',
-    type: 'MCQ',
-    topic: 'Arithmetic - Time, Speed & Distance',
+    type: 'TITA',
+    topic: 'Arithmetic - Time & Work',
     difficulty: 'Moderate',
-    question: 'Two places A and B are 45 km apart and connected by a straight road. Anil goes from A to B while Sunil goes from B to A. Starting at the same time, they cross each other in exactly 1 hour 30 minutes. If Anil reaches B exactly 1 hour 15 minutes after Sunil reaches A, find the speed of Anil, in km/h.',
-    options: ['12 km/h', '15 km/h', '18 km/h', '10 km/h'],
-    correctAnswer: 0,
-    explanation: `Let speed of Anil be \\( v_A \\) and Sunil be \\( v_S \\).
-Distance = 45 km.
-They cross in 1.5 hours:
-\\( 1.5(v_A + v_S) = 45 \\implies v_A + v_S = 30 \\implies v_S = 30 - v_A \\).
+    question: 'Renu would take 15 days working 4 hours per day to complete a certain task whereas Seema would take 8 days working 5 hours per day to complete the same task. They decide to work together to complete this task. Seema agrees to work for double the number of hours per day as Renu, while Renu agrees to work for double the number of days as Seema. If Renu works 2 hours per day, then the number of days Seema will work, is',
+    correctAnswer: '6',
+    explanation: `Total work required:
+- Renu: \\( 15 \\times 4 = 60 \\) hours.
+- Seema: \\( 8 \\times 5 = 40 \\) hours.
 
-Time taken by Anil to complete full journey: \\( T_A = \\frac{45}{v_A} \\).
-Time taken by Sunil to complete full journey: \\( T_S = \\frac{45}{v_S} \\).
-Given \\( T_A - T_S = 1 \\text{ hr } 15 \\text{ min} = 1.25 = \\frac{5}{4} \\) hours.
-\\( \\frac{45}{v_A} - \\frac{45}{30 - v_A} = \\frac{5}{4} \\)
-Divide by 5:
-\\( \\frac{9}{v_A} - \\frac{9}{30 - v_A} = \\frac{1}{4} \\)
-\\( 9 \\left(\\frac{30 - 2v_A}{v_A(30 - v_A)}\\right) = \\frac{1}{4} \\)
-\\( 36(30 - 2v_A) = 30v_A - v_A^2 \\)
-\\( 1080 - 72v_A = 30v_A - v_A^2 \\)
-\\( v_A^2 - 102v_A + 1080 = 0 \\)
-\\( (v_A - 12)(v_A - 90) = 0 \\).
-Since \\( v_A < 30 \\), \\( v_A = 12 \\) km/h.`
+Let total work = \\( \\text{LCM}(60, 40) = 120 \\) units.
+- Renu\'s rate = \\( \\frac{120}{60} = 2 \\) units/hour.
+- Seema\'s rate = \\( \\frac{120}{40} = 3 \\) units/hour.
+
+Given conditions:
+- Renu works 2 hours per day.
+- Seema works double the hours/day as Renu \\( \\implies 2 \\times 2 = 4 \\) hours per day.
+- Let Seema work for \\( d \\) days.
+- Renu works for double the number of days as Seema \\( \\implies 2d \\) days.
+
+Total work completed:
+- By Renu = \\( (2d \\text{ days}) \\times (2 \\text{ hours/day}) \\times (2 \\text{ units/hour}) = 8d \\) units.
+- By Seema = \\( (d \\text{ days}) \\times (4 \\text{ hours/day}) \\times (3 \\text{ units/hour}) = 12d \\) units.
+
+Total work:
+\\[
+8d + 12d = 120 \\implies 20d = 120 \\implies d = 6 \\text{ days}
+\\]`
   },
   {
     id: 'qa24-s1-q6',
     questionNumber: 6,
     section: 'QA',
-    type: 'TITA',
-    topic: 'Geometry - Coordinate Geometry & Inradius',
+    type: 'MCQ',
+    topic: 'Arithmetic - Percentages & Ratios',
     difficulty: 'Moderate',
-    question: 'The coordinates of the three vertices of a triangle in the Cartesian plane are (1, 2), (7, 2), and (1, 10). Find the radius of the incircle of this triangle.',
-    correctAnswer: '2',
-    explanation: `Let \\( A = (1, 2) \\), \\( B = (7, 2) \\), and \\( C = (1, 10) \\).
-Length \\( AB = 7 - 1 = 6 \\) units (horizontal along \\( y = 2 \\)).
-Length \\( AC = 10 - 2 = 8 \\) units (vertical along \\( x = 1 \\)).
-Since horizontal and vertical lines are perpendicular, \\( \\angle A = 90^\\circ \\).
+    question: 'In September, the incomes of Kamal, Amal, and Vimal are in the ratio 8 : 6 : 5. They rent a house together, and Kamal pays 15%, Amal pays 12%, and Vimal pays 18% of their respective incomes to cover the total house rent in that month. In October, the house rent remains unchanged while their incomes increase by 10%, 12%, and 15%, respectively. In October, the percentage of their total income that will be paid as house rent, is nearest to',
+    options: ['13.26%', '14.50%', '12.80%', '15.10%'],
+    correctAnswer: 0,
+    explanation: `Assume September incomes are:
+- Kamal = Rs. 800
+- Amal = Rs. 600
+- Vimal = Rs. 500
+Total September income = \\( 800 + 600 + 500 = 1900 \\).
 
-Hypotenuse \\( BC = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = 10 \\) units.
-For a right-angled triangle:
-Inradius \\( r = \\frac{a + b - c}{2} = \\frac{6 + 8 - 10}{2} = \\frac{4}{2} = 2 \\).`
+Total house rent:
+- Kamal pays \\( 15\\% \\times 800 = 120 \\)
+- Amal pays \\( 12\\% \\times 600 = 72 \\)
+- Vimal pays \\( 18\\% \\times 500 = 90 \\)
+Total rent = \\( 120 + 72 + 90 = 282 \\).
+
+In October:
+- Kamal\'s income = \\( 800 \\times 1.10 = 880 \\)
+- Amal\'s income = \\( 600 \\times 1.12 = 672 \\)
+- Vimal\'s income = \\( 500 \\times 1.15 = 575 \\)
+Total October income = \\( 880 + 672 + 575 = 2127 \\).
+
+Rent remains 282.
+Percentage of October total income paid as rent:
+\\[
+\\frac{282}{2127} \\times 100 = 13.258\\% \\approx 13.26\\%
+\\]`
   },
   {
     id: 'qa24-s1-q7',
     questionNumber: 7,
     section: 'QA',
-    type: 'MCQ',
-    topic: 'Algebra - Logarithms',
-    difficulty: 'Moderate',
-    question: 'If \\( x \\) is a positive real number such that \\( 4 \\log_{10} x + 4 \\log_{100} x + 8 \\log_{1000} x = 13 \\), then the value of \\( x \\) is:',
-    options: ['\\( 10\\sqrt{10} \\)', '100', '\\( 100\\sqrt{10} \\)', '10'],
-    correctAnswer: 0,
-    explanation: `Convert all logarithms to base 10:
-\\( \\log_{100} x = \\frac{\\log_{10} x}{2} \\)
-\\( \\log_{1000} x = \\frac{\\log_{10} x}{3} \\).
+    type: 'TITA',
+    topic: 'Modern Math - Functions & Sets',
+    difficulty: 'Challenging',
+    question: 'Consider two sets A = {2, 3, 5, 7, 11, 13} and B = {1, 8, 27}. Let f be a function from A to B such that for every element b in B, there is at least one element a in A such that f(a) = b. Then, the total number of such functions f is',
+    correctAnswer: '540',
+    explanation: `The condition says that every element in \\( B \\) has at least one pre-image in \\( A \\).
+This is the standard definition of an onto (surjective) function.
 
-Substitute into the expression:
-\\( 4 \\log_{10} x + 4 \\left(\\frac{\\log_{10} x}{2}\\right) + 8 \\left(\\frac{\\log_{10} x}{3}\\right) = 13 \\)
-\\( 4 \\log_{10} x + 2 \\log_{10} x + \\frac{8}{3} \\log_{10} x = 13 \\)
-\\( \\left(6 + \\frac{8}{3}\\right) \\log_{10} x = 13 \\)
-\\( \\left(\\frac{26}{3}\\right) \\log_{10} x = 13 \\)
-\\( \\log_{10} x = 13 \\times \\frac{3}{26} = \\frac{3}{2} \\)
-\\( x = 10^{3/2} = 10^1 \\times 10^{1/2} = 10\\sqrt{10} \\).`
+Set \\( A \\) has \\( m = 6 \\) elements.
+Set \\( B \\) has \\( n = 3 \\) elements.
+
+Using the Principle of Inclusion-Exclusion (PIE):
+Total onto functions:
+\\[
+N = n^m - \\binom{n}{1}(n - 1)^m + \\binom{n}{2}(n - 2)^m - \\binom{n}{3}(n - 3)^m
+\\]
+Substitute \\( m = 6, n = 3 \\):
+\\[
+N = 3^6 - \\binom{3}{1} 2^6 + \\binom{3}{2} 1^6 - \\binom{3}{3} 0^6
+\\]
+\\[
+N = 729 - 3(64) + 3(1) - 0
+\\]
+\\[
+N = 729 - 192 + 3 = 540
+\\]`
   },
   {
     id: 'qa24-s1-q8',
     questionNumber: 8,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Geometry - Trapezium & Similar Triangles',
+    topic: 'Algebra - Systems of Equations',
     difficulty: 'Moderate',
-    question: 'ABCD is a trapezium in which AB is parallel to CD, with AB = 2 cm and CD = 1 cm. The non-parallel sides AD and BC, when extended, intersect at point E. If the perimeter of trapezium ABCD is 6 cm, find the perimeter, in cm, of triangle AEB.',
-    options: ['8 cm', '10 cm', '9 cm', '7.5 cm'],
+    question: 'Let x, y, and z be real numbers satisfying 4(x^2 + y^2 + z^2) = a and 4(x - y - z) = 3 + a. Then a equals',
+    options: ['3', '4', '6', '2'],
     correctAnswer: 0,
-    explanation: `Since \\( AB \\parallel CD \\), triangle \\( EDC \\) is similar to triangle \\( EAB \\).
-The ratio of corresponding sides:
-\\( \\frac{CD}{AB} = \\frac{1}{2} \\).
-Thus: \\( \\frac{ED}{EA} = \\frac{1}{2} \\implies D \\) is the midpoint of \\( EA \\implies ED = AD \\).
-Similarly, \\( \\frac{EC}{EB} = \\frac{1}{2} \\implies C \\) is the midpoint of \\( EB \\implies EC = BC \\).
+    explanation: `From the second equation:
+\\[
+a = 4(x - y - z) - 3 = 4x - 4y - 4z - 3
+\\]
 
-Perimeter of trapezium \\( ABCD = AB + BC + CD + DA = 2 + BC + 1 + AD = 6 \\) cm.
-\\( AD + BC = 6 - 3 = 3 \\) cm.
+Substitute \\( a \\) into the first equation:
+\\[
+4(x^2 + y^2 + z^2) = 4x - 4y - 4z - 3
+\\]
+\\[
+4x^2 + 4y^2 + 4z^2 - 4x + 4y + 4z + 3 = 0
+\\]
 
-Perimeter of \\( \\triangle AEB = AB + EA + EB \\)
-\\( = AB + (ED + AD) + (EC + BC) \\)
-Since \\( ED = AD \\) and \\( EC = BC \\):
-\\( = AB + 2(AD) + 2(BC) = AB + 2(AD + BC) \\)
-\\( = 2 + 2(3) = 2 + 6 = 8 \\) cm.`
+Group the terms by variables:
+\\[
+(4x^2 - 4x + 1) + (4y^2 + 4y + 1) + (4z^2 + 4z + 1) = 0
+\\]
+Notice that each group is a perfect square:
+\\[
+(2x - 1)^2 + (2y + 1)^2 + (2z + 1)^2 = 0
+\\]
+
+Since \\( x, y, z \\in \\mathbb{R} \\), the sum of real squares is 0 if and only if each term is 0:
+\\[
+2x - 1 = 0 \\implies x = \\frac{1}{2}
+\\]
+\\[
+2y + 1 = 0 \\implies y = -\\frac{1}{2}
+\\]
+\\[
+2z + 1 = 0 \\implies z = -\\frac{1}{2}
+\\]
+
+Now calculate \\( a \\):
+\\[
+a = 4(x^2 + y^2 + z^2) = 4\\left(\\frac{1}{4} + \\frac{1}{4} + \\frac{1}{4}\\right) = 4\\left(\\frac{3}{4}\\right) = 3
+\\]`
   },
   {
     id: 'qa24-s1-q9',
     questionNumber: 9,
     section: 'QA',
     type: 'TITA',
-    topic: 'Geometry - Isosceles Triangles & Altitudes',
-    difficulty: 'Moderate',
-    question: 'A triangle ABC is formed with AB = AC = 50 cm and BC = 80 cm. Find the sum of the lengths, in cm, of all three altitudes of triangle ABC.',
-    correctAnswer: '126',
-    explanation: `Let the altitude from vertex \\( A \\) to base \\( BC \\) be \\( h_A \\).
-Since \\( \\triangle ABC \\) is isosceles with \\( AB = AC = 50 \\), the altitude \\( h_A \\) bisects \\( BC \\):
-\\( BM = MC = 40 \\) cm.
-In right triangle \\( ABM \\):
-\\( h_A = \\sqrt{AB^2 - BM^2} = \\sqrt{50^2 - 40^2} = \\sqrt{2500 - 1600} = \\sqrt{900} = 30 \\) cm.
+    topic: 'Modern Math - Permutations & Place Values',
+    difficulty: 'Challenging',
+    question: 'The sum of all four-digit numbers that can be formed with the distinct non-zero digits a, b, c, and d, with each digit appearing exactly once in every number, is 153310 + n, where n is a single-digit natural number. Then, the value of (a + b + c + d + n) is',
+    correctAnswer: '31',
+    explanation: `Total number of 4-digit numbers formed with 4 distinct digits = \\( 4! = 24 \\).
+In each place value (thousands, hundreds, tens, units), each digit appears \\( \\frac{24}{4} = 6 \\) times.
 
-Area of \\( \\triangle ABC = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 80 \\times 30 = 1200 \\text{ cm}^2 \\).
+The sum of all 24 numbers is:
+\\[
+\\text{Sum} = 6(a + b + c + d) \\times (1000 + 100 + 10 + 1) = 6666(a + b + c + d)
+\\]
 
-The other two altitudes \\( h_B \\) and \\( h_C \\) are dropped to sides \\( AC \\) and \\( AB \\) respectively (both 50 cm):
-\\( \\text{Area} = \\frac{1}{2} \\times AC \\times h_B \\implies 1200 = \\frac{1}{2} \\times 50 \\times h_B \\implies h_B = \\frac{2400}{50} = 48 \\) cm.
-By symmetry, \\( h_C = 48 \\) cm.
+We are given:
+\\[
+6666(a + b + c + d) = 153310 + n
+\\]
+where \\( n \\in \\{1, 2, \\dots, 9\\} \\).
 
-Sum of all three altitudes = \\( h_A + h_B + h_C = 30 + 48 + 48 = 126 \\) cm.`
+Divide 153310 by 6666:
+\\[
+6666 \\times 23 = 153318
+\\]
+Thus:
+\\[
+153310 + n = 153318 \\implies n = 8
+\\]
+Since 8 is a single-digit natural number, this holds!
+Then:
+\\[
+a + b + c + d = 23
+\\]
+
+Therefore:
+\\[
+(a + b + c + d + n) = 23 + 8 = 31
+\\]`
   },
   {
     id: 'qa24-s1-q10',
     questionNumber: 10,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Arithmetic - Time and Work',
-    difficulty: 'Moderate',
-    question: 'Three workers P, Q, and R working together can finish a job in 12 days. Worker P is twice as efficient as Q, and R alone takes 36 days to complete the entire job. In how many days can Q alone finish the job?',
-    options: ['72 days', '54 days', '48 days', '60 days'],
+    topic: 'Number Systems - Remainders',
+    difficulty: 'Easy',
+    question: 'When 10^100 is divided by 7, the remainder is',
+    options: ['4', '1', '3', '6'],
     correctAnswer: 0,
-    explanation: `Let total work be \\( \\text{LCM}(12, 36) = 72 \\) units.
-Combined rate of \\( P + Q + R = \\frac{72}{12} = 6 \\) units/day.
-Rate of \\( R = \\frac{72}{36} = 2 \\) units/day.
-Therefore, combined rate of \\( P + Q = 6 - 2 = 4 \\) units/day.
+    explanation: `Using modular arithmetic modulo 7:
+\\[
+10 \\equiv 3 \\pmod 7
+\\]
+Now find the powers of 3 modulo 7:
+\\[
+3^1 \\equiv 3
+\\]
+\\[
+3^2 = 9 \\equiv 2
+\\]
+\\[
+3^3 = 6 \\equiv -1
+\\]
+\\[
+3^6 \\equiv 1 \\pmod 7
+\\]
 
-Since P is twice as efficient as Q:
-\\( r_P = 2 r_Q \\)
-\\( 2 r_Q + r_Q = 4 \\implies 3 r_Q = 4 \\implies r_Q = \\frac{4}{3} \\) units/day.
+The cyclicity is 6.
+Divide the exponent 100 by 6:
+\\[
+100 = 6 \\times 16 + 4
+\\]
 
-Time taken by Q alone = \\( \\frac{72}{4/3} = 72 \\times \\frac{3}{4} = 18 \\times 3 = 54 \\) days?
-Wait: \\( 72 / (4/3) = 54 \\) days! (Choice B).`
+Therefore:
+\\[
+10^{100} \\equiv 3^{100} \\equiv 3^4 \\pmod 7
+\\]
+Since \\( 3^4 = 81 = 7 \\times 11 + 4 \\):
+\\[
+81 \\equiv 4 \\pmod 7
+\\]
+The remainder is 4.`
   },
   {
     id: 'qa24-s1-q11',
     questionNumber: 11,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Algebra - Quadratic Roots & Minima',
-    difficulty: 'Hard',
-    question: 'Let \\( \\alpha \\) and \\( \\beta \\) be the real roots of the quadratic equation \\( x^2 - (2k - 1)x + (k^2 - k - 2) = 0 \\). What value of the real parameter \\( k \\) minimizes the sum of squares of the roots \\( \\alpha^2 + \\beta^2 \\)?',
-    options: ['\\( \\frac{1}{2} \\)', '1', '2', '0'],
+    topic: 'Arithmetic - Time, Work & Cost Optimization',
+    difficulty: 'Challenging',
+    question: 'Arun, Varun, and Tarun, if working alone, can complete a task in 24, 21, and 15 days, respectively. They charge Rs 2160, Rs 2400, and Rs 2160 per day, respectively, even if they are employed for a partial day. On any given day, any of the workers may or may not be employed to work. If the task needs to be completed in 10 days or less, then the minimum possible amount, in rupees, required to be paid for the entire task is',
+    options: ['38400', '38880', '34400', '47040'],
     correctAnswer: 0,
-    explanation: `Sum of roots: \\( \\alpha + \\beta = 2k - 1 \\).
-Product of roots: \\( \\alpha\\beta = k^2 - k - 2 \\).
+    explanation: `Let total work = \\( \\text{LCM}(24, 21, 15) = 840 \\) units.
 
-Sum of squares:
-\\( S(k) = \\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta \\)
-\\( S(k) = (2k - 1)^2 - 2(k^2 - k - 2) \\)
-\\( S(k) = (4k^2 - 4k + 1) - (2k^2 - 2k - 4) \\)
-\\( S(k) = 2k^2 - 2k + 5 \\).
+Daily work and cost per unit:
+- Arun: \\( 840 / 24 = 35 \\) units/day @ Rs. 2160/day \\( \\implies \\frac{2160}{35} \\approx 61.71 \\) Rs/unit.
+- Varun: \\( 840 / 21 = 40 \\) units/day @ Rs. 2400/day \\( \\implies \\frac{2400}{40} = 60.00 \\) Rs/unit.
+- Tarun: \\( 840 / 15 = 56 \\) units/day @ Rs. 2160/day \\( \\implies \\frac{2160}{56} \\approx 38.57 \\) Rs/unit (Most economical!).
 
-This is an upward-opening parabola with minimum at the vertex:
-\\( k = -\\frac{b}{2a} = -\\frac{-2}{2(2)} = \\frac{2}{4} = \\frac{1}{2} \\).
+Constraint: Task must be completed in \\( \\le 10 \\) days.
+To minimize total cost:
+1. Maximize Tarun\'s employment (up to 10 days):
+   - Tarun works 10 days:
+   - Work done = \\( 10 \\times 56 = 560 \\) units.
+   - Cost = \\( 10 \\times 2160 = \\text{Rs. } 21600 \\).
 
-Checking discriminant \\( D \\ge 0 \\) for real roots at \\( k = 1/2 \\):
-\\( D = (2k - 1)^2 - 4(k^2 - k - 2) = (4k^2 - 4k + 1) - 4k^2 + 4k + 8 = 9 > 0 \\) (always real roots!).
-Thus \\( k = 1/2 \\).`
+2. Remaining work = \\( 840 - 560 = 280 \\) units.
+   The next most cost-effective worker is Varun (Rs. 60/unit vs Arun\'s Rs. 61.71/unit).
+   - Number of days for Varun = \\( \\frac{280}{40} = 7 \\) days.
+   - Since Varun works alongside Tarun within the same 10-day window, total elapsed time = 10 days (valid!).
+   - Cost for Varun = \\( 7 \\times 2400 = \\text{Rs. } 16800 \\).
+
+Total minimum cost:
+\\[
+21600 + 16800 = 38400 \\text{ rupees}
+\\]`
   },
   {
     id: 'qa24-s1-q12',
     questionNumber: 12,
     section: 'QA',
     type: 'TITA',
-    topic: 'Number Systems - Remainders',
+    topic: 'Algebra - Optimization',
     difficulty: 'Moderate',
-    question: 'What is the remainder when the number \\( 3^{2024} + 4^{2024} \\) is divided by 25?',
+    question: 'If a, b, c, and d are integers such that their sum is 46, then the minimum possible value of (a - b)^2 + (a - c)^2 + (a - d)^2 is',
     correctAnswer: '2',
-    explanation: `Euler\'s Totient of 25: \\( \\phi(25) = 20 \\).
-Exponent modulo 20: \\( 2024 \\equiv 4 \\pmod{20} \\).
+    explanation: `We are given \\( a + b + c + d = 46 \\) with \\( a, b, c, d \\in \\mathbb{Z} \\).
+We wish to minimize:
+\\[
+E = (a - b)^2 + (a - c)^2 + (a - d)^2
+\\]
 
-By Euler\'s Totient Theorem:
-\\( 3^{2024} \\equiv 3^4 = 81 \\equiv 6 \\pmod{25} \\).
-\\( 4^{2024} \\equiv 4^4 = 256 \\equiv 6 \\pmod{25} \\)?
-Wait: \\( 4^1 = 4, 4^2 = 16, 4^3 = 64 \\equiv 14, 4^4 = 256 = 250 + 6 \\equiv 6 \\pmod{25} \\).
-Wait, \\( 4^{10} = (2^{20}) \\equiv 1 \\pmod{25} \\).
-\\( 2024 = 10 \\times 202 + 4 \\implies 4^4 = 256 \\equiv 6 \\pmod{25} \\).
-Wait, \\( 3^4 + 4^4 = 81 + 256 = 337 \\).
-\\( 337 / 25 = 13 \\times 25 + 12 \\).
-Remainder is 12.`
+To minimize squared differences among integers summing to 46, the four numbers must be distributed as close to the average \\( \\frac{46}{4} = 11.5 \\) as possible.
+The closest integers are two 11s and two 12s:
+\\[
+\\{11, 11, 12, 12\\}
+\\]
+
+To minimize deviations from \\( a \\), choose \\( a = 11 \\) (or \\( 12 \\)):
+Let \\( a = 11 \\), and the other three variables be \\( \\{11, 12, 12\\} \\).
+Then:
+\\[
+(11 - 11)^2 + (11 - 12)^2 + (11 - 12)^2 = 0^2 + (-1)^2 + (-1)^2 = 0 + 1 + 1 = 2
+\\]
+
+If \\( a = 12 \\), and the other three are \\( \\{12, 11, 11\\} \\):
+\\[
+(12 - 12)^2 + (12 - 11)^2 + (12 - 11)^2 = 0 + 1 + 1 = 2
+\\]
+Minimum possible value = 2.`
   },
   {
     id: 'qa24-s1-q13',
     questionNumber: 13,
     section: 'QA',
-    type: 'MCQ',
-    topic: 'Arithmetic - Profit, Loss & Discount',
+    type: 'TITA',
+    topic: 'Arithmetic - Averages',
     difficulty: 'Moderate',
-    question: 'A retailer marks an article 25% above its cost price. If he allows a certain discount percentage on the marked price, he still earns a net profit of 10%. What is the percentage discount allowed?',
-    options: ['12%', '15%', '10%', '8%'],
-    correctAnswer: 0,
-    explanation: `Let CP = 100.
-Marked Price MP = 125.
-Since profit is 10%, Selling Price SP = 110.
-Discount amount = \\( MP - SP = 125 - 110 = 15 \\).
-Discount percentage = \\( \\frac{15}{125} \\times 100 = \\frac{3}{25} \\times 100 = 12\\% \\).`
+    question: 'The average number of copies of a book sold per day by a shopkeeper is 60 in the initial seven days and 63 in the initial eight days, after the book launch. On the ninth day, she sells 11 copies fewer than on the eighth day, and the average number of copies sold per day from the second day to the ninth day becomes 66. The number of copies sold on the first day of the book launch is',
+    correctAnswer: '49',
+    explanation: `Let copies sold on day \\( i \\) be \\( D_i \\).
+- Total sold in first 7 days:
+  \\( D_1 + D_2 + \\dots + D_7 = 7 \\times 60 = 420 \\).
+- Total sold in first 8 days:
+  \\( D_1 + D_2 + \\dots + D_8 = 8 \\times 63 = 504 \\).
+
+Copies sold on Day 8:
+\\[
+D_8 = 504 - 420 = 84
+\\]
+
+On Day 9, she sells 11 copies fewer than on Day 8:
+\\[
+D_9 = D_8 - 11 = 84 - 11 = 73
+\\]
+
+Total copies sold from Day 1 to Day 9:
+\\[
+504 + D_9 = 504 + 73 = 577
+\\]
+
+We are given that the average from Day 2 to Day 9 (8 days) is 66:
+\\[
+D_2 + D_3 + \\dots + D_9 = 8 \\times 66 = 528
+\\]
+
+Copies sold on Day 1:
+\\[
+D_1 = (D_1 + \\dots + D_9) - (D_2 + \\dots + D_9) = 577 - 528 = 49
+\\]`
   },
   {
     id: 'qa24-s1-q14',
     questionNumber: 14,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Algebra - AM-GM Inequality',
+    topic: 'Algebra - Arithmetic Progression',
     difficulty: 'Moderate',
-    question: 'For any strictly positive real number \\( x > 0 \\), what is the minimum value of the expression \\( 4x + \\frac{9}{x} \\)?',
-    options: ['12', '10', '13', '14'],
+    question: 'Suppose x1, x2, x3, ..., x100 are in arithmetic progression such that x5 = -4 and 2x6 + 2x9 = x11 + x13. Then, x100 equals',
+    options: ['-194', '204', '-196', '206'],
     correctAnswer: 0,
-    explanation: `By AM-GM inequality:
-\\( \\frac{4x + \\frac{9}{x}}{2} \\ge \\sqrt{4x \\cdot \\frac{9}{x}} = \\sqrt{36} = 6 \\).
-\\( 4x + \\frac{9}{x} \\ge 12 \\).
-Equality holds when \\( 4x = \\frac{9}{x} \\implies x^2 = \\frac{9}{4} \\implies x = \\frac{3}{2} \\).`
+    explanation: `Let the first term be \\( a \\) and the common difference be \\( d \\).
+The \\( n \\)-th term is \\( x_n = a + (n - 1)d \\).
+
+Given:
+\\[
+x_5 = a + 4d = -4
+\\]
+
+From the relation \\( 2x_6 + 2x_9 = x_{11} + x_{13} \\):
+\\[
+2(a + 5d) + 2(a + 8d) = (a + 10d) + (a + 12d)
+\\]
+\\[
+2a + 10d + 2a + 16d = 2a + 22d
+\\]
+\\[
+4a + 26d = 2a + 22d
+\\]
+\\[
+2a + 4d = 0 \\implies a = -2d
+\\]
+
+Substitute \\( a = -2d \\) into \\( x_5 = -4 \\):
+\\[
+-2d + 4d = -4 \\implies 2d = -4 \\implies d = -2
+\\]
+Then:
+\\[
+a = -2(-2) = 4
+\\]
+
+Now find \\( x_{100} \\):
+\\[
+x_{100} = a + 99d = 4 + 99(-2) = 4 - 198 = -194
+\\]`
   },
   {
     id: 'qa24-s1-q15',
     questionNumber: 15,
     section: 'QA',
-    type: 'MCQ',
-    topic: 'Modern Math - Probability & Hexagons',
-    difficulty: 'Moderate',
-    question: 'Three vertices are chosen uniformly at random from the six vertices of a regular hexagon. What is the probability that the triangle formed by these three vertices is an equilateral triangle?',
-    options: ['\\( \\frac{1}{10} \\)', '\\( \\frac{1}{5} \\)', '\\( \\frac{1}{20} \\)', '\\( \\frac{3}{20} \\)'],
-    correctAnswer: 0,
-    explanation: `Total ways to choose 3 vertices from 6:
-\\( \\binom{6}{3} = \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} = 20 \\).
+    type: 'TITA',
+    topic: 'Arithmetic - Linear Equations & Portfolio',
+    difficulty: 'Easy',
+    question: 'Stocks A, B, and C are priced at rupees 120, 90, and 150 per share, respectively. A trader holds a portfolio consisting of 10 shares of stock A, and 20 shares of stocks B and C put together. If the total value of her portfolio is rupees 3300, then the number of shares of stock B that she holds is',
+    correctAnswer: '15',
+    explanation: `Value of 10 shares of stock A:
+\\[
+10 \\times 120 = 1200 \\text{ rupees}
+\\]
 
-In a regular hexagon with vertices 1, 2, 3, 4, 5, 6:
-Connecting alternating vertices forms an equilateral triangle:
-Triangle (1, 3, 5) and Triangle (2, 4, 6).
-There are exactly 2 equilateral triangles.
-Probability = \\( \\frac{2}{20} = \\frac{1}{10} \\).`
+Total portfolio value = Rs. 3300.
+Value of stocks B and C combined:
+\\[
+3300 - 1200 = 2100 \\text{ rupees}
+\\]
+
+Let \\( b \\) be the number of shares of stock B.
+Since she holds 20 shares of B and C put together, shares of C = \\( 20 - b \\).
+
+Setting up the value equation:
+\\[
+90b + 150(20 - b) = 2100
+\\]
+\\[
+90b + 3000 - 150b = 2100
+\\]
+\\[
+-60b = 2100 - 3000 = -900
+\\]
+\\[
+b = \\frac{900}{60} = 15
+\\]
+
+She holds 15 shares of stock B.`
   },
   {
     id: 'qa24-s1-q16',
     questionNumber: 16,
     section: 'QA',
-    type: 'TITA',
-    topic: 'Arithmetic - Simple & Compound Interest',
+    type: 'MCQ',
+    topic: 'Arithmetic - Time, Speed & Distance',
     difficulty: 'Moderate',
-    question: 'The difference between the compound interest (compounded annually) and simple interest on a principal of ₹25,000 for 2 years at an annual interest rate of 12% is (in ₹):',
-    correctAnswer: '360',
-    explanation: `For 2 years:
-\\( \\text{Difference} = P \\left(\\frac{R}{100}\\right)^2 \\)
-\\( = 25000 \\times \\left(\\frac{12}{100}\\right)^2 = 25000 \\times \\frac{144}{10000} = 2.5 \\times 144 = 360 \\).`
+    question: 'Two places A and B are 45 km apart and connected by a straight road. Anil goes from A to B while Sunil goes from B to A. Starting at the same time, they cross each other in exactly 1 hour 30 minutes. If Anil reaches B exactly 1 hour 15 minutes after Sunil reaches A, the speed of Anil, in km per hour, is',
+    options: ['12', '18', '14', '16'],
+    correctAnswer: 0,
+    explanation: `Total distance = 45 km.
+They cross each other in 1.5 hours:
+\\[
+S_A + S_S = \\frac{45}{1.5} = 30 \\text{ km/h} \\implies S_S = 30 - S_A
+\\]
+
+Total time taken:
+- Anil to reach B: \\( T_A = \\frac{45}{S_A} \\) hours.
+- Sunil to reach A: \\( T_S = \\frac{45}{S_S} = \\frac{45}{30 - S_A} \\) hours.
+
+Anil reaches B 1 hour 15 minutes (\\( 1.25 = \\frac{5}{4} \\) hours) after Sunil reaches A:
+\\[
+T_A - T_S = \\frac{5}{4}
+\\]
+\\[
+\\frac{45}{S_A} - \\frac{45}{30 - S_A} = \\frac{5}{4}
+\\]
+Divide by 5:
+\\[
+\\frac{9}{S_A} - \\frac{9}{30 - S_A} = \\frac{1}{4}
+\\]
+\\[
+9\\left(\\frac{30 - S_A - S_A}{S_A(30 - S_A)}\\right) = \\frac{1}{4}
+\\]
+\\[
+36(30 - 2S_A) = 30S_A - S_A^2
+\\]
+\\[
+1080 - 72S_A = 30S_A - S_A^2
+\\]
+\\[
+S_A^2 - 102S_A + 1080 = 0
+\\]
+
+Factoring the quadratic:
+\\[
+(S_A - 12)(S_A - 90) = 0
+\\]
+Since \\( S_A + S_S = 30 \\), \\( S_A < 30 \\).
+Thus, \\( S_A = 12 \\) km/h.`
   },
   {
     id: 'qa24-s1-q17',
     questionNumber: 17,
     section: 'QA',
-    type: 'TITA',
-    topic: 'Modern Math - Permutations & Divisibility',
+    type: 'MCQ',
+    topic: 'Geometry - Solid Mensuration',
     difficulty: 'Moderate',
-    question: 'How many 4-digit numbers divisible by 4 can be formed using the digits 1, 2, 3, 4, 5 without repeating any digit?',
-    correctAnswer: '24',
-    explanation: `A number is divisible by 4 if its last two digits form a multiple of 4.
-Pairs of distinct digits from {1, 2, 3, 4, 5} divisible by 4:
-12, 24, 32, 52 (4 valid pairs).
+    question: 'The surface area of a closed rectangular box, which is inscribed in a sphere, is 846 sq cm, and the sum of the lengths of all its edges is 144 cm. The volume, in cubic cm, of the sphere is',
+    options: ['$1125\\pi\\sqrt{2}$', '$750\\pi$', '$1125\\pi$', '$750\\pi\\sqrt{2}$'],
+    correctAnswer: 0,
+    explanation: `Let the dimensions of the rectangular box be \\( l, b, h \\).
+1. Sum of all 12 edges:
+\\[
+4(l + b + h) = 144 \\implies l + b + h = 36
+\\]
 
-For each valid 2-digit ending:
-There are 3 remaining digits to fill the first 2 positions:
-Number of ways = \\( 3 \\times 2 = 6 \\).
-Total numbers = \\( 4 \\times 6 = 24 \\).`
+2. Total surface area:
+\\[
+2(lb + bh + hl) = 846
+\\]
+
+3. The space diagonal \\( D \\) of the box is given by:
+\\[
+D^2 = l^2 + b^2 + h^2 = (l + b + h)^2 - 2(lb + bh + hl)
+\\]
+\\[
+D^2 = 36^2 - 846 = 1296 - 846 = 450
+\\]
+
+4. Since the box is inscribed in the sphere, the space diagonal equals the diameter \\( 2R \\) of the sphere:
+\\[
+(2R)^2 = 450 \\implies 4R^2 = 450 \\implies R^2 = \\frac{225}{2}
+\\]
+\\[
+R = \\frac{15}{\\sqrt{2}} \\text{ cm}
+\\]
+
+5. Volume of the sphere:
+\\[
+V = \\frac{4}{3}\\pi R^3 = \\frac{4}{3}\\pi \\left(\\frac{15}{\\sqrt{2}}\\right)^3 = \\frac{4}{3}\\pi \\cdot \\frac{3375}{2\\sqrt{2}} = \\frac{4500}{2\\sqrt{2}}\\pi = 1125\\pi\\sqrt{2} \\text{ cm}^3
+\\]`
   },
   {
     id: 'qa24-s1-q18',
     questionNumber: 18,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Arithmetic - Successive Percentage Changes',
-    difficulty: 'Moderate',
-    question: 'The population of an industrial town increased by 15% in the first year, decreased by 10% in the second year, and then increased by 20% in the third year. What is the overall percentage change in population over the 3-year period?',
-    options: ['+24.2%', '+25.0%', '+22.8%', '+26.4%'],
+    topic: 'Arithmetic - Mixtures & Dilution',
+    difficulty: 'Easy',
+    question: 'A glass is filled with milk. Two-thirds of its content is poured out and replaced with water. If this process of pouring out two-thirds the content and replacing with water is repeated three more times, then the final ratio of milk to water in the glass, is',
+    options: ['1 : 80', '1 : 81', '1 : 27', '1 : 26'],
     correctAnswer: 0,
-    explanation: `Net multiplier:
-\\( M = (1 + 0.15) \\times (1 - 0.10) \\times (1 + 0.20) \\)
-\\( = 1.15 \\times 0.90 \\times 1.20 \\)
-\\( 1.15 \\times 1.08 = 1.242 \\).
-Percentage change = \\( (1.242 - 1) \\times 100 = +24.2\\% \\).`
+    explanation: `In each operation, \\( \\frac{2}{3} \\) of the liquid is removed and replaced with water.
+Fraction of milk remaining after 1 operation = \\( 1 - \\frac{2}{3} = \\frac{1}{3} \\).
+
+The operation is done once, and then repeated 3 more times:
+Total number of operations = \\( 1 + 3 = 4 \\).
+
+Fraction of milk remaining in the glass:
+\\[
+\\left(\\frac{1}{3}\\right)^4 = \\frac{1}{81}
+\\]
+
+Fraction of water in the glass:
+\\[
+1 - \\frac{1}{81} = \\frac{80}{81}
+\\]
+
+Therefore, the ratio of milk to water is:
+\\[
+\\frac{1/81}{80/81} = 1 : 80
+\\]`
   },
   {
     id: 'qa24-s1-q19',
     questionNumber: 19,
     section: 'QA',
     type: 'TITA',
-    topic: 'Algebra - Arithmetic Progression',
+    topic: 'Geometry - Rectangles & Incircles',
     difficulty: 'Moderate',
-    question: 'The first term of an arithmetic progression is 5, and the sum of its first 20 terms is 670. Find the 15th term of the progression.',
-    correctAnswer: '47',
-    explanation: `Sum of 20 terms:
-\\( S_{20} = \\frac{20}{2} [2a + (20 - 1)d] = 10 [2(5) + 19d] = 10 [10 + 19d] \\).
-Given \\( 10(10 + 19d) = 670 \\implies 10 + 19d = 67 \\implies 19d = 57 \\implies d = 3 \\).
-The 15th term:
-\\( T_{15} = a + 14d = 5 + 14(3) = 5 + 42 = 47 \\).`
+    question: 'ABCD is a rectangle with sides AB = 56 cm and BC = 45 cm, and E is the midpoint of side CD. Then, the length, in cm, of the radius of the incircle of triangle ADE is',
+    correctAnswer: '10',
+    explanation: `In rectangle ABCD:
+- \\( AD = BC = 45 \\) cm
+- \\( CD = AB = 56 \\) cm
+- \\( E \\) is the midpoint of \\( CD \\), so \\( DE = \\frac{56}{2} = 28 \\) cm.
+
+Triangle ADE is a right-angled triangle at vertex \\( D \\):
+- Legs are \\( AD = 45 \\) cm and \\( DE = 28 \\) cm.
+- Hypotenuse \\( AE \\):
+\\[
+AE = \\sqrt{AD^2 + DE^2} = \\sqrt{45^2 + 28^2} = \\sqrt{2025 + 784} = \\sqrt{2809} = 53 \\text{ cm}
+\\]
+
+For a right-angled triangle with perpendicular legs \\( a, b \\) and hypotenuse \\( c \\), the inradius \\( r \\) is:
+\\[
+r = \\frac{a + b - c}{2}
+\\]
+Substitute \\( a = 45, b = 28, c = 53 \\):
+\\[
+r = \\frac{45 + 28 - 53}{2} = \\frac{73 - 53}{2} = \\frac{20}{2} = 10 \\text{ cm}
+\\]`
   },
   {
     id: 'qa24-s1-q20',
     questionNumber: 20,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Modern Math - Set Theory & Venn',
+    topic: 'Arithmetic - Reverse Percentage & Fractions',
     difficulty: 'Moderate',
-    question: 'In an international school of 180 students, 110 study Spanish, 85 study French, and 25 study neither language. How many students study both Spanish and French?',
-    options: ['40', '35', '45', '50'],
+    question: 'A shop wants to sell a certain quantity (in kg) of grains. It sells half the quantity and an additional 3 kg of these grains to the first customer. Then, it sells half of the remaining quantity and an additional 3 kg of these grains to the second customer. Finally, when the shop sells half of the remaining quantity and an additional 3 kg of these grains to the third customer, there are no grains left. The initial quantity, in kg, of grains is',
+    options: ['42', '50', '36', '18'],
     correctAnswer: 0,
-    explanation: `Students studying at least one language:
-\\( 180 - 25 = 155 \\).
-\\( n(S \\cup F) = n(S) + n(F) - n(S \\cap F) \\)
-\\( 155 = 110 + 85 - n(S \\cap F) \\)
-\\( 155 = 195 - n(S \\cap F) \\implies n(S \\cap F) = 40 \\).`
+    explanation: `We can work backwards from the final customer:
+
+1. After the 3rd customer, 0 kg remains.
+   Let the quantity before the 3rd customer be \\( x_3 \\):
+   \\[
+   x_3 - \\left(\\frac{x_3}{2} + 3\\right) = 0 \\implies \\frac{x_3}{2} = 3 \\implies x_3 = 6 \\text{ kg}
+   \\]
+
+2. After the 2nd customer, \\( x_3 = 6 \\) kg remained.
+   Let the quantity before the 2nd customer be \\( x_2 \\):
+   \\[
+   x_2 - \\left(\\frac{x_2}{2} + 3\\right) = 6 \\implies \\frac{x_2}{2} = 9 \\implies x_2 = 18 \\text{ kg}
+   \\]
+
+3. After the 1st customer, \\( x_2 = 18 \\) kg remained.
+   Let the initial quantity be \\( x_1 \\):
+   \\[
+   x_1 - \\left(\\frac{x_1}{2} + 3\\right) = 18 \\implies \\frac{x_1}{2} = 21 \\implies x_1 = 42 \\text{ kg}
+   \\]
+
+Initial quantity of grains was 42 kg.`
   },
   {
     id: 'qa24-s1-q21',
     questionNumber: 21,
     section: 'QA',
     type: 'MCQ',
-    topic: 'Algebra - Functions & Compositions',
+    topic: 'Modern Math - Floor Function & Sequences',
     difficulty: 'Moderate',
-    question: 'Let \\( f(x) = 3x - 5 \\) and \\( g(x) = \\frac{x + 5}{3} \\). If \\( h(x) = f(g(x)) + g(f(x)) \\), then find the value of \\( h(4) \\).',
-    options: ['8', '4', '12', '16'],
+    question: 'For any natural number n, let a_n be the largest integer not exceeding sqrt(n). Then the value of a_1 + a_2 + ... + a_50 is',
+    options: ['217', '215', '225', '210'],
     correctAnswer: 0,
-    explanation: `Notice that \\( g(x) \\) is the inverse function of \\( f(x) \\):
-\\( f(g(x)) = x \\)
-\\( g(f(x)) = x \\).
-Therefore:
-\\( h(x) = x + x = 2x \\).
-For \\( x = 4 \\):
-\\( h(4) = 2(4) = 8 \\).`
+    explanation: `By definition, \\( a_n = \\lfloor\\sqrt{n}\\rfloor \\).
+Determine the ranges of \\( n \\) for each integer value of \\( a_n \\):
+- For \\( n = 1 \\text{ to } 3 \\): \\( a_n = 1 \\) (\\( 3 \\) terms, sum = \\( 3 \\times 1 = 3 \\))
+- For \\( n = 4 \\text{ to } 8 \\): \\( a_n = 2 \\) (\\( 5 \\) terms, sum = \\( 5 \\times 2 = 10 \\))
+- For \\( n = 9 \\text{ to } 15 \\): \\( a_n = 3 \\) (\\( 7 \\) terms, sum = \\( 7 \\times 3 = 21 \\))
+- For \\( n = 16 \\text{ to } 24 \\): \\( a_n = 4 \\) (\\( 9 \\) terms, sum = \\( 9 \\times 4 = 36 \\))
+- For \\( n = 25 \\text{ to } 35 \\): \\( a_n = 5 \\) (\\( 11 \\) terms, sum = \\( 11 \\times 5 = 55 \\))
+- For \\( n = 36 \\text{ to } 48 \\): \\( a_n = 6 \\) (\\( 13 \\) terms, sum = \\( 13 \\times 6 = 78 \\))
+- For \\( n = 49 \\text{ to } 50 \\): \\( a_n = 7 \\) (\\( 2 \\) terms, sum = \\( 2 \\times 7 = 14 \\))
+
+Summing all values from \\( n = 1 \\) to 50:
+\\[
+\\sum_{n=1}^{50} a_n = 3 + 10 + 21 + 36 + 55 + 78 + 14 = 217
+\\]`
   },
   {
     id: 'qa24-s1-q22',
     questionNumber: 22,
     section: 'QA',
     type: 'TITA',
-    topic: 'Arithmetic - Clocks & Angles',
-    difficulty: 'Hard',
-    question: 'At what time between 4 o\'clock and 5 o\'clock do the minute hand and the hour hand of a clock coincide? Express the minutes after 4 as a mixed fraction like 21 9/11 (enter the whole number part 21):',
-    correctAnswer: '21',
-    explanation: `At 4 o'clock, the hour hand is at 20 minute marks ahead of the minute hand.
-Relative speed of minute hand over hour hand = \\( 1 - \\frac{1}{12} = \\frac{11}{12} \\) minute spaces per minute.
-Time taken to catch up:
-\\( T = \\frac{20}{11/12} = \\frac{240}{11} = 21 \\frac{9}{11} \\) minutes past 4.
-The whole number part is 21.`
+    topic: 'Arithmetic - Simple Interest',
+    difficulty: 'Moderate',
+    question: 'An amount of Rs 10000 is deposited in bank A for a certain number of years at a simple interest of 5% per annum. On maturity, the total amount received is deposited in bank B for another 5 years at a simple interest of 6% per annum. If the interests received from bank A and bank B are in the ratio 10 : 13, then the investment period, in years, in bank A is',
+    correctAnswer: '6',
+    explanation: `Let the investment period in Bank A be \\( T \\) years.
+1. Simple interest from Bank A:
+\\[
+I_A = \\frac{10000 \\times 5 \\times T}{100} = 500T
+\\]
+
+2. Maturity amount from Bank A:
+\\[
+A_1 = 10000 + 500T
+\\]
+
+3. Simple interest from Bank B on principal \\( A_1 \\) for 5 years at 6% p.a.:
+\\[
+I_B = \\frac{(10000 + 500T) \\times 6 \\times 5}{100} = \\frac{30(10000 + 500T)}{100} = 3000 + 150T
+\\]
+
+4. Given ratio:
+\\[
+\\frac{I_A}{I_B} = \\frac{10}{13}
+\\]
+\\[
+\\frac{500T}{3000 + 150T} = \\frac{10}{13}
+\\]
+Divide numerator and denominator by 50:
+\\[
+\\frac{10T}{60 + 3T} = \\frac{10}{13}
+\\]
+Cancel 10 from both sides:
+\\[
+\\frac{T}{60 + 3T} = \\frac{1}{13}
+\\]
+\\[
+13T = 60 + 3T \\implies 10T = 60 \\implies T = 6 \\text{ years}
+\\]`
   }
 ];

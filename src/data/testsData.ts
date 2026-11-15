@@ -72,7 +72,7 @@ export const fullSectionalTests: SectionalTest[] = [
     totalMarks: 66,
     questionsCount: 22,
     difficulty: 'Moderate',
-    description: 'Official 2025 Slot 1 QA section: Absolute quadratic inequalities, Circular track overtaking, Telescoping log series, Diophantine equations, and Tangent-secant geometry.',
+    description: 'Official Slot 1 QA paper: Fruit seller ratio mixtures, Surds radicals, Acid-water replacements, Renu-Seema time & work, Kamal-Amal-Vimal rent percentage, Onto functions, Coordinate quadratic system, Remainder 10^100 mod 7, Arun-Varun-Tarun cost optimization, Rectangle inradius, and Box in sphere.',
     questions: qa2025Slot1Questions,
   },
 
@@ -88,7 +88,7 @@ export const fullSectionalTests: SectionalTest[] = [
     totalMarks: 66,
     questionsCount: 22,
     difficulty: 'Moderate',
-    description: 'Official 2024 Slot 1 QA section: Surds radical equation, Logarithmic powers of 2, Fruit seller ratio mixtures, Rectangle inradius, and Anil-Sunil road meeting.',
+    description: 'Official Slot 1 QA paper: Fruit seller ratio mixtures, Surds radicals, Acid-water replacements, Renu-Seema time & work, Kamal-Amal-Vimal rent percentage, Onto functions, Coordinate quadratic system, Remainder 10^100 mod 7, Arun-Varun-Tarun cost optimization, Rectangle inradius, and Box in sphere.',
     questions: qa2024Slot1Questions,
   },
   {
