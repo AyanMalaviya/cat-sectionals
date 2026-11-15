@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({
               </span>
             </div>
             <p className="text-slate-400 text-xs max-w-2xl">
-              Break expensive ₹10,000 coaching paywalls. Practice 62+ authentic free mock tests with official 40-minute CBT countdowns, virtual calculator, and detailed solutions.
+              Break expensive ₹10,000 coaching paywalls. Practice 86+ authentic free mock tests with official CBT countdowns, virtual calculator, and detailed solutions.
             </p>
           </div>
 
@@ -79,10 +79,10 @@ export const Footer: React.FC<FooterProps> = ({
 
             <div className="flex flex-wrap gap-2 text-[11px] text-slate-300">
               <span className="px-2.5 py-1 bg-slate-800 rounded-lg border border-slate-700/60">
-                ✨ 62+ Free Mock Tests
+                ✨ 86+ Free Mock Tests
               </span>
               <span className="px-2.5 py-1 bg-slate-800 rounded-lg border border-slate-700/60">
-                ⚡ 866+ Questions
+                ⚡ 1,000+ Questions
               </span>
               <span className="px-2.5 py-1 bg-slate-800 rounded-lg border border-slate-700/60">
                 🔒 Zero Signups

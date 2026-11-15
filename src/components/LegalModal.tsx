@@ -152,7 +152,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>2. What CBTMocks Delivers (100% Free Forever)</span>
                 </h4>
                 <ul className="list-disc pl-5 space-y-1.5 text-slate-600 dark:text-slate-300">
-                  <li><strong>62+ Full Tests (866+ Questions):</strong> Covering CAT Quantitative Aptitude (QA), Data Interpretation &amp; Logical Reasoning (DILR), Verbal Ability &amp; Reading Comprehension (VARC), and 120-minute Full Mocks.</li>
+                  <li><strong>86+ Full Tests (1,000+ Questions):</strong> Covering CAT, XAT, and SNAP across Quantitative Aptitude (QA), Data Interpretation &amp; Logical Reasoning (DILR), Verbal Ability &amp; Reading Comprehension (VARC), Decision Making (DM), and Full Mocks.</li>
                   <li><strong>Zero Paywalls &amp; Zero Signups:</strong> Instant 1-click test practice without phone numbers, email collection, or passwords.</li>
                   <li><strong>Authentic TCS iON CBT Environment:</strong> Exact 40-minute countdown timers, real question palette statuses (Answered, Not Answered, Marked for Review), and official marking schemes (+3 / -1 for MCQs, +3 / 0 for TITA).</li>
                   <li><strong>Built-In Draggable Virtual Calculator:</strong> Full on-screen BODMAS precision calculator matching the official CAT exam day interface.</li>
@@ -178,7 +178,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                     <tbody className="divide-y divide-slate-100 text-slate-600">
                       <tr>
                         <td className="py-2 px-3 font-semibold text-slate-800">Total Free Mock Tests</td>
-                        <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">62+ Full Tests (866+ Questions)</td>
+                        <td className="py-2 px-3 font-bold text-emerald-700 bg-blue-50/30">86+ Full Tests (1,000+ Questions)</td>
                         <td className="py-2 px-3 text-slate-500">1 or 2 sample tests (remaining locked)</td>
                       </tr>
                       <tr>
@@ -336,7 +336,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   1. Zero Personal Data Collection
                 </h4>
                 <p>
-                  CBTMocks does not require user registration, email address verification, mobile numbers, passwords, or payment credentials. You can access all 62+ mock tests and practice tools completely anonymously.
+                  CBTMocks does not require user registration, email address verification, mobile numbers, passwords, or payment credentials. You can access all 86+ mock tests and practice tools completely anonymously.
                 </p>
               </div>
 

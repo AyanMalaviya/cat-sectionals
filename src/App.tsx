@@ -406,7 +406,7 @@ export function App() {
 
   // Dynamic SEO Page Title & Meta Tag Updates for Target Keywords & Free Positioning
   useEffect(() => {
-    let title = 'Free Mock Test - 62+ Free Mock Tests CBT for Competitive Exams (CAT, XAT, SNAP)';
+    let title = 'Free Mock Test - 86+ Free Mock Tests CBT for Competitive Exams (CAT, XAT, SNAP)';
     let desc = '100% Free Computer Based Test (CBT) portal for CAT, XAT, and SNAP with official simulations, authentic scoring, virtual calculator, and detailed solutions.';
 
     if (view === 'exam' && activeTest) {

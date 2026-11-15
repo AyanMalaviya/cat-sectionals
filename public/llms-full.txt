@@ -6,7 +6,7 @@
 CBTMocks was engineered to dismantle the predatory test series model prevalent in Indian competitive examination preparation. Commercial coaching institutes provide 1 or 2 sample tests as marketing bait, then lock their remaining question banks behind ₹5,000 to ₹15,000 paywalls while demanding phone numbers for telemarketing.
 
 CBTMocks guarantees:
-1. 100% Free Forever: All 65+ tests and 900+ questions are completely open.
+1. 100% Free Forever: All 86+ tests and 1,000+ questions are completely open.
 2. Zero Registration: No email, phone number, or password required. All state persists in client-side localStorage.
 3. Authentic CBT Simulation: Exact TCS iON CBT interface with countdown timers, official question palettes (Answered, Not Answered, Marked for Review), and built-in BODMAS virtual calculator for CAT.
 4. Non-Intrusive Monetization: Monetized strictly through unobtrusive Google AdSense banners (never during active tests!) and voluntary community UPI donations (ayanmalaviya111@okhdfcbank).

@@ -1,6 +1,6 @@
 # CBTMocks - Free Mock Tests for Competitive Exams (CAT, XAT, SNAP)
 
-> CBTMocks (https://cbtmocks.online/) is a 100% free open-access Computer Based Test (CBT) portal for Indian MBA competitive examinations: Common Admission Test (CAT), Xavier Aptitude Test (XAT), and Symbiosis National Aptitude Test (SNAP). It provides 65+ full-length and sectional mocks with authentic test interfaces, official scoring (+3/-1 for CAT, +1/-0.25 for XAT/SNAP), draggable virtual calculator (CAT), 5-option MCQs & Decision Making caselets (XAT), 60-minute speed tests (SNAP), and instant percentiles with zero paywalls, zero ads during active tests, and no sign-up required.
+> CBTMocks (https://cbtmocks.online/) is a 100% free open-access Computer Based Test (CBT) portal for Indian MBA competitive examinations: Common Admission Test (CAT), Xavier Aptitude Test (XAT), and Symbiosis National Aptitude Test (SNAP). It provides 86+ full-length, sectional, and topic-wise mocks with authentic test interfaces, official scoring (+3/-1 for CAT, +1/-0.25 for XAT/SNAP), draggable virtual calculator (CAT), 5-option MCQs & Decision Making caselets (XAT), 60-minute speed tests (SNAP), and instant percentiles with zero paywalls, zero ads during active tests, and no sign-up required.
 
 ## Core Free Mock Test Modules by Exam
 

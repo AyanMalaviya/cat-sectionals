@@ -116,7 +116,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
               <tr>
                 <td className="py-3 px-4 font-semibold text-slate-900 dark:text-slate-100">Total Free Mock Tests</td>
                 <td className="py-3 px-4 font-extrabold text-emerald-700 dark:text-emerald-400 bg-blue-50/30 dark:bg-blue-950/20">
-                  62+ Full Tests (866+ Questions)
+                  86+ Full Tests (1,000+ Questions)
                 </td>
                 <td className="py-3 px-4 text-slate-500 dark:text-slate-400">
                   Only 1 or 2 demo tests (rest locked)
@@ -271,7 +271,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
           <div className="p-5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl space-y-2">
             <h3 className="font-bold text-slate-900 dark:text-slate-100 text-sm">
-              Are all 62+ mock tests genuinely free?
+              Are all 86+ mock tests genuinely free?
             </h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
               Yes, 100% free with zero caveats. We will never lock tests after you take 1 or 2, and we do not have a "Pro" or "VIP" paid subscription tier. Every full mock, sectional paper, and topic quiz is open to everyone.

@@ -24,7 +24,7 @@ import { varc2020Slot1Questions } from './varc2020Slot1';
 import { allTopicWiseTests } from './topicWiseData';
 import { officialFullMockTests } from './fullMocksData';
 import { xatFullMockTests, xatSectionalTests, xatTopicWiseTests } from './xat/xatTestsData';
-import { snapFullMockTests, snapSectionalTests } from './snap/snapTestsData';
+import { snapFullMockTests, snapSectionalTests, snapTopicWiseTests } from './snap/snapTestsData';
 
 export { officialFullMockTests, xatFullMockTests, snapFullMockTests };
 
@@ -371,6 +371,7 @@ export const allSectionals: SectionalTest[] = [
 export const allTopicWise: SectionalTest[] = [
   ...allTopicWiseTests.map((t) => ({ ...t, examType: (t.examType || 'CAT') as ExamType })),
   ...xatTopicWiseTests,
+  ...snapTopicWiseTests,
 ];
 
 // All available tests combined across all competitive exams
